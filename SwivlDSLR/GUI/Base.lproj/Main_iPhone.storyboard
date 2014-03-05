@@ -124,6 +124,11 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.070588235289999995" green="0.074509803920000006" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="62a-P8-j6y" userLabel="Content view">
+                                <rect key="frame" x="0.0" y="0.0" width="406" height="320"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.2823529541" green="0.80784314869999996" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -135,6 +140,7 @@
                         <outlet property="_recordingTimeBtn" destination="3ZG-6n-V3I" id="7G4-VY-Gf3"/>
                         <outlet property="_stepSizeBtn" destination="EYn-id-Ddj" id="aJl-h1-ax1"/>
                         <outlet property="_timeBetweenPicturesBtn" destination="DkC-Ok-yPF" id="sqd-hO-oh6"/>
+                        <outlet property="contentView" destination="62a-P8-j6y" id="sNO-9v-OzQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
