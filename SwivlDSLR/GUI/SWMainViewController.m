@@ -9,7 +9,14 @@
 #import "SWMainViewController.h"
 
 @interface SWMainViewController ()
-
+{
+    __weak IBOutlet UIButton *_distanceBtn;
+    __weak IBOutlet UIButton *_directionBtn;
+    __weak IBOutlet UIButton *_stepSizeBtn;
+    __weak IBOutlet UIButton *_recordingTimeBtn;
+    __weak IBOutlet UIButton *_timeBetweenPicturesBtn;
+    
+}
 @end
 
 @implementation SWMainViewController
@@ -17,13 +24,40 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
+
+#pragma IBActions
+
+- (IBAction)onDistanceBtnTapped
+{
+    
+}
+
+- (IBAction)onDirectionBtnTapped
+{
+    _directionBtn.selected = !_directionBtn.selected;
+}
+
+- (IBAction)onStepSizeBtnTapped
+{
+    
+}
+
+- (IBAction)onRecordingBtnTapped
+{
+    
+}
+
+- (IBAction)onTimeBetweenPicturesBtnTapped
+{
+    
+}
+
+#pragma -
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

@@ -15,15 +15,141 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HKi-8w-6BC" userLabel="Time-laps contols">
+                                <rect key="frame" x="406" y="0.0" width="60" height="320"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYn-id-Ddj" userLabel="Step size">
+                                        <rect key="frame" x="0.0" y="68" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <inset key="titleEdgeInsets" minX="-60" minY="45" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="10"/>
+                                        <state key="normal" title="0" image="timelapse_step.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onStepSizeBtnTapped" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Qhw-Yo-3IP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tFC-Hu-7Oi" userLabel="Motion direction">
+                                        <rect key="frame" x="0.0" y="130" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                        <state key="normal" title="5" image="timelapse_direction_1.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" image="timelapse_direction_2.png"/>
+                                        <connections>
+                                            <action selector="onDirectionBtnTapped" destination="vXZ-lx-hvc" eventType="touchUpInside" id="02U-F3-LJy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ZG-6n-V3I" userLabel="Recording time">
+                                        <rect key="frame" x="0.0" y="191" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <inset key="titleEdgeInsets" minX="-60" minY="47" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="10"/>
+                                        <state key="normal" title="01:35:12" image="timelapse_recording_time.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onRecordingBtnTapped" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xlA-uh-m1e"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DkC-Ok-yPF" userLabel="Time between pictures">
+                                        <rect key="frame" x="0.0" y="256" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <inset key="titleEdgeInsets" minX="-60" minY="45" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="10"/>
+                                        <state key="normal" title="15" image="timelapse_time_between_pictures.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onTimeBetweenPicturesBtnTapped" destination="vXZ-lx-hvc" eventType="touchUpInside" id="UzM-F7-bCt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5R-kl-DxV" userLabel="Distance">
+                                        <rect key="frame" x="0.0" y="2" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <inset key="titleEdgeInsets" minX="-60" minY="45" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="10"/>
+                                        <state key="normal" title="360" image="timelapse_distance.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onDistanceBtnTapped" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lXS-xs-zGy"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.070588235289999995" green="0.074509803920000006" blue="0.074509803920000006" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tg3-RE-QgB" userLabel="Controls">
+                                <rect key="frame" x="466" y="0.0" width="102" height="320"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KzJ-nb-XFy">
+                                        <rect key="frame" x="12" y="122" width="75" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="capture_normal.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" image="capture_pressed.png"/>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="base_off.png" translatesAutoresizingMaskIntoConstraints="NO" id="fL1-6N-TkC">
+                                        <rect key="frame" x="37" y="231" width="28" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9UT-Vs-7cj" userLabel="Batery_off">
+                                        <rect key="frame" x="38" y="275" width="30" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" backgroundImage="batery_off.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.070588235289999995" green="0.074509803920000006" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.2823529541" green="0.80784314869999996" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="_directionBtn" destination="tFC-Hu-7Oi" id="4Ua-NN-qP2"/>
+                        <outlet property="_distanceBtn" destination="U5R-kl-DxV" id="3D3-Vz-MUl"/>
+                        <outlet property="_recordingTimeBtn" destination="3ZG-6n-V3I" id="7G4-VY-Gf3"/>
+                        <outlet property="_stepSizeBtn" destination="EYn-id-Ddj" id="aJl-h1-ax1"/>
+                        <outlet property="_timeBetweenPicturesBtn" destination="DkC-Ok-yPF" id="sqd-hO-oh6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="275" y="268"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="base_off.png" width="28" height="25"/>
+        <image name="batery_off.png" width="30" height="25"/>
+        <image name="capture_normal.png" width="75" height="75"/>
+        <image name="capture_pressed.png" width="75" height="75"/>
+        <image name="timelapse_direction_1.png" width="60" height="60"/>
+        <image name="timelapse_direction_2.png" width="60" height="60"/>
+        <image name="timelapse_distance.png" width="60" height="60"/>
+        <image name="timelapse_recording_time.png" width="60" height="60"/>
+        <image name="timelapse_step.png" width="60" height="60"/>
+        <image name="timelapse_time_between_pictures.png" width="60" height="60"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
