@@ -7,6 +7,7 @@
 //
 
 #import "SWMainViewController.h"
+#import "TimelapsSegue.h"
 
 #import "SWTimelapseSettings.h"
 
@@ -17,8 +18,8 @@
     __weak IBOutlet UIButton *_stepSizeBtn;
     __weak IBOutlet UIButton *_recordingTimeBtn;
     __weak IBOutlet UIButton *_timeBetweenPicturesBtn;
-    
-    SWTimelapseSettings *_timelapseSettings;
+	SWTimelapseSettings *_timelapseSettings;
+    UIViewController *_showingController;
 }
 @end
 
@@ -68,6 +69,15 @@
 - (IBAction)onTimeBetweenPicturesBtnTapped
 {
     
+}
+
+#pragma mark - Storyboard navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [_showingController removeFromParentViewController];
+    NSLog(@"Remove controller from screen = %@", NSStringFromClass([_showingController class]));
+    _showingController = segue.destinationViewController;
+    NSLog(@"Add controller to screen = %@", NSStringFromClass([_showingController class]));
 }
 
 #pragma Observing
