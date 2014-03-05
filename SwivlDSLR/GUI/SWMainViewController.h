@@ -10,4 +10,6 @@
 
 @interface SWMainViewController : UIViewController
 
+@property (nonatomic, weak) IBOutlet UIView *contentView;
+
 @end

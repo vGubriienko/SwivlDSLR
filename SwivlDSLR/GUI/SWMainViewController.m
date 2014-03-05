@@ -7,8 +7,8 @@
 //
 
 #import "SWMainViewController.h"
-#import "TimelapsSegue.h"
 
+#import "TimelapsSegue.h"
 #import "SWTimelapseSettings.h"
 
 @interface SWMainViewController ()
@@ -18,8 +18,10 @@
     __weak IBOutlet UIButton *_stepSizeBtn;
     __weak IBOutlet UIButton *_recordingTimeBtn;
     __weak IBOutlet UIButton *_timeBetweenPicturesBtn;
-	SWTimelapseSettings *_timelapseSettings;
-    UIViewController *_showingController;
+	
+    SWTimelapseSettings *_timelapseSettings;
+    
+    UIViewController *_currentSettingsController;
 }
 @end
 
@@ -72,12 +74,13 @@
 }
 
 #pragma mark - Storyboard navigation
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [_showingController removeFromParentViewController];
-    NSLog(@"Remove controller from screen = %@", NSStringFromClass([_showingController class]));
-    _showingController = segue.destinationViewController;
-    NSLog(@"Add controller to screen = %@", NSStringFromClass([_showingController class]));
+    [_currentSettingsController.view removeFromSuperview];
+    NSLog(@"Remove controller from screen = %@", NSStringFromClass([_currentSettingsController class]));
+    _currentSettingsController = segue.destinationViewController;
+    NSLog(@"Add controller to screen = %@", NSStringFromClass([_currentSettingsController class]));
 }
 
 #pragma Observing
