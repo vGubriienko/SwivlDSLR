@@ -22,6 +22,20 @@
 		2595253418C6141C006EEAFA /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2595252E18C6141C006EEAFA /* Main_iPad.storyboard */; };
 		2595253518C6141C006EEAFA /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2595253018C6141C006EEAFA /* Main_iPhone.storyboard */; };
 		2595253618C6141C006EEAFA /* SWMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2595253318C6141C006EEAFA /* SWMainViewController.m */; };
+		2595254218C61BA2006EEAFA /* base_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595253A18C61BA2006EEAFA /* base_off.png */; };
+		2595254318C61BA2006EEAFA /* base_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595253B18C61BA2006EEAFA /* base_off@2x.png */; };
+		2595254418C61BA2006EEAFA /* batery_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595253C18C61BA2006EEAFA /* batery_off.png */; };
+		2595254518C61BA2006EEAFA /* batery_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595253D18C61BA2006EEAFA /* batery_off@2x.png */; };
+		2595254618C61BA2006EEAFA /* capture_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595253E18C61BA2006EEAFA /* capture_normal.png */; };
+		2595254718C61BA2006EEAFA /* capture_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595253F18C61BA2006EEAFA /* capture_normal@2x.png */; };
+		2595254818C61BA2006EEAFA /* capture_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595254018C61BA2006EEAFA /* capture_pressed.png */; };
+		2595254918C61BA2006EEAFA /* capture_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595254118C61BA2006EEAFA /* capture_pressed@2x.png */; };
+		2595255018C62190006EEAFA /* timelapse_distance.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595254B18C6218F006EEAFA /* timelapse_distance.png */; };
+		2595255118C62190006EEAFA /* timelapse_step.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595254C18C6218F006EEAFA /* timelapse_step.png */; };
+		2595255218C62190006EEAFA /* timelapse_direction_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595254D18C6218F006EEAFA /* timelapse_direction_1.png */; };
+		2595255418C62190006EEAFA /* timelapse_time_between_pictures.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595254F18C6218F006EEAFA /* timelapse_time_between_pictures.png */; };
+		2595255618C6229D006EEAFA /* timelapse_direction_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595255518C6229D006EEAFA /* timelapse_direction_2.png */; };
+		25ADC23D18C724A400CEB6A7 /* timelapse_recording_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 25ADC23C18C724A400CEB6A7 /* timelapse_recording_time.png */; };
 		64612A26A3EA462A895D8788 /* libPods-SwivlDSLR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15D8180D3830431B85CA07BC /* libPods-SwivlDSLR.a */; };
 		F9BBBAC788B14B99AF8252EE /* libPods-SwivlDSLRTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4BCFD640834A729BC853D0 /* libPods-SwivlDSLRTests.a */; };
 /* End PBXBuildFile section */
@@ -58,6 +72,20 @@
 		2595253118C6141C006EEAFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		2595253218C6141C006EEAFA /* SWMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWMainViewController.h; sourceTree = "<group>"; };
 		2595253318C6141C006EEAFA /* SWMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWMainViewController.m; sourceTree = "<group>"; };
+		2595253A18C61BA2006EEAFA /* base_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base_off.png; sourceTree = "<group>"; };
+		2595253B18C61BA2006EEAFA /* base_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "base_off@2x.png"; sourceTree = "<group>"; };
+		2595253C18C61BA2006EEAFA /* batery_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = batery_off.png; sourceTree = "<group>"; };
+		2595253D18C61BA2006EEAFA /* batery_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "batery_off@2x.png"; sourceTree = "<group>"; };
+		2595253E18C61BA2006EEAFA /* capture_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = capture_normal.png; sourceTree = "<group>"; };
+		2595253F18C61BA2006EEAFA /* capture_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "capture_normal@2x.png"; sourceTree = "<group>"; };
+		2595254018C61BA2006EEAFA /* capture_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = capture_pressed.png; sourceTree = "<group>"; };
+		2595254118C61BA2006EEAFA /* capture_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "capture_pressed@2x.png"; sourceTree = "<group>"; };
+		2595254B18C6218F006EEAFA /* timelapse_distance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_distance.png; sourceTree = "<group>"; };
+		2595254C18C6218F006EEAFA /* timelapse_step.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_step.png; sourceTree = "<group>"; };
+		2595254D18C6218F006EEAFA /* timelapse_direction_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_direction_1.png; sourceTree = "<group>"; };
+		2595254F18C6218F006EEAFA /* timelapse_time_between_pictures.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_time_between_pictures.png; sourceTree = "<group>"; };
+		2595255518C6229D006EEAFA /* timelapse_direction_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_direction_2.png; sourceTree = "<group>"; };
+		25ADC23C18C724A400CEB6A7 /* timelapse_recording_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_recording_time.png; sourceTree = "<group>"; };
 		764732E055B646CC958D7B91 /* Pods-SwivlDSLRTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwivlDSLRTests.xcconfig"; path = "Pods/Pods-SwivlDSLRTests.xcconfig"; sourceTree = "<group>"; };
 		7A4BCFD640834A729BC853D0 /* libPods-SwivlDSLRTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwivlDSLRTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		875D82B5AC324DAD9BEEE66D /* Pods-SwivlDSLR.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwivlDSLR.xcconfig"; path = "Pods/Pods-SwivlDSLR.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +158,7 @@
 				2595250418C610DF006EEAFA /* SWAppDelegate.m */,
 				2595252C18C6141C006EEAFA /* CORE */,
 				2595252D18C6141C006EEAFA /* GUI */,
+				2595253718C61BA2006EEAFA /* Resourses */,
 				2595250F18C610DF006EEAFA /* Images.xcassets */,
 				259524FB18C610DF006EEAFA /* Supporting Files */,
 			);
@@ -181,6 +210,51 @@
 				2595253318C6141C006EEAFA /* SWMainViewController.m */,
 			);
 			path = GUI;
+			sourceTree = "<group>";
+		};
+		2595253718C61BA2006EEAFA /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				2595253818C61BA2006EEAFA /* Images */,
+			);
+			path = Resourses;
+			sourceTree = "<group>";
+		};
+		2595253818C61BA2006EEAFA /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				2595253918C61BA2006EEAFA /* Main Screen */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		2595253918C61BA2006EEAFA /* Main Screen */ = {
+			isa = PBXGroup;
+			children = (
+				2595254A18C6218F006EEAFA /* Time-lapse */,
+				2595253A18C61BA2006EEAFA /* base_off.png */,
+				2595253B18C61BA2006EEAFA /* base_off@2x.png */,
+				2595253C18C61BA2006EEAFA /* batery_off.png */,
+				2595253D18C61BA2006EEAFA /* batery_off@2x.png */,
+				2595253E18C61BA2006EEAFA /* capture_normal.png */,
+				2595253F18C61BA2006EEAFA /* capture_normal@2x.png */,
+				2595254018C61BA2006EEAFA /* capture_pressed.png */,
+				2595254118C61BA2006EEAFA /* capture_pressed@2x.png */,
+			);
+			path = "Main Screen";
+			sourceTree = "<group>";
+		};
+		2595254A18C6218F006EEAFA /* Time-lapse */ = {
+			isa = PBXGroup;
+			children = (
+				2595254B18C6218F006EEAFA /* timelapse_distance.png */,
+				2595254C18C6218F006EEAFA /* timelapse_step.png */,
+				2595254D18C6218F006EEAFA /* timelapse_direction_1.png */,
+				2595255518C6229D006EEAFA /* timelapse_direction_2.png */,
+				25ADC23C18C724A400CEB6A7 /* timelapse_recording_time.png */,
+				2595254F18C6218F006EEAFA /* timelapse_time_between_pictures.png */,
+			);
+			path = "Time-lapse";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,10 +338,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2595254418C61BA2006EEAFA /* batery_off.png in Resources */,
+				2595255218C62190006EEAFA /* timelapse_direction_1.png in Resources */,
+				2595254618C61BA2006EEAFA /* capture_normal.png in Resources */,
+				2595254718C61BA2006EEAFA /* capture_normal@2x.png in Resources */,
 				2595253518C6141C006EEAFA /* Main_iPhone.storyboard in Resources */,
 				2595253418C6141C006EEAFA /* Main_iPad.storyboard in Resources */,
+				2595255018C62190006EEAFA /* timelapse_distance.png in Resources */,
+				2595254218C61BA2006EEAFA /* base_off.png in Resources */,
+				2595255418C62190006EEAFA /* timelapse_time_between_pictures.png in Resources */,
+				2595255118C62190006EEAFA /* timelapse_step.png in Resources */,
+				2595254318C61BA2006EEAFA /* base_off@2x.png in Resources */,
+				25ADC23D18C724A400CEB6A7 /* timelapse_recording_time.png in Resources */,
+				2595254818C61BA2006EEAFA /* capture_pressed.png in Resources */,
+				2595254918C61BA2006EEAFA /* capture_pressed@2x.png in Resources */,
 				2595251018C610DF006EEAFA /* Images.xcassets in Resources */,
 				259524FF18C610DF006EEAFA /* InfoPlist.strings in Resources */,
+				2595254518C61BA2006EEAFA /* batery_off@2x.png in Resources */,
+				2595255618C6229D006EEAFA /* timelapse_direction_2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
