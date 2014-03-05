@@ -38,6 +38,7 @@
 		25ADC23D18C724A400CEB6A7 /* timelapse_recording_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 25ADC23C18C724A400CEB6A7 /* timelapse_recording_time.png */; };
 		25ADC24118C72D4A00CEB6A7 /* SWTimelapseSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 25ADC24018C72D4A00CEB6A7 /* SWTimelapseSettings.m */; };
 		64612A26A3EA462A895D8788 /* libPods-SwivlDSLR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15D8180D3830431B85CA07BC /* libPods-SwivlDSLR.a */; };
+		85D97BA118C76DD2002C2665 /* TimelapsSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D97BA018C76DD2002C2665 /* TimelapsSegue.m */; };
 		F9BBBAC788B14B99AF8252EE /* libPods-SwivlDSLRTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4BCFD640834A729BC853D0 /* libPods-SwivlDSLRTests.a */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,8 @@
 		25ADC24018C72D4A00CEB6A7 /* SWTimelapseSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTimelapseSettings.m; sourceTree = "<group>"; };
 		764732E055B646CC958D7B91 /* Pods-SwivlDSLRTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwivlDSLRTests.xcconfig"; path = "Pods/Pods-SwivlDSLRTests.xcconfig"; sourceTree = "<group>"; };
 		7A4BCFD640834A729BC853D0 /* libPods-SwivlDSLRTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwivlDSLRTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		85D97B9F18C76DD2002C2665 /* TimelapsSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelapsSegue.h; sourceTree = "<group>"; };
+		85D97BA018C76DD2002C2665 /* TimelapsSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelapsSegue.m; sourceTree = "<group>"; };
 		875D82B5AC324DAD9BEEE66D /* Pods-SwivlDSLR.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwivlDSLR.xcconfig"; path = "Pods/Pods-SwivlDSLR.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -200,6 +203,8 @@
 		2595252C18C6141C006EEAFA /* CORE */ = {
 			isa = PBXGroup;
 			children = (
+				85D97B9F18C76DD2002C2665 /* TimelapsSegue.h */,
+				85D97BA018C76DD2002C2665 /* TimelapsSegue.m */,
 				25ADC23E18C72D0D00CEB6A7 /* Models */,
 			);
 			path = CORE;
@@ -452,6 +457,7 @@
 			files = (
 				2595253618C6141C006EEAFA /* SWMainViewController.m in Sources */,
 				2595250518C610DF006EEAFA /* SWAppDelegate.m in Sources */,
+				85D97BA118C76DD2002C2665 /* TimelapsSegue.m in Sources */,
 				2595250118C610DF006EEAFA /* main.m in Sources */,
 				25ADC24118C72D4A00CEB6A7 /* SWTimelapseSettings.m in Sources */,
 			);
