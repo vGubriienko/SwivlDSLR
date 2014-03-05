@@ -26,7 +26,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <inset key="titleEdgeInsets" minX="-60" minY="45" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="10"/>
-                                        <state key="normal" title="0" image="timelapse_step.png">
+                                        <state key="normal" title="1" image="timelapse_step.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -64,7 +64,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <inset key="titleEdgeInsets" minX="-60" minY="45" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="10"/>
-                                        <state key="normal" title="15" image="timelapse_time_between_pictures.png">
+                                        <state key="normal" title="5" image="timelapse_time_between_pictures.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
