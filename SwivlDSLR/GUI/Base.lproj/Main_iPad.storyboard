@@ -122,11 +122,11 @@
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="_directionBtn" destination="Mjr-F8-ZV6" id="Ben-14-0tG"/>
-                        <outlet property="_distanceBtn" destination="eoN-Lv-yEx" id="VbF-2F-Kye"/>
-                        <outlet property="_recordingTimeBtn" destination="APJ-d3-MS4" id="fzQ-xg-alJ"/>
-                        <outlet property="_stepSizeBtn" destination="xGu-vL-9uu" id="acc-4k-2oh"/>
-                        <outlet property="_timeBetweenPicturesBtn" destination="BJN-1d-nsv" id="tOL-c2-gdR"/>
+                        <outlet property="_directionBtn" destination="Mjr-F8-ZV6" id="h51-uN-pRb"/>
+                        <outlet property="_distanceBtn" destination="eoN-Lv-yEx" id="LRv-FP-Y1U"/>
+                        <outlet property="_recordingTimeBtn" destination="APJ-d3-MS4" id="GYK-pA-REz"/>
+                        <outlet property="_stepSizeBtn" destination="xGu-vL-9uu" id="Mfq-eG-bDI"/>
+                        <outlet property="_timeBetweenPicturesBtn" destination="BJN-1d-nsv" id="r3G-lh-78R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
