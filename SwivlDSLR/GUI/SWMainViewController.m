@@ -21,7 +21,7 @@
 	
     SWTimelapseSettings *_timelapseSettings;
     
-    UIViewController *_currentSettingsController;
+    UIViewController<TimelapsSegueNavigation> *_currentSettingsController;
 }
 @end
 
@@ -78,9 +78,13 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     [_currentSettingsController.view removeFromSuperview];
-    NSLog(@"Remove controller from screen = %@", NSStringFromClass([_currentSettingsController class]));
+   
     _currentSettingsController = segue.destinationViewController;
-    NSLog(@"Add controller to screen = %@", NSStringFromClass([_currentSettingsController class]));
+
+    //Set settings to edit controller
+    if ([_currentSettingsController respondsToSelector:@selector(setTimelapseSettings:)]) {
+        [_currentSettingsController setTimelapseSettings:_timelapseSettings];
+    }
 }
 
 #pragma Observing
