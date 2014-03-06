@@ -42,8 +42,6 @@
 		25ADC28918C7799D00CEB6A7 /* SWStepSizeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25ADC28818C7799D00CEB6A7 /* SWStepSizeController.m */; };
 		64612A26A3EA462A895D8788 /* libPods-SwivlDSLR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15D8180D3830431B85CA07BC /* libPods-SwivlDSLR.a */; };
 		858A4DD518C89C180036A0CF /* SWDistanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A4DD418C89C180036A0CF /* SWDistanceController.m */; };
-		858A4DD818C89C850036A0CF /* distance_circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 858A4DD618C89C850036A0CF /* distance_circle@2x.png */; };
-		858A4DD918C89C850036A0CF /* distance_indicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 858A4DD718C89C850036A0CF /* distance_indicator@2x.png */; };
 		858A4DFB18C8AA700036A0CF /* DKCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A4DF618C8AA700036A0CF /* DKCircularSlider.m */; };
 		858A4DFC18C8AA700036A0CF /* DKRepeatableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A4DF818C8AA700036A0CF /* DKRepeatableButton.m */; };
 		858A4DFD18C8AA700036A0CF /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = 858A4DF918C8AA700036A0CF /* down.png */; };
@@ -110,8 +108,6 @@
 		7A4BCFD640834A729BC853D0 /* libPods-SwivlDSLRTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwivlDSLRTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		858A4DD318C89C180036A0CF /* SWDistanceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWDistanceController.h; sourceTree = "<group>"; };
 		858A4DD418C89C180036A0CF /* SWDistanceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWDistanceController.m; sourceTree = "<group>"; };
-		858A4DD618C89C850036A0CF /* distance_circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "distance_circle@2x.png"; sourceTree = "<group>"; };
-		858A4DD718C89C850036A0CF /* distance_indicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "distance_indicator@2x.png"; sourceTree = "<group>"; };
 		858A4DF518C8AA700036A0CF /* DKCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKCircularSlider.h; sourceTree = "<group>"; };
 		858A4DF618C8AA700036A0CF /* DKCircularSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKCircularSlider.m; sourceTree = "<group>"; };
 		858A4DF718C8AA700036A0CF /* DKRepeatableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKRepeatableButton.h; sourceTree = "<group>"; };
@@ -284,8 +280,6 @@
 		2595254A18C6218F006EEAFA /* Time-lapse */ = {
 			isa = PBXGroup;
 			children = (
-				858A4DD618C89C850036A0CF /* distance_circle@2x.png */,
-				858A4DD718C89C850036A0CF /* distance_indicator@2x.png */,
 				2595254B18C6218F006EEAFA /* timelapse_distance.png */,
 				2595254C18C6218F006EEAFA /* timelapse_step.png */,
 				2595254D18C6218F006EEAFA /* timelapse_direction_1.png */,
@@ -423,7 +417,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2595254418C61BA2006EEAFA /* batery_off.png in Resources */,
-				858A4DD918C89C850036A0CF /* distance_indicator@2x.png in Resources */,
 				858A4DFD18C8AA700036A0CF /* down.png in Resources */,
 				2595255218C62190006EEAFA /* timelapse_direction_1.png in Resources */,
 				2595254618C61BA2006EEAFA /* capture_normal.png in Resources */,
@@ -433,7 +426,6 @@
 				2595255018C62190006EEAFA /* timelapse_distance.png in Resources */,
 				2595254218C61BA2006EEAFA /* base_off.png in Resources */,
 				2595255418C62190006EEAFA /* timelapse_time_between_pictures.png in Resources */,
-				858A4DD818C89C850036A0CF /* distance_circle@2x.png in Resources */,
 				2595255118C62190006EEAFA /* timelapse_step.png in Resources */,
 				2595254318C61BA2006EEAFA /* base_off@2x.png in Resources */,
 				25ADC23D18C724A400CEB6A7 /* timelapse_recording_time.png in Resources */,

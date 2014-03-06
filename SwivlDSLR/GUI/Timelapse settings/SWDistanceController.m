@@ -33,7 +33,7 @@
     _distanceSlider = [[DKCircularSlider alloc] initWithFrame:COMPONENTRECT
                                                    usingMax:360
                                                    usingMin:1
-                                           withContentImage:[UIImage imageNamed:@"sensitivity"]
+                                           withContentImage:nil
                                                   withTitle:@"Distance" withTarget:self usingSelector:@selector(sliderChange:)];
     [[self view] addSubview:_distanceSlider];
     [_distanceSlider movehandleToValue:_timelapseSettings.distance];
