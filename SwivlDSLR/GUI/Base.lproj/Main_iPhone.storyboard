@@ -57,7 +57,7 @@
                                         </state>
                                         <connections>
                                             <action selector="onRecordingBtnTapped" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xlA-uh-m1e"/>
-                                            <segue destination="6Ef-7Z-gZW" kind="custom" customClass="TimelapsSegue" id="Ej3-dQ-POm"/>
+                                            <segue destination="cys-Cz-MS5" kind="custom" customClass="TimelapsSegue" id="Yz2-7x-6iD"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DkC-Ok-yPF" userLabel="Time between pictures">
@@ -71,7 +71,7 @@
                                         </state>
                                         <connections>
                                             <action selector="onTimeBetweenPicturesBtnTapped" destination="vXZ-lx-hvc" eventType="touchUpInside" id="UzM-F7-bCt"/>
-                                            <segue destination="6Ef-7Z-gZW" kind="custom" customClass="TimelapsSegue" id="kYO-0Y-4YP"/>
+                                            <segue destination="6Ef-7Z-gZW" kind="custom" customClass="TimelapsSegue" id="OAs-wk-pbF"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5R-kl-DxV" userLabel="Distance">
@@ -147,10 +147,10 @@
             </objects>
             <point key="canvasLocation" x="266" y="250"/>
         </scene>
-        <!--Time Controller-->
+        <!--TimeBtwnPictures Controller-->
         <scene sceneID="ZFf-Wt-nGb">
             <objects>
-                <viewController id="6Ef-7Z-gZW" userLabel="Time Controller" customClass="SWTimeBtwnPicturesController" sceneMemberID="viewController">
+                <viewController id="6Ef-7Z-gZW" userLabel="TimeBtwnPictures Controller" customClass="SWTimeBtwnPicturesController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Gfv-a9-Op2"/>
                         <viewControllerLayoutGuide type="bottom" id="CvK-Y7-ADF"/>
@@ -187,6 +187,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wwr-zU-PZc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1182" y="458"/>
+        </scene>
+        <!--RecordingTime Controller-->
+        <scene sceneID="xs8-A5-erZ">
+            <objects>
+                <viewController id="cys-Cz-MS5" userLabel="RecordingTime Controller" customClass="SWRecordingTimeController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fbl-ld-5Nb"/>
+                        <viewControllerLayoutGuide type="bottom" id="hPf-PL-ZDm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zy5-xZ-BhJ">
+                        <rect key="frame" x="0.0" y="0.0" width="406" height="320"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ui-V7-jAq">
+                                <rect key="frame" x="0.0" y="158" width="406" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="cys-Cz-MS5" id="2Lp-ki-Q53"/>
+                                    <outlet property="delegate" destination="cys-Cz-MS5" id="GfV-aU-yYJ"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recording time (hours:minutes:seconds)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="327" translatesAutoresizingMaskIntoConstraints="NO" id="hdI-8m-lir">
+                                <rect key="frame" x="40" y="44" width="327" height="92"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.2823529541" green="0.80784314869999996" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="_pickerView" destination="9Ui-V7-jAq" id="y7X-Sv-gL0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="knR-oP-eEa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="634" y="728"/>
         </scene>
         <!--Distance Controller-->
         <scene sceneID="WzL-Yf-mz9">
@@ -291,7 +332,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="kYO-0Y-4YP"/>
-    </inferredMetricsTieBreakers>
 </document>
