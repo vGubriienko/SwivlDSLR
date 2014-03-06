@@ -39,9 +39,9 @@
     //step count = 360 / 5 = 72
     //seconds: 72 * 3 = 216
     //216 seconds = 00:03:36
-    XCTAssertEqual(_timelapseSettings.recordingTime.hour, 0, @"Incorrect recordingTime after setting timeBetweenPictures");
-    XCTAssertEqual(_timelapseSettings.recordingTime.minute, 3, @"Incorrect recordingTime after setting timeBetweenPictures");
-    XCTAssertEqual(_timelapseSettings.recordingTime.second, 36, @"Incorrect recordingTime after setting timeBetweenPictures");
+    XCTAssertEqual(_timelapseSettings.recordingTime.hour, (NSInteger)0, @"Incorrect recordingTime after setting timeBetweenPictures");
+    XCTAssertEqual(_timelapseSettings.recordingTime.minute, (NSInteger)3, @"Incorrect recordingTime after setting timeBetweenPictures");
+    XCTAssertEqual(_timelapseSettings.recordingTime.second, (NSInteger)36, @"Incorrect recordingTime after setting timeBetweenPictures");
 }
 
 - (void)testTimeBtwnPicturesIsCorrectAfterSettingRecordingTime
@@ -58,7 +58,7 @@
     //step count = 270 / 2 = 135
     //seconds: 3600 + 30 * 60 + 45 = 5445
     //time btwn pictures = 5445 / 135  = 40,3333..
-    XCTAssertEqual((NSInteger)_timelapseSettings.timeBetweenPictures, 40, @"Incorrect timeBetweenPictures time after setting recordingTime");
+    XCTAssertEqual((NSInteger)_timelapseSettings.timeBetweenPictures, (NSInteger)40, @"Incorrect timeBetweenPictures time after setting recordingTime");
 }
 
 - (void)testRecordingTimeWasNotChangedAfterSettingStepSize
@@ -74,9 +74,9 @@
     _timelapseSettings.recordingTime = recordingTime;
     
     _timelapseSettings.stepSize = 10;
-    XCTAssertEqual(_timelapseSettings.recordingTime.hour, 0, @"RecordingTime was changed after setting stepSize");
-    XCTAssertEqual(_timelapseSettings.recordingTime.minute, 15, @"RecordingTime was changed after setting stepSize");
-    XCTAssertEqual(_timelapseSettings.recordingTime.second, 30, @"RecordingTime was changed after setting stepSize");
+    XCTAssertEqual(_timelapseSettings.recordingTime.hour, (NSInteger)0, @"RecordingTime was changed after setting stepSize");
+    XCTAssertEqual(_timelapseSettings.recordingTime.minute, (NSInteger)15, @"RecordingTime was changed after setting stepSize");
+    XCTAssertEqual(_timelapseSettings.recordingTime.second, (NSInteger)30, @"RecordingTime was changed after setting stepSize");
 }
 
 - (void)testTimeBtwnPicturesIsCorrectAfterSettingStepSize
@@ -93,12 +93,12 @@
     //step count = 180 / 1 = 180
     //seconds: 40 * 60 + 15 = 2415
     //time btwn pictures = 2415 / 180  = 13,41..
-    XCTAssertEqual((NSInteger)_timelapseSettings.timeBetweenPictures, 13, @"Incorrect timeBetweenPictures time after setting recordingTime");
+    XCTAssertEqual((NSInteger)_timelapseSettings.timeBetweenPictures, (NSInteger)13, @"Incorrect timeBetweenPictures time after setting recordingTime");
     
     _timelapseSettings.stepSize = 2;
     //step count = 180 / 2 = 90
     //time btwn pictures = 2415 / 90  = 26,83..
-    XCTAssertEqual((NSInteger)_timelapseSettings.timeBetweenPictures, 26, @"Incorrect timeBetweenPictures time after setting stepSize");
+    XCTAssertEqual((NSInteger)_timelapseSettings.timeBetweenPictures, (NSInteger)26, @"Incorrect timeBetweenPictures time after setting stepSize");
 }
 
 @end
