@@ -18,7 +18,6 @@
 		2595251818C610DF006EEAFA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259524F418C610DF006EEAFA /* Foundation.framework */; };
 		2595251918C610DF006EEAFA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259524F818C610DF006EEAFA /* UIKit.framework */; };
 		2595252118C610DF006EEAFA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2595251F18C610DF006EEAFA /* InfoPlist.strings */; };
-		2595252318C610DF006EEAFA /* SwivlDSLRTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2595252218C610DF006EEAFA /* SwivlDSLRTests.m */; };
 		2595253418C6141C006EEAFA /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2595252E18C6141C006EEAFA /* Main_iPad.storyboard */; };
 		2595253518C6141C006EEAFA /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2595253018C6141C006EEAFA /* Main_iPhone.storyboard */; };
 		2595253618C6141C006EEAFA /* SWMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2595253318C6141C006EEAFA /* SWMainViewController.m */; };
@@ -37,6 +36,7 @@
 		2595255618C6229D006EEAFA /* timelapse_direction_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595255518C6229D006EEAFA /* timelapse_direction_2.png */; };
 		259E2F7018C864CF00ECC07A /* SWTimeBtwnPicturesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 259E2F6F18C864CF00ECC07A /* SWTimeBtwnPicturesController.m */; };
 		259E2F7318C8925200ECC07A /* SWRecordingTimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 259E2F7218C8925200ECC07A /* SWRecordingTimeController.m */; };
+		259E2F7518C89F5700ECC07A /* SWTimelapseSettingsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 259E2F7418C89F5700ECC07A /* SWTimelapseSettingsTests.m */; };
 		25ADC23D18C724A400CEB6A7 /* timelapse_recording_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 25ADC23C18C724A400CEB6A7 /* timelapse_recording_time.png */; };
 		25ADC24118C72D4A00CEB6A7 /* SWTimelapseSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 25ADC24018C72D4A00CEB6A7 /* SWTimelapseSettings.m */; };
 		25ADC28918C7799D00CEB6A7 /* SWStepSizeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25ADC28818C7799D00CEB6A7 /* SWStepSizeController.m */; };
@@ -72,7 +72,6 @@
 		2595251618C610DF006EEAFA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		2595251E18C610DF006EEAFA /* SwivlDSLRTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SwivlDSLRTests-Info.plist"; sourceTree = "<group>"; };
 		2595252018C610DF006EEAFA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2595252218C610DF006EEAFA /* SwivlDSLRTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwivlDSLRTests.m; sourceTree = "<group>"; };
 		2595252F18C6141C006EEAFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		2595253118C6141C006EEAFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		2595253218C6141C006EEAFA /* SWMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWMainViewController.h; sourceTree = "<group>"; };
@@ -94,6 +93,7 @@
 		259E2F6F18C864CF00ECC07A /* SWTimeBtwnPicturesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTimeBtwnPicturesController.m; sourceTree = "<group>"; };
 		259E2F7118C8925200ECC07A /* SWRecordingTimeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRecordingTimeController.h; sourceTree = "<group>"; };
 		259E2F7218C8925200ECC07A /* SWRecordingTimeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRecordingTimeController.m; sourceTree = "<group>"; };
+		259E2F7418C89F5700ECC07A /* SWTimelapseSettingsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTimelapseSettingsTests.m; sourceTree = "<group>"; };
 		25ADC23C18C724A400CEB6A7 /* timelapse_recording_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_recording_time.png; sourceTree = "<group>"; };
 		25ADC23F18C72D4A00CEB6A7 /* SWTimelapseSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTimelapseSettings.h; sourceTree = "<group>"; };
 		25ADC24018C72D4A00CEB6A7 /* SWTimelapseSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTimelapseSettings.m; sourceTree = "<group>"; };
@@ -194,8 +194,8 @@
 		2595251C18C610DF006EEAFA /* SwivlDSLRTests */ = {
 			isa = PBXGroup;
 			children = (
-				2595252218C610DF006EEAFA /* SwivlDSLRTests.m */,
 				2595251D18C610DF006EEAFA /* Supporting Files */,
+				259E2F7418C89F5700ECC07A /* SWTimelapseSettingsTests.m */,
 			);
 			path = SwivlDSLRTests;
 			sourceTree = "<group>";
@@ -493,7 +493,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2595252318C610DF006EEAFA /* SwivlDSLRTests.m in Sources */,
+				259E2F7518C89F5700ECC07A /* SWTimelapseSettingsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

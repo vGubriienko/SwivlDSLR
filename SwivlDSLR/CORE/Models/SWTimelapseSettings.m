@@ -79,8 +79,8 @@
 {
     if (distance < 0) {
         _distance = 0;
-    } else if (distance > 20) {
-        _distance = 20;
+    } else if (distance > 360) {
+        _distance = 360;
     } else {
         _distance = distance;
     }
