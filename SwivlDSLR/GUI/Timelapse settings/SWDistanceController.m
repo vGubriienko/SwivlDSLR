@@ -11,7 +11,7 @@
 #import "SWTimelapseSettings.h"
 #import "DKCircularSlider.h"
 
-#define COMPONENTRECT CGRectMake(45, 45, DK_SLIDER_SIZE-90, DK_SLIDER_SIZE-90)
+#define COMPONENTRECT CGRectMake(88, 82, DK_SLIDER_SIZE-90, DK_SLIDER_SIZE-90)
 
 @interface SWDistanceController ()
 {
@@ -34,7 +34,7 @@
                                                    usingMax:360
                                                    usingMin:1
                                            withContentImage:nil
-                                                  withTitle:@"Distance" withTarget:self usingSelector:@selector(sliderChange:)];
+                                                  withTitle:@"degrees" withTarget:self usingSelector:@selector(sliderChange:)];
     [[self view] addSubview:_distanceSlider];
     [_distanceSlider movehandleToValue:_timelapseSettings.distance];
 }

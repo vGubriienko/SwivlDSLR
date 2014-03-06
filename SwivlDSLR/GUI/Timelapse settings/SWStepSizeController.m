@@ -9,12 +9,13 @@
 #import "SWStepSizeController.h"
 
 #import "SWTimelapseSettings.h"
+#import "DKCircularSlider.h"
+
+#define COMPONENTRECT CGRectMake(88, 82, DK_SLIDER_SIZE-90, DK_SLIDER_SIZE-90)
 
 @interface SWStepSizeController ()
 {
-    __weak IBOutlet UIPickerView *_pickerView;
-    
-    NSArray *_availableStepSizes;
+    DKCircularSlider *_distanceSlider;
     SWTimelapseSettings *_timelapseSettings;
 }
 @end
@@ -25,12 +26,18 @@
 {
     [super viewDidLoad];
     
-    _availableStepSizes = [SWTimelapseSettings availableStepSizes];
-    
-    NSInteger index = [_availableStepSizes indexOfObject:[NSString stringWithFormat:@"%i", _timelapseSettings.stepSize]];
-    if (index != NSNotFound) {
-        [_pickerView selectRow:index inComponent:0 animated:NO];
-    }
+    [self configUI];
+}
+
+- (void)configUI
+{
+    _distanceSlider = [[DKCircularSlider alloc] initWithFrame:COMPONENTRECT
+                                                     usingMax:45
+                                                     usingMin:1
+                                             withContentImage:nil
+                                                    withTitle:@"degrees" withTarget:self usingSelector:@selector(sliderChange:)];
+    [[self view] addSubview:_distanceSlider];
+    [_distanceSlider movehandleToValue:_timelapseSettings.stepSize];
 }
 
 #pragma TimelapsSegueNavigation
@@ -40,26 +47,12 @@
     _timelapseSettings = timelapseSettings;
 }
 
-#pragma mark UIPickerViewDelegate & UIPickerViewDataSource
-
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+#pragma mark IBActions
+-(void)sliderChange:(DKCircularSlider *)sender
 {
-    return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
-{
-    return _availableStepSizes.count;
-}
-
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
-    return _availableStepSizes[row];
-}
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{
-    _timelapseSettings.stepSize = [_availableStepSizes[row] integerValue];
+    if (_distanceSlider) {
+        _timelapseSettings.stepSize = sender.currentValue;
+    }
 }
 
 #pragma mark -
