@@ -19,7 +19,9 @@
         _clockwiseDirection = YES;
         _timeBetweenPictures = 4.5;
         _recordingTime = [[NSDateComponents alloc] init];
-        _recordingTime.hour = _recordingTime.minute = _recordingTime.second = 0;
+        _recordingTime.hour = 1;
+        _recordingTime.minute = 30;
+        _recordingTime.second = 45;
     }
     return self;
 }
@@ -52,14 +54,33 @@
     return array;
 }
 
++ (NSDictionary *)availableRecordingTime
+{
+    static NSDictionary *dict = nil;
+    if (!dict) {
+        
+        NSMutableArray *hours = [NSMutableArray arrayWithCapacity:5];
+        for (NSInteger i = 0; i <= 3; i++) {
+            [hours addObject:[NSString stringWithFormat:@"%i", i]];
+        }
+        NSMutableArray *minutesOrSeconds = [NSMutableArray arrayWithCapacity:60];
+        for (NSInteger i = 0; i < 60; i++) {
+            [minutesOrSeconds addObject:[NSString stringWithFormat:@"%i", i]];
+        }
+        
+        dict = @{@"hours" : hours, @"minutes" : minutesOrSeconds, @"seconds" : minutesOrSeconds};
+    }
+    return dict;
+}
+
 #pragma mark - Setters
 
 - (void)setDistance:(NSInteger)distance
 {
     if (distance < 0) {
         _distance = 0;
-    } else if (distance > 20) {
-        _distance = 20;
+    } else if (distance > 360) {
+        _distance = 360;
     } else {
         _distance = distance;
     }
@@ -74,12 +95,16 @@
     } else {
         _stepSize = stepSize;
     }
+    
+    //recalculate time between pictures
+    self.recordingTime = self.recordingTime;
 }
 
 - (void)setTimeBetweenPictures:(CGFloat)timeBetweenPictures
 {
     _timeBetweenPictures = timeBetweenPictures;
     
+    //recalculate recording time
     CGFloat stepCount = self.distance / self.stepSize;
     NSInteger recordingTimeSeconds = timeBetweenPictures * stepCount;
     _recordingTime.hour = recordingTimeSeconds / 3600;
@@ -91,6 +116,7 @@
 {
     _recordingTime = recordingTime;
     
+    //recalculate time between pictures
     CGFloat stepCount = self.distance / self.stepSize;
     _timeBetweenPictures = (recordingTime.second + recordingTime.minute * 60 + recordingTime.hour * 3600) / stepCount;
 }

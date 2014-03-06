@@ -19,5 +19,6 @@
 //array of NSString
 + (NSArray *)availableStepSizes;
 + (NSArray *)availableTimesBtwnPictures;
++ (NSDictionary *)availableRecordingTime;
 
 @end
