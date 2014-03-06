@@ -14,8 +14,8 @@
 {
     self = [super init];
     if (self) {
-        _distance = 360;
-        _stepSize = 10;
+        _distance = 45;
+        _stepSize = 5;
         _clockwiseDirection = YES;
         _timeBetweenPictures = 4.5;
         _recordingTime = [[NSDateComponents alloc] init];
