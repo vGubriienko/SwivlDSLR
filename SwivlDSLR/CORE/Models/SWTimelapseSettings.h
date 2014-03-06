@@ -16,4 +16,8 @@
 @property (nonatomic, assign) BOOL clockwiseDirection;
 @property (nonatomic, strong) NSDateComponents *recordingTime;
 
+//array of NSString
++ (NSArray *)availableStepSizes;
++ (NSArray *)availableTimesBtwnPictures;
+
 @end
