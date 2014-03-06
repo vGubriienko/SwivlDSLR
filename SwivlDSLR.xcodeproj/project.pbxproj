@@ -35,6 +35,7 @@
 		2595255218C62190006EEAFA /* timelapse_direction_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595254D18C6218F006EEAFA /* timelapse_direction_1.png */; };
 		2595255418C62190006EEAFA /* timelapse_time_between_pictures.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595254F18C6218F006EEAFA /* timelapse_time_between_pictures.png */; };
 		2595255618C6229D006EEAFA /* timelapse_direction_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595255518C6229D006EEAFA /* timelapse_direction_2.png */; };
+		259E2F7018C864CF00ECC07A /* SWTimeBtwnPicturesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 259E2F6F18C864CF00ECC07A /* SWTimeBtwnPicturesController.m */; };
 		25ADC23D18C724A400CEB6A7 /* timelapse_recording_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 25ADC23C18C724A400CEB6A7 /* timelapse_recording_time.png */; };
 		25ADC24118C72D4A00CEB6A7 /* SWTimelapseSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 25ADC24018C72D4A00CEB6A7 /* SWTimelapseSettings.m */; };
 		25ADC28918C7799D00CEB6A7 /* SWStepSizeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25ADC28818C7799D00CEB6A7 /* SWStepSizeController.m */; };
@@ -88,6 +89,8 @@
 		2595254D18C6218F006EEAFA /* timelapse_direction_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_direction_1.png; sourceTree = "<group>"; };
 		2595254F18C6218F006EEAFA /* timelapse_time_between_pictures.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_time_between_pictures.png; sourceTree = "<group>"; };
 		2595255518C6229D006EEAFA /* timelapse_direction_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_direction_2.png; sourceTree = "<group>"; };
+		259E2F6E18C864CF00ECC07A /* SWTimeBtwnPicturesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTimeBtwnPicturesController.h; sourceTree = "<group>"; };
+		259E2F6F18C864CF00ECC07A /* SWTimeBtwnPicturesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTimeBtwnPicturesController.m; sourceTree = "<group>"; };
 		25ADC23C18C724A400CEB6A7 /* timelapse_recording_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_recording_time.png; sourceTree = "<group>"; };
 		25ADC23F18C72D4A00CEB6A7 /* SWTimelapseSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTimelapseSettings.h; sourceTree = "<group>"; };
 		25ADC24018C72D4A00CEB6A7 /* SWTimelapseSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTimelapseSettings.m; sourceTree = "<group>"; };
@@ -284,6 +287,8 @@
 			children = (
 				25ADC28718C7799C00CEB6A7 /* SWStepSizeController.h */,
 				25ADC28818C7799D00CEB6A7 /* SWStepSizeController.m */,
+				259E2F6E18C864CF00ECC07A /* SWTimeBtwnPicturesController.h */,
+				259E2F6F18C864CF00ECC07A /* SWTimeBtwnPicturesController.m */,
 			);
 			path = "Timelapse settings";
 			sourceTree = "<group>";
@@ -474,6 +479,7 @@
 				85D97BA118C76DD2002C2665 /* TimelapsSegue.m in Sources */,
 				2595250118C610DF006EEAFA /* main.m in Sources */,
 				25ADC24118C72D4A00CEB6A7 /* SWTimelapseSettings.m in Sources */,
+				259E2F7018C864CF00ECC07A /* SWTimeBtwnPicturesController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,5 +18,6 @@
 
 //array of NSString
 + (NSArray *)availableStepSizes;
++ (NSArray *)availableTimesBtwnPictures;
 
 @end

@@ -117,7 +117,7 @@
         [_stepSizeBtn setTitle:[NSString stringWithFormat:@"%i", _timelapseSettings.stepSize]
                       forState:UIControlStateNormal];
         
-        [_timeBetweenPicturesBtn setTitle:[NSString stringWithFormat:@"%.0f", _timelapseSettings.timeBetweenPictures]
+        [_timeBetweenPicturesBtn setTitle:[NSString stringWithFormat:@"%.1f", _timelapseSettings.timeBetweenPictures]
                                  forState:UIControlStateNormal];
         
         NSDateComponents *dateComps = _timelapseSettings.recordingTime;
