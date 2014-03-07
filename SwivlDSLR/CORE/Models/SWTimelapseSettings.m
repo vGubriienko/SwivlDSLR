@@ -28,18 +28,18 @@
 
 #pragma mark - Public methods
 
-+ (NSArray *)availableStepSizes
-{
-    static NSArray *array = nil;
-    if (!array) {
-        NSMutableArray *tempArray = [NSMutableArray arrayWithCapacity:20];
-        for (NSInteger i = 1; i <= 20; i++) {
-            [tempArray addObject:[NSString stringWithFormat:@"%i", i]];
-        }
-        array = [tempArray copy];
-    }
-    return array;
-}
+//+ (NSArray *)availableStepSizes
+//{
+//    static NSArray *array = nil;
+//    if (!array) {
+//        NSMutableArray *tempArray = [NSMutableArray arrayWithCapacity:20];
+//        for (NSInteger i = 1; i <= 20; i++) {
+//            [tempArray addObject:[NSString stringWithFormat:@"%i", i]];
+//        }
+//        array = [tempArray copy];
+//    }
+//    return array;
+//}
 
 + (NSArray *)availableTimesBtwnPictures
 {
@@ -77,22 +77,17 @@
 
 - (void)setDistance:(NSInteger)distance
 {
-    if (distance < 0) {
-        _distance = 0;
-    } else if (distance > 360) {
-        _distance = 360;
-    } else {
+    if (distance >= 1 && distance <= 360) {
         _distance = distance;
     }
+    
+    //recalculate time between pictures
+    self.recordingTime = self.recordingTime;
 }
 
 - (void)setStepSize:(NSInteger)stepSize
 {
-    if (stepSize < 0) {
-        _stepSize = 0;
-    } else if (stepSize > self.distance) {
-        _stepSize = self.distance;
-    } else {
+    if (stepSize >= 1 && stepSize <= self.distance) {
         _stepSize = stepSize;
     }
     

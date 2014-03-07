@@ -21,7 +21,7 @@
 	
     SWTimelapseSettings *_timelapseSettings;
     
-    UIViewController<TimelapsSegueNavigation> *_currentSettingsController;
+    UIViewController <TimelapsSegueNavigation> *_currentSettingsController;
 }
 @end
 
@@ -47,30 +47,10 @@
 
 #pragma IBActions
 
-- (IBAction)onDistanceBtnTapped
-{
-
-}
-
 - (IBAction)onDirectionBtnTapped
 {
     _directionBtn.selected = !_directionBtn.selected;
     _timelapseSettings.clockwiseDirection = !_directionBtn.selected;
-}
-
-- (IBAction)onStepSizeBtnTapped
-{
-    
-}
-
-- (IBAction)onRecordingBtnTapped
-{
-    
-}
-
-- (IBAction)onTimeBetweenPicturesBtnTapped
-{
-    
 }
 
 #pragma mark - Storyboard navigation
