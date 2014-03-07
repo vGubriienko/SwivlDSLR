@@ -8,6 +8,7 @@
 
 #import "SWTimelapseSettings.h"
 
+#define MAX_DISTANCE 360
 @implementation SWTimelapseSettings
 
 - (id)init
@@ -77,10 +78,12 @@
 
 - (void)setDistance:(NSInteger)distance
 {
-    if (distance >= 1 && distance <= 360) {
+    if (distance >= 1 && distance <= MAX_DISTANCE) {
         _distance = distance;
     }
-    
+    if (_distance < self.stepSize) {
+        self.stepSize = _distance;
+    }
     //recalculate time between pictures
     self.recordingTime = self.recordingTime;
 }
@@ -88,6 +91,9 @@
 - (void)setStepSize:(NSInteger)stepSize
 {
     if (stepSize >= 1 && stepSize <= self.distance) {
+        _stepSize = stepSize;
+    } else if (stepSize > self.distance && stepSize <= MAX_DISTANCE) {
+        self.distance = stepSize;
         _stepSize = stepSize;
     }
     

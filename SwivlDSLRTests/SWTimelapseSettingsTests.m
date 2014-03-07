@@ -30,6 +30,32 @@
     [super tearDown];
 }
 
+- (void)testDistanceToStepSizeChanges
+{
+    _timelapseSettings.stepSize = 20;
+    _timelapseSettings.distance = 100;
+    _timelapseSettings.timeBetweenPictures = 3;
+    
+    _timelapseSettings.distance = 17;
+    XCTAssertEqual(_timelapseSettings.stepSize, (NSInteger)17, @"Incorrect Step size after setting distance");
+    
+    _timelapseSettings.distance = 20;
+    XCTAssertNotEqual(_timelapseSettings.stepSize, (NSInteger)20, @"Incorrect Step size after setting distance bigger than step size");
+}
+
+- (void)testStepSizeToDistanceChanges
+{
+    _timelapseSettings.stepSize = 20;
+    _timelapseSettings.distance = 100;
+    _timelapseSettings.timeBetweenPictures = 3;
+    
+    _timelapseSettings.stepSize = 115;
+    XCTAssertEqual(_timelapseSettings.distance, (NSInteger)115, @"Incorrect distance after setting step size");
+
+    _timelapseSettings.stepSize = 100;
+    XCTAssertNotEqual(_timelapseSettings.distance, (NSInteger)100, @"Incorrect distance after setting step size smaller than step size");
+}
+
 - (void)testRecordingTimeIsCorrectAfterSettingTimeBtwnPictures
 {
     _timelapseSettings.stepSize = 5;
