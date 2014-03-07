@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -8,19 +8,15 @@
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="SWMainViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="qlH-dK-nil"/>
-                        <viewControllerLayoutGuide type="bottom" id="lD2-AX-BDg"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HKi-8w-6BC" userLabel="Time-laps contols">
+                            <view contentMode="scaleToFill" id="HKi-8w-6BC" userLabel="Time-laps contols">
                                 <rect key="frame" x="406" y="0.0" width="60" height="320"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYn-id-Ddj" userLabel="Step size">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EYn-id-Ddj" userLabel="Step size">
                                         <rect key="frame" x="0.0" y="68" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -30,11 +26,10 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="onStepSizeBtnTapped" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Qhw-Yo-3IP"/>
                                             <segue destination="scY-Nf-q0p" kind="custom" customClass="TimelapsSegue" id="tsz-tG-qkm"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tFC-Hu-7Oi" userLabel="Motion direction">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tFC-Hu-7Oi" userLabel="Motion direction">
                                         <rect key="frame" x="0.0" y="130" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
@@ -46,7 +41,7 @@
                                             <action selector="onDirectionBtnTapped" destination="vXZ-lx-hvc" eventType="touchUpInside" id="02U-F3-LJy"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ZG-6n-V3I" userLabel="Recording time">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3ZG-6n-V3I" userLabel="Recording time">
                                         <rect key="frame" x="0.0" y="191" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -56,11 +51,10 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="onRecordingBtnTapped" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xlA-uh-m1e"/>
                                             <segue destination="cys-Cz-MS5" kind="custom" customClass="TimelapsSegue" id="Yz2-7x-6iD"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DkC-Ok-yPF" userLabel="Time between pictures">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DkC-Ok-yPF" userLabel="Time between pictures">
                                         <rect key="frame" x="0.0" y="256" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -70,11 +64,10 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="onTimeBetweenPicturesBtnTapped" destination="vXZ-lx-hvc" eventType="touchUpInside" id="UzM-F7-bCt"/>
-                                            <segue destination="6Ef-7Z-gZW" kind="custom" customClass="TimelapsSegue" id="OAs-wk-pbF"/>
+                                            <segue destination="6Ef-7Z-gZW" kind="custom" customClass="TimelapsSegue" id="11d-k9-hSD"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5R-kl-DxV" userLabel="Distance">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="U5R-kl-DxV" userLabel="Distance">
                                         <rect key="frame" x="0.0" y="2" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -84,18 +77,17 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="onDistanceBtnTapped" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lXS-xs-zGy"/>
                                             <segue destination="kiG-6Q-bGr" kind="custom" customClass="TimelapsSegue" id="wYY-DZ-fFg"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.070588235289999995" green="0.074509803920000006" blue="0.074509803920000006" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tg3-RE-QgB" userLabel="Controls">
+                            <view contentMode="scaleToFill" id="Tg3-RE-QgB" userLabel="Controls">
                                 <rect key="frame" x="466" y="0.0" width="102" height="320"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KzJ-nb-XFy">
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KzJ-nb-XFy">
                                         <rect key="frame" x="12" y="122" width="75" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -108,12 +100,12 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="base_off.png" translatesAutoresizingMaskIntoConstraints="NO" id="fL1-6N-TkC">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="base_off.png" id="fL1-6N-TkC">
                                         <rect key="frame" x="37" y="231" width="28" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9UT-Vs-7cj" userLabel="Batery_off">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9UT-Vs-7cj" userLabel="Batery_off">
                                         <rect key="frame" x="38" y="275" width="30" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -124,9 +116,9 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.070588235289999995" green="0.074509803920000006" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="62a-P8-j6y" userLabel="Content view">
+                            <view contentMode="scaleToFill" id="62a-P8-j6y" userLabel="Content view">
                                 <rect key="frame" x="0.0" y="0.0" width="406" height="320"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -150,27 +142,23 @@
         <!--TimeBtwnPictures Controller-->
         <scene sceneID="ZFf-Wt-nGb">
             <objects>
-                <viewController id="6Ef-7Z-gZW" userLabel="TimeBtwnPictures Controller" customClass="SWTimeBtwnPicturesController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Gfv-a9-Op2"/>
-                        <viewControllerLayoutGuide type="bottom" id="CvK-Y7-ADF"/>
-                    </layoutGuides>
+                <viewController id="6Ef-7Z-gZW" userLabel="TimeBtwnPictures Controller" customClass="SWTimeController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GGA-g8-rLC">
                         <rect key="frame" x="0.0" y="0.0" width="406" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gic-fz-G1u">
+                            <pickerView contentMode="scaleToFill" id="Gic-fz-G1u">
                                 <rect key="frame" x="0.0" y="158" width="406" height="162"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="6Ef-7Z-gZW" id="TDS-ws-Hu2"/>
-                                    <outlet property="delegate" destination="6Ef-7Z-gZW" id="gKg-l4-zf4"/>
+                                    <outlet property="dataSource" destination="6Ef-7Z-gZW" id="Prv-hN-ApU"/>
+                                    <outlet property="delegate" destination="6Ef-7Z-gZW" id="TfD-bj-FWJ"/>
                                 </connections>
                             </pickerView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time between pictures (seconds)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="302" translatesAutoresizingMaskIntoConstraints="NO" id="E9D-Co-yGO">
-                                <rect key="frame" x="52" y="44" width="302" height="92"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time between pictures (seconds)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="E9D-Co-yGO">
+                                <rect key="frame" x="13" y="44" width="380" height="90"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -181,7 +169,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="_pickerView" destination="Gic-fz-G1u" id="zLf-XK-B1B"/>
+                        <outlet property="_timeBtwnPicturesPicker" destination="Gic-fz-G1u" id="VCN-Ys-xaO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wwr-zU-PZc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -191,16 +179,12 @@
         <!--RecordingTime Controller-->
         <scene sceneID="xs8-A5-erZ">
             <objects>
-                <viewController id="cys-Cz-MS5" userLabel="RecordingTime Controller" customClass="SWRecordingTimeController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fbl-ld-5Nb"/>
-                        <viewControllerLayoutGuide type="bottom" id="hPf-PL-ZDm"/>
-                    </layoutGuides>
+                <viewController id="cys-Cz-MS5" userLabel="RecordingTime Controller" customClass="SWTimeController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zy5-xZ-BhJ">
                         <rect key="frame" x="0.0" y="0.0" width="406" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ui-V7-jAq">
+                            <pickerView contentMode="scaleToFill" id="9Ui-V7-jAq">
                                 <rect key="frame" x="0.0" y="158" width="406" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
@@ -208,10 +192,10 @@
                                     <outlet property="delegate" destination="cys-Cz-MS5" id="GfV-aU-yYJ"/>
                                 </connections>
                             </pickerView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recording time (hours:minutes:seconds)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="327" translatesAutoresizingMaskIntoConstraints="NO" id="hdI-8m-lir">
-                                <rect key="frame" x="40" y="44" width="327" height="92"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording time (hours:minutes:seconds)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hdI-8m-lir">
+                                <rect key="frame" x="0.0" y="44" width="406" height="90"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -222,7 +206,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="_pickerView" destination="9Ui-V7-jAq" id="y7X-Sv-gL0"/>
+                        <outlet property="_recordingTimePicker" destination="9Ui-V7-jAq" id="JAP-Ev-0Nz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="knR-oP-eEa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -232,28 +216,32 @@
         <!--Distance Controller-->
         <scene sceneID="WzL-Yf-mz9">
             <objects>
-                <viewController id="kiG-6Q-bGr" userLabel="Distance Controller" customClass="SWDistanceController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="sZN-EF-7nt"/>
-                        <viewControllerLayoutGuide type="bottom" id="5Ld-dP-brq"/>
-                    </layoutGuides>
+                <viewController id="kiG-6Q-bGr" userLabel="Distance Controller" customClass="SWDegreesController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qlt-es-aUC">
                         <rect key="frame" x="0.0" y="0.0" width="406" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="211" translatesAutoresizingMaskIntoConstraints="NO" id="Cqh-pH-iEc">
-                                <rect key="frame" x="97" y="20" width="211" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cqh-pH-iEc">
+                                <rect key="frame" x="0.0" y="20" width="406" height="62"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" id="Phn-bG-xgF" userLabel="Distance container">
+                                <rect key="frame" x="103" y="90" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.2823529541" green="0.80784314869999996" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="_distanceContainer" destination="Phn-bG-xgF" id="61B-b3-WLD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gEO-pA-ioh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -262,28 +250,32 @@
         <!--StepSize Controller-->
         <scene sceneID="Icp-x7-kLl">
             <objects>
-                <viewController id="scY-Nf-q0p" userLabel="StepSize Controller" customClass="SWStepSizeController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="mK8-S9-HO4"/>
-                        <viewControllerLayoutGuide type="bottom" id="Hlu-KS-HVu"/>
-                    </layoutGuides>
+                <viewController id="scY-Nf-q0p" userLabel="StepSize Controller" customClass="SWDegreesController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ISf-D4-rGv">
                         <rect key="frame" x="0.0" y="0.0" width="406" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Step Size" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="211" translatesAutoresizingMaskIntoConstraints="NO" id="a4o-9O-GY4">
-                                <rect key="frame" x="98" y="20" width="211" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step Size" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a4o-9O-GY4">
+                                <rect key="frame" x="0.0" y="20" width="406" height="62"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" id="SfP-tP-jQG" userLabel="Step size container">
+                                <rect key="frame" x="103" y="90" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.2823529541" green="0.80784314869999996" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="_stepSizeContainer" destination="SfP-tP-jQG" id="H1K-OS-1c8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lly-RJ-05Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
