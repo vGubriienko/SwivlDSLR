@@ -46,17 +46,17 @@
 
 - (void)setupRecordingTimePicker:(BOOL)animated
 {
-    NSInteger index = [_availableRecordingTime[@"hours"] indexOfObject:[NSString stringWithFormat:@"%i", _timelapseSettings.recordingTime.hour]];
+    NSInteger index = [_availableRecordingTime[@"hours"] indexOfObject:[NSString stringWithFormat:@"%li", (long)_timelapseSettings.recordingTime.hour]];
     if (index != NSNotFound) {
         [_recordingTimePicker selectRow:index inComponent:0 animated:animated];
     }
     
-    index = [_availableRecordingTime[@"minutes"] indexOfObject:[NSString stringWithFormat:@"%i", _timelapseSettings.recordingTime.minute]];
+    index = [_availableRecordingTime[@"minutes"] indexOfObject:[NSString stringWithFormat:@"%li", (long)_timelapseSettings.recordingTime.minute]];
     if (index != NSNotFound) {
         [_recordingTimePicker selectRow:index inComponent:1 animated:animated];
     }
     
-    index = [_availableRecordingTime[@"seconds"] indexOfObject:[NSString stringWithFormat:@"%i", _timelapseSettings.recordingTime.second]];
+    index = [_availableRecordingTime[@"seconds"] indexOfObject:[NSString stringWithFormat:@"%li", (long)_timelapseSettings.recordingTime.second]];
     if (index != NSNotFound) {
         [_recordingTimePicker selectRow:index inComponent:2 animated:animated];
     }

@@ -91,17 +91,17 @@
 {
     if (object == _timelapseSettings) {
         
-        [_distanceBtn setTitle:[NSString stringWithFormat:@"%i", _timelapseSettings.distance]
+        [_distanceBtn setTitle:[NSString stringWithFormat:@"%li", (long)_timelapseSettings.distance]
                       forState:UIControlStateNormal];
         
-        [_stepSizeBtn setTitle:[NSString stringWithFormat:@"%i", _timelapseSettings.stepSize]
+        [_stepSizeBtn setTitle:[NSString stringWithFormat:@"%li", (long)_timelapseSettings.stepSize]
                       forState:UIControlStateNormal];
         
         [_timeBetweenPicturesBtn setTitle:[NSString stringWithFormat:@"%.1f", _timelapseSettings.timeBetweenPictures]
                                  forState:UIControlStateNormal];
         
         NSDateComponents *dateComps = _timelapseSettings.recordingTime;
-        NSString *strTime = [NSString stringWithFormat:@"%.2i:%.2i:%.2i", dateComps.hour, dateComps.minute, dateComps.second];
+        NSString *strTime = [NSString stringWithFormat:@"%.2li:%.2li:%.2li", (long)dateComps.hour, (long)dateComps.minute, (long)dateComps.second];
         [_recordingTimeBtn setTitle:strTime
                            forState:UIControlStateNormal];
     }

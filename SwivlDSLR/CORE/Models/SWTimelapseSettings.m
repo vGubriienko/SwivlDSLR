@@ -61,11 +61,11 @@
         
         NSMutableArray *hours = [NSMutableArray arrayWithCapacity:5];
         for (NSInteger i = 0; i <= 3; i++) {
-            [hours addObject:[NSString stringWithFormat:@"%i", i]];
+            [hours addObject:[NSString stringWithFormat:@"%li", (long)i]];
         }
         NSMutableArray *minutesOrSeconds = [NSMutableArray arrayWithCapacity:60];
         for (NSInteger i = 0; i < 60; i++) {
-            [minutesOrSeconds addObject:[NSString stringWithFormat:@"%i", i]];
+            [minutesOrSeconds addObject:[NSString stringWithFormat:@"%li", (long)i]];
         }
         
         dict = @{@"hours" : hours, @"minutes" : minutesOrSeconds, @"seconds" : minutesOrSeconds};
