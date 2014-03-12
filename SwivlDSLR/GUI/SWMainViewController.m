@@ -11,14 +11,14 @@
 #import "TimelapsSegue.h"
 #import "SWTimelapseSettings.h"
 
-@interface SWMainViewController ()
+@interface SWMainViewController () <UISplitViewControllerDelegate>
 {
     __weak IBOutlet UIButton *_distanceBtn;
     __weak IBOutlet UIButton *_directionBtn;
     __weak IBOutlet UIButton *_stepSizeBtn;
     __weak IBOutlet UIButton *_recordingTimeBtn;
     __weak IBOutlet UIButton *_timeBetweenPicturesBtn;
-	
+	    
     SWTimelapseSettings *_timelapseSettings;
     
     UIViewController <TimelapsSegueNavigation> *_currentSettingsController;
@@ -32,7 +32,7 @@
     [super viewDidLoad];
 
     [self configUI];
-    
+        
     _timelapseSettings = [[SWTimelapseSettings alloc] init];
     [self startObserveTimelapseSettings];
 }
@@ -51,6 +51,11 @@
 {
     _directionBtn.selected = !_directionBtn.selected;
     _timelapseSettings.clockwiseDirection = !_directionBtn.selected;
+}
+
+- (IBAction)onMenuBtnTapped
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_HIDE_SIDE_BAR_NOTIFICATION object:nil];
 }
 
 #pragma mark - Storyboard navigation

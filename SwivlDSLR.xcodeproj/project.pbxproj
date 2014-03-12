@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2522F7C318D0B25D00915E25 /* reveal-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 2522F7C118D0B25D00915E25 /* reveal-white.png */; };
+		2522F7C418D0B25D00915E25 /* reveal-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2522F7C218D0B25D00915E25 /* reveal-white@2x.png */; };
+		2522F7C918D0B79000915E25 /* SWSideBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2522F7C818D0B79000915E25 /* SWSideBar.m */; };
 		259524F518C610DF006EEAFA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259524F418C610DF006EEAFA /* Foundation.framework */; };
 		259524F718C610DF006EEAFA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259524F618C610DF006EEAFA /* CoreGraphics.framework */; };
 		259524F918C610DF006EEAFA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259524F818C610DF006EEAFA /* UIKit.framework */; };
@@ -60,6 +63,11 @@
 
 /* Begin PBXFileReference section */
 		15D8180D3830431B85CA07BC /* libPods-SwivlDSLR.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwivlDSLR.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2522F7C018D0AD8E00915E25 /* SWConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWConstants.h; sourceTree = "<group>"; };
+		2522F7C118D0B25D00915E25 /* reveal-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-white.png"; sourceTree = "<group>"; };
+		2522F7C218D0B25D00915E25 /* reveal-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-white@2x.png"; sourceTree = "<group>"; };
+		2522F7C718D0B79000915E25 /* SWSideBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWSideBar.h; sourceTree = "<group>"; };
+		2522F7C818D0B79000915E25 /* SWSideBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWSideBar.m; sourceTree = "<group>"; };
 		259524F118C610DF006EEAFA /* SwivlDSLR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwivlDSLR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		259524F418C610DF006EEAFA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		259524F618C610DF006EEAFA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -139,6 +147,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2522F7C518D0B35300915E25 /* Swivl settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Swivl settings";
+			sourceTree = "<group>";
+		};
+		2522F7C618D0B79000915E25 /* Side bar */ = {
+			isa = PBXGroup;
+			children = (
+				2522F7C718D0B79000915E25 /* SWSideBar.h */,
+				2522F7C818D0B79000915E25 /* SWSideBar.m */,
+			);
+			name = "Side bar";
+			path = "SwivlDSLR/GUI/Side bar";
+			sourceTree = SOURCE_ROOT;
+		};
 		259524E818C610DE006EEAFA = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +220,7 @@
 				259524FD18C610DF006EEAFA /* InfoPlist.strings */,
 				2595250018C610DF006EEAFA /* main.m */,
 				2595250218C610DF006EEAFA /* SwivlDSLR-Prefix.pch */,
+				2522F7C018D0AD8E00915E25 /* SWConstants.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -235,6 +261,8 @@
 				2595253218C6141C006EEAFA /* SWMainViewController.h */,
 				2595253318C6141C006EEAFA /* SWMainViewController.m */,
 				25ADC28618C7796800CEB6A7 /* Timelapse settings */,
+				2522F7C618D0B79000915E25 /* Side bar */,
+				2522F7C518D0B35300915E25 /* Swivl settings */,
 			);
 			path = GUI;
 			sourceTree = "<group>";
@@ -260,6 +288,8 @@
 			children = (
 				2595254A18C6218F006EEAFA /* Time-lapse */,
 				2595253A18C61BA2006EEAFA /* base_off.png */,
+				2522F7C118D0B25D00915E25 /* reveal-white.png */,
+				2522F7C218D0B25D00915E25 /* reveal-white@2x.png */,
 				2595253B18C61BA2006EEAFA /* base_off@2x.png */,
 				2595253C18C61BA2006EEAFA /* batery_off.png */,
 				2595253D18C61BA2006EEAFA /* batery_off@2x.png */,
@@ -410,6 +440,7 @@
 				858A4DFD18C8AA700036A0CF /* down.png in Resources */,
 				2595255218C62190006EEAFA /* timelapse_direction_1.png in Resources */,
 				2595254618C61BA2006EEAFA /* capture_normal.png in Resources */,
+				2522F7C318D0B25D00915E25 /* reveal-white.png in Resources */,
 				2595254718C61BA2006EEAFA /* capture_normal@2x.png in Resources */,
 				2595253518C6141C006EEAFA /* Main_iPhone.storyboard in Resources */,
 				2595253418C6141C006EEAFA /* Main_iPad.storyboard in Resources */,
@@ -420,6 +451,7 @@
 				2595254318C61BA2006EEAFA /* base_off@2x.png in Resources */,
 				25ADC23D18C724A400CEB6A7 /* timelapse_recording_time.png in Resources */,
 				2595254818C61BA2006EEAFA /* capture_pressed.png in Resources */,
+				2522F7C418D0B25D00915E25 /* reveal-white@2x.png in Resources */,
 				2595254918C61BA2006EEAFA /* capture_pressed@2x.png in Resources */,
 				2595251018C610DF006EEAFA /* Images.xcassets in Resources */,
 				858A4DFE18C8AA700036A0CF /* up.png in Resources */,
@@ -507,6 +539,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2522F7C918D0B79000915E25 /* SWSideBar.m in Sources */,
 				858A4DFB18C8AA700036A0CF /* DKCircularSlider.m in Sources */,
 				2595253618C6141C006EEAFA /* SWMainViewController.m in Sources */,
 				25A3E68518C93E1C002AFBB9 /* SWTimeController.m in Sources */,

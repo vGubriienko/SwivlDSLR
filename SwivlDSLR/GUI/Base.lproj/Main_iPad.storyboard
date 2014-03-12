@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="vfd-PT-0HA">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -53,7 +53,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jjh-Ic-hIS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="977" y="561"/>
+            <point key="canvasLocation" x="955" y="705"/>
         </scene>
         <!--Time Controller-->
         <scene sceneID="qB0-fS-8wW">
@@ -110,7 +110,39 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5HY-N3-KnD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1005" y="-327"/>
+            <point key="canvasLocation" x="955" y="-214"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="HMs-17-fFC">
+            <objects>
+                <splitViewController id="vfd-PT-0HA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <segue destination="Fsh-Uu-v5h" kind="relationship" relationship="detailViewController" id="hyV-wg-7Up"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KMb-tT-VBN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="3yN-gD-bY3" customClass="SWAppDelegate"/>
+            </objects>
+            <point key="canvasLocation" x="-693" y="-1133"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hPv-uI-caw">
+            <objects>
+                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="Fsh-Uu-v5h" sceneMemberID="viewController">
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sKU-Op-4qK">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Il5-Dm-ZnT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cmG-yd-LQq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-693" y="-214"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -229,11 +261,24 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30P-dP-7YQ">
+                                <rect key="frame" x="10" y="20" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="reveal-white.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onMenuBtnTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="LGg-yQ-STj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.2823529541" green="0.80784314869999996" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <navigationItem key="navigationItem" id="fgb-Uf-EYt"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="_directionBtn" destination="Mjr-F8-ZV6" id="h51-uN-pRb"/>
                         <outlet property="_distanceBtn" destination="eoN-Lv-yEx" id="LRv-FP-Y1U"/>
@@ -245,7 +290,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-508" y="149"/>
+            <point key="canvasLocation" x="-667" y="705"/>
         </scene>
     </scenes>
     <resources>
@@ -253,6 +298,7 @@
         <image name="batery_off.png" width="30" height="25"/>
         <image name="capture_normal.png" width="75" height="75"/>
         <image name="capture_pressed.png" width="75" height="75"/>
+        <image name="reveal-white.png" width="22" height="17"/>
         <image name="timelapse_direction_1.png" width="60" height="60"/>
         <image name="timelapse_direction_2.png" width="60" height="60"/>
         <image name="timelapse_distance.png" width="60" height="60"/>
