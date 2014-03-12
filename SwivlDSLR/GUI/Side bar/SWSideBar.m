@@ -8,7 +8,7 @@
 
 #import "SWSideBar.h"
 
-NS_ENUM(NSInteger, SWSideBarRow)
+typedef NS_ENUM(NSInteger, SWSideBarRow)
 {
     SWSideBarRowTimeLapse = 0,
     SWSideBarRowSwivl,
@@ -17,7 +17,9 @@ NS_ENUM(NSInteger, SWSideBarRow)
 };
 
 @interface SWSideBar ()
-
+{
+    SWSideBarRow _lastSelectedRow;
+}
 @end
 
 @implementation SWSideBar
@@ -25,6 +27,8 @@ NS_ENUM(NSInteger, SWSideBarRow)
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _lastSelectedRow = SWSideBarRowTimeLapse;
     
     self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
 }
@@ -54,20 +58,39 @@ NS_ENUM(NSInteger, SWSideBarRow)
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == _lastSelectedRow) {
+        return;
+    }
+    
     switch (indexPath.row) {
             
+        case SWSideBarRowTimeLapse:
+        {
+            [self.navigationController popToRootViewControllerAnimated:NO];
+            [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_HIDE_SIDE_BAR_NOTIFICATION object:nil];
+            break;
+        }
+            
         case SWSideBarRowSwivl:
-            [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_HIDE_SIDE_BAR_NOTIFICATION object:nil];
-            break;
+        {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"SWSettingsController" bundle:nil];
+            UIViewController *vc = [storyboard instantiateInitialViewController];
             
+            [self.navigationController pushViewController:vc animated:NO];
+            
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_HIDE_SIDE_BAR_NOTIFICATION object:nil];
+            }
+            
+            break;
+        }
         case SWSideBarRowHelp:
-            [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_HIDE_SIDE_BAR_NOTIFICATION object:nil];
+        {
             break;
-            
-        default:
-            [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_HIDE_SIDE_BAR_NOTIFICATION object:nil];
-            break;
+        }
     }
+    
+    _lastSelectedRow = indexPath.row;
 }
 
 #pragma mark -

@@ -10,4 +10,6 @@
 
 @interface SWSideBar : UITableViewController
 
+@property(nonatomic, weak) UINavigationController *navigationController;
+
 @end

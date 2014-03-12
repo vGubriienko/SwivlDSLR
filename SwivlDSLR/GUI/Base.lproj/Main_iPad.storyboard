@@ -173,19 +173,16 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="base_off.png" translatesAutoresizingMaskIntoConstraints="NO" id="oWf-df-0gR">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="base_off.png" highlightedImage="base_present.png" translatesAutoresizingMaskIntoConstraints="NO" id="oWf-df-0gR">
                                         <rect key="frame" x="37" y="670" width="28" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6K-Nl-QiY" userLabel="Batery_off">
-                                        <rect key="frame" x="36" y="723" width="30" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" backgroundImage="batery_off.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="batery_off.png" translatesAutoresizingMaskIntoConstraints="NO" id="jo8-vt-brI">
+                                        <rect key="frame" x="37" y="723" width="28" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.070588235289999995" green="0.074509803920000006" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -280,10 +277,12 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="_batteryLevelImg" destination="jo8-vt-brI" id="Kqn-eH-3G7"/>
                         <outlet property="_directionBtn" destination="Mjr-F8-ZV6" id="h51-uN-pRb"/>
                         <outlet property="_distanceBtn" destination="eoN-Lv-yEx" id="LRv-FP-Y1U"/>
                         <outlet property="_recordingTimeBtn" destination="APJ-d3-MS4" id="GYK-pA-REz"/>
                         <outlet property="_stepSizeBtn" destination="xGu-vL-9uu" id="Mfq-eG-bDI"/>
+                        <outlet property="_swivlStatusImg" destination="oWf-df-0gR" id="Bot-yv-96F"/>
                         <outlet property="_timeBetweenPicturesBtn" destination="BJN-1d-nsv" id="r3G-lh-78R"/>
                         <outlet property="contentView" destination="AiC-wQ-tzg" id="R5e-NV-xBB"/>
                     </connections>
@@ -295,6 +294,7 @@
     </scenes>
     <resources>
         <image name="base_off.png" width="28" height="25"/>
+        <image name="base_present.png" width="28" height="25"/>
         <image name="batery_off.png" width="30" height="25"/>
         <image name="capture_normal.png" width="75" height="75"/>
         <image name="capture_pressed.png" width="75" height="75"/>

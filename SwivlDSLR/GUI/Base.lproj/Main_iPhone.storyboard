@@ -100,19 +100,16 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="base_off.png" id="fL1-6N-TkC">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="base_off.png" highlightedImage="base_present.png" id="fL1-6N-TkC">
                                         <rect key="frame" x="37" y="231" width="28" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9UT-Vs-7cj" userLabel="Batery_off">
-                                        <rect key="frame" x="38" y="275" width="30" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" backgroundImage="batery_off.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="batery_off.png" id="ePg-85-HIf">
+                                        <rect key="frame" x="37" y="275" width="28" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.070588235289999995" green="0.074509803920000006" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -137,10 +134,12 @@
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="_batteryLevelImg" destination="ePg-85-HIf" id="uiV-ji-NDl"/>
                         <outlet property="_directionBtn" destination="tFC-Hu-7Oi" id="4Ua-NN-qP2"/>
                         <outlet property="_distanceBtn" destination="U5R-kl-DxV" id="3D3-Vz-MUl"/>
                         <outlet property="_recordingTimeBtn" destination="3ZG-6n-V3I" id="7G4-VY-Gf3"/>
                         <outlet property="_stepSizeBtn" destination="EYn-id-Ddj" id="aJl-h1-ax1"/>
+                        <outlet property="_swivlStatusImg" destination="fL1-6N-TkC" id="uKu-Sy-5uV"/>
                         <outlet property="_timeBetweenPicturesBtn" destination="DkC-Ok-yPF" id="sqd-hO-oh6"/>
                         <outlet property="contentView" destination="62a-P8-j6y" id="sNO-9v-OzQ"/>
                     </connections>
@@ -294,6 +293,7 @@
     </scenes>
     <resources>
         <image name="base_off.png" width="28" height="25"/>
+        <image name="base_present.png" width="28" height="25"/>
         <image name="batery_off.png" width="30" height="25"/>
         <image name="capture_normal.png" width="75" height="75"/>
         <image name="capture_pressed.png" width="75" height="75"/>

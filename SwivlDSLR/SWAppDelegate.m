@@ -11,6 +11,8 @@
 #import "SWSideBar.h"
 #import <SWRevealViewController/SWRevealViewController.h>
 
+#import <Swivl2Lib/SwivlCommonLib.h>
+
 @interface SWAppDelegate () <UISplitViewControllerDelegate>
 {
     UIBarButtonItem *_splitVCBtn;
@@ -24,6 +26,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [SwivlCommonLib sharedSwivlBaseForDelegate:self];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(needHideSideBarNotification)
                                                  name:SW_NEED_HIDE_SIDE_BAR_NOTIFICATION
@@ -65,13 +69,54 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+#pragma mark -
+#pragma mark SwivlBaseDelegate
+
+- (void)swivlLibVersion:(NSDictionary *)dict
+{
+	NSLog(@"SwivlCommonLib has sent us version information:[%@]", dict);
+}
+
+- (BOOL)appIsRecording
+{
+	return NO;
+}
+
+- (void)setAppRecording:(BOOL)recording
+{
+
+}
+
+- (BOOL)appAtRecordingView
+{
+    return NO;
+}
+
+- (void) transitionAppToRecordingView
+{
+
+}
+
+- (void) appTagsRecording
+{
+
+}
+
+- (void) markerButtonEvents: (unsigned char) buttons
+{
+
+}
+
 #pragma mark - Config UI
 
 - (void)configPadWindow
 {
-    SWSideBar *sideBar = [[SWSideBar alloc] initWithStyle:UITableViewStylePlain];
     _splitViewController = (UISplitViewController *)self.window.rootViewController;
     NSMutableArray *controllers = [_splitViewController.viewControllers mutableCopy];
+    
+    SWSideBar *sideBar = [[SWSideBar alloc] initWithStyle:UITableViewStylePlain];
+    sideBar.navigationController = controllers.lastObject;
+    
     [controllers insertObject:sideBar atIndex:0];
     _splitViewController.viewControllers = controllers;
     _splitViewController.delegate = self;
@@ -79,11 +124,15 @@
 
 - (void)configPhoneWindow
 {
-    SWSideBar *sideBar = [[SWSideBar alloc] initWithStyle:UITableViewStylePlain];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     UIViewController *mainVC = [storyboard instantiateViewControllerWithIdentifier:@"SWMainViewController"];
+    
     UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:mainVC];
     [navVC setNavigationBarHidden:YES];
+    
+    SWSideBar *sideBar = [[SWSideBar alloc] initWithStyle:UITableViewStylePlain];
+    sideBar.navigationController = navVC;
+    
     _revealViewController = [[SWRevealViewController alloc] initWithRearViewController:sideBar frontViewController:navVC];
     [navVC.view addGestureRecognizer:_revealViewController.panGestureRecognizer];
     self.window.rootViewController = _revealViewController;
