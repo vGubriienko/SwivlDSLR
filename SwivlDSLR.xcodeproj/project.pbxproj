@@ -51,6 +51,8 @@
 		25ADC24118C72D4A00CEB6A7 /* SWTimelapseSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 25ADC24018C72D4A00CEB6A7 /* SWTimelapseSettings.m */; };
 		25B962C418D19CFD002E4FD1 /* base_present.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B962C218D19CFD002E4FD1 /* base_present.png */; };
 		25B962C518D19CFD002E4FD1 /* base_present@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B962C318D19CFD002E4FD1 /* base_present@2x.png */; };
+		25B962D218D21ABC002E4FD1 /* MVYSideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B962CF18D21ABC002E4FD1 /* MVYSideMenuController.m */; };
+		25B962D318D21ABC002E4FD1 /* MVYSideMenuOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B962D118D21ABC002E4FD1 /* MVYSideMenuOptions.m */; };
 		64612A26A3EA462A895D8788 /* libPods-SwivlDSLR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15D8180D3830431B85CA07BC /* libPods-SwivlDSLR.a */; };
 		858A4DFB18C8AA700036A0CF /* DKCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A4DF618C8AA700036A0CF /* DKCircularSlider.m */; };
 		858A4DFC18C8AA700036A0CF /* DKRepeatableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A4DF818C8AA700036A0CF /* DKRepeatableButton.m */; };
@@ -128,6 +130,10 @@
 		25ADC24018C72D4A00CEB6A7 /* SWTimelapseSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTimelapseSettings.m; sourceTree = "<group>"; };
 		25B962C218D19CFD002E4FD1 /* base_present.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base_present.png; sourceTree = "<group>"; };
 		25B962C318D19CFD002E4FD1 /* base_present@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "base_present@2x.png"; sourceTree = "<group>"; };
+		25B962CE18D21ABC002E4FD1 /* MVYSideMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVYSideMenuController.h; sourceTree = "<group>"; };
+		25B962CF18D21ABC002E4FD1 /* MVYSideMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVYSideMenuController.m; sourceTree = "<group>"; };
+		25B962D018D21ABC002E4FD1 /* MVYSideMenuOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVYSideMenuOptions.h; sourceTree = "<group>"; };
+		25B962D118D21ABC002E4FD1 /* MVYSideMenuOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVYSideMenuOptions.m; sourceTree = "<group>"; };
 		764732E055B646CC958D7B91 /* Pods-SwivlDSLRTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwivlDSLRTests.xcconfig"; path = "Pods/Pods-SwivlDSLRTests.xcconfig"; sourceTree = "<group>"; };
 		7A4BCFD640834A729BC853D0 /* libPods-SwivlDSLRTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwivlDSLRTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		858A4DF518C8AA700036A0CF /* DKCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKCircularSlider.h; sourceTree = "<group>"; };
@@ -381,9 +387,21 @@
 			path = "Timelapse settings";
 			sourceTree = "<group>";
 		};
+		25B962CD18D21ABC002E4FD1 /* MVYSideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				25B962CE18D21ABC002E4FD1 /* MVYSideMenuController.h */,
+				25B962CF18D21ABC002E4FD1 /* MVYSideMenuController.m */,
+				25B962D018D21ABC002E4FD1 /* MVYSideMenuOptions.h */,
+				25B962D118D21ABC002E4FD1 /* MVYSideMenuOptions.m */,
+			);
+			path = MVYSideMenu;
+			sourceTree = "<group>";
+		};
 		858A4DF318C8AA700036A0CF /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				25B962CD18D21ABC002E4FD1 /* MVYSideMenu */,
 				858A4DF418C8AA700036A0CF /* DKCicularSlider */,
 			);
 			path = Vendors;
@@ -600,11 +618,13 @@
 				25A3E68518C93E1C002AFBB9 /* SWTimeController.m in Sources */,
 				2595250518C610DF006EEAFA /* SWAppDelegate.m in Sources */,
 				85D97BA118C76DD2002C2665 /* TimelapsSegue.m in Sources */,
+				25B962D318D21ABC002E4FD1 /* MVYSideMenuOptions.m in Sources */,
 				2595250118C610DF006EEAFA /* main.m in Sources */,
 				25ADC24118C72D4A00CEB6A7 /* SWTimelapseSettings.m in Sources */,
 				858A4DFC18C8AA700036A0CF /* DKRepeatableButton.m in Sources */,
 				25A3E68418C93E1C002AFBB9 /* SWDegreesController.m in Sources */,
 				2522F7DE18D0CAF000915E25 /* AVSandboxNotifications.m in Sources */,
+				25B962D218D21ABC002E4FD1 /* MVYSideMenuController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

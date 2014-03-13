@@ -9,7 +9,7 @@
 #import "SWAppDelegate.h"
 
 #import "SWSideBar.h"
-#import <MVYSideMenu/MVYSideMenuController.h>
+#import "MVYSideMenuController.h"
 
 #import <Swivl2Lib/SwivlCommonLib.h>
 

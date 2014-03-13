@@ -13,7 +13,7 @@
 #import <Swivl2Lib/SwivlManager.h>
 #import <Swivl2Lib/SwivlCommonLib.h>
 
-#import <MVYSideMenu/MVYSideMenuController.h>
+#import "MVYSideMenuController.h"
 
 @interface SWSettingsController() <UITextFieldDelegate>
 {
