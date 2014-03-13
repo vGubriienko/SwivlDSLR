@@ -16,6 +16,8 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
     SWSideBarRowCount,
 };
 
+#define SW_SIDE_BAR_ROW_NAMES @"Timelapse", @"Swivl", @"Help"
+
 @interface SWSideBar ()
 {
     SWSideBarRow _lastSelectedRow;
@@ -47,7 +49,7 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SWSideBarCell"];
     }
     
-    NSArray *menuTitles = @[@"Timelapse", @"Swivl", @"Help"];
+    NSArray *menuTitles = @[SW_SIDE_BAR_ROW_NAMES];
     cell.textLabel.text = menuTitles[indexPath.row];
     
     return cell;
