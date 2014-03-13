@@ -58,7 +58,7 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == _lastSelectedRow) {
+    if (indexPath.row == _lastSelectedRow && _lastSelectedRow != SWSideBarRowTimeLapse) {
         return;
     }
     
@@ -77,10 +77,6 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
             UIViewController *vc = [storyboard instantiateInitialViewController];
             
             [self.navigationController pushViewController:vc animated:NO];
-            
-            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-                [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_HIDE_SIDE_BAR_NOTIFICATION object:nil];
-            }
             
             break;
         }

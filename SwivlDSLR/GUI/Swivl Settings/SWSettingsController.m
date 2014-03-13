@@ -13,6 +13,8 @@
 #import <Swivl2Lib/SwivlManager.h>
 #import <Swivl2Lib/SwivlCommonLib.h>
 
+#import <MVYSideMenu/MVYSideMenuController.h>
+
 @interface SWSettingsController() <UITextFieldDelegate>
 {
     __weak IBOutlet UILabel *_appVersion;
@@ -59,12 +61,12 @@
     [super viewDidAppear:animated];
  
 #warning Temp solution
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        CGRect frame = self.navigationController.view.bounds;
-        frame.origin.x = 320;
-        frame.size.width -= frame.origin.x;
-        self.view.frame = frame;
-    }
+
+    NSInteger sideBarWidth = self.sideMenuController.menuFrame.size.width;
+    CGRect frame = self.navigationController.view.bounds;
+    frame.origin.x = sideBarWidth;
+    frame.size.width -= sideBarWidth;
+    self.view.frame = frame;
 }
 
 - (void)viewWillDisappear:(BOOL)animated

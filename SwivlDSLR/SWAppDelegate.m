@@ -9,16 +9,15 @@
 #import "SWAppDelegate.h"
 
 #import "SWSideBar.h"
-#import <SWRevealViewController/SWRevealViewController.h>
+#import <MVYSideMenu/MVYSideMenuController.h>
 
 #import <Swivl2Lib/SwivlCommonLib.h>
 
-@interface SWAppDelegate () <UISplitViewControllerDelegate>
+@interface SWAppDelegate ()
 {
     UIBarButtonItem *_splitVCBtn;
     
-    SWRevealViewController *_revealViewController;
-    UISplitViewController *_splitViewController;
+    MVYSideMenuController *_sideBarController;
 }
 @end
 
@@ -32,12 +31,12 @@
                                              selector:@selector(needHideSideBarNotification)
                                                  name:SW_NEED_HIDE_SIDE_BAR_NOTIFICATION
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(needShowSideBarNotification)
+                                                 name:SW_NEED_SHOW_SIDE_BAR_NOTIFICATION
+                                               object:nil];
     
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        [self configPadWindow];
-    } else {
-        [self configPhoneWindow];
-    }
+    [self configRootController];
     
     return YES;
 }
@@ -109,22 +108,18 @@
 
 #pragma mark - Config UI
 
-- (void)configPadWindow
+- (void)configRootController
 {
-    _splitViewController = (UISplitViewController *)self.window.rootViewController;
-    NSMutableArray *controllers = [_splitViewController.viewControllers mutableCopy];
+    NSInteger sideBarWidth;
+    UIStoryboard *storyboard;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        sideBarWidth = 320;
+        storyboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil];
+    } else {
+        sideBarWidth = 200;
+        storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    }
     
-    SWSideBar *sideBar = [[SWSideBar alloc] initWithStyle:UITableViewStylePlain];
-    sideBar.navigationController = controllers.lastObject;
-    
-    [controllers insertObject:sideBar atIndex:0];
-    _splitViewController.viewControllers = controllers;
-    _splitViewController.delegate = self;
-}
-
-- (void)configPhoneWindow
-{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     UIViewController *mainVC = [storyboard instantiateViewControllerWithIdentifier:@"SWMainViewController"];
     
     UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:mainVC];
@@ -133,35 +128,24 @@
     SWSideBar *sideBar = [[SWSideBar alloc] initWithStyle:UITableViewStylePlain];
     sideBar.navigationController = navVC;
     
-    _revealViewController = [[SWRevealViewController alloc] initWithRearViewController:sideBar frontViewController:navVC];
-    [navVC.view addGestureRecognizer:_revealViewController.panGestureRecognizer];
-    self.window.rootViewController = _revealViewController;
+    MVYSideMenuOptions *options = [[MVYSideMenuOptions alloc] init];
+    options.contentViewScale = 1.0f;
+    _sideBarController = [[MVYSideMenuController alloc] initWithMenuViewController:sideBar
+                                                             contentViewController:navVC options:options];
+    _sideBarController.menuFrame = CGRectMake(0, 0, sideBarWidth, -1);
+    self.window.rootViewController = _sideBarController;
 }
 
-#pragma mark - UISplitViewControllerDelegate
-
-- (void)splitViewController:(UISplitViewController *)svc
-     willHideViewController:(UIViewController *)aViewController
-          withBarButtonItem:(UIBarButtonItem *)barButtonItem
-       forPopoverController:(UIPopoverController *)pc
-{
-    _splitVCBtn = barButtonItem;
-}
-
-- (BOOL)splitViewController:(UISplitViewController *)svc
-   shouldHideViewController:(UIViewController *)vc
-              inOrientation:(UIInterfaceOrientation)orientation
-{
-    return YES;
-}
+#pragma mark - Show/Hide side bar
 
 - (void)needHideSideBarNotification
 {
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        [_splitVCBtn.target performSelector: _splitVCBtn.action withObject:_splitVCBtn afterDelay:0];
-    } else {
-        [_revealViewController revealToggleAnimated:YES];
-    }
+    [_sideBarController closeMenu];
+}
+
+- (void)needShowSideBarNotification
+{
+    [_sideBarController openMenu];
 }
 
 @end

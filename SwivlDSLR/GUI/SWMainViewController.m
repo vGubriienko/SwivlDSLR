@@ -13,7 +13,7 @@
 
 #import <Swivl2Lib/SwivlCommonLib.h>
 
-@interface SWMainViewController () <UISplitViewControllerDelegate>
+@interface SWMainViewController ()
 {
     __weak IBOutlet UIButton *_distanceBtn;
     __weak IBOutlet UIButton *_directionBtn;
@@ -65,7 +65,7 @@
 
 - (IBAction)onMenuBtnTapped
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_HIDE_SIDE_BAR_NOTIFICATION object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_SHOW_SIDE_BAR_NOTIFICATION object:nil];
 }
 
 #pragma mark - Storyboard navigation
