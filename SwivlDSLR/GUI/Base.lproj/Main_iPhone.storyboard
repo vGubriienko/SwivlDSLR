@@ -99,6 +99,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onCaptureBtnTapped" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cnw-lQ-TeU"/>
+                                        </connections>
                                     </button>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="base_off.png" highlightedImage="base_present.png" id="fL1-6N-TkC">
                                         <rect key="frame" x="37" y="231" width="28" height="25"/>

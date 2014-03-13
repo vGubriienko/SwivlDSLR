@@ -12,6 +12,7 @@
 #import "SWTimelapseSettings.h"
 
 #import <Swivl2Lib/SwivlCommonLib.h>
+#import <Swivl2Lib/SwivlEAAccessoryManager.h>
 
 @interface SWMainViewController ()
 {
@@ -66,6 +67,26 @@
 - (IBAction)onMenuBtnTapped
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_SHOW_SIDE_BAR_NOTIFICATION object:nil];
+}
+
+- (IBAction)onCaptureBtnTapped
+{
+    //    char bytes1[16] = {     0x10,   0,  0,      0,
+    //                            0x01,   0,  0x14,   0x91,
+    //                            0,      0,  0,      0,
+    //                            0x01,   0,  0,      0};
+    //
+    //    NSData *data1 = [NSData dataWithBytes:bytes1 length:16];
+    //    [[SwivlEAAccessoryManager sharedSwivlAccessoryWithDelegate:nil] sendDataPacketPTP:data1];
+    
+    char bytes[20] = {  0x14,   0,  0,      0,
+        0x01,   0,  0x28,   0x91,
+        0,      0,  0,      0,
+        0x03,   0,  0,      0,
+        0,      0,  0,      0};
+    
+    NSData *data = [NSData dataWithBytes:bytes length:20];
+    [[SwivlEAAccessoryManager sharedSwivlAccessoryWithDelegate:nil] sendDataPacketPTP:data];
 }
 
 #pragma mark - Storyboard navigation

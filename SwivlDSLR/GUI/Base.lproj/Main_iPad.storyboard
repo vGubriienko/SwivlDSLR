@@ -140,6 +140,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onCaptureBtnTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="9cg-8C-TUg"/>
+                                        </connections>
                                     </button>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="base_off.png" highlightedImage="base_present.png" translatesAutoresizingMaskIntoConstraints="NO" id="oWf-df-0gR">
                                         <rect key="frame" x="37" y="670" width="28" height="25"/>
