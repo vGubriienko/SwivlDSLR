@@ -11,6 +11,8 @@
 #import "TimelapsSegue.h"
 #import "SWTimelapseSettings.h"
 
+#import <Swivl2Lib/SwivlCommonLib.h>
+
 @interface SWMainViewController ()
 {
     __weak IBOutlet UIButton *_distanceBtn;
@@ -18,7 +20,12 @@
     __weak IBOutlet UIButton *_stepSizeBtn;
     __weak IBOutlet UIButton *_recordingTimeBtn;
     __weak IBOutlet UIButton *_timeBetweenPicturesBtn;
-	
+    __weak IBOutlet UIImageView *_batteryLevelImg;
+    __weak IBOutlet UIImageView *_swivlStatusImg;
+
+    SwivlCommonLib *_swivl;
+    NSTimer *_observeBatteryLevelTimer;
+    
     SWTimelapseSettings *_timelapseSettings;
     
     UIViewController <TimelapsSegueNavigation> *_currentSettingsController;
@@ -33,8 +40,11 @@
 
     [self configUI];
     
+    _swivl = [SwivlCommonLib sharedSwivlBaseForDelegate:nil];
+    
     _timelapseSettings = [[SWTimelapseSettings alloc] init];
-    [self startObserveTimelapseSettings];
+    
+    [self startObserving];
 }
 
 - (void)configUI
@@ -45,12 +55,17 @@
     _timeBetweenPicturesBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
 }
 
-#pragma IBActions
+#pragma mark - IBActions
 
 - (IBAction)onDirectionBtnTapped
 {
     _directionBtn.selected = !_directionBtn.selected;
     _timelapseSettings.clockwiseDirection = !_directionBtn.selected;
+}
+
+- (IBAction)onMenuBtnTapped
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_SHOW_SIDE_BAR_NOTIFICATION object:nil];
 }
 
 #pragma mark - Storyboard navigation
@@ -67,10 +82,19 @@
     }
 }
 
-#pragma Observing
+#pragma mark - Observing
 
-- (void)startObserveTimelapseSettings
+- (void)startObserving
 {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(accessoryStateChanged)
+                                                 name:AVSandboxSwivlDockAttached
+                                               object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(accessoryStateChanged)
+                                                 name:AVSandboxSwivlDockDetached
+                                               object:nil];
+    
     [_timelapseSettings addObserver:self
                          forKeyPath:@"distance"
                             options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
@@ -85,6 +109,12 @@
     [_timelapseSettings addObserver:self forKeyPath:@"recordingTime"
                             options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
                             context:nil];
+    
+    _observeBatteryLevelTimer = [NSTimer scheduledTimerWithTimeInterval:5
+                                                                 target:self
+                                                               selector:@selector(updateBatteryLevel)
+                                                               userInfo:nil
+                                                                repeats:YES];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -107,15 +137,42 @@
     }
 }
 
+- (void)accessoryStateChanged
+{
+    _swivlStatusImg.highlighted = _swivl.swivlConnected;
+}
+
+- (void)updateBatteryLevel
+{
+    CGFloat deviceBatteryLevel = [UIDevice currentDevice].batteryLevel;
+    if (deviceBatteryLevel > 0) {
+        deviceBatteryLevel *= 100;
+    }
+    
+    NSInteger markerBatteryLevel = _swivl.markerBatteryLevel;
+    NSInteger baseBatteryLevel = _swivl.baseBatteryLevel;
+    
+    BOOL lowBattery = NO;
+    lowBattery = lowBattery || (deviceBatteryLevel > -1 && deviceBatteryLevel < BATTERY_LOW_LEVEL);
+    lowBattery = lowBattery || (baseBatteryLevel > -1 && baseBatteryLevel < BATTERY_LOW_LEVEL);
+    lowBattery = lowBattery || (markerBatteryLevel > -1 && markerBatteryLevel < BATTERY_LOW_LEVEL);
+    
+    _batteryLevelImg.hidden = !lowBattery;
+}
+
 - (void)finishObserving
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
     [_timelapseSettings removeObserver:self forKeyPath:@"distance"];
     [_timelapseSettings removeObserver:self forKeyPath:@"stepSize"];
     [_timelapseSettings removeObserver:self forKeyPath:@"timeBetweenPictures"];
     [_timelapseSettings removeObserver:self forKeyPath:@"recordingTime"];
+    
+    [_observeBatteryLevelTimer invalidate];
 }
 
-#pragma -
+#pragma mark -
 
 - (void)dealloc
 {

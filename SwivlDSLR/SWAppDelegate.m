@@ -8,11 +8,36 @@
 
 #import "SWAppDelegate.h"
 
+#import "SWSideBar.h"
+#import "MVYSideMenuController.h"
+
+#import <Swivl2Lib/SwivlCommonLib.h>
+
+@interface SWAppDelegate ()
+{
+    UIBarButtonItem *_splitVCBtn;
+    
+    MVYSideMenuController *_sideBarController;
+}
+@end
+
 @implementation SWAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [SwivlCommonLib sharedSwivlBaseForDelegate:self];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(needHideSideBarNotification)
+                                                 name:SW_NEED_HIDE_SIDE_BAR_NOTIFICATION
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(needShowSideBarNotification)
+                                                 name:SW_NEED_SHOW_SIDE_BAR_NOTIFICATION
+                                               object:nil];
+    
+    [self configRootController];
+    
     return YES;
 }
 							
@@ -41,6 +66,86 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark -
+#pragma mark SwivlBaseDelegate
+
+- (void)swivlLibVersion:(NSDictionary *)dict
+{
+	NSLog(@"SwivlCommonLib has sent us version information:[%@]", dict);
+}
+
+- (BOOL)appIsRecording
+{
+	return NO;
+}
+
+- (void)setAppRecording:(BOOL)recording
+{
+
+}
+
+- (BOOL)appAtRecordingView
+{
+    return NO;
+}
+
+- (void) transitionAppToRecordingView
+{
+
+}
+
+- (void) appTagsRecording
+{
+
+}
+
+- (void) markerButtonEvents: (unsigned char) buttons
+{
+
+}
+
+#pragma mark - Config UI
+
+- (void)configRootController
+{
+    NSInteger sideBarWidth;
+    UIStoryboard *storyboard;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        sideBarWidth = 320;
+        storyboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil];
+    } else {
+        sideBarWidth = 200;
+        storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    }
+    
+    UIViewController *mainVC = [storyboard instantiateViewControllerWithIdentifier:@"SWMainViewController"];
+    
+    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:mainVC];
+    [navVC setNavigationBarHidden:YES];
+    
+    SWSideBar *sideBar = [[SWSideBar alloc] initWithStyle:UITableViewStylePlain];
+    sideBar.navigationController = navVC;
+    
+    MVYSideMenuOptions *options = [[MVYSideMenuOptions alloc] init];
+    options.contentViewScale = 1.0f;
+    _sideBarController = [[MVYSideMenuController alloc] initWithMenuViewController:sideBar
+                                                             contentViewController:navVC options:options];
+    _sideBarController.menuFrame = CGRectMake(0, 0, sideBarWidth, -1);
+    self.window.rootViewController = _sideBarController;
+}
+
+#pragma mark - Show/Hide side bar
+
+- (void)needHideSideBarNotification
+{
+    [_sideBarController closeMenu];
+}
+
+- (void)needShowSideBarNotification
+{
+    [_sideBarController openMenu];
 }
 
 @end

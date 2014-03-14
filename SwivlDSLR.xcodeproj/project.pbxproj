@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2522F7C318D0B25D00915E25 /* reveal-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 2522F7C118D0B25D00915E25 /* reveal-white.png */; };
+		2522F7C418D0B25D00915E25 /* reveal-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2522F7C218D0B25D00915E25 /* reveal-white@2x.png */; };
+		2522F7C918D0B79000915E25 /* SWSideBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2522F7C818D0B79000915E25 /* SWSideBar.m */; };
+		2522F7D018D0C23C00915E25 /* SWSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2522F7CE18D0C23C00915E25 /* SWSettingsController.m */; };
+		2522F7D118D0C23C00915E25 /* SWSettingsController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2522F7CF18D0C23C00915E25 /* SWSettingsController.storyboard */; };
+		2522F7D818D0C69800915E25 /* battery-0.png in Resources */ = {isa = PBXBuildFile; fileRef = 2522F7D418D0C69800915E25 /* battery-0.png */; };
+		2522F7D918D0C69800915E25 /* battery-0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2522F7D518D0C69800915E25 /* battery-0@2x.png */; };
+		2522F7DA18D0C69800915E25 /* battery-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 2522F7D618D0C69800915E25 /* battery-100.png */; };
+		2522F7DB18D0C69800915E25 /* battery-100@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2522F7D718D0C69800915E25 /* battery-100@2x.png */; };
+		2522F7DE18D0CAF000915E25 /* AVSandboxNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 2522F7DD18D0CAF000915E25 /* AVSandboxNotifications.m */; };
 		259524F518C610DF006EEAFA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259524F418C610DF006EEAFA /* Foundation.framework */; };
 		259524F718C610DF006EEAFA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259524F618C610DF006EEAFA /* CoreGraphics.framework */; };
 		259524F918C610DF006EEAFA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259524F818C610DF006EEAFA /* UIKit.framework */; };
@@ -39,6 +49,10 @@
 		25A3E68518C93E1C002AFBB9 /* SWTimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A3E68318C93E1C002AFBB9 /* SWTimeController.m */; };
 		25ADC23D18C724A400CEB6A7 /* timelapse_recording_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 25ADC23C18C724A400CEB6A7 /* timelapse_recording_time.png */; };
 		25ADC24118C72D4A00CEB6A7 /* SWTimelapseSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 25ADC24018C72D4A00CEB6A7 /* SWTimelapseSettings.m */; };
+		25B962C418D19CFD002E4FD1 /* base_present.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B962C218D19CFD002E4FD1 /* base_present.png */; };
+		25B962C518D19CFD002E4FD1 /* base_present@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B962C318D19CFD002E4FD1 /* base_present@2x.png */; };
+		25B962D218D21ABC002E4FD1 /* MVYSideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B962CF18D21ABC002E4FD1 /* MVYSideMenuController.m */; };
+		25B962D318D21ABC002E4FD1 /* MVYSideMenuOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B962D118D21ABC002E4FD1 /* MVYSideMenuOptions.m */; };
 		64612A26A3EA462A895D8788 /* libPods-SwivlDSLR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15D8180D3830431B85CA07BC /* libPods-SwivlDSLR.a */; };
 		858A4DFB18C8AA700036A0CF /* DKCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A4DF618C8AA700036A0CF /* DKCircularSlider.m */; };
 		858A4DFC18C8AA700036A0CF /* DKRepeatableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A4DF818C8AA700036A0CF /* DKRepeatableButton.m */; };
@@ -60,6 +74,20 @@
 
 /* Begin PBXFileReference section */
 		15D8180D3830431B85CA07BC /* libPods-SwivlDSLR.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwivlDSLR.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2522F7C018D0AD8E00915E25 /* SWConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWConstants.h; sourceTree = "<group>"; };
+		2522F7C118D0B25D00915E25 /* reveal-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-white.png"; sourceTree = "<group>"; };
+		2522F7C218D0B25D00915E25 /* reveal-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-white@2x.png"; sourceTree = "<group>"; };
+		2522F7C718D0B79000915E25 /* SWSideBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWSideBar.h; sourceTree = "<group>"; };
+		2522F7C818D0B79000915E25 /* SWSideBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWSideBar.m; sourceTree = "<group>"; };
+		2522F7CD18D0C23C00915E25 /* SWSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWSettingsController.h; sourceTree = "<group>"; };
+		2522F7CE18D0C23C00915E25 /* SWSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWSettingsController.m; sourceTree = "<group>"; };
+		2522F7CF18D0C23C00915E25 /* SWSettingsController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SWSettingsController.storyboard; sourceTree = "<group>"; };
+		2522F7D418D0C69800915E25 /* battery-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "battery-0.png"; sourceTree = "<group>"; };
+		2522F7D518D0C69800915E25 /* battery-0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "battery-0@2x.png"; sourceTree = "<group>"; };
+		2522F7D618D0C69800915E25 /* battery-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "battery-100.png"; sourceTree = "<group>"; };
+		2522F7D718D0C69800915E25 /* battery-100@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "battery-100@2x.png"; sourceTree = "<group>"; };
+		2522F7DC18D0CAF000915E25 /* AVSandboxNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVSandboxNotifications.h; sourceTree = "<group>"; };
+		2522F7DD18D0CAF000915E25 /* AVSandboxNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVSandboxNotifications.m; sourceTree = "<group>"; };
 		259524F118C610DF006EEAFA /* SwivlDSLR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwivlDSLR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		259524F418C610DF006EEAFA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		259524F618C610DF006EEAFA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -100,6 +128,12 @@
 		25ADC23C18C724A400CEB6A7 /* timelapse_recording_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_recording_time.png; sourceTree = "<group>"; };
 		25ADC23F18C72D4A00CEB6A7 /* SWTimelapseSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTimelapseSettings.h; sourceTree = "<group>"; };
 		25ADC24018C72D4A00CEB6A7 /* SWTimelapseSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTimelapseSettings.m; sourceTree = "<group>"; };
+		25B962C218D19CFD002E4FD1 /* base_present.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base_present.png; sourceTree = "<group>"; };
+		25B962C318D19CFD002E4FD1 /* base_present@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "base_present@2x.png"; sourceTree = "<group>"; };
+		25B962CE18D21ABC002E4FD1 /* MVYSideMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVYSideMenuController.h; sourceTree = "<group>"; };
+		25B962CF18D21ABC002E4FD1 /* MVYSideMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVYSideMenuController.m; sourceTree = "<group>"; };
+		25B962D018D21ABC002E4FD1 /* MVYSideMenuOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVYSideMenuOptions.h; sourceTree = "<group>"; };
+		25B962D118D21ABC002E4FD1 /* MVYSideMenuOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVYSideMenuOptions.m; sourceTree = "<group>"; };
 		764732E055B646CC958D7B91 /* Pods-SwivlDSLRTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwivlDSLRTests.xcconfig"; path = "Pods/Pods-SwivlDSLRTests.xcconfig"; sourceTree = "<group>"; };
 		7A4BCFD640834A729BC853D0 /* libPods-SwivlDSLRTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwivlDSLRTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		858A4DF518C8AA700036A0CF /* DKCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKCircularSlider.h; sourceTree = "<group>"; };
@@ -139,6 +173,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2522F7C618D0B79000915E25 /* Side bar */ = {
+			isa = PBXGroup;
+			children = (
+				2522F7C718D0B79000915E25 /* SWSideBar.h */,
+				2522F7C818D0B79000915E25 /* SWSideBar.m */,
+			);
+			name = "Side bar";
+			path = "SwivlDSLR/GUI/Side bar";
+			sourceTree = SOURCE_ROOT;
+		};
+		2522F7CC18D0C23C00915E25 /* Swivl Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2522F7CD18D0C23C00915E25 /* SWSettingsController.h */,
+				2522F7CE18D0C23C00915E25 /* SWSettingsController.m */,
+				2522F7CF18D0C23C00915E25 /* SWSettingsController.storyboard */,
+			);
+			path = "Swivl Settings";
+			sourceTree = "<group>";
+		};
+		2522F7D218D0C69800915E25 /* Swivl */ = {
+			isa = PBXGroup;
+			children = (
+				2522F7D318D0C69800915E25 /* Battery */,
+			);
+			path = Swivl;
+			sourceTree = "<group>";
+		};
+		2522F7D318D0C69800915E25 /* Battery */ = {
+			isa = PBXGroup;
+			children = (
+				2522F7D418D0C69800915E25 /* battery-0.png */,
+				2522F7D518D0C69800915E25 /* battery-0@2x.png */,
+				2522F7D618D0C69800915E25 /* battery-100.png */,
+				2522F7D718D0C69800915E25 /* battery-100@2x.png */,
+			);
+			path = Battery;
+			sourceTree = "<group>";
+		};
 		259524E818C610DE006EEAFA = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +250,8 @@
 		259524FA18C610DF006EEAFA /* SwivlDSLR */ = {
 			isa = PBXGroup;
 			children = (
+				2522F7DC18D0CAF000915E25 /* AVSandboxNotifications.h */,
+				2522F7DD18D0CAF000915E25 /* AVSandboxNotifications.m */,
 				2595250318C610DF006EEAFA /* SWAppDelegate.h */,
 				2595250418C610DF006EEAFA /* SWAppDelegate.m */,
 				2595252C18C6141C006EEAFA /* CORE */,
@@ -195,6 +270,7 @@
 				259524FD18C610DF006EEAFA /* InfoPlist.strings */,
 				2595250018C610DF006EEAFA /* main.m */,
 				2595250218C610DF006EEAFA /* SwivlDSLR-Prefix.pch */,
+				2522F7C018D0AD8E00915E25 /* SWConstants.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -235,6 +311,8 @@
 				2595253218C6141C006EEAFA /* SWMainViewController.h */,
 				2595253318C6141C006EEAFA /* SWMainViewController.m */,
 				25ADC28618C7796800CEB6A7 /* Timelapse settings */,
+				2522F7C618D0B79000915E25 /* Side bar */,
+				2522F7CC18D0C23C00915E25 /* Swivl Settings */,
 			);
 			path = GUI;
 			sourceTree = "<group>";
@@ -250,6 +328,7 @@
 		2595253818C61BA2006EEAFA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2522F7D218D0C69800915E25 /* Swivl */,
 				2595253918C61BA2006EEAFA /* Main Screen */,
 			);
 			path = Images;
@@ -260,6 +339,10 @@
 			children = (
 				2595254A18C6218F006EEAFA /* Time-lapse */,
 				2595253A18C61BA2006EEAFA /* base_off.png */,
+				25B962C218D19CFD002E4FD1 /* base_present.png */,
+				25B962C318D19CFD002E4FD1 /* base_present@2x.png */,
+				2522F7C118D0B25D00915E25 /* reveal-white.png */,
+				2522F7C218D0B25D00915E25 /* reveal-white@2x.png */,
 				2595253B18C61BA2006EEAFA /* base_off@2x.png */,
 				2595253C18C61BA2006EEAFA /* batery_off.png */,
 				2595253D18C61BA2006EEAFA /* batery_off@2x.png */,
@@ -304,9 +387,21 @@
 			path = "Timelapse settings";
 			sourceTree = "<group>";
 		};
+		25B962CD18D21ABC002E4FD1 /* MVYSideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				25B962CE18D21ABC002E4FD1 /* MVYSideMenuController.h */,
+				25B962CF18D21ABC002E4FD1 /* MVYSideMenuController.m */,
+				25B962D018D21ABC002E4FD1 /* MVYSideMenuOptions.h */,
+				25B962D118D21ABC002E4FD1 /* MVYSideMenuOptions.m */,
+			);
+			path = MVYSideMenu;
+			sourceTree = "<group>";
+		};
 		858A4DF318C8AA700036A0CF /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				25B962CD18D21ABC002E4FD1 /* MVYSideMenu */,
 				858A4DF418C8AA700036A0CF /* DKCicularSlider */,
 			);
 			path = Vendors;
@@ -410,19 +505,28 @@
 				858A4DFD18C8AA700036A0CF /* down.png in Resources */,
 				2595255218C62190006EEAFA /* timelapse_direction_1.png in Resources */,
 				2595254618C61BA2006EEAFA /* capture_normal.png in Resources */,
+				2522F7C318D0B25D00915E25 /* reveal-white.png in Resources */,
 				2595254718C61BA2006EEAFA /* capture_normal@2x.png in Resources */,
+				25B962C418D19CFD002E4FD1 /* base_present.png in Resources */,
 				2595253518C6141C006EEAFA /* Main_iPhone.storyboard in Resources */,
+				2522F7DB18D0C69800915E25 /* battery-100@2x.png in Resources */,
 				2595253418C6141C006EEAFA /* Main_iPad.storyboard in Resources */,
+				2522F7D818D0C69800915E25 /* battery-0.png in Resources */,
 				2595255018C62190006EEAFA /* timelapse_distance.png in Resources */,
 				2595254218C61BA2006EEAFA /* base_off.png in Resources */,
 				2595255418C62190006EEAFA /* timelapse_time_between_pictures.png in Resources */,
 				2595255118C62190006EEAFA /* timelapse_step.png in Resources */,
 				2595254318C61BA2006EEAFA /* base_off@2x.png in Resources */,
 				25ADC23D18C724A400CEB6A7 /* timelapse_recording_time.png in Resources */,
+				2522F7D118D0C23C00915E25 /* SWSettingsController.storyboard in Resources */,
 				2595254818C61BA2006EEAFA /* capture_pressed.png in Resources */,
+				2522F7C418D0B25D00915E25 /* reveal-white@2x.png in Resources */,
 				2595254918C61BA2006EEAFA /* capture_pressed@2x.png in Resources */,
+				25B962C518D19CFD002E4FD1 /* base_present@2x.png in Resources */,
 				2595251018C610DF006EEAFA /* Images.xcassets in Resources */,
 				858A4DFE18C8AA700036A0CF /* up.png in Resources */,
+				2522F7DA18D0C69800915E25 /* battery-100.png in Resources */,
+				2522F7D918D0C69800915E25 /* battery-0@2x.png in Resources */,
 				259524FF18C610DF006EEAFA /* InfoPlist.strings in Resources */,
 				2595254518C61BA2006EEAFA /* batery_off@2x.png in Resources */,
 				2595255618C6229D006EEAFA /* timelapse_direction_2.png in Resources */,
@@ -507,15 +611,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2522F7C918D0B79000915E25 /* SWSideBar.m in Sources */,
+				2522F7D018D0C23C00915E25 /* SWSettingsController.m in Sources */,
 				858A4DFB18C8AA700036A0CF /* DKCircularSlider.m in Sources */,
 				2595253618C6141C006EEAFA /* SWMainViewController.m in Sources */,
 				25A3E68518C93E1C002AFBB9 /* SWTimeController.m in Sources */,
 				2595250518C610DF006EEAFA /* SWAppDelegate.m in Sources */,
 				85D97BA118C76DD2002C2665 /* TimelapsSegue.m in Sources */,
+				25B962D318D21ABC002E4FD1 /* MVYSideMenuOptions.m in Sources */,
 				2595250118C610DF006EEAFA /* main.m in Sources */,
 				25ADC24118C72D4A00CEB6A7 /* SWTimelapseSettings.m in Sources */,
 				858A4DFC18C8AA700036A0CF /* DKRepeatableButton.m in Sources */,
 				25A3E68418C93E1C002AFBB9 /* SWDegreesController.m in Sources */,
+				2522F7DE18D0CAF000915E25 /* AVSandboxNotifications.m in Sources */,
+				25B962D218D21ABC002E4FD1 /* MVYSideMenuController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
