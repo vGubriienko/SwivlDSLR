@@ -91,7 +91,7 @@
     }
 }
 
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+- (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     NSNumber *value;
     if (pickerView == _recordingTimePicker) {
@@ -100,7 +100,9 @@
     } else {
         value = _availableTimesBtwnPictures[row];
     }
-    return value.stringValue;
+    
+    NSString *title = value.stringValue;
+    return [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component

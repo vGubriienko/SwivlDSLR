@@ -42,10 +42,12 @@
 - (void)initDistanceSlider
 {
     _distanceSlider = [[DKCircularSlider alloc] initWithFrame:_distanceContainer.bounds
-                                                                      usingMax:360
-                                                                      usingMin:1
-                                                              withContentImage:nil
-                                                                     withTitle:@"degrees" withTarget:self usingSelector:@selector(distanceSliderDidChange:)];
+                                                     usingMax:360
+                                                     usingMin:1
+                                             withContentImage:nil
+                                                    withTitle:nil
+                                                   withTarget:self
+                                                usingSelector:@selector(distanceSliderDidChange:)];
     [_distanceContainer addSubview:_distanceSlider];
     [_distanceSlider movehandleToValue:self.timelapseSettings.distance];
 }
@@ -61,7 +63,7 @@
     _stepSizeSlider = [[DKCircularSlider alloc] initWithFrame:_stepSizeContainer.bounds
                                                  withElements:elements
                                              withContentImage:nil
-                                                    withTitle:@"degress"
+                                                    withTitle:nil
                                                    withTarget:self
                                                 usingSelector:@selector(stepSizeSliderDidChange:)];
     [_stepSizeContainer addSubview:_stepSizeSlider];
