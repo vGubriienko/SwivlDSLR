@@ -8,15 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+#define SW_TIMELAPSE_MIN_DISTANCE 1
+#define SW_TIMELAPSE_MAX_DISTANCE 360
+
 @interface SWTimelapseSettings : NSObject
 
 @property (nonatomic, assign) NSInteger distance;
-@property (nonatomic, assign) NSInteger stepSize;
+@property (nonatomic, assign) CGFloat stepSize;
 @property (nonatomic, assign) CGFloat timeBetweenPictures;
 @property (nonatomic, assign) BOOL clockwiseDirection;
 @property (nonatomic, strong) NSDateComponents *recordingTime;
 
-//+ (NSArray *)availableStepSizes;
++ (NSArray *)availableStepSizes;
 + (NSArray *)availableTimesBtwnPictures;
 + (NSDictionary *)availableRecordingTime;
 

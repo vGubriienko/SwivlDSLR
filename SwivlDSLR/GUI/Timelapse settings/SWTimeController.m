@@ -46,17 +46,17 @@
 
 - (void)setupRecordingTimePicker:(BOOL)animated
 {
-    NSInteger index = [_availableRecordingTime[@"hours"] indexOfObject:[NSString stringWithFormat:@"%li", (long)_timelapseSettings.recordingTime.hour]];
+    NSInteger index = [_availableRecordingTime[@"hours"] indexOfObject:[NSNumber numberWithInteger:_timelapseSettings.recordingTime.hour]];
     if (index != NSNotFound) {
         [_recordingTimePicker selectRow:index inComponent:0 animated:animated];
     }
     
-    index = [_availableRecordingTime[@"minutes"] indexOfObject:[NSString stringWithFormat:@"%li", (long)_timelapseSettings.recordingTime.minute]];
+    index = [_availableRecordingTime[@"minutes"] indexOfObject:[NSNumber numberWithInteger:_timelapseSettings.recordingTime.minute]];
     if (index != NSNotFound) {
         [_recordingTimePicker selectRow:index inComponent:1 animated:animated];
     }
     
-    index = [_availableRecordingTime[@"seconds"] indexOfObject:[NSString stringWithFormat:@"%li", (long)_timelapseSettings.recordingTime.second]];
+    index = [_availableRecordingTime[@"seconds"] indexOfObject:[NSNumber numberWithInteger:_timelapseSettings.recordingTime.second]];
     if (index != NSNotFound) {
         [_recordingTimePicker selectRow:index inComponent:2 animated:animated];
     }
@@ -64,7 +64,7 @@
 
 - (void)setupTimeBtwnPicturesPicker:(BOOL)animated
 {
-    NSInteger index = [_availableTimesBtwnPictures indexOfObject:[NSString stringWithFormat:@"%.1f", _timelapseSettings.timeBetweenPictures]];
+    NSInteger index = [_availableTimesBtwnPictures indexOfObject:[NSNumber numberWithFloat: _timelapseSettings.timeBetweenPictures]];
     if (index != NSNotFound) {
         [_timeBtwnPicturesPicker selectRow:index inComponent:0 animated:animated];
     }
@@ -93,12 +93,14 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
+    NSNumber *value;
     if (pickerView == _recordingTimePicker) {
         NSString *componentKey = _recordingTimeComponents[component];
-        return [_availableRecordingTime[componentKey] objectAtIndex:row];
+        value = [_availableRecordingTime[componentKey] objectAtIndex:row];
     } else {
-        return _availableTimesBtwnPictures[row];
+        value = _availableTimesBtwnPictures[row];
     }
+    return value.stringValue;
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component

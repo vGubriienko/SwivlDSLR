@@ -455,10 +455,7 @@ withRepresantationMode:(DKCircularSliderRepresantationMode)represantationMode
     CGContextDrawPath(ctx, kCGPathStroke);
     
     
-    [self drawGuide:CGPointMake(self.frame.size.width/2,
-                                self.frame.size.height/2)
-          onContext:ctx];
-    
+    //[self drawGuide:CGPointMake(self.frame.size.width/2, self.frame.size.height/2) onContext:ctx];
 }
 
 - (void)drawGuide:(CGPoint)point onContext:(CGContextRef) context

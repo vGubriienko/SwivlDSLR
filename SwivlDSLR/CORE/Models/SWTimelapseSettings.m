@@ -8,47 +8,43 @@
 
 #import "SWTimelapseSettings.h"
 
-#define MAX_DISTANCE 360
 @implementation SWTimelapseSettings
 
 - (id)init
 {
     self = [super init];
     if (self) {
-        _distance = 45;
-        _stepSize = 5;
-        _clockwiseDirection = YES;
-        _timeBetweenPictures = 4.5;
-        _recordingTime = [[NSDateComponents alloc] init];
-        _recordingTime.hour = 1;
-        _recordingTime.minute = 30;
-        _recordingTime.second = 45;
+        self.distance = 180;
+        self.stepSize = 0.99;
+        self.clockwiseDirection = YES;
+        self.recordingTime = [[NSDateComponents alloc] init];
+        self.timeBetweenPictures = 2;
     }
     return self;
 }
 
 #pragma mark - Public methods
 
-//+ (NSArray *)availableStepSizes
-//{
-//    static NSArray *array = nil;
-//    if (!array) {
-//        NSMutableArray *tempArray = [NSMutableArray arrayWithCapacity:20];
-//        for (NSInteger i = 1; i <= 20; i++) {
-//            [tempArray addObject:[NSString stringWithFormat:@"%i", i]];
-//        }
-//        array = [tempArray copy];
-//    }
-//    return array;
-//}
++ (NSArray *)availableStepSizes
+{
+    static NSArray *array = nil;
+    if (!array) {
+        NSMutableArray *tempArray = [NSMutableArray arrayWithCapacity:20];
+        for (double i = 0.11; i <= 11.0; i+= 0.11) {
+            [tempArray addObject:[NSNumber numberWithFloat:i]];
+        }
+        array = [tempArray copy];
+    }
+    return array;
+}
 
 + (NSArray *)availableTimesBtwnPictures
 {
     static NSArray *array = nil;
     if (!array) {
         NSMutableArray *tempArray = [NSMutableArray arrayWithCapacity:20];
-        for (NSInteger i = 1; i <= 20; i++) {
-            [tempArray addObject:[NSString stringWithFormat:@"%.1f", (float)i / 2]];
+        for (double i = 1.0; i <= 20.0; i++) {
+            [tempArray addObject:[NSNumber numberWithFloat:i / 2]];
         }
         array = [tempArray copy];
     }
@@ -62,11 +58,11 @@
         
         NSMutableArray *hours = [NSMutableArray arrayWithCapacity:5];
         for (NSInteger i = 0; i <= 3; i++) {
-            [hours addObject:[NSString stringWithFormat:@"%li", (long)i]];
+            [hours addObject:[NSNumber numberWithInteger:i]];
         }
         NSMutableArray *minutesOrSeconds = [NSMutableArray arrayWithCapacity:60];
         for (NSInteger i = 0; i < 60; i++) {
-            [minutesOrSeconds addObject:[NSString stringWithFormat:@"%li", (long)i]];
+            [minutesOrSeconds addObject:[NSNumber numberWithInteger:i]];
         }
         
         dict = @{@"hours" : hours, @"minutes" : minutesOrSeconds, @"seconds" : minutesOrSeconds};
@@ -78,27 +74,34 @@
 
 - (void)setDistance:(NSInteger)distance
 {
-    if (distance >= 1 && distance <= MAX_DISTANCE) {
+    if (distance >= SW_TIMELAPSE_MIN_DISTANCE && distance <= SW_TIMELAPSE_MAX_DISTANCE) {
         _distance = distance;
+        
+        if (_distance < self.stepSize) {
+            self.stepSize = [self maxStepSizeForDistance:distance];
+        }
+        
+        //recalculate time between pictures
+        self.recordingTime = self.recordingTime;
     }
-    if (_distance < self.stepSize) {
-        self.stepSize = _distance;
-    }
-    //recalculate time between pictures
-    self.recordingTime = self.recordingTime;
 }
 
-- (void)setStepSize:(NSInteger)stepSize
+- (void)setStepSize:(CGFloat)stepSize
 {
-    if (stepSize >= 1 && stepSize <= self.distance) {
-        _stepSize = stepSize;
-    } else if (stepSize > self.distance && stepSize <= MAX_DISTANCE) {
-        self.distance = stepSize;
-        _stepSize = stepSize;
-    }
+    NSArray *availableStepSizes = [SWTimelapseSettings availableStepSizes];
+    NSUInteger stepSizeIndex = [availableStepSizes indexOfObject:[NSNumber numberWithFloat:stepSize]];
+    BOOL isStepSizeAvailable = stepSizeIndex != NSNotFound;
     
-    //recalculate time between pictures
-    self.recordingTime = self.recordingTime;
+    if (isStepSizeAvailable) {
+        _stepSize = stepSize;
+        
+        if (stepSize > self.distance && stepSize <= SW_TIMELAPSE_MAX_DISTANCE) {
+            self.distance = stepSize;
+        }
+        
+        //recalculate time between pictures
+        self.recordingTime = self.recordingTime;
+    }
 }
 
 - (void)setTimeBetweenPictures:(CGFloat)timeBetweenPictures
@@ -122,6 +125,22 @@
     _timeBetweenPictures = (recordingTime.second + recordingTime.minute * 60 + recordingTime.hour * 3600) / stepCount;
 }
 
+#pragma mark - Private methods
+
+- (CGFloat)maxStepSizeForDistance:(NSInteger)distance
+{
+    __block CGFloat stepSize;
+    
+    NSArray *availableStepSizes = [SWTimelapseSettings availableStepSizes].reverseObjectEnumerator.allObjects;
+    [availableStepSizes enumerateObjectsUsingBlock:^(NSNumber *obj, NSUInteger idx, BOOL *stop) {
+        stepSize = obj.floatValue;
+        if (stepSize < distance) {
+            (*stop) = YES;
+        }
+    }];
+    return stepSize;
+}
+
 #pragma mark - Dependencies
 
 + (NSSet *)keyPathsForValuesAffectingTimeBetweenPictures
@@ -133,6 +152,5 @@
 {
     return [NSSet setWithObject:@"timeBetweenPictures"];
 }
-
 
 @end
