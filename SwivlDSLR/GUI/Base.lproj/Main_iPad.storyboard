@@ -227,9 +227,10 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJN-1d-nsv" userLabel="Time between pictures">
                                         <rect key="frame" x="0.0" y="614" width="60" height="154"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <inset key="titleEdgeInsets" minX="-60" minY="65" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="-25" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="15" image="timelapse_time_between_pictures.png">
+                                        <state key="normal" title="00:00:01" image="timelapse_time_between_pictures.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>

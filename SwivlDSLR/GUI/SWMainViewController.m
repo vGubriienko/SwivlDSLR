@@ -121,19 +121,17 @@
 {
     if (object == _timelapseSettings) {
         
-        [_distanceBtn setTitle:[NSString stringWithFormat:@"%li", (long)_timelapseSettings.distance]
-                      forState:UIControlStateNormal];
+        [_distanceBtn setTitle:[NSString stringWithFormat:@"%li", (long)_timelapseSettings.distance] forState:UIControlStateNormal];
         
-        [_stepSizeBtn setTitle:[NSString stringWithFormat:@"%.2f", _timelapseSettings.stepSize]
-                      forState:UIControlStateNormal];
+        [_stepSizeBtn setTitle:[NSString stringWithFormat:@"%.2f", _timelapseSettings.stepSize] forState:UIControlStateNormal];
         
-        [_timeBetweenPicturesBtn setTitle:[NSString stringWithFormat:@"%.1f", _timelapseSettings.timeBetweenPictures]
-                                 forState:UIControlStateNormal];
+        SWTimeComponents timeComps = [_timelapseSettings timeBetweenPicturesComponents];
+        NSString *strTime = [NSString stringWithFormat:@"%.2li:%.2li:%.2li", (long)timeComps.hours, (long)timeComps.minutes, (long)timeComps.seconds];
+        [_timeBetweenPicturesBtn setTitle:strTime forState:UIControlStateNormal];
         
-        NSDateComponents *dateComps = _timelapseSettings.recordingTime;
-        NSString *strTime = [NSString stringWithFormat:@"%.2li:%.2li:%.2li", (long)dateComps.hour, (long)dateComps.minute, (long)dateComps.second];
-        [_recordingTimeBtn setTitle:strTime
-                           forState:UIControlStateNormal];
+        timeComps = [_timelapseSettings recordingTimeComponents];
+        strTime = [NSString stringWithFormat:@"%.2li:%.2li:%.2li", (long)timeComps.hours, (long)timeComps.minutes, (long)timeComps.seconds];
+        [_recordingTimeBtn setTitle:strTime forState:UIControlStateNormal];
     }
 }
 

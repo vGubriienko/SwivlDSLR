@@ -17,8 +17,7 @@
         self.distance = 180;
         self.stepSize = 0.99;
         self.clockwiseDirection = YES;
-        self.recordingTime = [[NSDateComponents alloc] init];
-        self.timeBetweenPictures = 2;
+        self.recordingTime = 100;
     }
     return self;
 }
@@ -38,26 +37,13 @@
     return array;
 }
 
-+ (NSArray *)availableTimesBtwnPictures
-{
-    static NSArray *array = nil;
-    if (!array) {
-        NSMutableArray *tempArray = [NSMutableArray arrayWithCapacity:20];
-        for (double i = 1.0; i <= 20.0; i++) {
-            [tempArray addObject:[NSNumber numberWithFloat:i / 2]];
-        }
-        array = [tempArray copy];
-    }
-    return array;
-}
-
-+ (NSDictionary *)availableRecordingTime
++ (NSDictionary *)timeRanges
 {
     static NSDictionary *dict = nil;
     if (!dict) {
         
-        NSMutableArray *hours = [NSMutableArray arrayWithCapacity:5];
-        for (NSInteger i = 0; i <= 3; i++) {
+        NSMutableArray *hours = [NSMutableArray arrayWithCapacity:24];
+        for (NSInteger i = 0; i < 24; i++) {
             [hours addObject:[NSNumber numberWithInteger:i]];
         }
         NSMutableArray *minutesOrSeconds = [NSMutableArray arrayWithCapacity:60];
@@ -70,7 +56,37 @@
     return dict;
 }
 
-#pragma mark - Setters
+- (SWTimeComponents)recordingTimeComponents
+{
+    SWTimeComponents timeComps;
+    timeComps.hours = self.recordingTime / 3600;
+    timeComps.minutes = (self.recordingTime - timeComps.hours * 3600) / 60;
+    timeComps.seconds = self.recordingTime - timeComps.hours * 3600 - timeComps.minutes * 60;
+    return timeComps;
+}
+
+- (SWTimeComponents)timeBetweenPicturesComponents
+{
+    SWTimeComponents timeComps;
+    timeComps.hours = self.timeBetweenPictures / 3600;
+    timeComps.minutes = (self.timeBetweenPictures - timeComps.hours * 3600) / 60;
+    timeComps.seconds = self.timeBetweenPictures - timeComps.hours * 3600 - timeComps.minutes * 60;
+    return timeComps;
+}
+
+- (void)setRecordingTimeWithComponents:(SWTimeComponents)recordingTimeComponents
+{
+    CGFloat seconds = recordingTimeComponents.hours * 3600 + recordingTimeComponents.minutes * 60 + recordingTimeComponents.seconds;
+    self.recordingTime = seconds;
+}
+
+- (void)setTimeBetweenPicturesWithComponents:(SWTimeComponents)timeBtwnPicturesComponents
+{
+    CGFloat seconds = timeBtwnPicturesComponents.hours * 3600 + timeBtwnPicturesComponents.minutes * 60 + timeBtwnPicturesComponents.seconds;
+    self.timeBetweenPictures = seconds;
+}
+
+#pragma mark - Properties
 
 - (void)setDistance:(NSInteger)distance
 {
@@ -80,9 +96,7 @@
         if (_distance < self.stepSize) {
             self.stepSize = [self maxStepSizeForDistance:distance];
         }
-        
-        //recalculate time between pictures
-        self.recordingTime = self.recordingTime;
+        [self recalculateTimeBtwnPictures];
     }
 }
 
@@ -98,31 +112,25 @@
         if (stepSize > self.distance && stepSize <= SW_TIMELAPSE_MAX_DISTANCE) {
             self.distance = stepSize;
         }
-        
-        //recalculate time between pictures
-        self.recordingTime = self.recordingTime;
+        [self recalculateTimeBtwnPictures];
     }
 }
 
 - (void)setTimeBetweenPictures:(CGFloat)timeBetweenPictures
 {
     _timeBetweenPictures = timeBetweenPictures;
-    
-    //recalculate recording time
-    CGFloat stepCount = self.distance / self.stepSize;
-    NSInteger recordingTimeSeconds = timeBetweenPictures * stepCount;
-    _recordingTime.hour = recordingTimeSeconds / 3600;
-    _recordingTime.minute = (recordingTimeSeconds % 3600) / 60;
-    _recordingTime.second = recordingTimeSeconds % 60;
+    [self recalculateRecordingTime];
 }
 
-- (void)setRecordingTime:(NSDateComponents *)recordingTime
+- (void)setRecordingTime:(CGFloat)recordingTime
 {
     _recordingTime = recordingTime;
-    
-    //recalculate time between pictures
-    CGFloat stepCount = self.distance / self.stepSize;
-    _timeBetweenPictures = (recordingTime.second + recordingTime.minute * 60 + recordingTime.hour * 3600) / stepCount;
+    [self recalculateTimeBtwnPictures];
+}
+
+- (NSInteger)stepCount
+{
+    return (NSInteger) self.distance / self.stepSize;
 }
 
 #pragma mark - Private methods
@@ -141,6 +149,16 @@
     return stepSize;
 }
 
+- (void)recalculateTimeBtwnPictures
+{
+    _timeBetweenPictures = _recordingTime / self.stepCount;
+}
+
+- (void)recalculateRecordingTime
+{
+    _recordingTime = _timeBetweenPictures * self.stepCount;
+}
+
 #pragma mark - Dependencies
 
 + (NSSet *)keyPathsForValuesAffectingTimeBetweenPictures
@@ -149,6 +167,16 @@
 }
 
 + (NSSet *)keyPathsForValuesAffectingRecordingTime
+{
+    return [NSSet setWithObject:@"timeBetweenPictures"];
+}
+
++ (NSSet *)keyPathsForValuesAffectingStepSize
+{
+    return [NSSet setWithObject:@"timeBetweenPictures"];
+}
+
++ (NSSet *)keyPathsForValuesAffectingDistance
 {
     return [NSSet setWithObject:@"timeBetweenPictures"];
 }
