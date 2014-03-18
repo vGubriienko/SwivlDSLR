@@ -33,9 +33,25 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
     _lastSelectedRow = SWSideBarRowTimeLapse;
     
     self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
+    self.tableView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.8];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:_lastSelectedRow inSection:0]
+                                animated:NO
+                          scrollPosition:UITableViewScrollPositionNone];
 }
 
 #pragma mark - UITableViewDatasource
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60.0;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -51,6 +67,16 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
     
     NSArray *menuTitles = @[SW_SIDE_BAR_ROW_NAMES];
     cell.textLabel.text = menuTitles[indexPath.row];
+    
+    cell.backgroundColor = [UIColor clearColor];
+    cell.textLabel.textColor = [UIColor lightTextColor];
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    cell.textLabel.font = [UIFont systemFontOfSize:25];
+    
+    cell.textLabel.highlightedTextColor = [UIColor whiteColor];
+    UIView *backView = [[UIView alloc] initWithFrame:cell.frame];
+    backView.backgroundColor = [UIColor clearColor];
+    cell.selectedBackgroundView = backView;
     
     return cell;
 }

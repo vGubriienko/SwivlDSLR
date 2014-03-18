@@ -124,7 +124,7 @@
         [_distanceBtn setTitle:[NSString stringWithFormat:@"%li", (long)_timelapseSettings.distance]
                       forState:UIControlStateNormal];
         
-        [_stepSizeBtn setTitle:[NSString stringWithFormat:@"%li", (long)_timelapseSettings.stepSize]
+        [_stepSizeBtn setTitle:[NSString stringWithFormat:@"%.2f", _timelapseSettings.stepSize]
                       forState:UIControlStateNormal];
         
         [_timeBetweenPicturesBtn setTitle:[NSString stringWithFormat:@"%.1f", _timelapseSettings.timeBetweenPictures]
