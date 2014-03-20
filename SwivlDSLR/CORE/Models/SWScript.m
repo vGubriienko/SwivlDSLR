@@ -21,6 +21,22 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    self = [super init];
+    if(self) {
+        _startDate = [decoder decodeObjectForKey:@"startDate"];
+        _timelapseSettings = [decoder decodeObjectForKey:@"timelapseSettings"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeObject:_startDate forKey:@"startDate"];
+    [encoder encodeObject:_timelapseSettings forKey:@"timelapseSettings"];
+}
+
 #pragma mark - Public methods
 
 - (char *)scriptWithLength:(NSInteger *)length

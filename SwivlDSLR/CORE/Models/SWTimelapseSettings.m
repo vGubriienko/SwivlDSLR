@@ -22,6 +22,28 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    self = [super init];
+    if(self) {
+        _stepSize = [[decoder decodeObjectForKey:@"stepSize"] floatValue];
+        _distance = [[decoder decodeObjectForKey:@"distance"] integerValue];
+        _recordingTime = [[decoder decodeObjectForKey:@"recordingTime"] floatValue];
+        _clockwiseDirection = [[decoder decodeObjectForKey:@"clockwiseDirection"] boolValue];
+        _timeBetweenPictures = [[decoder decodeObjectForKey:@"timeBetweenPictures"] floatValue];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeObject:[NSNumber numberWithFloat:_stepSize] forKey:@"stepSize"];
+    [encoder encodeObject:[NSNumber numberWithInteger:_distance] forKey:@"distance"];
+    [encoder encodeObject:[NSNumber numberWithFloat:_recordingTime] forKey:@"recordingTime"];
+    [encoder encodeObject:[NSNumber numberWithBool:_clockwiseDirection] forKey:@"clockwiseDirection"];
+    [encoder encodeObject:[NSNumber numberWithFloat:_timeBetweenPictures] forKey:@"timeBetweenPictures"];
+}
+
 #pragma mark - Public methods
 
 + (NSArray *)availableStepSizes
