@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		250A4D1818DADEF300E82B1F /* SWScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 250A4D1718DADEF300E82B1F /* SWScript.m */; };
 		2522F7C318D0B25D00915E25 /* reveal-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 2522F7C118D0B25D00915E25 /* reveal-white.png */; };
 		2522F7C418D0B25D00915E25 /* reveal-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2522F7C218D0B25D00915E25 /* reveal-white@2x.png */; };
 		2522F7C918D0B79000915E25 /* SWSideBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2522F7C818D0B79000915E25 /* SWSideBar.m */; };
@@ -74,6 +75,8 @@
 
 /* Begin PBXFileReference section */
 		15D8180D3830431B85CA07BC /* libPods-SwivlDSLR.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwivlDSLR.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		250A4D1618DADEF300E82B1F /* SWScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWScript.h; sourceTree = "<group>"; };
+		250A4D1718DADEF300E82B1F /* SWScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWScript.m; sourceTree = "<group>"; };
 		2522F7C018D0AD8E00915E25 /* SWConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWConstants.h; sourceTree = "<group>"; };
 		2522F7C118D0B25D00915E25 /* reveal-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-white.png"; sourceTree = "<group>"; };
 		2522F7C218D0B25D00915E25 /* reveal-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-white@2x.png"; sourceTree = "<group>"; };
@@ -372,6 +375,8 @@
 			children = (
 				25ADC23F18C72D4A00CEB6A7 /* SWTimelapseSettings.h */,
 				25ADC24018C72D4A00CEB6A7 /* SWTimelapseSettings.m */,
+				250A4D1618DADEF300E82B1F /* SWScript.h */,
+				250A4D1718DADEF300E82B1F /* SWScript.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -614,6 +619,7 @@
 				2522F7C918D0B79000915E25 /* SWSideBar.m in Sources */,
 				2522F7D018D0C23C00915E25 /* SWSettingsController.m in Sources */,
 				858A4DFB18C8AA700036A0CF /* DKCircularSlider.m in Sources */,
+				250A4D1818DADEF300E82B1F /* SWScript.m in Sources */,
 				2595253618C6141C006EEAFA /* SWMainViewController.m in Sources */,
 				25A3E68518C93E1C002AFBB9 /* SWTimeController.m in Sources */,
 				2595250518C610DF006EEAFA /* SWAppDelegate.m in Sources */,
