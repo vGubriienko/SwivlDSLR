@@ -9,9 +9,12 @@
 #import "SWMainViewController.h"
 
 #import "TimelapsSegue.h"
-#import "SWTimelapseSettings.h"
+#import "SWScript.h"
 
 #import <Swivl2Lib/SwivlCommonLib.h>
+
+#define SW_SCRIPT_KEY @"SW_SCRIPT_KEY"
+#define SW_TIMELAPSE_SETTINGS_KEY @"SW_TIMELAPSE_SETTINGS_KEY"
 
 @interface SWMainViewController ()
 {
@@ -38,13 +41,11 @@
 {
     [super viewDidLoad];
 
-    [self configUI];
-    
     _swivl = [SwivlCommonLib sharedSwivlBaseForDelegate:nil];
     
-    _timelapseSettings = [[SWTimelapseSettings alloc] init];
-    
+    [self restoreSettings];
     [self startObserving];
+    [self configUI];
 }
 
 - (void)configUI
@@ -59,13 +60,21 @@
 
 - (IBAction)onDirectionBtnTapped
 {
-    _directionBtn.selected = !_directionBtn.selected;
-    _timelapseSettings.clockwiseDirection = !_directionBtn.selected;
+    _timelapseSettings.clockwiseDirection = !_timelapseSettings.clockwiseDirection;
 }
 
 - (IBAction)onMenuBtnTapped
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_SHOW_SIDE_BAR_NOTIFICATION object:nil];
+}
+
+- (IBAction)onCaptureBtnTapped
+{
+    SWScript *script = [[SWScript alloc] initWithTimelapseSettings:_timelapseSettings];
+    script.startDate = [NSDate date];
+    [self saveScript:script];
+    
+    //TO DO: show progress
 }
 
 #pragma mark - Storyboard navigation
@@ -109,6 +118,9 @@
     [_timelapseSettings addObserver:self forKeyPath:@"recordingTime"
                             options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
                             context:nil];
+    [_timelapseSettings addObserver:self forKeyPath:@"clockwiseDirection"
+                            options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
+                            context:nil];
     
     _observeBatteryLevelTimer = [NSTimer scheduledTimerWithTimeInterval:5
                                                                  target:self
@@ -132,6 +144,10 @@
         timeComps = [_timelapseSettings recordingTimeComponents];
         strTime = [NSString stringWithFormat:@"%.2li:%.2li:%.2li", (long)timeComps.hours, (long)timeComps.minutes, (long)timeComps.seconds];
         [_recordingTimeBtn setTitle:strTime forState:UIControlStateNormal];
+        
+        _directionBtn.selected = !_timelapseSettings.clockwiseDirection;
+        
+        [self saveSettings];
     }
 }
 
@@ -166,8 +182,41 @@
     [_timelapseSettings removeObserver:self forKeyPath:@"stepSize"];
     [_timelapseSettings removeObserver:self forKeyPath:@"timeBetweenPictures"];
     [_timelapseSettings removeObserver:self forKeyPath:@"recordingTime"];
+    [_timelapseSettings removeObserver:self forKeyPath:@"clockwiseDirection"];
     
     [_observeBatteryLevelTimer invalidate];
+}
+
+#pragma Saving
+
+- (void)saveSettings
+{
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:_timelapseSettings];
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:SW_TIMELAPSE_SETTINGS_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)saveScript:(SWScript *)script
+{
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:script];
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:SW_SCRIPT_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)restoreSettings
+{
+    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:SW_SCRIPT_KEY];
+    SWScript *script = (SWScript *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
+    if (script && ![script isFinished]) {
+        _timelapseSettings = script.timelapseSettings;
+        //TO DO: show progress
+    } else {
+        data = [[NSUserDefaults standardUserDefaults] objectForKey:SW_TIMELAPSE_SETTINGS_KEY];
+        _timelapseSettings = (SWTimelapseSettings *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
+        if (!_timelapseSettings) {
+            _timelapseSettings = [[SWTimelapseSettings alloc] init];
+        }
+    }
 }
 
 #pragma mark -
