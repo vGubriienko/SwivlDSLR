@@ -93,17 +93,37 @@
     return NO;
 }
 
-- (void) transitionAppToRecordingView
+- (void)transitionAppToRecordingView
 {
 
 }
 
-- (void) appTagsRecording
+- (void)appTagsRecording
 {
 
 }
 
-- (void) markerButtonEvents: (unsigned char) buttons
+- (void)markerButtonEvents:(unsigned char)buttons
+{
+    //Change to open SDK and remove this
+}
+
+- (void)baseAudioJackStateChanged:(BOOL)pluggedin
+{
+
+}
+
+- (void)swivlMoveFinished:(UInt32)state withID:(UInt32)ID
+{
+
+}
+
+- (void)swivlScriptBufferState:(UInt8)state isRunning:(BOOL)isRunning
+{
+
+}
+
+- (void)swivlScriptResult:(SInt8)thread Result:(SInt8)res Run:(UInt16)run Stack:(UInt32)stack
 {
 
 }
