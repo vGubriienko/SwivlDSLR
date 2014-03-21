@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class SWScript;
+@class SWAppDelegate;
+@class SwivlCommonLib;
+
+extern SWAppDelegate *swAppDelegate;
+
 @interface SWAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) UIWindow *window;
+
+@property (nonatomic, strong) SwivlCommonLib *swivl;
+@property (nonatomic, strong) SWScript *script;
 
 @end

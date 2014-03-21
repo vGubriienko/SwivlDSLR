@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "SWTimelapseSettings.h"
+@class SWTimelapseSettings;
 
 @interface SWScript : NSObject
 
@@ -17,7 +17,7 @@
 @property (nonatomic, readonly) SWTimelapseSettings *timelapseSettings;
 @property (nonatomic, strong) NSDate *startDate;
 
-- (char *)scriptWithLength:(NSInteger *)length;
+- (NSString *)generateScript;
 - (BOOL)isFinished;
 
 @end

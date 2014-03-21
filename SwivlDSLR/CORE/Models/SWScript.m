@@ -8,6 +8,8 @@
 
 #import "SWScript.h"
 
+#import "SWTimelapseSettings.h"
+
 @implementation SWScript
 
 #pragma mark - Init
@@ -39,9 +41,24 @@
 
 #pragma mark - Public methods
 
-- (char *)scriptWithLength:(NSInteger *)length
+- (NSString *)generateScript
 {
-    return nil;
+    NSInteger holdShutterTime = 2000;
+    NSInteger protectionPause = 500;
+    NSInteger timeBtwPictures = self.timelapseSettings.timeBetweenPictures * 1000 - holdShutterTime - protectionPause;
+    NSInteger stepSize = self.timelapseSettings.stepSize * 728;
+    
+    NSString *script = [NSString stringWithFormat:  @"1:%x, 1M %x, 2M %x, 3M %x, 4M F(      \
+                                                    2:T4L+9M 0, %x, 7D0, 5, 0, AR           \
+                                                    3:AL3=                                  \
+                                                    4:T9L-4< F( 1L1-,5= 1M2@                \
+                                                    5:.                                     \
+                                                    ;shutter                                \
+                                                    F:FM 7S T2L+EM                          \
+                                                    E:TEL-E< 3S T3L+EM                      \
+                                                    D:TEL-D< FL)",
+                        self.timelapseSettings.stepCount, holdShutterTime, protectionPause, timeBtwPictures, stepSize];
+    return script;
 }
 
 - (BOOL)isFinished

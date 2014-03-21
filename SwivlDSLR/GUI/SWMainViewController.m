@@ -8,8 +8,10 @@
 
 #import "SWMainViewController.h"
 
-#import "TimelapsSegue.h"
 #import "SWScript.h"
+#import "SWTimelapseSettings.h"
+#import "TimelapsSegue.h"
+#import "SWAppDelegate.h"
 
 #import <Swivl2Lib/SwivlCommonLib.h>
 
@@ -26,7 +28,6 @@
     __weak IBOutlet UIImageView *_batteryLevelImg;
     __weak IBOutlet UIImageView *_swivlStatusImg;
 
-    SwivlCommonLib *_swivl;
     NSTimer *_observeBatteryLevelTimer;
     
     SWTimelapseSettings *_timelapseSettings;
@@ -40,8 +41,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    _swivl = [SwivlCommonLib sharedSwivlBaseForDelegate:nil];
     
     [self restoreSettings];
     [self startObserving];
@@ -71,7 +70,10 @@
 - (IBAction)onCaptureBtnTapped
 {
     SWScript *script = [[SWScript alloc] initWithTimelapseSettings:_timelapseSettings];
-    script.startDate = [NSDate date];
+    
+    swAppDelegate.script = script;
+    [swAppDelegate.swivl swivlScriptRequestBufferState];
+    
     [self saveScript:script];
     
     //TO DO: show progress
@@ -153,7 +155,7 @@
 
 - (void)accessoryStateChanged
 {
-    _swivlStatusImg.highlighted = _swivl.swivlConnected;
+    _swivlStatusImg.highlighted = swAppDelegate.swivl.swivlConnected;
 }
 
 - (void)updateBatteryLevel
@@ -163,8 +165,8 @@
         deviceBatteryLevel *= 100;
     }
     
-    NSInteger markerBatteryLevel = _swivl.markerBatteryLevel;
-    NSInteger baseBatteryLevel = _swivl.baseBatteryLevel;
+    NSInteger markerBatteryLevel = swAppDelegate.swivl.markerBatteryLevel;
+    NSInteger baseBatteryLevel = swAppDelegate.swivl.baseBatteryLevel;
     
     BOOL lowBattery = NO;
     lowBattery = lowBattery || (deviceBatteryLevel > -1 && deviceBatteryLevel < BATTERY_LOW_LEVEL);

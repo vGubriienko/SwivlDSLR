@@ -8,10 +8,14 @@
 
 #import "SWAppDelegate.h"
 
+#import "SWScript.h"
+
 #import "SWSideBar.h"
 #import "MVYSideMenuController.h"
 
 #import <Swivl2Lib/SwivlCommonLib.h>
+
+SWAppDelegate *swAppDelegate = nil;
 
 @interface SWAppDelegate ()
 {
@@ -25,7 +29,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [SwivlCommonLib sharedSwivlBaseForDelegate:self];
+    swAppDelegate = self;
+    self.swivl = [SwivlCommonLib sharedSwivlBaseForDelegate:self];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(needHideSideBarNotification)
@@ -120,7 +125,22 @@
 
 - (void)swivlScriptBufferState:(UInt8)state isRunning:(BOOL)isRunning
 {
-
+    NSString *strScript = [self.script generateScript];
+    char *ptr = (char *)[strScript UTF8String];
+    NSInteger length = strScript.length;
+    
+    while(length > 100)
+    {
+        [self.swivl swivlScriptLoadBlock:ptr length:100];
+        length -= 100;
+        ptr += 100;
+    }
+    if (length > 0)
+    {
+        [self.swivl swivlScriptLoadBlock:ptr length:length];
+    }
+    
+    [self.swivl swivlScriptStartThread];
 }
 
 - (void)swivlScriptResult:(SInt8)thread Result:(SInt8)res Run:(UInt16)run Stack:(UInt32)stack

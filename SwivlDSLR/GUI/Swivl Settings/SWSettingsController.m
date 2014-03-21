@@ -9,9 +9,7 @@
 #import "SWSettingsController.h"
 
 #import "SWAppDelegate.h"
-
 #import <Swivl2Lib/SwivlManager.h>
-#import <Swivl2Lib/SwivlCommonLib.h>
 
 #import "MVYSideMenuController.h"
 
@@ -24,8 +22,6 @@
     
     NSString *_firmwareVersion;
     NSTimer *_updateTimer;
-    
-    SwivlCommonLib *_swivl;
 }
 
 @end
@@ -36,8 +32,6 @@
 {
     [super viewDidLoad];
     
-    _swivl = [SwivlCommonLib sharedSwivlBaseForDelegate:nil];
-    
     _baseLevelView.clipsToBounds = _markerLevelView.clipsToBounds = YES;
     
     NSString *savedFirmwareVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"SwivlSettingsSavedFirmwareVersionKey"];
@@ -45,7 +39,7 @@
     
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedSwivlAttached) name:AVSandboxSwivlDockAttached object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedSwivlDetached) name:AVSandboxSwivlDockDetached object:nil];
-    if (_swivl.dockFWVersion) {
+    if (swAppDelegate.swivl.dockFWVersion) {
         [self notifiedSwivlAttached];
     } else {
         [self notifiedSwivlDetached];
@@ -105,16 +99,16 @@
 
 - (void)updateInterfaceElements
 {
-    if(_swivl.swivlConnected)
+    if(swAppDelegate.swivl.swivlConnected)
     {
-        NSLog(@"Marker: %d, Base: %d", _swivl.markerBatteryLevel, _swivl.baseBatteryLevel);
+        NSLog(@"Marker: %d, Base: %d", swAppDelegate.swivl.markerBatteryLevel, swAppDelegate.swivl.baseBatteryLevel);
         
-        [self setBatteryLevel:_swivl.markerBatteryLevel forView:_markerLevelView];
-        [self setBatteryLevel:_swivl.baseBatteryLevel forView:_baseLevelView];
+        [self setBatteryLevel:swAppDelegate.swivl.markerBatteryLevel forView:_markerLevelView];
+        [self setBatteryLevel:swAppDelegate.swivl.baseBatteryLevel forView:_baseLevelView];
         
-        if(![_swivl.dockFWVersion isEqualToString:DOCK_FW_VERSION_UNREPORTED])
+        if(![swAppDelegate.swivl.dockFWVersion isEqualToString:DOCK_FW_VERSION_UNREPORTED])
         {
-            _firmwareVersion = _swivl.dockFWVersion;
+            _firmwareVersion = swAppDelegate.swivl.dockFWVersion;
             [[NSUserDefaults standardUserDefaults] setObject:_firmwareVersion forKey:@"SwivlSettingsSavedFirmwareVersionKey"];
         } 
         _fwVersion.text = _firmwareVersion;
