@@ -72,6 +72,7 @@
     SWScript *script = [[SWScript alloc] initWithTimelapseSettings:_timelapseSettings];
     
     swAppDelegate.script = script;
+    script.type = swAppDelegate.currentCameraInterface;
     [swAppDelegate.swivl swivlScriptRequestBufferState];
     
     [self saveScript:script];

@@ -19,6 +19,8 @@ extern SWAppDelegate *swAppDelegate;
 @property (nonatomic, strong) UIWindow *window;
 
 @property (nonatomic, strong) SwivlCommonLib *swivl;
+
 @property (nonatomic, strong) SWScript *script;
+@property (nonatomic, assign) SWCameraInterface currentCameraInterface;
 
 @end

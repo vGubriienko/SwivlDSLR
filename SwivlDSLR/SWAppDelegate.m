@@ -9,11 +9,11 @@
 #import "SWAppDelegate.h"
 
 #import "SWScript.h"
-
 #import "SWSideBar.h"
 #import "MVYSideMenuController.h"
-
 #import <Swivl2Lib/SwivlCommonLib.h>
+
+#define SW_CAMERA_INTERFACE_KEY @"SW_CAMERA_INTERFACE_KEY"
 
 SWAppDelegate *swAppDelegate = nil;
 
@@ -31,6 +31,13 @@ SWAppDelegate *swAppDelegate = nil;
 {
     swAppDelegate = self;
     self.swivl = [SwivlCommonLib sharedSwivlBaseForDelegate:self];
+    
+    NSNumber *savedCameraInterface = [[NSUserDefaults standardUserDefaults] objectForKey:SW_CAMERA_INTERFACE_KEY];
+    if (savedCameraInterface) {
+        self.currentCameraInterface = savedCameraInterface.integerValue;
+    } else {
+        self.currentCameraInterface = SWCameraInterfaceUSB;
+    }
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(needHideSideBarNotification)
@@ -146,6 +153,15 @@ SWAppDelegate *swAppDelegate = nil;
 - (void)swivlScriptResult:(SInt8)thread Result:(SInt8)res Run:(UInt16)run Stack:(UInt32)stack
 {
 
+}
+
+#pragma mark - Properties
+
+- (void)setCurrentCameraInterface:(SWCameraInterface)currentCameraInterface
+{
+    _currentCameraInterface = currentCameraInterface;
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:currentCameraInterface ]forKey:SW_CAMERA_INTERFACE_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 #pragma mark - Config UI

@@ -43,22 +43,16 @@
 
 - (NSString *)generateScript
 {
-    NSInteger holdShutterTime = 2000;
-    NSInteger protectionPause = 500;
-    NSInteger timeBtwPictures = self.timelapseSettings.timeBetweenPictures * 1000 - holdShutterTime - protectionPause;
-    NSInteger stepSize = self.timelapseSettings.stepSize * 728;
+    NSString *scriptStr;
+    if (self.type == SWCameraInterfaceUSB) {
+        scriptStr = [self generateScriptForUSB];
+    } if (self.type == SWCameraInterfaceTrigger) {
+        scriptStr = [self generateScriptForTrigger];
+    } else {
+        NSAssert(NO, @"Invalid script type");
+    }
     
-    NSString *script = [NSString stringWithFormat:  @"1:%x, 1M %x, 2M %x, 3M %x, 4M F(      \
-                                                    2:T4L+9M 0, %x, 7D0, 5, 0, AR           \
-                                                    3:AL3=                                  \
-                                                    4:T9L-4< F( 1L1-,5= 1M2@                \
-                                                    5:.                                     \
-                                                    ;shutter                                \
-                                                    F:FM 7S T2L+EM                          \
-                                                    E:TEL-E< 3S T3L+EM                      \
-                                                    D:TEL-D< FL)",
-                        self.timelapseSettings.stepCount, holdShutterTime, protectionPause, timeBtwPictures, stepSize];
-    return script;
+    return [scriptStr stringByReplacingOccurrencesOfString:@" " withString:@""];
 }
 
 - (BOOL)isFinished
@@ -70,6 +64,54 @@
                                                                        toDate:self.startDate options:(0)];
     NSComparisonResult result = [finishDate compare:[NSDate date]];
     return result == NSOrderedAscending;
+}
+
+- (NSString *)generateScriptForTrigger
+{
+    NSInteger holdShutterTime = 2000;
+    NSInteger protectionPause = 500;
+    NSInteger timeBtwPictures = self.timelapseSettings.timeBetweenPictures * 1000 - holdShutterTime - protectionPause;
+    NSInteger stepSize = self.timelapseSettings.stepSize * 728;
+    NSString *direction = self.timelapseSettings.clockwiseDirection ? @"" : @"%";
+    
+    NSString *script = [NSString stringWithFormat:
+                        
+                        @"1:%x, 1M %x, 2M %x, 3M %x, 4M F(      \
+                        2:T4L+9M 0, %x%@, 7D0, 5, 0, AR         \
+                        3:AL3=                                  \
+                        4:T9L-4< F( 1L1-,5= 1M2@                \
+                        5:.                                     \
+                        ;shutter                                \
+                        F:FM 7S T2L+EM                          \
+                        E:TEL-E< 3S T3L+EM                      \
+                        D:TEL-D< FL)\0",
+                        self.timelapseSettings.stepCount, holdShutterTime, protectionPause, timeBtwPictures, stepSize, direction];
+    return script;
+
+}
+
+- (NSString *)generateScriptForUSB
+{
+    NSInteger timeBtwPictures = self.timelapseSettings.timeBetweenPictures * 1000;
+    NSInteger stepSize = self.timelapseSettings.stepSize * 728;
+    NSString *direction = self.timelapseSettings.clockwiseDirection ? @"" : @"%";
+
+    NSString *script = [NSString stringWithFormat:
+                        @"1:%x, 1M %x, 2M T2L+9M F(             \
+                        2:%x%@, 320, 7D0, 5, 0, AR              \
+                        3:AL3=                                  \
+                        4:T9L-4< T2L+9M F( 1L1-, 5= 1M2@        \
+                        5:.                                     \
+                        ;PTP shutter                            \
+                        F:FM                                    \
+                        D:3, 0, B9128P2019?D=2001-E#3, A9129P   \
+                        E:FL)\0",
+                        
+                        self.timelapseSettings.stepCount,
+                        timeBtwPictures,
+                        stepSize,
+                        direction];
+    return script;
 }
 
 @end

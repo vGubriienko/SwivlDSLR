@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="7fg-hq-kk2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="7fg-hq-kk2">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Settings Controller - Settings-->
@@ -85,12 +85,40 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="8c9-qx-4Gt">
+                                        <rect key="frame" x="0.0" y="143" width="768" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8c9-qx-4Gt" id="9wj-ON-HCt">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera Interface" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wx7-sn-Df5">
+                                                    <rect key="frame" x="15" y="11" width="133" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="xD4-ch-sHb">
+                                                    <rect key="frame" x="577" y="8" width="171" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                    <segments>
+                                                        <segment title="USB Port"/>
+                                                        <segment title="Trigger Port"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="onCaptureInterfaceValueChanged" destination="7fg-hq-kk2" eventType="valueChanged" id="A6B-nk-xVe"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="VERSION" id="cX9-G0-Juw">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Njz-md-p87" detailTextLabel="g5p-gg-w4W" style="IBUITableViewCellStyleValue1" id="qDn-8V-thJ">
-                                        <rect key="frame" x="0.0" y="191" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="235" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qDn-8V-thJ" id="PBf-ua-fl1">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
@@ -114,7 +142,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="pat-Ga-anj" detailTextLabel="ZfT-B5-EPN" style="IBUITableViewCellStyleValue1" id="aGA-bw-xh5">
-                                        <rect key="frame" x="0.0" y="235" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="279" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aGA-bw-xh5" id="1Cb-wd-hDg">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
@@ -150,6 +178,7 @@
                     <connections>
                         <outlet property="_appVersion" destination="g5p-gg-w4W" id="AOZ-mS-Bm8"/>
                         <outlet property="_baseLevelView" destination="b0b-ZA-C6t" id="Twd-74-I7e"/>
+                        <outlet property="_camereInterface" destination="xD4-ch-sHb" id="35Z-J0-Qfx"/>
                         <outlet property="_fwVersion" destination="ZfT-B5-EPN" id="eZs-d4-HdF"/>
                         <outlet property="_markerLevelView" destination="EbF-rS-XEa" id="fhV-ZJ-WHy"/>
                     </connections>

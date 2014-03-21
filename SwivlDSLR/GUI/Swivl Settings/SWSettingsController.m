@@ -19,7 +19,8 @@
     __weak IBOutlet UILabel *_fwVersion;
     __weak IBOutlet UIView *_markerLevelView;
     __weak IBOutlet UIView *_baseLevelView;
-    
+    __weak IBOutlet UISegmentedControl *_camereInterface;
+
     NSString *_firmwareVersion;
     NSTimer *_updateTimer;
 }
@@ -37,17 +38,18 @@
     NSString *savedFirmwareVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"SwivlSettingsSavedFirmwareVersionKey"];
     _firmwareVersion = savedFirmwareVersion ? savedFirmwareVersion : DOCK_FW_VERSION_UNREPORTED;
     
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedSwivlAttached) name:AVSandboxSwivlDockAttached object:nil];
+    NSString *bundleVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey];
+    _appVersion.text = bundleVersion;
+    
+    _camereInterface.selectedSegmentIndex = swAppDelegate.currentCameraInterface;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedSwivlAttached) name:AVSandboxSwivlDockAttached object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedSwivlDetached) name:AVSandboxSwivlDockDetached object:nil];
     if (swAppDelegate.swivl.dockFWVersion) {
         [self notifiedSwivlAttached];
     } else {
         [self notifiedSwivlDetached];
     }
-
-    
-    NSString *bundleVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey];
-    _appVersion.text = bundleVersion;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -70,6 +72,13 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     [_updateTimer invalidate];
+}
+
+#pragma mark - IBActions
+
+- (IBAction)onCaptureInterfaceValueChanged
+{
+    swAppDelegate.currentCameraInterface = _camereInterface.selectedSegmentIndex;
 }
 
 #pragma mark - Interface update
