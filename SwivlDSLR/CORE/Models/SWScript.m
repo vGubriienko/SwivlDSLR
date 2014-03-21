@@ -57,6 +57,10 @@
 
 - (BOOL)isFinished
 {
+    if (!self.startDate) {
+        return YES;
+    }
+    
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     comps.second = self.timelapseSettings.recordingTime;
     

@@ -23,6 +23,7 @@ static int speed = 0;
         [self setRepeatAction:repeatAction];
         [self setMyImageView:[[UIImageView alloc] initWithImage:image]];
         self.myImageView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+        self.myImageView.contentMode = UIViewContentModeScaleAspectFit;
         [self addSubview: self.myImageView];
     }
     return self;

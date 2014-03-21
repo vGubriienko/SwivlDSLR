@@ -17,14 +17,14 @@
 
 #define DK_SAFEAREA_PADDING 10
 #define DK_RINGPAD 8
-#define DK_BTN_PAD 5
+#define DK_BTN_PAD ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? 5 : 20)
 #define DK_BTNBASEOFFSET 10
 #define DK_CONTENTIMAGEWIDTH  24
 #define DK_CONTENTIMAGEHEIGHT  24
 #define DK_CONTENTIMAGE_PAD 30
 #define DK_CONTENTLABELWIDTH 200
-#define DK_BTNWIDTH 60
-#define DK_BTNHEIGHT 15
+#define DK_BTNWIDTH ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? 44 : 60)
+#define DK_BTNHEIGHT 44
 #define DK_DOUBLE_BTN_GAP 100
 
 #define DK_CONTENTLABEL_PAD self.frame.size.height * 8/10
@@ -102,17 +102,17 @@ withRepresantationMode:(DKCircularSliderRepresantationMode)represantationMode
                 self.majorStep = 60;
                 _textField = [self prepareTextFieldUsingFrame:frame
                                                  withFontName:DK_FONTFAMILY
-                                                 withFontSize:DK_FONTSIZE_SM
-                                          withWFontSizeOffset:DK_WFONTSIZEOFFSET_SM
-                                          withHFontSizeOffset:DK_HFONTSIZEOFFSET_SM];
+                                                 withFontSize:DK_FONTSIZE
+                                          withWFontSizeOffset:DK_WFONTSIZEOFFSET
+                                          withHFontSizeOffset:DK_HFONTSIZEOFFSET];
                 [self prepareMultipleButtons];
                 break;
             case DKCircularSliderRepresantationModeValues:
                 _textField = [self prepareTextFieldUsingFrame:frame
                                                  withFontName:DK_FONTFAMILY
-                                                 withFontSize:DK_FONTSIZE_SSM
-                                          withWFontSizeOffset:DK_WFONTSIZEOFFSET_SSM
-                                          withHFontSizeOffset:DK_HFONTSIZEOFFSET_SSM];
+                                                 withFontSize:DK_FONTSIZE
+                                          withWFontSizeOffset:DK_WFONTSIZEOFFSET
+                                          withHFontSizeOffset:DK_HFONTSIZEOFFSET];
                 [self prepareSingleButtons];
                 break;
             default:
@@ -149,11 +149,10 @@ withRepresantationMode:(DKCircularSliderRepresantationMode)represantationMode
 
 -(void) prepareSingleButtons
 {
-    
     UIView *btnUp = [self buttonWithTarget:self
                                  WithImage:[UIImage imageNamed:@"up.png"]
                                   WithRect:CGRectMake((CONTENTWIDTH - DK_BTNWIDTH)/2,
-                                                      _textField.frame.origin.y - DK_BTN_PAD,
+                                                      _textField.frame.origin.y - DK_BTN_PAD - DK_BTNHEIGHT,
                                                       DK_BTNWIDTH,
                                                       DK_BTNHEIGHT)
                                AndSelector:@selector(increaseValue:)];
@@ -161,7 +160,7 @@ withRepresantationMode:(DKCircularSliderRepresantationMode)represantationMode
     UIView *btnDown = [self buttonWithTarget:self
                                    WithImage:[UIImage imageNamed:@"down.png"]
                                     WithRect:CGRectMake((CONTENTWIDTH - DK_BTNWIDTH)/2,
-                                                        _textField.frame.origin.y+_textField.frame.size.height + DK_BTN_PAD - DK_BTNBASEOFFSET,
+                                                        _textField.frame.origin.y +_textField.frame.size.height + DK_BTN_PAD,
                                                         DK_BTNWIDTH,
                                                         DK_BTNHEIGHT)
                                  AndSelector:@selector(decreaseValue:)];

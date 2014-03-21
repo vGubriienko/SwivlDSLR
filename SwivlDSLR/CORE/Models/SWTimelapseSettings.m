@@ -132,7 +132,7 @@
         _stepSize = stepSize;
         
         if (stepSize > self.distance && stepSize <= SW_TIMELAPSE_MAX_DISTANCE) {
-            self.distance = stepSize;
+            self.distance = ceil(stepSize);
         }
         [self recalculateTimeBtwnPictures];
     }
