@@ -25,6 +25,7 @@
     __weak IBOutlet UIButton *_stepSizeBtn;
     __weak IBOutlet UIButton *_recordingTimeBtn;
     __weak IBOutlet UIButton *_timeBetweenPicturesBtn;
+    __weak IBOutlet UIButton *_captureBtn;
     __weak IBOutlet UIImageView *_batteryLevelImg;
     __weak IBOutlet UIImageView *_swivlStatusImg;
 
@@ -60,6 +61,8 @@
 - (IBAction)onDirectionBtnTapped
 {
     _timelapseSettings.clockwiseDirection = !_timelapseSettings.clockwiseDirection;
+    
+    [swAppDelegate.swivl swivlScriptStop];
 }
 
 - (IBAction)onMenuBtnTapped
@@ -69,15 +72,19 @@
 
 - (IBAction)onCaptureBtnTapped
 {
-    SWScript *script = [[SWScript alloc] initWithTimelapseSettings:_timelapseSettings];
+    if (!swAppDelegate.isScriptRunning) {
+        SWScript *script = [[SWScript alloc] initWithTimelapseSettings:_timelapseSettings];
     
-    swAppDelegate.script = script;
-    script.type = swAppDelegate.currentCameraInterface;
-    [swAppDelegate.swivl swivlScriptRequestBufferState];
+        swAppDelegate.script = script;
+        script.type = swAppDelegate.currentCameraInterface;
+        [swAppDelegate.swivl swivlScriptRequestBufferState];
+        
+        [self saveScript:script];
     
-    [self saveScript:script];
-    
-    //TO DO: show progress
+        //TO DO: show progress
+    } else {
+        [swAppDelegate.swivl swivlScriptStop];
+    }
 }
 
 #pragma mark - Storyboard navigation
@@ -105,6 +112,11 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(accessoryStateChanged)
                                                  name:AVSandboxSwivlDockDetached
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(scriptStateDidChanged)
+                                                 name:AVSandboxScriptStateChangedNotification
                                                object:nil];
     
     [_timelapseSettings addObserver:self
@@ -175,6 +187,11 @@
     lowBattery = lowBattery || (markerBatteryLevel > -1 && markerBatteryLevel < BATTERY_LOW_LEVEL);
     
     _batteryLevelImg.hidden = !lowBattery;
+}
+
+- (void)scriptStateDidChanged
+{
+    _captureBtn.selected = swAppDelegate.isScriptRunning;
 }
 
 - (void)finishObserving

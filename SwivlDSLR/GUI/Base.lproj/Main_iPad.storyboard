@@ -280,6 +280,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="_batteryLevelImg" destination="jo8-vt-brI" id="Kqn-eH-3G7"/>
+                        <outlet property="_captureBtn" destination="vmQ-Ts-cgV" id="joh-lP-xd4"/>
                         <outlet property="_directionBtn" destination="Mjr-F8-ZV6" id="h51-uN-pRb"/>
                         <outlet property="_distanceBtn" destination="eoN-Lv-yEx" id="LRv-FP-Y1U"/>
                         <outlet property="_recordingTimeBtn" destination="APJ-d3-MS4" id="GYK-pA-REz"/>

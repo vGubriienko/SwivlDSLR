@@ -75,21 +75,25 @@
     NSInteger holdShutterTime = 2000;
     NSInteger protectionPause = 500;
     NSInteger timeBtwPictures = self.timelapseSettings.timeBetweenPictures * 1000 - holdShutterTime - protectionPause;
-    NSInteger stepSize = self.timelapseSettings.stepSize * 728;
+    NSInteger stepSize = (self.timelapseSettings.stepSize / 0.11) * 4;
     NSString *direction = self.timelapseSettings.clockwiseDirection ? @"" : @"%";
     
     NSString *script = [NSString stringWithFormat:
-                        
-                        @"1:%x, 1M %x, 2M %x, 3M %x, 4M F(      \
-                        2:T4L+9M 0, %x%@, 7D0, 5, 0, AR         \
-                        3:AL3=                                  \
-                        4:T9L-4< F( 1L1-,5= 1M2@                \
-                        5:.                                     \
-                        ;shutter                                \
-                        F:FM 7S T2L+EM                          \
-                        E:TEL-E< 3S T3L+EM                      \
+                        @"1:%lx, 1M %lx, 2M %lx, 3M %lx, 4M F(      \
+                        2:T4L+9M 0, %lx%@, 7D0, 5, 0, AR            \
+                        3:AL3=                                      \
+                        4:T9L-4< F( 1L1-,5= 1M2@                    \
+                        5:.                                         \
+                        F:FM 7S T2L+EM                              \
+                        E:TEL-E< 3S T3L+EM                          \
                         D:TEL-D< FL)\0",
-                        self.timelapseSettings.stepCount, holdShutterTime, protectionPause, timeBtwPictures, stepSize, direction];
+                        self.timelapseSettings.stepCount,
+                        holdShutterTime,
+                        protectionPause,
+                        timeBtwPictures,
+                        stepSize,
+                        direction];
+    
     return script;
 
 }
@@ -97,12 +101,12 @@
 - (NSString *)generateScriptForUSB
 {
     NSInteger timeBtwPictures = self.timelapseSettings.timeBetweenPictures * 1000;
-    NSInteger stepSize = self.timelapseSettings.stepSize * 728;
+    NSInteger stepSize = (self.timelapseSettings.stepSize / 0.11) * 4;
     NSString *direction = self.timelapseSettings.clockwiseDirection ? @"" : @"%";
 
     NSString *script = [NSString stringWithFormat:
-                        @"1:%x, 1M %x, 2M T2L+9M F(             \
-                        2:%x%@, 320, 7D0, 5, 0, AR              \
+                        @"1:%lx, 1M %lx, 2M T2L+9M F(           \
+                        2:%lx%@, 320, 7D0, 5, 0, AR             \
                         3:AL3=                                  \
                         4:T9L-4< T2L+9M F( 1L1-, 5= 1M2@        \
                         5:.                                     \

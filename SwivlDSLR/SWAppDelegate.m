@@ -23,6 +23,9 @@ SWAppDelegate *swAppDelegate = nil;
     
     MVYSideMenuController *_sideBarController;
 }
+
+@property (nonatomic, assign, getter = isScriptRunning) BOOL scriptRunning;
+
 @end
 
 @implementation SWAppDelegate
@@ -132,6 +135,14 @@ SWAppDelegate *swAppDelegate = nil;
 
 - (void)swivlScriptBufferState:(UInt8)state isRunning:(BOOL)isRunning
 {
+    NSLog(@"swivlScriptBufferState isRunning: %i, state: %i", isRunning, state);
+
+    if (self.isScriptRunning) {
+        return;
+    }
+    
+    self.scriptRunning = YES;
+    
     NSString *strScript = [self.script generateScript];
     char *ptr = (char *)[strScript UTF8String];
     NSInteger length = strScript.length;
@@ -152,7 +163,9 @@ SWAppDelegate *swAppDelegate = nil;
 
 - (void)swivlScriptResult:(SInt8)thread Result:(SInt8)res Run:(UInt16)run Stack:(UInt32)stack
 {
-
+    NSLog(@"swivlScriptResult thread: %i, Result: %i, Run: %i, Stack: %i", thread, res, run, stack);
+    
+    self.scriptRunning = NO;
 }
 
 #pragma mark - Properties
@@ -162,6 +175,12 @@ SWAppDelegate *swAppDelegate = nil;
     _currentCameraInterface = currentCameraInterface;
     [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:currentCameraInterface ]forKey:SW_CAMERA_INTERFACE_KEY];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)setScriptRunning:(BOOL)scriptRunning
+{
+    _scriptRunning = scriptRunning;
+    [[NSNotificationCenter defaultCenter] postNotificationName:AVSandboxScriptStateChangedNotification object:nil];
 }
 
 #pragma mark - Config UI
