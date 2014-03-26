@@ -142,11 +142,11 @@ SWAppDelegate *swAppDelegate = nil;
     }
     
     self.scriptRunning = YES;
-    
+
     NSString *strScript = [self.script generateScript];
     char *ptr = (char *)[strScript UTF8String];
     NSInteger length = strScript.length;
-    
+
     while(length > 100)
     {
         [self.swivl swivlScriptLoadBlock:ptr length:100];
@@ -158,6 +158,7 @@ SWAppDelegate *swAppDelegate = nil;
         [self.swivl swivlScriptLoadBlock:ptr length:length];
     }
     
+    NSLog(@"swivlScriptStartThread");
     [self.swivl swivlScriptStartThread];
 }
 

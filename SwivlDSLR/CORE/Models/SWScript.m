@@ -46,7 +46,7 @@
     NSString *scriptStr;
     if (self.type == SWCameraInterfaceUSB) {
         scriptStr = [self generateScriptForUSB];
-    } if (self.type == SWCameraInterfaceTrigger) {
+    } else if (self.type == SWCameraInterfaceTrigger) {
         scriptStr = [self generateScriptForTrigger];
     } else {
         NSAssert(NO, @"Invalid script type");
@@ -75,12 +75,17 @@
     NSInteger holdShutterTime = 2000;
     NSInteger protectionPause = 500;
     NSInteger timeBtwPictures = self.timelapseSettings.timeBetweenPictures * 1000 - holdShutterTime - protectionPause;
+    if (timeBtwPictures < 0) {
+        timeBtwPictures = 0;
+    }
+    
     NSInteger stepSize = (self.timelapseSettings.stepSize / 0.11) * 4;
+    NSInteger speed = 2000; //MAX
     NSString *direction = self.timelapseSettings.clockwiseDirection ? @"" : @"%";
     
     NSString *script = [NSString stringWithFormat:
                         @"1:%lx, 1M %lx, 2M %lx, 3M %lx, 4M F(      \
-                        2:T4L+9M 0, %lx%@, 7D0, 5, 0, AR            \
+                        2:T4L+9M 0, %lx, %lx%@, 5, 0, AR            \
                         3:AL3=                                      \
                         4:T9L-4< F( 1L1-,5= 1M2@                    \
                         5:.                                         \
@@ -91,6 +96,7 @@
                         holdShutterTime,
                         protectionPause,
                         timeBtwPictures,
+                        speed,
                         stepSize,
                         direction];
     
@@ -103,10 +109,11 @@
     NSInteger timeBtwPictures = self.timelapseSettings.timeBetweenPictures * 1000;
     NSInteger stepSize = (self.timelapseSettings.stepSize / 0.11) * 4;
     NSString *direction = self.timelapseSettings.clockwiseDirection ? @"" : @"%";
+    NSInteger speed = 2000; //MAX
 
     NSString *script = [NSString stringWithFormat:
                         @"1:%lx, 1M %lx, 2M T2L+9M F(           \
-                        2:%lx%@, 320, 7D0, 5, 0, AR             \
+                        2:0, %lx, %lx%@, 5, 0, AR               \
                         3:AL3=                                  \
                         4:T9L-4< T2L+9M F( 1L1-, 5= 1M2@        \
                         5:.                                     \
@@ -117,6 +124,7 @@
                         
                         self.timelapseSettings.stepCount,
                         timeBtwPictures,
+                        speed,
                         stepSize,
                         direction];
     return script;

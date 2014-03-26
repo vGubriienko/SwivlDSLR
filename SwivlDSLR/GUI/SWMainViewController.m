@@ -83,6 +83,7 @@
     
         //TO DO: show progress
     } else {
+        NSLog(@"swivlScriptStop");
         [swAppDelegate.swivl swivlScriptStop];
     }
 }
