@@ -12,6 +12,7 @@
 #import "SWSideBar.h"
 #import "MVYSideMenuController.h"
 #import <Swivl2Lib/SwivlCommonLib.h>
+#import <Crashlytics/Crashlytics.h>
 
 #define SW_CAMERA_INTERFACE_KEY @"SW_CAMERA_INTERFACE_KEY"
 
@@ -32,6 +33,8 @@ SWAppDelegate *swAppDelegate = nil;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [Crashlytics startWithAPIKey:@"3cc74596e11f1822925527f515758299a6b646bf"];
+    
     swAppDelegate = self;
     self.swivl = [SwivlCommonLib sharedSwivlBaseForDelegate:self];
     
