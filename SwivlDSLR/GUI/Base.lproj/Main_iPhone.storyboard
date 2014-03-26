@@ -138,6 +138,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="_batteryLevelImg" destination="ePg-85-HIf" id="uiV-ji-NDl"/>
+                        <outlet property="_captureBtn" destination="KzJ-nb-XFy" id="Ui7-Be-ptv"/>
                         <outlet property="_directionBtn" destination="tFC-Hu-7Oi" id="4Ua-NN-qP2"/>
                         <outlet property="_distanceBtn" destination="U5R-kl-DxV" id="3D3-Vz-MUl"/>
                         <outlet property="_recordingTimeBtn" destination="3ZG-6n-V3I" id="7G4-VY-Gf3"/>

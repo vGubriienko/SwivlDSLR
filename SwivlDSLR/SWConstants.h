@@ -10,3 +10,9 @@
 
 #define SW_NEED_HIDE_SIDE_BAR_NOTIFICATION @"SW_NEED_HIDE_SIDE_BAR_NOTIFICATION"
 #define SW_NEED_SHOW_SIDE_BAR_NOTIFICATION @"SW_NEED_SHOW_SIDE_BAR_NOTIFICATION"
+
+typedef NS_ENUM(NSInteger, SWCameraInterface)
+{
+    SWCameraInterfaceUSB = 0,
+    SWCameraInterfaceTrigger
+};

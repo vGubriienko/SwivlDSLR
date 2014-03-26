@@ -16,7 +16,7 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
     SWSideBarRowCount,
 };
 
-#define SW_SIDE_BAR_ROW_NAMES @"Timelapse + Capture", @"Swivl settings", @"Help"
+#define SW_SIDE_BAR_ROW_NAMES @"Timelapse", @"Swivl settings", @"Help"
 
 @interface SWSideBar ()
 {

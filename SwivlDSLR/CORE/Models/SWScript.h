@@ -8,16 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-#import "SWTimelapseSettings.h"
+@class SWTimelapseSettings;
 
 @interface SWScript : NSObject
 
 - (instancetype)initWithTimelapseSettings:(SWTimelapseSettings *)timelapseSettings;
 
 @property (nonatomic, readonly) SWTimelapseSettings *timelapseSettings;
+@property (nonatomic, assign) SWCameraInterface type;
 @property (nonatomic, strong) NSDate *startDate;
 
-- (char *)scriptWithLength:(NSInteger *)length;
+- (NSString *)generateScript;
 - (BOOL)isFinished;
 
 @end

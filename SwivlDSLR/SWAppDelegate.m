@@ -8,10 +8,15 @@
 
 #import "SWAppDelegate.h"
 
+#import "SWScript.h"
 #import "SWSideBar.h"
 #import "MVYSideMenuController.h"
-
 #import <Swivl2Lib/SwivlCommonLib.h>
+#import <Crashlytics/Crashlytics.h>
+
+#define SW_CAMERA_INTERFACE_KEY @"SW_CAMERA_INTERFACE_KEY"
+
+SWAppDelegate *swAppDelegate = nil;
 
 @interface SWAppDelegate ()
 {
@@ -19,13 +24,26 @@
     
     MVYSideMenuController *_sideBarController;
 }
+
+@property (nonatomic, assign, getter = isScriptRunning) BOOL scriptRunning;
+
 @end
 
 @implementation SWAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [SwivlCommonLib sharedSwivlBaseForDelegate:self];
+    [Crashlytics startWithAPIKey:@"3cc74596e11f1822925527f515758299a6b646bf"];
+    
+    swAppDelegate = self;
+    self.swivl = [SwivlCommonLib sharedSwivlBaseForDelegate:self];
+    
+    NSNumber *savedCameraInterface = [[NSUserDefaults standardUserDefaults] objectForKey:SW_CAMERA_INTERFACE_KEY];
+    if (savedCameraInterface) {
+        self.currentCameraInterface = savedCameraInterface.integerValue;
+    } else {
+        self.currentCameraInterface = SWCameraInterfaceTrigger;
+    }
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(needHideSideBarNotification)
@@ -120,12 +138,53 @@
 
 - (void)swivlScriptBufferState:(UInt8)state isRunning:(BOOL)isRunning
 {
+    NSLog(@"swivlScriptBufferState isRunning: %i, state: %i", isRunning, state);
 
+    if (self.isScriptRunning) {
+        return;
+    }
+    
+    self.scriptRunning = YES;
+
+    NSString *strScript = [self.script generateScript];
+    char *ptr = (char *)[strScript UTF8String];
+    NSInteger length = strScript.length;
+
+    while(length > 100)
+    {
+        [self.swivl swivlScriptLoadBlock:ptr length:100];
+        length -= 100;
+        ptr += 100;
+    }
+    if (length > 0)
+    {
+        [self.swivl swivlScriptLoadBlock:ptr length:length];
+    }
+    
+    NSLog(@"swivlScriptStartThread");
+    [self.swivl swivlScriptStartThread];
 }
 
 - (void)swivlScriptResult:(SInt8)thread Result:(SInt8)res Run:(UInt16)run Stack:(UInt32)stack
 {
+    NSLog(@"swivlScriptResult thread: %i, Result: %i, Run: %i, Stack: %i", thread, res, run, stack);
+    
+    self.scriptRunning = NO;
+}
 
+#pragma mark - Properties
+
+- (void)setCurrentCameraInterface:(SWCameraInterface)currentCameraInterface
+{
+    _currentCameraInterface = currentCameraInterface;
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:currentCameraInterface ]forKey:SW_CAMERA_INTERFACE_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)setScriptRunning:(BOOL)scriptRunning
+{
+    _scriptRunning = scriptRunning;
+    [[NSNotificationCenter defaultCenter] postNotificationName:AVSandboxScriptStateChangedNotification object:nil];
 }
 
 #pragma mark - Config UI

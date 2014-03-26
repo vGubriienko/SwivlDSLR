@@ -95,6 +95,15 @@
     XCTAssertEqual(_timelapseSettings.stepSize, 11.0, @"Invalid stepSize value");
 }
 
+- (void)testStepSizeIncreasesDistance
+{
+    _timelapseSettings.stepSize = 0.11;
+    _timelapseSettings.distance = 5;
+    _timelapseSettings.stepSize = 10.89;
+    
+    XCTAssertTrue(_timelapseSettings.stepSize <= _timelapseSettings.distance, @"StepSize is bigger than distance");
+}
+
 - (void)testStepSizeRecalculatesOnlyTimeBtwnPictures
 {
     _timelapseSettings.stepSize = 0.11;

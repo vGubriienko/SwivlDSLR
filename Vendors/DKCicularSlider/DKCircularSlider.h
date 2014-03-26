@@ -13,18 +13,10 @@
 #define DK_TOUCHABLE_WIDTH 80
 #define DK_LINE_WIDTH 10
 #define DK_GUIDE_WIDTH DK_LINE_WIDTH
-#define DK_FONTSIZE 80
+#define DK_FONTSIZE ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? 40 : 60)
 #define DK_FONTFAMILY @"HelveticaNeue-Light"
 #define DK_WFONTSIZEOFFSET 0
 #define DK_HFONTSIZEOFFSET 0
-
-#define DK_FONTSIZE_SM 75
-#define DK_WFONTSIZEOFFSET_SM 75
-#define DK_HFONTSIZEOFFSET_SM 0
-
-#define DK_FONTSIZE_SSM 45
-#define DK_WFONTSIZEOFFSET_SSM 75
-#define DK_HFONTSIZEOFFSET_SSM 35
 
 
 @interface DKCircularSlider : UIControl

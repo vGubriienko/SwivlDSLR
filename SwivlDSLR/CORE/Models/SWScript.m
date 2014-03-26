@@ -8,6 +8,8 @@
 
 #import "SWScript.h"
 
+#import "SWTimelapseSettings.h"
+
 @implementation SWScript
 
 #pragma mark - Init
@@ -39,13 +41,26 @@
 
 #pragma mark - Public methods
 
-- (char *)scriptWithLength:(NSInteger *)length
+- (NSString *)generateScript
 {
-    return nil;
+    NSString *scriptStr;
+    if (self.type == SWCameraInterfaceUSB) {
+        scriptStr = [self generateScriptForUSB];
+    } else if (self.type == SWCameraInterfaceTrigger) {
+        scriptStr = [self generateScriptForTrigger];
+    } else {
+        NSAssert(NO, @"Invalid script type");
+    }
+    
+    return [scriptStr stringByReplacingOccurrencesOfString:@" " withString:@""];
 }
 
 - (BOOL)isFinished
 {
+    if (!self.startDate) {
+        return YES;
+    }
+    
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     comps.second = self.timelapseSettings.recordingTime;
     
@@ -53,6 +68,66 @@
                                                                        toDate:self.startDate options:(0)];
     NSComparisonResult result = [finishDate compare:[NSDate date]];
     return result == NSOrderedAscending;
+}
+
+- (NSString *)generateScriptForTrigger
+{
+    NSInteger holdShutterTime = 2000;
+    NSInteger protectionPause = 500;
+    NSInteger timeBtwPictures = self.timelapseSettings.timeBetweenPictures * 1000 - holdShutterTime - protectionPause;
+    if (timeBtwPictures < 0) {
+        timeBtwPictures = 0;
+    }
+    
+    NSInteger stepSize = (self.timelapseSettings.stepSize / 0.11) * 4;
+    NSInteger speed = 2000; //MAX
+    NSString *direction = self.timelapseSettings.clockwiseDirection ? @"" : @"%";
+    
+    NSString *script = [NSString stringWithFormat:
+                        @"1:%lx, 1M %lx, 2M %lx, 3M %lx, 4M F(      \
+                        2:T4L+9M 0, %lx, %lx%@, 5, 0, AR            \
+                        3:AL3=                                      \
+                        4:T9L-4< F( 1L1-,5= 1M2@                    \
+                        5:.                                         \
+                        F:FM 7S T2L+EM                              \
+                        E:TEL-E< 3S T3L+EM                          \
+                        D:TEL-D< FL)\0",
+                        self.timelapseSettings.stepCount,
+                        holdShutterTime,
+                        protectionPause,
+                        timeBtwPictures,
+                        speed,
+                        stepSize,
+                        direction];
+    
+    return script;
+
+}
+
+- (NSString *)generateScriptForUSB
+{
+    NSInteger timeBtwPictures = self.timelapseSettings.timeBetweenPictures * 1000;
+    NSInteger stepSize = (self.timelapseSettings.stepSize / 0.11) * 4;
+    NSString *direction = self.timelapseSettings.clockwiseDirection ? @"" : @"%";
+    NSInteger speed = 2000; //MAX
+
+    NSString *script = [NSString stringWithFormat:
+                        @"1:%lx, 1M %lx, 2M T2L+9M F(           \
+                        2:0, %lx, %lx%@, 5, 0, AR               \
+                        3:AL3=                                  \
+                        4:T9L-4< T2L+9M F( 1L1-, 5= 1M2@        \
+                        5:.                                     \
+                        ;PTP shutter                            \
+                        F:FM                                    \
+                        D:3, 0, B9128P2019?D=2001-E#3, A9129P   \
+                        E:FL)\0",
+                        
+                        self.timelapseSettings.stepCount,
+                        timeBtwPictures,
+                        speed,
+                        stepSize,
+                        direction];
+    return script;
 }
 
 @end

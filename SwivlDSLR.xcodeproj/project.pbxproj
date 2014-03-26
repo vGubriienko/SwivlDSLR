@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25070FE118E2FDA1006FBD2D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25070FE018E2FDA1006FBD2D /* Crashlytics.framework */; };
 		250A4D1818DADEF300E82B1F /* SWScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 250A4D1718DADEF300E82B1F /* SWScript.m */; };
 		2522F7C318D0B25D00915E25 /* reveal-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 2522F7C118D0B25D00915E25 /* reveal-white.png */; };
 		2522F7C418D0B25D00915E25 /* reveal-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2522F7C218D0B25D00915E25 /* reveal-white@2x.png */; };
@@ -75,6 +76,7 @@
 
 /* Begin PBXFileReference section */
 		15D8180D3830431B85CA07BC /* libPods-SwivlDSLR.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwivlDSLR.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		25070FE018E2FDA1006FBD2D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		250A4D1618DADEF300E82B1F /* SWScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWScript.h; sourceTree = "<group>"; };
 		250A4D1718DADEF300E82B1F /* SWScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWScript.m; sourceTree = "<group>"; };
 		2522F7C018D0AD8E00915E25 /* SWConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWConstants.h; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				259524F718C610DF006EEAFA /* CoreGraphics.framework in Frameworks */,
+				25070FE118E2FDA1006FBD2D /* Crashlytics.framework in Frameworks */,
 				259524F918C610DF006EEAFA /* UIKit.framework in Frameworks */,
 				259524F518C610DF006EEAFA /* Foundation.framework in Frameworks */,
 				64612A26A3EA462A895D8788 /* libPods-SwivlDSLR.a in Frameworks */,
@@ -240,6 +243,7 @@
 		259524F318C610DF006EEAFA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				25070FE018E2FDA1006FBD2D /* Crashlytics.framework */,
 				259524F418C610DF006EEAFA /* Foundation.framework */,
 				259524F618C610DF006EEAFA /* CoreGraphics.framework */,
 				259524F818C610DF006EEAFA /* UIKit.framework */,
@@ -437,6 +441,7 @@
 				259524EE18C610DE006EEAFA /* Frameworks */,
 				259524EF18C610DE006EEAFA /* Resources */,
 				08BBA113A332494091052C36 /* Copy Pods Resources */,
+				25070FDF18E2FD6C006FBD2D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -578,6 +583,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-SwivlDSLRTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		25070FDF18E2FD6C006FBD2D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 3cc74596e11f1822925527f515758299a6b646bf ffc3e681f97e39a2e7442e60237d1f72643a7bc687afb207c8627a3582841a3d";
 		};
 		80C9C7DD5E274045B5AF68AA /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -766,6 +784,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SwivlDSLR/SwivlDSLR-Prefix.pch";
 				INFOPLIST_FILE = "SwivlDSLR/SwivlDSLR-Info.plist";
@@ -780,6 +802,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SwivlDSLR/SwivlDSLR-Prefix.pch";
 				INFOPLIST_FILE = "SwivlDSLR/SwivlDSLR-Info.plist";

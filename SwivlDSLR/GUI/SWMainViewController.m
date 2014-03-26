@@ -8,8 +8,10 @@
 
 #import "SWMainViewController.h"
 
-#import "TimelapsSegue.h"
 #import "SWScript.h"
+#import "SWTimelapseSettings.h"
+#import "TimelapsSegue.h"
+#import "SWAppDelegate.h"
 
 #import <Swivl2Lib/SwivlCommonLib.h>
 
@@ -23,10 +25,10 @@
     __weak IBOutlet UIButton *_stepSizeBtn;
     __weak IBOutlet UIButton *_recordingTimeBtn;
     __weak IBOutlet UIButton *_timeBetweenPicturesBtn;
+    __weak IBOutlet UIButton *_captureBtn;
     __weak IBOutlet UIImageView *_batteryLevelImg;
     __weak IBOutlet UIImageView *_swivlStatusImg;
 
-    SwivlCommonLib *_swivl;
     NSTimer *_observeBatteryLevelTimer;
     
     SWTimelapseSettings *_timelapseSettings;
@@ -40,8 +42,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    _swivl = [SwivlCommonLib sharedSwivlBaseForDelegate:nil];
     
     [self restoreSettings];
     [self startObserving];
@@ -61,6 +61,8 @@
 - (IBAction)onDirectionBtnTapped
 {
     _timelapseSettings.clockwiseDirection = !_timelapseSettings.clockwiseDirection;
+    
+    [swAppDelegate.swivl swivlScriptStop];
 }
 
 - (IBAction)onMenuBtnTapped
@@ -70,11 +72,20 @@
 
 - (IBAction)onCaptureBtnTapped
 {
-    SWScript *script = [[SWScript alloc] initWithTimelapseSettings:_timelapseSettings];
-    script.startDate = [NSDate date];
-    [self saveScript:script];
+    if (!swAppDelegate.isScriptRunning) {
+        SWScript *script = [[SWScript alloc] initWithTimelapseSettings:_timelapseSettings];
     
-    //TO DO: show progress
+        swAppDelegate.script = script;
+        script.type = swAppDelegate.currentCameraInterface;
+        [swAppDelegate.swivl swivlScriptRequestBufferState];
+        
+        [self saveScript:script];
+    
+        //TO DO: show progress
+    } else {
+        NSLog(@"swivlScriptStop");
+        [swAppDelegate.swivl swivlScriptStop];
+    }
 }
 
 #pragma mark - Storyboard navigation
@@ -102,6 +113,11 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(accessoryStateChanged)
                                                  name:AVSandboxSwivlDockDetached
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(scriptStateDidChanged)
+                                                 name:AVSandboxScriptStateChangedNotification
                                                object:nil];
     
     [_timelapseSettings addObserver:self
@@ -153,7 +169,7 @@
 
 - (void)accessoryStateChanged
 {
-    _swivlStatusImg.highlighted = _swivl.swivlConnected;
+    _swivlStatusImg.highlighted = swAppDelegate.swivl.swivlConnected;
 }
 
 - (void)updateBatteryLevel
@@ -163,8 +179,8 @@
         deviceBatteryLevel *= 100;
     }
     
-    NSInteger markerBatteryLevel = _swivl.markerBatteryLevel;
-    NSInteger baseBatteryLevel = _swivl.baseBatteryLevel;
+    NSInteger markerBatteryLevel = swAppDelegate.swivl.markerBatteryLevel;
+    NSInteger baseBatteryLevel = swAppDelegate.swivl.baseBatteryLevel;
     
     BOOL lowBattery = NO;
     lowBattery = lowBattery || (deviceBatteryLevel > -1 && deviceBatteryLevel < BATTERY_LOW_LEVEL);
@@ -172,6 +188,11 @@
     lowBattery = lowBattery || (markerBatteryLevel > -1 && markerBatteryLevel < BATTERY_LOW_LEVEL);
     
     _batteryLevelImg.hidden = !lowBattery;
+}
+
+- (void)scriptStateDidChanged
+{
+    _captureBtn.selected = swAppDelegate.isScriptRunning;
 }
 
 - (void)finishObserving
