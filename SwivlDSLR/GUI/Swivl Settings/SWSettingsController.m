@@ -52,12 +52,12 @@
     }
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewDidLayoutSubviews
 {
-    [super viewDidAppear:animated];
- 
+    [super viewDidLayoutSubviews];
+    
 #warning Temp solution
-
+    
     NSInteger sideBarWidth = self.sideMenuController.menuFrame.size.width;
     CGRect frame = self.navigationController.view.bounds;
     frame.origin.x = sideBarWidth;
