@@ -42,7 +42,7 @@ SWAppDelegate *swAppDelegate = nil;
     if (savedCameraInterface) {
         self.currentCameraInterface = savedCameraInterface.integerValue;
     } else {
-        self.currentCameraInterface = SWCameraInterfaceTrigger;
+        self.currentCameraInterface = SWCameraInterfaceUSB;
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self
