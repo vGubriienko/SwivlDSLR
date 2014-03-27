@@ -9,9 +9,11 @@
 #import "SWSettingsController.h"
 
 #import "SWAppDelegate.h"
-#import <Swivl2Lib/SwivlManager.h>
+#import <Swivl-iOS-SDK/SwivlCommonLib.h>
 
 #import "MVYSideMenuController.h"
+
+#define DOCK_FW_VERSION_UNREPORTED  @"Dock Doesn't Report FW Version"
 
 @interface SWSettingsController() <UITextFieldDelegate>
 {

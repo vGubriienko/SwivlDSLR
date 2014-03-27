@@ -13,7 +13,7 @@
 #import "TimelapsSegue.h"
 #import "SWAppDelegate.h"
 
-#import <Swivl2Lib/SwivlCommonLib.h>
+#import <Swivl-iOS-SDK/SwivlCommonLib.h>
 
 #define SW_SCRIPT_KEY @"SW_SCRIPT_KEY"
 #define SW_TIMELAPSE_SETTINGS_KEY @"SW_TIMELAPSE_SETTINGS_KEY"
