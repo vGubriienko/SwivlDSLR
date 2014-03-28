@@ -22,4 +22,5 @@ NSString* AVSandboxFastTrackingEnabledStateChangedNotification = @"AVSandboxFast
 NSString* AVSandboxNavToFromRecordingScreen = @"AVSandboxNavToFromRecordingScreen";
 NSString* AVSandboxPanningStateChangedNotification = @"AVSandboxPanningStateChangedNotification";
 
-NSString* AVSandboxScriptStateChangedNotification = @"AVSandboxScriptStateChangedNotification";
+NSString* AVSandboxSwivlScriptStateChangedNotification = @"AVSandboxSwivlScriptStateChangedNotification";
+NSString* AVSandboxScriptProgressDidFinishNotification = @"AVSandboxScriptProgressDidFinishNotification";

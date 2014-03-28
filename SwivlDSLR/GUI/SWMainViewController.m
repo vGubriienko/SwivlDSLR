@@ -10,13 +10,17 @@
 
 #import "SWScript.h"
 #import "SWTimelapseSettings.h"
-#import "TimelapsSegue.h"
 #import "SWAppDelegate.h"
 
 #import <Swivl-iOS-SDK/SwivlCommonLib.h>
 
-#define SW_SCRIPT_KEY @"SW_SCRIPT_KEY"
 #define SW_TIMELAPSE_SETTINGS_KEY @"SW_TIMELAPSE_SETTINGS_KEY"
+
+@protocol SWContentControllerDelegate <NSObject>
+@optional
+@property (nonatomic, weak) SWScript *script;
+@property (nonatomic, weak) SWTimelapseSettings *timelapseSettings;
+@end
 
 @interface SWMainViewController ()
 {
@@ -25,15 +29,16 @@
     __weak IBOutlet UIButton *_stepSizeBtn;
     __weak IBOutlet UIButton *_recordingTimeBtn;
     __weak IBOutlet UIButton *_timeBetweenPicturesBtn;
-    __weak IBOutlet UIButton *_captureBtn;
+    __weak IBOutlet UIView *_timelapseControls;
+
+    __weak IBOutlet UIButton *_captureBtn, *_captureBtnActive;
     __weak IBOutlet UIImageView *_batteryLevelImg;
     __weak IBOutlet UIImageView *_swivlStatusImg;
-
+    
     NSTimer *_observeBatteryLevelTimer;
     
     SWTimelapseSettings *_timelapseSettings;
-    
-    UIViewController <TimelapsSegueNavigation> *_currentSettingsController;
+    UIViewController <SWContentControllerDelegate> *_currentContentController;
 }
 @end
 
@@ -42,7 +47,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     [self restoreSettings];
     [self startObserving];
     [self configUI];
@@ -67,7 +72,7 @@
 
 - (IBAction)onMenuBtnTapped
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_SHOW_SIDE_BAR_NOTIFICATION object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_SHOW_SIDE_BAR_NOTIFICATION object:self];
 }
 
 - (IBAction)onCaptureBtnTapped
@@ -78,27 +83,55 @@
         swAppDelegate.script = script;
         script.type = swAppDelegate.currentCameraInterface;
         [swAppDelegate.swivl swivlScriptRequestBufferState];
-        
-        [self saveScript:script];
-    
-        //TO DO: show progress
     } else {
         NSLog(@"swivlScriptStop");
         [swAppDelegate.swivl swivlScriptStop];
     }
 }
 
+#pragma mark - Progress
+
+- (void)showProgress
+{
+    _timelapseControls.userInteractionEnabled = NO;
+    
+    _captureBtnActive.hidden = NO;
+    _captureBtnActive.alpha = 1.0;
+    [UIView animateWithDuration:0.5
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionRepeat | UIViewAnimationOptionAutoreverse | UIViewAnimationOptionAllowUserInteraction
+                     animations:^ {
+                         _captureBtnActive.alpha = 0.0;
+                     }
+                     completion:nil];
+    
+    [_currentContentController.view removeFromSuperview];
+    [self performSegueWithIdentifier:@"ScriptProgress" sender:nil];
+}
+
+- (void)hideProgress
+{
+    _timelapseControls.userInteractionEnabled = YES;
+
+    _captureBtnActive.hidden = YES;
+    [_captureBtnActive.layer removeAllAnimations];
+    
+    [_currentContentController.view removeFromSuperview];
+    _currentContentController = nil;
+}
+
 #pragma mark - Storyboard navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [_currentSettingsController.view removeFromSuperview];
-   
-    _currentSettingsController = segue.destinationViewController;
+    [_currentContentController.view removeFromSuperview];
+    _currentContentController = segue.destinationViewController;
 
-    //Set settings to edit controller
-    if ([_currentSettingsController respondsToSelector:@selector(setTimelapseSettings:)]) {
-        [_currentSettingsController setTimelapseSettings:_timelapseSettings];
+    if ([_currentContentController respondsToSelector:@selector(setTimelapseSettings:)]) {
+        [_currentContentController performSelector:@selector(setTimelapseSettings:) withObject:_timelapseSettings];
+    }
+    if ([_currentContentController respondsToSelector:@selector(setScript:)]) {
+        [_currentContentController performSelector:@selector(setScript:) withObject:swAppDelegate.script];
     }
 }
 
@@ -117,8 +150,9 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(scriptStateDidChanged)
-                                                 name:AVSandboxScriptStateChangedNotification
+                                                 name:AVSandboxSwivlScriptStateChangedNotification
                                                object:nil];
+    [self scriptStateDidChanged];
     
     [_timelapseSettings addObserver:self
                          forKeyPath:@"distance"
@@ -192,7 +226,11 @@
 
 - (void)scriptStateDidChanged
 {
-    _captureBtn.selected = swAppDelegate.isScriptRunning;
+    if (swAppDelegate.isScriptRunning) {
+        [self showProgress];
+    } else {
+        [self hideProgress];
+    }
 }
 
 - (void)finishObserving
@@ -217,26 +255,12 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-- (void)saveScript:(SWScript *)script
-{
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:script];
-    [[NSUserDefaults standardUserDefaults] setObject:data forKey:SW_SCRIPT_KEY];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
 - (void)restoreSettings
 {
-    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:SW_SCRIPT_KEY];
-    SWScript *script = (SWScript *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
-    if (script && ![script isFinished]) {
-        _timelapseSettings = script.timelapseSettings;
-        //TO DO: show progress
-    } else {
-        data = [[NSUserDefaults standardUserDefaults] objectForKey:SW_TIMELAPSE_SETTINGS_KEY];
-        _timelapseSettings = (SWTimelapseSettings *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
-        if (!_timelapseSettings) {
-            _timelapseSettings = [[SWTimelapseSettings alloc] init];
-        }
+    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:SW_TIMELAPSE_SETTINGS_KEY];
+    _timelapseSettings = (SWTimelapseSettings *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
+    if (!_timelapseSettings) {
+        _timelapseSettings = [[SWTimelapseSettings alloc] init];
     }
 }
 

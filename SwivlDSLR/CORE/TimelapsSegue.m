@@ -16,8 +16,8 @@
     SWMainViewController *sourceViewController = self.sourceViewController;
     UIViewController *destinationViewController = self.destinationViewController;
     CGRect contentViewFrame = sourceViewController.contentView.bounds;
-
     destinationViewController.view.frame = contentViewFrame;
+    destinationViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [sourceViewController.contentView addSubview:destinationViewController.view];
 }
 

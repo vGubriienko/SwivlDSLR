@@ -18,6 +18,15 @@ struct SWTimeComponents {
 };
 typedef struct SWTimeComponents SWTimeComponents;
 
+static inline SWTimeComponents SWTimeComponentsMake(CGFloat seconds)
+{
+    SWTimeComponents timeComps;
+    timeComps.hours = seconds / 3600;
+    timeComps.minutes = (seconds - timeComps.hours * 3600) / 60;
+    timeComps.seconds = seconds - timeComps.hours * 3600 - timeComps.minutes * 60;
+    return timeComps;
+}
+
 @interface SWTimelapseSettings : NSObject
 
 @property (nonatomic, assign) NSInteger distance;

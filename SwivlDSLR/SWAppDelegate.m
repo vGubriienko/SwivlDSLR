@@ -14,6 +14,7 @@
 #import <Swivl-iOS-SDK/SwivlCommonLib.h>
 #import <Crashlytics/Crashlytics.h>
 
+#define SW_SCRIPT_KEY @"SW_SCRIPT_KEY"
 #define SW_CAMERA_INTERFACE_KEY @"SW_CAMERA_INTERFACE_KEY"
 
 SWAppDelegate *swAppDelegate = nil;
@@ -37,7 +38,7 @@ SWAppDelegate *swAppDelegate = nil;
     
     swAppDelegate = self;
     self.swivl = [SwivlCommonLib sharedSwivlBaseForDelegate:self];
-    
+
     NSNumber *savedCameraInterface = [[NSUserDefaults standardUserDefaults] objectForKey:SW_CAMERA_INTERFACE_KEY];
     if (savedCameraInterface) {
         self.currentCameraInterface = savedCameraInterface.integerValue;
@@ -53,11 +54,17 @@ SWAppDelegate *swAppDelegate = nil;
                                              selector:@selector(needShowSideBarNotification)
                                                  name:SW_NEED_SHOW_SIDE_BAR_NOTIFICATION
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(scriptProgressDidFinish:)
+                                                 name:AVSandboxScriptProgressDidFinishNotification
+                                               object:nil];
     
     [self configRootController];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
+    [self restoreSavedScript];
+
     return YES;
 }
 							
@@ -136,15 +143,22 @@ SWAppDelegate *swAppDelegate = nil;
 
 }
 
-- (void)swivlScriptBufferState:(UInt8)state isRunning:(BOOL)isRunning
+- (void)swivlScriptBufferState:(UInt8)state isRunning:(BOOL)swivlIsBusy
 {
-    NSLog(@"swivlScriptBufferState isRunning: %i, state: %i", isRunning, state);
+    NSLog(@"swivlScriptBufferState isRunning: %i, state: %i", swivlIsBusy, state);
 
-    if (self.isScriptRunning) {
+    if (self.isScriptRunning || !self.script) {
+        return;
+    }
+    
+    if (swivlIsBusy) {
+#warning
+        NSLog(@"Script is running, but we don't know about it");
         return;
     }
     
     self.scriptRunning = YES;
+    self.script.startDate = [NSDate date];
 
     NSString *strScript = [self.script generateScript];
     char *ptr = (char *)[strScript UTF8String];
@@ -161,8 +175,9 @@ SWAppDelegate *swAppDelegate = nil;
         [self.swivl swivlScriptLoadBlock:ptr length:length];
     }
     
-    NSLog(@"swivlScriptStartThread");
+    [self saveScript];
     [self.swivl swivlScriptStartThread];
+    NSLog(@"swivlScriptStartThread");
 }
 
 - (void)swivlScriptResult:(SInt8)thread Result:(SInt8)res Run:(UInt16)run Stack:(UInt32)stack
@@ -170,6 +185,33 @@ SWAppDelegate *swAppDelegate = nil;
     NSLog(@"swivlScriptResult thread: %i, Result: %i, Run: %i, Stack: %i", thread, res, run, stack);
     
     self.scriptRunning = NO;
+    [self removeScript];
+}
+
+#pragma mark - Save script
+
+- (void)saveScript
+{
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.script];
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:SW_SCRIPT_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)removeScript
+{
+    self.script = nil;
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:SW_SCRIPT_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)restoreSavedScript
+{
+    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:SW_SCRIPT_KEY];
+    SWScript *script = (SWScript *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
+    if (script && [script isRunningFromStartDate]) {
+        self.script = script;
+        self.scriptRunning = YES;
+    }
 }
 
 #pragma mark - Properties
@@ -184,7 +226,7 @@ SWAppDelegate *swAppDelegate = nil;
 - (void)setScriptRunning:(BOOL)scriptRunning
 {
     _scriptRunning = scriptRunning;
-    [[NSNotificationCenter defaultCenter] postNotificationName:AVSandboxScriptStateChangedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:AVSandboxSwivlScriptStateChangedNotification object:self];
 }
 
 #pragma mark - Config UI
@@ -227,6 +269,13 @@ SWAppDelegate *swAppDelegate = nil;
 - (void)needShowSideBarNotification
 {
     [_sideBarController openMenu];
+}
+
+- (void)scriptProgressDidFinish:(NSNotification *)notification
+{
+    NSLog(@"scriptProgressDidFinish");
+
+    self.scriptRunning = NO;
 }
 
 @end

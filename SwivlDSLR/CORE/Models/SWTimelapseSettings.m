@@ -80,20 +80,12 @@
 
 - (SWTimeComponents)recordingTimeComponents
 {
-    SWTimeComponents timeComps;
-    timeComps.hours = self.recordingTime / 3600;
-    timeComps.minutes = (self.recordingTime - timeComps.hours * 3600) / 60;
-    timeComps.seconds = self.recordingTime - timeComps.hours * 3600 - timeComps.minutes * 60;
-    return timeComps;
+    return SWTimeComponentsMake(self.recordingTime);
 }
 
 - (SWTimeComponents)timeBetweenPicturesComponents
 {
-    SWTimeComponents timeComps;
-    timeComps.hours = self.timeBetweenPictures / 3600;
-    timeComps.minutes = (self.timeBetweenPictures - timeComps.hours * 3600) / 60;
-    timeComps.seconds = self.timeBetweenPictures - timeComps.hours * 3600 - timeComps.minutes * 60;
-    return timeComps;
+    return SWTimeComponentsMake(self.timeBetweenPictures);
 }
 
 - (void)setRecordingTimeWithComponents:(SWTimeComponents)recordingTimeComponents
@@ -132,7 +124,7 @@
         _stepSize = stepSize;
         
         if (stepSize > self.distance && stepSize <= SW_TIMELAPSE_MAX_DISTANCE) {
-            self.distance = ceil(stepSize);
+            self.distance = ceilf(stepSize);
         }
         [self recalculateTimeBtwnPictures];
     }
@@ -152,7 +144,7 @@
 
 - (NSInteger)stepCount
 {
-    return (NSInteger) self.distance / self.stepSize;
+    return (NSInteger)roundf(self.distance / self.stepSize);
 }
 
 #pragma mark - Private methods
