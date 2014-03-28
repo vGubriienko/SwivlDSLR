@@ -19,6 +19,8 @@
 		2522F7DA18D0C69800915E25 /* battery-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 2522F7D618D0C69800915E25 /* battery-100.png */; };
 		2522F7DB18D0C69800915E25 /* battery-100@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2522F7D718D0C69800915E25 /* battery-100@2x.png */; };
 		2522F7DE18D0CAF000915E25 /* AVSandboxNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 2522F7DD18D0CAF000915E25 /* AVSandboxNotifications.m */; };
+		25465B5E18E57F7200C4DBDF /* start_screen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25465B5D18E57F7200C4DBDF /* start_screen.jpg */; };
+		25465B6118E5820900C4DBDF /* SWProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25465B6018E5820900C4DBDF /* SWProgressView.m */; };
 		259524F518C610DF006EEAFA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259524F418C610DF006EEAFA /* Foundation.framework */; };
 		259524F718C610DF006EEAFA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259524F618C610DF006EEAFA /* CoreGraphics.framework */; };
 		259524F918C610DF006EEAFA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259524F818C610DF006EEAFA /* UIKit.framework */; };
@@ -55,6 +57,7 @@
 		25B962C518D19CFD002E4FD1 /* base_present@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B962C318D19CFD002E4FD1 /* base_present@2x.png */; };
 		25B962D218D21ABC002E4FD1 /* MVYSideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B962CF18D21ABC002E4FD1 /* MVYSideMenuController.m */; };
 		25B962D318D21ABC002E4FD1 /* MVYSideMenuOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B962D118D21ABC002E4FD1 /* MVYSideMenuOptions.m */; };
+		25BB880318E45F7400ECE14D /* SWProgressController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BB880218E45F7400ECE14D /* SWProgressController.m */; };
 		64612A26A3EA462A895D8788 /* libPods-SwivlDSLR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15D8180D3830431B85CA07BC /* libPods-SwivlDSLR.a */; };
 		858A4DFB18C8AA700036A0CF /* DKCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A4DF618C8AA700036A0CF /* DKCircularSlider.m */; };
 		858A4DFC18C8AA700036A0CF /* DKRepeatableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A4DF818C8AA700036A0CF /* DKRepeatableButton.m */; };
@@ -94,6 +97,9 @@
 		2522F7D718D0C69800915E25 /* battery-100@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "battery-100@2x.png"; sourceTree = "<group>"; };
 		2522F7DC18D0CAF000915E25 /* AVSandboxNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVSandboxNotifications.h; sourceTree = "<group>"; };
 		2522F7DD18D0CAF000915E25 /* AVSandboxNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVSandboxNotifications.m; sourceTree = "<group>"; };
+		25465B5D18E57F7200C4DBDF /* start_screen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = start_screen.jpg; sourceTree = "<group>"; };
+		25465B5F18E5820900C4DBDF /* SWProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWProgressView.h; sourceTree = "<group>"; };
+		25465B6018E5820900C4DBDF /* SWProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWProgressView.m; sourceTree = "<group>"; };
 		259524F118C610DF006EEAFA /* SwivlDSLR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwivlDSLR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		259524F418C610DF006EEAFA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		259524F618C610DF006EEAFA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -140,6 +146,8 @@
 		25B962CF18D21ABC002E4FD1 /* MVYSideMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVYSideMenuController.m; sourceTree = "<group>"; };
 		25B962D018D21ABC002E4FD1 /* MVYSideMenuOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVYSideMenuOptions.h; sourceTree = "<group>"; };
 		25B962D118D21ABC002E4FD1 /* MVYSideMenuOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVYSideMenuOptions.m; sourceTree = "<group>"; };
+		25BB880118E45F7400ECE14D /* SWProgressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWProgressController.h; sourceTree = "<group>"; };
+		25BB880218E45F7400ECE14D /* SWProgressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWProgressController.m; sourceTree = "<group>"; };
 		764732E055B646CC958D7B91 /* Pods-SwivlDSLRTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwivlDSLRTests.xcconfig"; path = "Pods/Pods-SwivlDSLRTests.xcconfig"; sourceTree = "<group>"; };
 		7A4BCFD640834A729BC853D0 /* libPods-SwivlDSLRTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwivlDSLRTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		858A4DF518C8AA700036A0CF /* DKCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKCircularSlider.h; sourceTree = "<group>"; };
@@ -321,6 +329,7 @@
 				2595253018C6141C006EEAFA /* Main_iPhone.storyboard */,
 				2595253218C6141C006EEAFA /* SWMainViewController.h */,
 				2595253318C6141C006EEAFA /* SWMainViewController.m */,
+				25BB880018E45F3F00ECE14D /* Progress */,
 				25ADC28618C7796800CEB6A7 /* Timelapse settings */,
 				2522F7C618D0B79000915E25 /* Side bar */,
 				2522F7CC18D0C23C00915E25 /* Swivl Settings */,
@@ -361,6 +370,7 @@
 				2595253F18C61BA2006EEAFA /* capture_normal@2x.png */,
 				2595254018C61BA2006EEAFA /* capture_pressed.png */,
 				2595254118C61BA2006EEAFA /* capture_pressed@2x.png */,
+				25465B5D18E57F7200C4DBDF /* start_screen.jpg */,
 			);
 			path = "Main Screen";
 			sourceTree = "<group>";
@@ -409,6 +419,17 @@
 				25B962D118D21ABC002E4FD1 /* MVYSideMenuOptions.m */,
 			);
 			path = MVYSideMenu;
+			sourceTree = "<group>";
+		};
+		25BB880018E45F3F00ECE14D /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				25465B5F18E5820900C4DBDF /* SWProgressView.h */,
+				25465B6018E5820900C4DBDF /* SWProgressView.m */,
+				25BB880118E45F7400ECE14D /* SWProgressController.h */,
+				25BB880218E45F7400ECE14D /* SWProgressController.m */,
+			);
+			path = Progress;
 			sourceTree = "<group>";
 		};
 		858A4DF318C8AA700036A0CF /* Vendors */ = {
@@ -541,6 +562,7 @@
 				858A4DFE18C8AA700036A0CF /* up.png in Resources */,
 				2522F7DA18D0C69800915E25 /* battery-100.png in Resources */,
 				2522F7D918D0C69800915E25 /* battery-0@2x.png in Resources */,
+				25465B5E18E57F7200C4DBDF /* start_screen.jpg in Resources */,
 				259524FF18C610DF006EEAFA /* InfoPlist.strings in Resources */,
 				2595254518C61BA2006EEAFA /* batery_off@2x.png in Resources */,
 				2595255618C6229D006EEAFA /* timelapse_direction_2.png in Resources */,
@@ -638,10 +660,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25465B6118E5820900C4DBDF /* SWProgressView.m in Sources */,
 				2522F7C918D0B79000915E25 /* SWSideBar.m in Sources */,
 				2522F7D018D0C23C00915E25 /* SWSettingsController.m in Sources */,
 				858A4DFB18C8AA700036A0CF /* DKCircularSlider.m in Sources */,
 				250A4D1818DADEF300E82B1F /* SWScript.m in Sources */,
+				25BB880318E45F7400ECE14D /* SWProgressController.m in Sources */,
 				2595253618C6141C006EEAFA /* SWMainViewController.m in Sources */,
 				25A3E68518C93E1C002AFBB9 /* SWTimeController.m in Sources */,
 				2595250518C610DF006EEAFA /* SWAppDelegate.m in Sources */,
@@ -786,10 +810,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 875D82B5AC324DAD9BEEE66D /* Pods-SwivlDSLR.xcconfig */;
 			buildSettings = {
-				ARCHS = (
-					armv7,
-					armv7s,
-				);
+				ARCHS = armv7;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -808,10 +829,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 875D82B5AC324DAD9BEEE66D /* Pods-SwivlDSLR.xcconfig */;
 			buildSettings = {
-				ARCHS = (
-					armv7,
-					armv7s,
-				);
+				ARCHS = armv7;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (

@@ -23,4 +23,5 @@ extern NSString* AVSandboxTrackingStateChangedNotification; // to update the app
 extern NSString* AVSandboxFastTrackingEnabledStateChangedNotification; // to update the dock
 extern NSString* AVSandboxPanningStateChangedNotification; // to update the app; check
 
-extern NSString* AVSandboxScriptStateChangedNotification;
+extern NSString* AVSandboxSwivlScriptStateChangedNotification;
+extern NSString* AVSandboxScriptProgressDidFinishNotification;

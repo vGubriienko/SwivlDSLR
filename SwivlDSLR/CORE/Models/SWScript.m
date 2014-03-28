@@ -55,19 +55,14 @@
     return [scriptStr stringByReplacingOccurrencesOfString:@" " withString:@""];
 }
 
-- (BOOL)isFinished
+- (BOOL)isRunningFromStartDate
 {
     if (!self.startDate) {
         return YES;
     }
     
-    NSDateComponents *comps = [[NSDateComponents alloc] init];
-    comps.second = self.timelapseSettings.recordingTime;
-    
-    NSDate *finishDate = [[NSCalendar currentCalendar] dateByAddingComponents:comps
-                                                                       toDate:self.startDate options:(0)];
-    NSComparisonResult result = [finishDate compare:[NSDate date]];
-    return result == NSOrderedAscending;
+    CGFloat timePast = [[NSDate date] timeIntervalSinceDate:self.startDate];
+    return timePast < self.timelapseSettings.recordingTime;
 }
 
 - (NSString *)generateScriptForTrigger
@@ -92,12 +87,12 @@
                         F:FM 7S T2L+EM                              \
                         E:TEL-E< 3S T3L+EM                          \
                         D:TEL-D< FL)\0",
-                        self.timelapseSettings.stepCount,
-                        holdShutterTime,
-                        protectionPause,
-                        timeBtwPictures,
-                        speed,
-                        stepSize,
+                        (long)self.timelapseSettings.stepCount,
+                        (long)holdShutterTime,
+                        (long)protectionPause,
+                        (long)timeBtwPictures,
+                        (long)speed,
+                        (long)stepSize,
                         direction];
     
     return script;
@@ -122,10 +117,10 @@
                         D:3, 0, B9128P2019?D=2001-E#3, A9129P   \
                         E:FL)\0",
                         
-                        self.timelapseSettings.stepCount,
-                        timeBtwPictures,
-                        speed,
-                        stepSize,
+                        (long)self.timelapseSettings.stepCount,
+                        (long)timeBtwPictures,
+                        (long)speed,
+                        (long)stepSize,
                         direction];
     return script;
 }

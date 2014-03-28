@@ -9,13 +9,6 @@
 
 @class SWTimelapseSettings;
 
-@protocol TimelapsSegueNavigation <NSObject>
-
-@optional
-- (void)setTimelapseSettings:(SWTimelapseSettings *)timelapseSettings;
-
-@end
-
 @interface TimelapsSegue : UIStoryboardSegue
 
 @end

@@ -95,7 +95,7 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
         case SWSideBarRowTimeLapse:
         {
             [self.navigationController popToRootViewControllerAnimated:NO];
-            [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_HIDE_SIDE_BAR_NOTIFICATION object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_HIDE_SIDE_BAR_NOTIFICATION object:self];
             break;
         }
             

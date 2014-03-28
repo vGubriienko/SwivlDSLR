@@ -142,6 +142,40 @@
             </objects>
             <point key="canvasLocation" x="955" y="-214"/>
         </scene>
+        <!--Progress Controller-->
+        <scene sceneID="jSw-cX-GLM">
+            <objects>
+                <viewController id="BGd-zx-yDw" customClass="SWProgressController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xr0-2R-gzf"/>
+                        <viewControllerLayoutGuide type="bottom" id="ieP-mA-FNg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UF9-r0-iBI">
+                        <rect key="frame" x="0.0" y="0.0" width="862" height="768"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XnU-YE-KsK">
+                                <rect key="frame" x="306" y="334" width="250" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="862" height="768"/>
+                    <connections>
+                        <outlet property="_timeLabel" destination="XnU-YE-KsK" id="CMx-E5-ATa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mcQ-x3-l6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-369" y="1133"/>
+        </scene>
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -166,12 +200,27 @@
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="selected" image="capture_pressed.png"/>
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="onCaptureBtnTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="2XV-Pv-Clu"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U7o-fo-53k">
+                                        <rect key="frame" x="12" y="346" width="75" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="capture_pressed.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" image="capture_pressed.png"/>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onCaptureBtnTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="pZB-eq-lla"/>
                                         </connections>
                                     </button>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="base_off.png" highlightedImage="base_present.png" translatesAutoresizingMaskIntoConstraints="NO" id="oWf-df-0gR">
@@ -258,6 +307,13 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AiC-wQ-tzg" userLabel="Content view">
                                 <rect key="frame" x="0.0" y="0.0" width="862" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="start_screen.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="3ng-La-G6U">
+                                        <rect key="frame" x="0.0" y="0.0" width="862" height="768"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30P-dP-7YQ">
@@ -281,18 +337,21 @@
                     <connections>
                         <outlet property="_batteryLevelImg" destination="jo8-vt-brI" id="Kqn-eH-3G7"/>
                         <outlet property="_captureBtn" destination="vmQ-Ts-cgV" id="joh-lP-xd4"/>
+                        <outlet property="_captureBtnActive" destination="U7o-fo-53k" id="6kJ-qu-YCt"/>
                         <outlet property="_directionBtn" destination="Mjr-F8-ZV6" id="h51-uN-pRb"/>
                         <outlet property="_distanceBtn" destination="eoN-Lv-yEx" id="LRv-FP-Y1U"/>
                         <outlet property="_recordingTimeBtn" destination="APJ-d3-MS4" id="GYK-pA-REz"/>
                         <outlet property="_stepSizeBtn" destination="xGu-vL-9uu" id="Mfq-eG-bDI"/>
                         <outlet property="_swivlStatusImg" destination="oWf-df-0gR" id="Bot-yv-96F"/>
                         <outlet property="_timeBetweenPicturesBtn" destination="BJN-1d-nsv" id="r3G-lh-78R"/>
+                        <outlet property="_timelapseControls" destination="1z8-OZ-cj9" id="JLg-3F-3Lg"/>
                         <outlet property="contentView" destination="AiC-wQ-tzg" id="R5e-NV-xBB"/>
+                        <segue destination="BGd-zx-yDw" kind="custom" identifier="ScriptProgress" customClass="TimelapsSegue" id="0Ww-cd-wAq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-667" y="705"/>
+            <point key="canvasLocation" x="-531" y="89"/>
         </scene>
     </scenes>
     <resources>
@@ -302,6 +361,7 @@
         <image name="capture_normal.png" width="75" height="75"/>
         <image name="capture_pressed.png" width="75" height="75"/>
         <image name="reveal-white.png" width="22" height="17"/>
+        <image name="start_screen.jpg" width="675" height="630"/>
         <image name="timelapse_direction_1.png" width="60" height="60"/>
         <image name="timelapse_direction_2.png" width="60" height="60"/>
         <image name="timelapse_distance.png" width="60" height="60"/>
@@ -315,7 +375,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="lUk-CA-ucY"/>
         <segue reference="Zhm-Bb-j14"/>
-        <segue reference="mHk-tb-Ofw"/>
     </inferredMetricsTieBreakers>
 </document>
