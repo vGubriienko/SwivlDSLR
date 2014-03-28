@@ -60,6 +60,7 @@
 		858A4DFC18C8AA700036A0CF /* DKRepeatableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A4DF818C8AA700036A0CF /* DKRepeatableButton.m */; };
 		858A4DFD18C8AA700036A0CF /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = 858A4DF918C8AA700036A0CF /* down.png */; };
 		858A4DFE18C8AA700036A0CF /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = 858A4DFA18C8AA700036A0CF /* up.png */; };
+		85956AF318E4AC3C001763BC /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85956AF218E4AC3C001763BC /* ExternalAccessory.framework */; };
 		85D97BA118C76DD2002C2665 /* TimelapsSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D97BA018C76DD2002C2665 /* TimelapsSegue.m */; };
 		F9BBBAC788B14B99AF8252EE /* libPods-SwivlDSLRTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4BCFD640834A729BC853D0 /* libPods-SwivlDSLRTests.a */; };
 /* End PBXBuildFile section */
@@ -147,6 +148,7 @@
 		858A4DF818C8AA700036A0CF /* DKRepeatableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKRepeatableButton.m; sourceTree = "<group>"; };
 		858A4DF918C8AA700036A0CF /* down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down.png; sourceTree = "<group>"; };
 		858A4DFA18C8AA700036A0CF /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up.png; sourceTree = "<group>"; };
+		85956AF218E4AC3C001763BC /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		85D97B9F18C76DD2002C2665 /* TimelapsSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelapsSegue.h; sourceTree = "<group>"; };
 		85D97BA018C76DD2002C2665 /* TimelapsSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelapsSegue.m; sourceTree = "<group>"; };
 		875D82B5AC324DAD9BEEE66D /* Pods-SwivlDSLR.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwivlDSLR.xcconfig"; path = "Pods/Pods-SwivlDSLR.xcconfig"; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85956AF318E4AC3C001763BC /* ExternalAccessory.framework in Frameworks */,
 				259524F718C610DF006EEAFA /* CoreGraphics.framework in Frameworks */,
 				25070FE118E2FDA1006FBD2D /* Crashlytics.framework in Frameworks */,
 				259524F918C610DF006EEAFA /* UIKit.framework in Frameworks */,
@@ -243,6 +246,7 @@
 		259524F318C610DF006EEAFA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				85956AF218E4AC3C001763BC /* ExternalAccessory.framework */,
 				25070FE018E2FDA1006FBD2D /* Crashlytics.framework */,
 				259524F418C610DF006EEAFA /* Foundation.framework */,
 				259524F618C610DF006EEAFA /* CoreGraphics.framework */,
@@ -782,6 +786,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 875D82B5AC324DAD9BEEE66D /* Pods-SwivlDSLR.xcconfig */;
 			buildSettings = {
+				ARCHS = (
+					armv7,
+					armv7s,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -800,6 +808,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 875D82B5AC324DAD9BEEE66D /* Pods-SwivlDSLR.xcconfig */;
 			buildSettings = {
+				ARCHS = (
+					armv7,
+					armv7s,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (

@@ -11,7 +11,7 @@
 #import "SWScript.h"
 #import "SWSideBar.h"
 #import "MVYSideMenuController.h"
-#import <Swivl2Lib/SwivlCommonLib.h>
+#import <Swivl-iOS-SDK/SwivlCommonLib.h>
 #import <Crashlytics/Crashlytics.h>
 
 #define SW_CAMERA_INTERFACE_KEY @"SW_CAMERA_INTERFACE_KEY"
@@ -42,7 +42,7 @@ SWAppDelegate *swAppDelegate = nil;
     if (savedCameraInterface) {
         self.currentCameraInterface = savedCameraInterface.integerValue;
     } else {
-        self.currentCameraInterface = SWCameraInterfaceTrigger;
+        self.currentCameraInterface = SWCameraInterfaceUSB;
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self
