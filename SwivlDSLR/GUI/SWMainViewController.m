@@ -61,6 +61,12 @@
     _timeBetweenPicturesBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [[Countly sharedInstance] recordEvent:NSStringFromClass([self class]) segmentation:@{@"open":@YES} count:1];
+    [super viewDidAppear:animated];
+}
+
 #pragma mark - IBActions
 
 - (IBAction)onInfoBtnTapped

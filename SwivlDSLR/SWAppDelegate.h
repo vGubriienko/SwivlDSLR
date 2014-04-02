@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+//Analitycs for all classes
+#import "Countly.h"
 
 @class SWScript;
 @class SWAppDelegate;
