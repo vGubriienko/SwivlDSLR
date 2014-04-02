@@ -21,6 +21,7 @@
 		2522F7DE18D0CAF000915E25 /* AVSandboxNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 2522F7DD18D0CAF000915E25 /* AVSandboxNotifications.m */; };
 		25465B5E18E57F7200C4DBDF /* start_screen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25465B5D18E57F7200C4DBDF /* start_screen.jpg */; };
 		25465B6118E5820900C4DBDF /* SWProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25465B6018E5820900C4DBDF /* SWProgressView.m */; };
+		256C1FD918EC3EE700D0659B /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 256C1FD818EC3EE700D0659B /* info.png */; };
 		259524F518C610DF006EEAFA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259524F418C610DF006EEAFA /* Foundation.framework */; };
 		259524F718C610DF006EEAFA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259524F618C610DF006EEAFA /* CoreGraphics.framework */; };
 		259524F918C610DF006EEAFA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259524F818C610DF006EEAFA /* UIKit.framework */; };
@@ -100,6 +101,7 @@
 		25465B5D18E57F7200C4DBDF /* start_screen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = start_screen.jpg; sourceTree = "<group>"; };
 		25465B5F18E5820900C4DBDF /* SWProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWProgressView.h; sourceTree = "<group>"; };
 		25465B6018E5820900C4DBDF /* SWProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWProgressView.m; sourceTree = "<group>"; };
+		256C1FD818EC3EE700D0659B /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		259524F118C610DF006EEAFA /* SwivlDSLR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwivlDSLR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		259524F418C610DF006EEAFA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		259524F618C610DF006EEAFA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -366,6 +368,7 @@
 				2595253B18C61BA2006EEAFA /* base_off@2x.png */,
 				2595253C18C61BA2006EEAFA /* batery_off.png */,
 				2595253D18C61BA2006EEAFA /* batery_off@2x.png */,
+				256C1FD818EC3EE700D0659B /* info.png */,
 				2595253E18C61BA2006EEAFA /* capture_normal.png */,
 				2595253F18C61BA2006EEAFA /* capture_normal@2x.png */,
 				2595254018C61BA2006EEAFA /* capture_pressed.png */,
@@ -551,6 +554,7 @@
 				2595254218C61BA2006EEAFA /* base_off.png in Resources */,
 				2595255418C62190006EEAFA /* timelapse_time_between_pictures.png in Resources */,
 				2595255118C62190006EEAFA /* timelapse_step.png in Resources */,
+				256C1FD918EC3EE700D0659B /* info.png in Resources */,
 				2595254318C61BA2006EEAFA /* base_off@2x.png in Resources */,
 				25ADC23D18C724A400CEB6A7 /* timelapse_recording_time.png in Resources */,
 				2522F7D118D0C23C00915E25 /* SWSettingsController.storyboard in Resources */,

@@ -63,6 +63,11 @@
 
 #pragma mark - IBActions
 
+- (IBAction)onInfoBtnTapped
+{
+    [self clearContent];
+}
+
 - (IBAction)onDirectionBtnTapped
 {
     _timelapseSettings.clockwiseDirection = !_timelapseSettings.clockwiseDirection;
@@ -105,7 +110,6 @@
                      }
                      completion:nil];
     
-    [_currentContentController.view removeFromSuperview];
     [self performSegueWithIdentifier:@"ScriptProgress" sender:nil];
 }
 
@@ -116,15 +120,14 @@
     _captureBtnActive.hidden = YES;
     [_captureBtnActive.layer removeAllAnimations];
     
-    [_currentContentController.view removeFromSuperview];
-    _currentContentController = nil;
+    [self clearContent];
 }
 
 #pragma mark - Storyboard navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [_currentContentController.view removeFromSuperview];
+    [self clearContent];
     _currentContentController = segue.destinationViewController;
 
     if ([_currentContentController respondsToSelector:@selector(setTimelapseSettings:)]) {
@@ -133,6 +136,12 @@
     if ([_currentContentController respondsToSelector:@selector(setScript:)]) {
         [_currentContentController performSelector:@selector(setScript:) withObject:swAppDelegate.script];
     }
+}
+
+- (void)clearContent
+{
+    [_currentContentController.view removeFromSuperview];
+    _currentContentController = nil;
 }
 
 #pragma mark - Observing

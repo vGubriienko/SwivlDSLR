@@ -168,6 +168,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="862" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="start_screen.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="fkG-Cv-LD4">
+                                <rect key="frame" x="0.0" y="0.0" width="862" height="768"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XnU-YE-KsK">
                                 <rect key="frame" x="306" y="334" width="250" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -193,6 +198,7 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="SWMainViewController" id="BYZ-38-t0r" customClass="SWMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WZM-8J-HQH"/>
@@ -238,15 +244,26 @@
                                         </connections>
                                     </button>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="base_off.png" highlightedImage="base_present.png" translatesAutoresizingMaskIntoConstraints="NO" id="oWf-df-0gR">
-                                        <rect key="frame" x="37" y="670" width="28" height="25"/>
+                                        <rect key="frame" x="37" y="208" width="28" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="batery_off.png" translatesAutoresizingMaskIntoConstraints="NO" id="jo8-vt-brI">
-                                        <rect key="frame" x="37" y="723" width="28" height="25"/>
+                                        <rect key="frame" x="35" y="556" width="28" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yWz-Hh-J35">
+                                        <rect key="frame" x="29" y="44" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <inset key="contentEdgeInsets" minX="11" minY="11" maxX="11" maxY="11"/>
+                                        <state key="normal" image="info.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onInfoBtnTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="UGT-78-UEw"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.070588235289999995" green="0.074509803920000006" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -322,11 +339,29 @@
                                 <rect key="frame" x="0.0" y="0.0" width="862" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="start_screen.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="3ng-La-G6U">
-                                        <rect key="frame" x="0.0" y="0.0" width="862" height="768"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="689" translatesAutoresizingMaskIntoConstraints="NO" id="RcV-KU-7A8">
+                                        <rect key="frame" x="87" y="200" width="689" height="426"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </imageView>
+                                        <string key="text">1. Make sure Swivl is on and has Bluetooth connection with your iOS device.
+
+2. Set DSLR camera on Swivl and connect it via USB or Trigger port. Select corresponding camera interface in "Swivl settings" menu.
+
+3. Select necessary time-lapse parameters, such as distance, step size, recording time and time between pictures.
+
+4. To start time-lapse photography tap on capture button.
+
+5. Enjoy :-)</string>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instruction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1T-FR-CBR">
+                                        <rect key="frame" x="279" y="142" width="304" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -363,9 +398,8 @@
                         <segue destination="BGd-zx-yDw" kind="custom" identifier="ScriptProgress" customClass="TimelapsSegue" id="0Ww-cd-wAq"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-531" y="89"/>
+            <point key="canvasLocation" x="-721" y="-23"/>
         </scene>
     </scenes>
     <resources>
@@ -374,6 +408,7 @@
         <image name="batery_off.png" width="30" height="25"/>
         <image name="capture_normal.png" width="75" height="75"/>
         <image name="capture_pressed.png" width="75" height="75"/>
+        <image name="info.png" width="60" height="60"/>
         <image name="reveal-white.png" width="22" height="17"/>
         <image name="start_screen.jpg" width="675" height="630"/>
         <image name="timelapse_direction_1.png" width="60" height="60"/>
@@ -389,7 +424,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="lUk-CA-ucY"/>
         <segue reference="Zhm-Bb-j14"/>
+        <segue reference="mHk-tb-Ofw"/>
     </inferredMetricsTieBreakers>
 </document>

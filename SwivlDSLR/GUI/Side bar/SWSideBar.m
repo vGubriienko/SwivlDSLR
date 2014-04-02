@@ -12,11 +12,10 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
 {
     SWSideBarRowTimeLapse = 0,
     SWSideBarRowSwivl,
-    SWSideBarRowHelp,
     SWSideBarRowCount,
 };
 
-#define SW_SIDE_BAR_ROW_NAMES @"Timelapse", @"Swivl settings", @"Help"
+#define SW_SIDE_BAR_ROW_NAMES @"Time-lapse", @"Swivl settings"
 
 @interface SWSideBar ()
 {
@@ -106,10 +105,6 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
             
             [self.navigationController pushViewController:vc animated:NO];
             
-            break;
-        }
-        case SWSideBarRowHelp:
-        {
             break;
         }
     }
