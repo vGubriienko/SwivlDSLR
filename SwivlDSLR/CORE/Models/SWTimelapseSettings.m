@@ -14,10 +14,10 @@
 {
     self = [super init];
     if (self) {
-        self.distance = 180;
-        self.stepSize = 0.99;
+        self.distance = 90;
+        self.stepSize = 11.0;
         self.clockwiseDirection = YES;
-        self.recordingTime = 100;
+        self.timeBetweenPictures = 5.0;
     }
     return self;
 }
