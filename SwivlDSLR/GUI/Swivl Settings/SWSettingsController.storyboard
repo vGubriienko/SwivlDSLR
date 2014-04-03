@@ -32,12 +32,12 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="battery-0.png" id="fs7-JT-zND">
-                                                    <rect key="frame" x="639" y="8" width="109" height="28"/>
+                                                    <rect key="frame" x="642" y="8" width="109" height="28"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     <inset key="insetFor6xAndEarlier" minX="-10" minY="0.0" maxX="10" maxY="0.0"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" id="EbF-rS-XEa">
-                                                    <rect key="frame" x="639" y="8" width="109" height="28"/>
+                                                    <rect key="frame" x="642" y="8" width="109" height="28"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="battery-100.png" id="tM2-kK-43d">
@@ -66,12 +66,12 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="battery-0.png" id="b1v-Wt-PlJ">
-                                                    <rect key="frame" x="639" y="8" width="109" height="28"/>
+                                                    <rect key="frame" x="642" y="8" width="109" height="28"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     <inset key="insetFor6xAndEarlier" minX="-10" minY="0.0" maxX="10" maxY="0.0"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" id="b0b-ZA-C6t">
-                                                    <rect key="frame" x="639" y="8" width="109" height="28"/>
+                                                    <rect key="frame" x="642" y="8" width="109" height="28"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="battery-100.png" id="Bgo-b7-nEN">
@@ -100,7 +100,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="xD4-ch-sHb">
-                                                    <rect key="frame" x="577" y="8" width="171" height="29"/>
+                                                    <rect key="frame" x="580" y="8" width="171" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     <segments>
                                                         <segment title="USB Port"/>

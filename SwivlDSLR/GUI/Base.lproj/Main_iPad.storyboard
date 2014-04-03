@@ -247,7 +247,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
                                     </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="batery_off.png" translatesAutoresizingMaskIntoConstraints="NO" id="jo8-vt-brI">
+                                    <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="batery_off.png" translatesAutoresizingMaskIntoConstraints="NO" id="jo8-vt-brI">
                                         <rect key="frame" x="35" y="556" width="28" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
@@ -347,7 +347,7 @@
 
 3. Select the necessary time-lapse parameters:
     a. Distance – time-lapse path in degrees;
-    b. Step size – number of degrees between steps;
+    b. Step size – number of degrees in each step;
     c. Direction - clock or counter clock rotation;
     d. Recording time – total time-lapse duration;
     e. Time between pictures.
