@@ -122,7 +122,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
                                     </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="batery_off.png" id="ePg-85-HIf">
+                                    <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="batery_off.png" id="ePg-85-HIf">
                                         <rect key="frame" x="37" y="79" width="28" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
@@ -156,7 +156,7 @@
                                         <rect key="frame" x="15" y="64" width="376" height="256"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <mutableString key="text">1. Make sure Swivl is on and has Bluetooth connection with your iOS device.
+                                        <string key="text">1. Make sure Swivl is on and has Bluetooth connection with your iOS device.
 
 2. Set DSLR camera on Swivl and connect it via USB or Trigger port. Select corresponding camera interface in "Swivl settings" menu.
 
@@ -170,7 +170,7 @@ Please note that some parameters are interdependent and changing one will change
 
 4. To start time-lapse photography tap on capture button.
 
-5. Enjoy :-)</mutableString>
+5. Enjoy :-)</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
