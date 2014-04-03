@@ -11,6 +11,7 @@
 #import "DKCircularSlider.h"
 
 #import "SWTimelapseSettings.h"
+#import "Countly.h"
 
 @interface SWDegreesController ()
 {
@@ -37,6 +38,12 @@
     if (_stepSizeContainer) {
         [self initStepSizeSlider];
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [[Countly sharedInstance] recordEvent:NSStringFromClass([self class]) segmentation:@{@"open":@YES} count:1];
+    [super viewDidAppear:animated];
 }
 
 - (void)initDistanceSlider

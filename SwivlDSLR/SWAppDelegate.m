@@ -35,6 +35,7 @@ SWAppDelegate *swAppDelegate = nil;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [Crashlytics startWithAPIKey:@"3cc74596e11f1822925527f515758299a6b646bf"];
+    [[Countly sharedInstance] start:@"a7c5600626ee637a959c35da28960279b2fe533a" withHost:@"https://cloud.count.ly"]; // newly added line
     
     swAppDelegate = self;
     self.swivl = [SwivlCommonLib sharedSwivlBaseForDelegate:self];
@@ -65,6 +66,7 @@ SWAppDelegate *swAppDelegate = nil;
     
     [self restoreSavedScript];
 
+    [[Countly sharedInstance] recordEvent:NSStringFromClass([self class]) segmentation:@{@"open":@YES} count:1];
     return YES;
 }
 							

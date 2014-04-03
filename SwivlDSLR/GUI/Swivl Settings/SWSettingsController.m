@@ -67,6 +67,12 @@
     self.view.frame = frame;
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [[Countly sharedInstance] recordEvent:NSStringFromClass([self class]) segmentation:@{@"open":@YES} count:1];
+    [super viewDidAppear:animated];
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];

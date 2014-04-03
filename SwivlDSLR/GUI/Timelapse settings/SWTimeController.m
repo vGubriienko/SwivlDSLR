@@ -10,6 +10,8 @@
 
 #import "SWTimelapseSettings.h"
 
+#import "Countly.h"
+
 @interface SWTimeController ()
 {
     __weak IBOutlet UIPickerView *_recordingTimePicker;
@@ -36,6 +38,12 @@
     if (_timeBtwnPicturesPicker) {
         [self setupTimeBtwnPicturesPicker:NO];
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [[Countly sharedInstance] recordEvent:NSStringFromClass([self class]) segmentation:@{@"open":@YES} count:1];
+    [super viewDidAppear:animated];
 }
 
 - (void)setupRecordingTimePicker:(BOOL)animated
