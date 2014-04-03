@@ -63,14 +63,20 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SWSideBarCell"];
     }
-    
+
     NSArray *menuTitles = @[SW_SIDE_BAR_ROW_NAMES];
     cell.textLabel.text = menuTitles[indexPath.row];
     
     cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.textColor = [UIColor lightTextColor];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
-    cell.textLabel.font = [UIFont systemFontOfSize:25];
+    
+    if (IS_IPHONE_4) {
+        cell.textLabel.font = [UIFont systemFontOfSize:15];
+
+    } else {
+        cell.textLabel.font = [UIFont systemFontOfSize:25];
+    }
     
     cell.textLabel.highlightedTextColor = [UIColor whiteColor];
     UIView *backView = [[UIView alloc] initWithFrame:cell.frame];

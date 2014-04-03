@@ -198,7 +198,6 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="SWMainViewController" id="BYZ-38-t0r" customClass="SWMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WZM-8J-HQH"/>
@@ -339,24 +338,30 @@
                                 <rect key="frame" x="0.0" y="0.0" width="862" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="689" translatesAutoresizingMaskIntoConstraints="NO" id="RcV-KU-7A8">
-                                        <rect key="frame" x="87" y="200" width="689" height="426"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="689" translatesAutoresizingMaskIntoConstraints="NO" id="RcV-KU-7A8">
+                                        <rect key="frame" x="87" y="133" width="689" height="560"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <string key="text">1. Make sure Swivl is on and has Bluetooth connection with your iOS device.
+                                        <mutableString key="text">1. Make sure Swivl is on and has Bluetooth connection with your iOS device.
 
 2. Set DSLR camera on Swivl and connect it via USB or Trigger port. Select corresponding camera interface in "Swivl settings" menu.
 
-3. Select necessary time-lapse parameters, such as distance, step size, recording time and time between pictures.
+3. Select the necessary time-lapse parameters:
+    a. Distance – time-lapse path in degrees;
+    b. Step size – number of degrees between steps;
+    c. Direction - clock or counter clock rotation;
+    d. Recording time – total time-lapse duration;
+    e. Time between pictures.
+Please note that some parameters are interdependent and changing one will change the other.
 
 4. To start time-lapse photography tap on capture button.
 
-5. Enjoy :-)</string>
+5. Enjoy :-)</mutableString>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instruction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1T-FR-CBR">
-                                        <rect key="frame" x="279" y="142" width="304" height="50"/>
+                                        <rect key="frame" x="279" y="75" width="304" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -398,6 +403,7 @@
                         <segue destination="BGd-zx-yDw" kind="custom" identifier="ScriptProgress" customClass="TimelapsSegue" id="0Ww-cd-wAq"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-721" y="-23"/>
         </scene>
