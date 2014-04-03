@@ -241,7 +241,12 @@ SWAppDelegate *swAppDelegate = nil;
         sideBarWidth = 320;
         storyboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil];
     } else {
-        sideBarWidth = 200;
+        if (IS_IPHONE_4) {
+            sideBarWidth = 125;
+            
+        } else {
+            sideBarWidth = 200;
+        }
         storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     }
     
