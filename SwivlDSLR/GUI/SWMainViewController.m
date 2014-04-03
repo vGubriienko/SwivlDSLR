@@ -31,6 +31,7 @@
     __weak IBOutlet UIButton *_timeBetweenPicturesBtn;
     __weak IBOutlet UIView *_timelapseControls;
 
+    __weak IBOutlet UITextView *_infoTextView;
     __weak IBOutlet UIButton *_captureBtn, *_captureBtnActive;
     __weak IBOutlet UIImageView *_batteryLevelImg;
     __weak IBOutlet UIImageView *_swivlStatusImg;
@@ -59,6 +60,8 @@
     _distanceBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     _recordingTimeBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     _timeBetweenPicturesBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    _infoTextView.contentOffset = CGPointZero;
 }
 
 - (void)viewDidAppear:(BOOL)animated
