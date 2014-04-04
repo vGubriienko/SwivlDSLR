@@ -177,8 +177,8 @@ SWAppDelegate *swAppDelegate = nil;
     }
     
     [self saveScript];
-    [self.swivl swivlScriptStartThread];
-    NSLog(@"swivlScriptStartThread");
+    [self.swivl swivlScriptStartSingleThread];
+    NSLog(@"swivlScriptStartSingleThread");
 }
 
 - (void)swivlScriptResult:(SInt8)thread Result:(SInt8)res Run:(UInt16)run Stack:(UInt32)stack
