@@ -154,8 +154,7 @@ SWAppDelegate *swAppDelegate = nil;
     }
     
     if (swivlIsBusy) {
-#warning
-        NSLog(@"Script is running, but we don't know about it");
+        [self showSwivlIsBusyMessage];
         return;
     }
     
@@ -266,7 +265,7 @@ SWAppDelegate *swAppDelegate = nil;
     self.window.rootViewController = _sideBarController;
 }
 
-#pragma mark - Show/Hide side bar
+#pragma mark - Notifications
 
 - (void)needHideSideBarNotification
 {
@@ -283,6 +282,18 @@ SWAppDelegate *swAppDelegate = nil;
     NSLog(@"scriptProgressDidFinish");
 
     self.scriptRunning = NO;
+    [self removeScript];
+}
+
+#pragma mark - messages
+
+- (void)showSwivlIsBusyMessage
+{
+    [[[UIAlertView alloc] initWithTitle:@"Swivl is busy"
+                                message:@"Swivl is making time-lapse photography at the moment. Try again later."
+                               delegate:nil
+                      cancelButtonTitle:@"OK"
+                      otherButtonTitles:nil] show];
 }
 
 @end

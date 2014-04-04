@@ -19,6 +19,7 @@
 		2522F7DA18D0C69800915E25 /* battery-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 2522F7D618D0C69800915E25 /* battery-100.png */; };
 		2522F7DB18D0C69800915E25 /* battery-100@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2522F7D718D0C69800915E25 /* battery-100@2x.png */; };
 		2522F7DE18D0CAF000915E25 /* AVSandboxNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 2522F7DD18D0CAF000915E25 /* AVSandboxNotifications.m */; };
+		2540042118EEAE6F0060ECB2 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 2540042018EEAE6F0060ECB2 /* UIAlertView+Blocks.m */; };
 		25465B5E18E57F7200C4DBDF /* start_screen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25465B5D18E57F7200C4DBDF /* start_screen.jpg */; };
 		25465B6118E5820900C4DBDF /* SWProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25465B6018E5820900C4DBDF /* SWProgressView.m */; };
 		256C1FD918EC3EE700D0659B /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 256C1FD818EC3EE700D0659B /* info.png */; };
@@ -98,6 +99,8 @@
 		2522F7D718D0C69800915E25 /* battery-100@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "battery-100@2x.png"; sourceTree = "<group>"; };
 		2522F7DC18D0CAF000915E25 /* AVSandboxNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVSandboxNotifications.h; sourceTree = "<group>"; };
 		2522F7DD18D0CAF000915E25 /* AVSandboxNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVSandboxNotifications.m; sourceTree = "<group>"; };
+		2540041F18EEAE6F0060ECB2 /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
+		2540042018EEAE6F0060ECB2 /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
 		25465B5D18E57F7200C4DBDF /* start_screen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = start_screen.jpg; sourceTree = "<group>"; };
 		25465B5F18E5820900C4DBDF /* SWProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWProgressView.h; sourceTree = "<group>"; };
 		25465B6018E5820900C4DBDF /* SWProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWProgressView.m; sourceTree = "<group>"; };
@@ -231,6 +234,15 @@
 			path = Battery;
 			sourceTree = "<group>";
 		};
+		2540041E18EEAE6F0060ECB2 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				2540041F18EEAE6F0060ECB2 /* UIAlertView+Blocks.h */,
+				2540042018EEAE6F0060ECB2 /* UIAlertView+Blocks.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		259524E818C610DE006EEAFA = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +289,7 @@
 				2595250418C610DF006EEAFA /* SWAppDelegate.m */,
 				2595252C18C6141C006EEAFA /* CORE */,
 				2595252D18C6141C006EEAFA /* GUI */,
+				2540041E18EEAE6F0060ECB2 /* Categories */,
 				2595253718C61BA2006EEAFA /* Resourses */,
 				2595250F18C610DF006EEAFA /* Images.xcassets */,
 				259524FB18C610DF006EEAFA /* Supporting Files */,
@@ -667,6 +680,7 @@
 				25465B6118E5820900C4DBDF /* SWProgressView.m in Sources */,
 				2522F7C918D0B79000915E25 /* SWSideBar.m in Sources */,
 				2522F7D018D0C23C00915E25 /* SWSettingsController.m in Sources */,
+				2540042118EEAE6F0060ECB2 /* UIAlertView+Blocks.m in Sources */,
 				858A4DFB18C8AA700036A0CF /* DKCircularSlider.m in Sources */,
 				250A4D1818DADEF300E82B1F /* SWScript.m in Sources */,
 				25BB880318E45F7400ECE14D /* SWProgressController.m in Sources */,
