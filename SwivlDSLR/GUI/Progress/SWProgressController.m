@@ -54,9 +54,7 @@
         [_progressTimer invalidate];
         progress = 1;
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:AVSandboxScriptProgressDidFinishNotification
-                                                            object:self
-                                                          userInfo:@{@"script" : self.script}];
+        [[NSNotificationCenter defaultCenter] postNotificationName:AVSandboxScriptProgressDidFinishNotification object:self];
     }
     _progressView.progress = progress;
     

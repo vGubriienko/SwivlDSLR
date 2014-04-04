@@ -92,14 +92,21 @@
 - (IBAction)onCaptureBtnTapped
 {
     if (!swAppDelegate.isScriptRunning) {
-        SWScript *script = [[SWScript alloc] initWithTimelapseSettings:_timelapseSettings];
-    
-        swAppDelegate.script = script;
-        script.type = swAppDelegate.currentCameraInterface;
-        [swAppDelegate.swivl swivlScriptRequestBufferState];
+        if (swAppDelegate.swivl.swivlConnected) {
+            SWScript *script = [[SWScript alloc] initWithTimelapseSettings:_timelapseSettings];
+            swAppDelegate.script = script;
+            script.type = swAppDelegate.currentCameraInterface;
+            [swAppDelegate.swivl swivlScriptRequestBufferState];
+        } else {
+            [self showSwivlDisconnectedMessage];
+        }
     } else {
-        NSLog(@"swivlScriptStop");
-        [swAppDelegate.swivl swivlScriptStop];
+        if (swAppDelegate.swivl.swivlConnected) {
+            NSLog(@"swivlScriptStop");
+            [swAppDelegate.swivl swivlScriptStop];
+        } else {
+            [self showStopProgressConfirmation];
+        }
     }
 }
 
@@ -264,7 +271,7 @@
     [_observeBatteryLevelTimer invalidate];
 }
 
-#pragma Saving
+#pragma mark - Saving
 
 - (void)saveSettings
 {
@@ -280,6 +287,32 @@
     if (!_timelapseSettings) {
         _timelapseSettings = [[SWTimelapseSettings alloc] init];
     }
+}
+
+#pragma mark - Messages
+
+- (void)showSwivlDisconnectedMessage
+{
+    [[[UIAlertView alloc] initWithTitle:@"Swivl is disconnected"
+                               message:@"Make sure there is bluetooth connection with Swivl and try again."
+                              delegate:nil
+                     cancelButtonTitle:@"OK"
+                      otherButtonTitles:nil] show];
+}
+
+- (void)showStopProgressConfirmation
+{
+    [[[UIAlertView alloc] initWithTitle:@"Swivl is disconnected"
+                                message:@"There is no connection with swivl at the moment. Stop showing progress?"
+                               delegate:nil
+                      cancelButtonTitle:@"NO"
+                      otherButtonTitles:@"YES", nil]
+     
+     showWithCompletion:^(UIAlertView *alertView, NSInteger buttonIndex) {
+         if (buttonIndex == 1) {
+             [[NSNotificationCenter defaultCenter] postNotificationName:AVSandboxScriptProgressDidFinishNotification object:self];
+         }
+    }];
 }
 
 #pragma mark -
