@@ -242,6 +242,11 @@
     NSInteger markerBatteryLevel = swAppDelegate.swivl.markerBatteryLevel;
     NSInteger baseBatteryLevel = swAppDelegate.swivl.baseBatteryLevel;
     
+    if (!swAppDelegate.swivl.primaryMarkerConnected)
+    {
+        markerBatteryLevel = -1;
+    }
+    
     BOOL lowBattery = NO;
     lowBattery = lowBattery || (deviceBatteryLevel > -1 && deviceBatteryLevel < BATTERY_LOW_LEVEL);
     lowBattery = lowBattery || (baseBatteryLevel > -1 && baseBatteryLevel < BATTERY_LOW_LEVEL);

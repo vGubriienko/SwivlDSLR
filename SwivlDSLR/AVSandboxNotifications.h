@@ -17,6 +17,8 @@ extern NSString* AVSandboxRecordingStartedNotification; // Recording has started
 extern NSString* AVSandboxApplicationActiveNotification;// Called when app enters foreground and becomes active
 extern NSString* AVSandboxSwivlDockAttached;
 extern NSString* AVSandboxSwivlDockDetached;
+extern NSString* AVSandboxMarkerBatteryLevelChanged;
+extern NSString* AVSandboxBaseBatteryLevelChanged;
 extern NSString* AVSandboxNavToFromRecordingScreen; // to keep the SwivlManager state machine on track
 // Object is bool value (YES for entering recording screen)
 extern NSString* AVSandboxTrackingStateChangedNotification; // to update the app; check
