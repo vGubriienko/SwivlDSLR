@@ -104,6 +104,7 @@
         if (swAppDelegate.swivl.swivlConnected) {
             NSLog(@"swivlScriptStop");
             [swAppDelegate.swivl swivlScriptStop];
+            [[NSNotificationCenter defaultCenter] postNotificationName:AVSandboxScriptProgressDidFinishNotification object:self];
         } else {
             [self showStopProgressConfirmation];
         }
@@ -240,6 +241,11 @@
     
     NSInteger markerBatteryLevel = swAppDelegate.swivl.markerBatteryLevel;
     NSInteger baseBatteryLevel = swAppDelegate.swivl.baseBatteryLevel;
+    
+    if (!swAppDelegate.swivl.primaryMarkerConnected)
+    {
+        markerBatteryLevel = -1;
+    }
     
     BOOL lowBattery = NO;
     lowBattery = lowBattery || (deviceBatteryLevel > -1 && deviceBatteryLevel < BATTERY_LOW_LEVEL);
