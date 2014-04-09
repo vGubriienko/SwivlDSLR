@@ -119,7 +119,7 @@
     XCTAssertEqual(_timelapseSettings.recordingTime, 900.0, @"RecordingTime was changed after setting stepSize");
 }
 
-#pragma mark - Time between pictures
+#pragma mark - Time parameters
 
 - (void)testTimeBtwnPicturesRecalculatesRecordingTime
 {
@@ -130,7 +130,14 @@
     XCTAssertEqual(_timelapseSettings.recordingTime, 450.0, @"Incorrect recordingTime after setting timeBetweenPictures");
 }
 
-#pragma mark - Recording time
+- (void)testRecordingTimeisRoundedAfterRecalculating
+{
+    _timelapseSettings.stepSize = 0.99;
+    _timelapseSettings.distance = 180;
+    _timelapseSettings.timeBetweenPictures = 0.22;
+    
+    XCTAssertEqual(_timelapseSettings.recordingTime, 40.0, @"Incorrect recordingTime after setting timeBetweenPictures");
+}
 
 - (void)testRecordingTimeRecalculatesTimeBtwnPictures
 {
