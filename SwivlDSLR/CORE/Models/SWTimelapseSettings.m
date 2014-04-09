@@ -170,7 +170,7 @@
 
 - (void)recalculateRecordingTime
 {
-    _recordingTime = _timeBetweenPictures * self.stepCount;
+    _recordingTime = roundf(_timeBetweenPictures * self.stepCount);
 }
 
 #pragma mark - Dependencies

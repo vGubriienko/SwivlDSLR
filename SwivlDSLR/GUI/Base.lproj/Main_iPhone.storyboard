@@ -26,7 +26,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="scY-Nf-q0p" kind="custom" customClass="TimelapsSegue" id="tsz-tG-qkm"/>
+                                            <segue destination="scY-Nf-q0p" kind="custom" customClass="SWTimelapsSegue" id="tsz-tG-qkm"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tFC-Hu-7Oi" userLabel="Motion direction">
@@ -51,7 +51,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="cys-Cz-MS5" kind="custom" customClass="TimelapsSegue" id="Yz2-7x-6iD"/>
+                                            <segue destination="cys-Cz-MS5" kind="custom" customClass="SWTimelapsSegue" id="Yz2-7x-6iD"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DkC-Ok-yPF" userLabel="Time between pictures">
@@ -64,7 +64,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="6Ef-7Z-gZW" kind="custom" customClass="TimelapsSegue" id="11d-k9-hSD"/>
+                                            <segue destination="6Ef-7Z-gZW" kind="custom" customClass="SWTimelapsSegue" id="11d-k9-hSD"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="U5R-kl-DxV" userLabel="Distance">
@@ -77,7 +77,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="kiG-6Q-bGr" kind="custom" customClass="TimelapsSegue" id="wYY-DZ-fFg"/>
+                                            <segue destination="kiG-6Q-bGr" kind="custom" customClass="SWTimelapsSegue" id="wYY-DZ-fFg"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -206,7 +206,7 @@ Please note that some parameters are interdependent and changing one will change
                         <outlet property="_timeBetweenPicturesBtn" destination="DkC-Ok-yPF" id="sqd-hO-oh6"/>
                         <outlet property="_timelapseControls" destination="HKi-8w-6BC" id="QQc-I7-yuj"/>
                         <outlet property="contentView" destination="62a-P8-j6y" id="sNO-9v-OzQ"/>
-                        <segue destination="s1M-uc-xLO" kind="custom" identifier="ScriptProgress" customClass="TimelapsSegue" id="Q2f-6o-8JS"/>
+                        <segue destination="s1M-uc-xLO" kind="custom" identifier="ScriptProgress" customClass="SWTimelapsSegue" id="Q2f-6o-8JS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
