@@ -66,7 +66,7 @@
 		858A4DFD18C8AA700036A0CF /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = 858A4DF918C8AA700036A0CF /* down.png */; };
 		858A4DFE18C8AA700036A0CF /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = 858A4DFA18C8AA700036A0CF /* up.png */; };
 		85956AF318E4AC3C001763BC /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85956AF218E4AC3C001763BC /* ExternalAccessory.framework */; };
-		85D97BA118C76DD2002C2665 /* TimelapsSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D97BA018C76DD2002C2665 /* TimelapsSegue.m */; };
+		85D97BA118C76DD2002C2665 /* SWTimelapsSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D97BA018C76DD2002C2665 /* SWTimelapsSegue.m */; };
 		F9BBBAC788B14B99AF8252EE /* libPods-SwivlDSLRTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4BCFD640834A729BC853D0 /* libPods-SwivlDSLRTests.a */; };
 /* End PBXBuildFile section */
 
@@ -162,8 +162,8 @@
 		858A4DF918C8AA700036A0CF /* down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down.png; sourceTree = "<group>"; };
 		858A4DFA18C8AA700036A0CF /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up.png; sourceTree = "<group>"; };
 		85956AF218E4AC3C001763BC /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
-		85D97B9F18C76DD2002C2665 /* TimelapsSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelapsSegue.h; sourceTree = "<group>"; };
-		85D97BA018C76DD2002C2665 /* TimelapsSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelapsSegue.m; sourceTree = "<group>"; };
+		85D97B9F18C76DD2002C2665 /* SWTimelapsSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTimelapsSegue.h; sourceTree = "<group>"; };
+		85D97BA018C76DD2002C2665 /* SWTimelapsSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTimelapsSegue.m; sourceTree = "<group>"; };
 		875D82B5AC324DAD9BEEE66D /* Pods-SwivlDSLR.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwivlDSLR.xcconfig"; path = "Pods/Pods-SwivlDSLR.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -330,8 +330,8 @@
 		2595252C18C6141C006EEAFA /* CORE */ = {
 			isa = PBXGroup;
 			children = (
-				85D97B9F18C76DD2002C2665 /* TimelapsSegue.h */,
-				85D97BA018C76DD2002C2665 /* TimelapsSegue.m */,
+				85D97B9F18C76DD2002C2665 /* SWTimelapsSegue.h */,
+				85D97BA018C76DD2002C2665 /* SWTimelapsSegue.m */,
 				25ADC23E18C72D0D00CEB6A7 /* Models */,
 			);
 			path = CORE;
@@ -687,7 +687,7 @@
 				2595253618C6141C006EEAFA /* SWMainViewController.m in Sources */,
 				25A3E68518C93E1C002AFBB9 /* SWTimeController.m in Sources */,
 				2595250518C610DF006EEAFA /* SWAppDelegate.m in Sources */,
-				85D97BA118C76DD2002C2665 /* TimelapsSegue.m in Sources */,
+				85D97BA118C76DD2002C2665 /* SWTimelapsSegue.m in Sources */,
 				25B962D318D21ABC002E4FD1 /* MVYSideMenuOptions.m in Sources */,
 				2595250118C610DF006EEAFA /* main.m in Sources */,
 				25ADC24118C72D4A00CEB6A7 /* SWTimelapseSettings.m in Sources */,
