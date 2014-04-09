@@ -24,6 +24,8 @@ SWAppDelegate *swAppDelegate = nil;
     UIBarButtonItem *_splitVCBtn;
     
     MVYSideMenuController *_sideBarController;
+    
+    BOOL _stopForRunningNewScript;
 }
 
 @property (nonatomic, assign, getter = isScriptRunning) BOOL scriptRunning;
@@ -185,8 +187,13 @@ SWAppDelegate *swAppDelegate = nil;
 {
     NSLog(@"swivlScriptResult thread: %i, Result: %i, Run: %i, Stack: %i", thread, res, run, stack);
     
-    self.scriptRunning = NO;
-    [self removeScript];
+    if (_stopForRunningNewScript) {
+        _stopForRunningNewScript = NO;
+        [self.swivl swivlScriptRequestBufferState];
+    } else {
+        self.scriptRunning = NO;
+        [self removeScript];
+    }
 }
 
 #pragma mark - Save script
@@ -292,8 +299,15 @@ SWAppDelegate *swAppDelegate = nil;
     [[[UIAlertView alloc] initWithTitle:@"Swivl is busy"
                                 message:@"Swivl is making time-lapse photography at the moment. Try again later."
                                delegate:nil
-                      cancelButtonTitle:@"OK"
-                      otherButtonTitles:nil] show];
+                      cancelButtonTitle:@"Cancel"
+                      otherButtonTitles:@"Start anyway?", nil]
+     
+     showWithCompletion:^(UIAlertView *alertView, NSInteger buttonIndex) {
+         if (buttonIndex == 1) {
+             _stopForRunningNewScript = YES;
+             [self.swivl swivlScriptStop];
+         }
+    }];
 }
 
 @end
