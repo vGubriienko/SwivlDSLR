@@ -48,6 +48,10 @@
         scriptStr = [self generateScriptForUSB];
     } else if (self.type == SWCameraInterfaceTrigger) {
         scriptStr = [self generateScriptForTrigger];
+    } else if (self.type == SWCameraInterfaceUSBshot) {
+            scriptStr = [self generateScriptForUSBshot];
+    } else if (self.type == SWCameraInterfaceTriggershot) {
+            scriptStr = [self generateScriptForTriggershot];
     } else {
         NSAssert(NO, @"Invalid script type");
     }
@@ -121,6 +125,20 @@
                         (long)speed,
                         (long)stepSize,
                         direction];
+    return script;
+}
+
+- (NSString *)generateScriptForTriggershot
+{
+    NSString *script = @"1:7ST7D0+1M2:T1L-2<3S.";
+    
+    return script;
+}
+
+- (NSString *)generateScriptForUSBshot
+{
+    NSString *script = @"1:3,0,B9128P2019?1=2001-2#3,A9129P2:.";
+    
     return script;
 }
 
