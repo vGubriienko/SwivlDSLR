@@ -70,6 +70,7 @@
 		858A4DFD18C8AA700036A0CF /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = 858A4DF918C8AA700036A0CF /* down.png */; };
 		858A4DFE18C8AA700036A0CF /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = 858A4DFA18C8AA700036A0CF /* up.png */; };
 		85956AF318E4AC3C001763BC /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85956AF218E4AC3C001763BC /* ExternalAccessory.framework */; };
+		85CA1762190667230052E6C3 /* SWManualControllerPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85CA1761190667230052E6C3 /* SWManualControllerPhone.storyboard */; };
 		85D97BA118C76DD2002C2665 /* SWTimelapsSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D97BA018C76DD2002C2665 /* SWTimelapsSegue.m */; };
 		F9BBBAC788B14B99AF8252EE /* libPods-SwivlDSLRTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4BCFD640834A729BC853D0 /* libPods-SwivlDSLRTests.a */; };
 /* End PBXBuildFile section */
@@ -171,6 +172,7 @@
 		858A4DF918C8AA700036A0CF /* down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down.png; sourceTree = "<group>"; };
 		858A4DFA18C8AA700036A0CF /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up.png; sourceTree = "<group>"; };
 		85956AF218E4AC3C001763BC /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		85CA1761190667230052E6C3 /* SWManualControllerPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SWManualControllerPhone.storyboard; sourceTree = "<group>"; };
 		85D97B9F18C76DD2002C2665 /* SWTimelapsSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTimelapsSegue.h; sourceTree = "<group>"; };
 		85D97BA018C76DD2002C2665 /* SWTimelapsSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTimelapsSegue.m; sourceTree = "<group>"; };
 		875D82B5AC324DAD9BEEE66D /* Pods-SwivlDSLR.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwivlDSLR.xcconfig"; path = "Pods/Pods-SwivlDSLR.xcconfig"; sourceTree = "<group>"; };
@@ -464,6 +466,7 @@
 				8508E40218F6C42500EEC442 /* SWManualController.h */,
 				8508E40318F6C42500EEC442 /* SWManualController.m */,
 				8508E40518F6C47900EEC442 /* SWManualController.storyboard */,
+				85CA1761190667230052E6C3 /* SWManualControllerPhone.storyboard */,
 			);
 			path = ManualController;
 			sourceTree = "<group>";
@@ -608,6 +611,7 @@
 				259524FF18C610DF006EEAFA /* InfoPlist.strings in Resources */,
 				2595254518C61BA2006EEAFA /* batery_off@2x.png in Resources */,
 				2595255618C6229D006EEAFA /* timelapse_direction_2.png in Resources */,
+				85CA1762190667230052E6C3 /* SWManualControllerPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

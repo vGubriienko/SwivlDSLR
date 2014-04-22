@@ -118,7 +118,12 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
             
         case SWSideBarRowManual:
         {
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"SWManualController" bundle:nil];
+            UIStoryboard *storyboard;
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+                storyboard = [UIStoryboard storyboardWithName:@"SWManualControllerPhone" bundle:nil];
+            } else {
+                storyboard = [UIStoryboard storyboardWithName:@"SWManualController" bundle:nil];
+            }
             UIViewController *vc = [storyboard instantiateInitialViewController];
             [self.navigationController popToRootViewControllerAnimated:NO];
             [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_HIDE_SIDE_BAR_NOTIFICATION object:self];

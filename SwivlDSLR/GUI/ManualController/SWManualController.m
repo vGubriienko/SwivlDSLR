@@ -11,6 +11,7 @@
 
 #import "SWAppDelegate.h"
 #import "SwivlCommonLib.h"
+#import "MotionDescriptor.h"
 
 @interface SWManualController()
 {
@@ -60,8 +61,116 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_SHOW_SIDE_BAR_NOTIFICATION object:self];
 }
 
-- (IBAction)onRightBtnTapped
+- (IBAction)onLeftBtnStart:(id)sender
 {
+    MotionDescriptor *_motionDescriptor = [[MotionDescriptor alloc] init];
+    _motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId]+1;
+    _motionDescriptor.axis = AXIS_PAN;
+    _motionDescriptor.type = MOVE_TO_REL_POS;
+    _motionDescriptor.steps = -80000;
+    _motionDescriptor.speed = 2000;
+    _motionDescriptor.startNow = YES;
+    _motionDescriptor.timeoutMs = 0;
+    [swAppDelegate.swivl swivlMoveLoad:_motionDescriptor];
+}
+
+- (IBAction)onLeftBtnStop:(id)sender
+{
+    MotionDescriptor *_motionDescriptor = [[MotionDescriptor alloc] init];
+    _motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId]+1;
+    _motionDescriptor.axis = AXIS_PAN;
+    _motionDescriptor.type = MOVE_TO_REL_POS;
+    _motionDescriptor.steps = -4;
+    _motionDescriptor.speed = 1000;
+    _motionDescriptor.startNow = YES;
+    _motionDescriptor.timeoutMs = 0;
+    
+    [swAppDelegate.swivl swivlMoveLoad:_motionDescriptor];
+    
+}
+
+- (IBAction)onRightBtnStart:(id)sender
+{
+    MotionDescriptor *_motionDescriptor = [[MotionDescriptor alloc] init];
+    _motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId]+1;
+    _motionDescriptor.axis = AXIS_PAN;
+    _motionDescriptor.type = MOVE_TO_REL_POS;
+    _motionDescriptor.steps = 80000;
+    _motionDescriptor.speed = 2000;
+    _motionDescriptor.startNow = YES;
+    _motionDescriptor.timeoutMs = 0;
+    [swAppDelegate.swivl swivlMoveLoad:_motionDescriptor];
+}
+
+- (IBAction)onRightBtnStop:(id)sender
+{
+    MotionDescriptor *_motionDescriptor = [[MotionDescriptor alloc] init];
+    _motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId]+1;
+    _motionDescriptor.axis = AXIS_PAN;
+    _motionDescriptor.type = MOVE_TO_REL_POS;
+    _motionDescriptor.steps = 4;
+    _motionDescriptor.speed = 1000;
+    _motionDescriptor.startNow = YES;
+    _motionDescriptor.timeoutMs = 0;
+    
+    [swAppDelegate.swivl swivlMoveLoad:_motionDescriptor];
+
+}
+
+- (IBAction)onUpBtnStart:(id)sender
+{
+    MotionDescriptor *_motionDescriptor = [[MotionDescriptor alloc] init];
+    _motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId]+1;
+    _motionDescriptor.axis = AXIS_TILT;
+    _motionDescriptor.type = MOVE_TO_REL_POS;
+    _motionDescriptor.steps = 3000;
+    _motionDescriptor.speed = 2000;
+    _motionDescriptor.startNow = YES;
+    _motionDescriptor.timeoutMs = 0;
+    [swAppDelegate.swivl swivlMoveLoad:_motionDescriptor];
+}
+
+- (IBAction)onUpBtnStop:(id)sender
+{
+    MotionDescriptor *_motionDescriptor = [[MotionDescriptor alloc] init];
+    _motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId]+1;
+    _motionDescriptor.axis = AXIS_TILT;
+    _motionDescriptor.type = MOVE_TO_REL_POS;
+    _motionDescriptor.steps = 4;
+    _motionDescriptor.speed = 1000;
+    _motionDescriptor.startNow = YES;
+    _motionDescriptor.timeoutMs = 0;
+    
+    [swAppDelegate.swivl swivlMoveLoad:_motionDescriptor];
+    
+}
+
+- (IBAction)onDownBtnStart:(id)sender
+{
+    MotionDescriptor *_motionDescriptor = [[MotionDescriptor alloc] init];
+    _motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId]+1;
+    _motionDescriptor.axis = AXIS_TILT;
+    _motionDescriptor.type = MOVE_TO_REL_POS;
+    _motionDescriptor.steps = -3000;
+    _motionDescriptor.speed = 2000;
+    _motionDescriptor.startNow = YES;
+    _motionDescriptor.timeoutMs = 0;
+    [swAppDelegate.swivl swivlMoveLoad:_motionDescriptor];
+}
+
+- (IBAction)onDownBtnStop:(id)sender
+{
+    MotionDescriptor *_motionDescriptor = [[MotionDescriptor alloc] init];
+    _motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId]+1;
+    _motionDescriptor.axis = AXIS_TILT;
+    _motionDescriptor.type = MOVE_TO_REL_POS;
+    _motionDescriptor.steps = -4;
+    _motionDescriptor.speed = 1000;
+    _motionDescriptor.startNow = YES;
+    _motionDescriptor.timeoutMs = 0;
+    
+    [swAppDelegate.swivl swivlMoveLoad:_motionDescriptor];
+    
 }
 
 - (IBAction)onCaptureBtnTapped

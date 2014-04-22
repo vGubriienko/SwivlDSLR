@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2QU-uU-GYq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2QU-uU-GYq">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -9,14 +9,14 @@
             <objects>
                 <viewController id="2QU-uU-GYq" customClass="SWManualController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1vD-th-kge"/>
-                        <viewControllerLayoutGuide type="bottom" id="JhC-dy-94M"/>
+                        <viewControllerLayoutGuide type="top" id="3Yt-tP-Ijw"/>
+                        <viewControllerLayoutGuide type="bottom" id="j0k-WJ-P2i"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="F7Q-cF-ejk">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pMI-u4-sFp" userLabel="Controls">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pMI-u4-sFp" userLabel="Controls">
                                 <rect key="frame" x="922" y="0.0" width="102" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
                                 <subviews>
@@ -42,7 +42,7 @@
                                     </imageView>
                                     <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="batery_off.png" translatesAutoresizingMaskIntoConstraints="NO" id="9w6-mv-sn0">
                                         <rect key="frame" x="35" y="556" width="28" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
                                     </imageView>
                                 </subviews>
@@ -59,48 +59,60 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFt-vW-jr5" userLabel="UPButton">
-                                <rect key="frame" x="467" y="20" width="91" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="416" y="20" width="91" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="up.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="onRightBtnTapped" destination="2QU-uU-GYq" eventType="touchUpInside" id="cBe-3C-a8Y"/>
+                                    <action selector="onUpBtnStart:" destination="2QU-uU-GYq" eventType="touchDown" id="THy-HQ-nsv"/>
+                                    <action selector="onUpBtnStop:" destination="2QU-uU-GYq" eventType="touchUpOutside" id="49z-Nl-EYO"/>
+                                    <action selector="onUpBtnStop:" destination="2QU-uU-GYq" eventType="touchUpInside" id="fHK-DU-eX8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSU-ko-whd" userLabel="DownButton">
-                                <rect key="frame" x="467" y="697" width="91" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="416" y="697" width="91" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <state key="normal" backgroundImage="down.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onDownBtnStart:" destination="2QU-uU-GYq" eventType="touchDown" id="NCh-Lx-uHN"/>
+                                    <action selector="onDownBtnStop:" destination="2QU-uU-GYq" eventType="touchUpOutside" id="5sN-65-9MI"/>
+                                    <action selector="onDownBtnStop:" destination="2QU-uU-GYq" eventType="touchUpInside" id="qxD-0f-jCn"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTE-r6-7Y2" userLabel="DownButton">
-                                <rect key="frame" x="864" y="339" width="50" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTE-r6-7Y2" userLabel="RightButton">
+                                <rect key="frame" x="851" y="339" width="51" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="right.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="onRightBtnTapped" destination="2QU-uU-GYq" eventType="touchUpInside" id="Pbc-fb-KKc"/>
+                                    <action selector="onRightBtnStart:" destination="2QU-uU-GYq" eventType="touchDown" id="X6m-S6-BwW"/>
+                                    <action selector="onRightBtnStop:" destination="2QU-uU-GYq" eventType="touchUpOutside" id="irY-gm-TMP"/>
+                                    <action selector="onRightBtnStop:" destination="2QU-uU-GYq" eventType="touchUpInside" id="nMZ-J4-cqX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fF-ei-arH" userLabel="DownButton">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fF-ei-arH" userLabel="LeftButton">
                                 <rect key="frame" x="20" y="339" width="50" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="left.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onLeftBtnStart:" destination="2QU-uU-GYq" eventType="touchDown" id="3kt-PM-ZRp"/>
+                                    <action selector="onLeftBtnStop:" destination="2QU-uU-GYq" eventType="touchUpInside" id="Rkj-ks-z7S"/>
+                                    <action selector="onLeftBtnStop:" destination="2QU-uU-GYq" eventType="touchUpOutside" id="jpd-aj-aSH"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.44" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="pMI-u4-sFp" secondAttribute="trailing" id="YYz-bh-bkt"/>
-                        </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="1024" height="768"/>
                     <connections>
                         <outlet property="_batteryLevelImg" destination="9w6-mv-sn0" id="bPN-HE-5Iv"/>
                         <outlet property="_swivlStatusImg" destination="dJw-8a-AHU" id="9Mm-Yc-DfM"/>
