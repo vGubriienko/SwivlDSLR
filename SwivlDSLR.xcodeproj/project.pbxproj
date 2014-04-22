@@ -61,11 +61,16 @@
 		25B962D318D21ABC002E4FD1 /* MVYSideMenuOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B962D118D21ABC002E4FD1 /* MVYSideMenuOptions.m */; };
 		25BB880318E45F7400ECE14D /* SWProgressController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BB880218E45F7400ECE14D /* SWProgressController.m */; };
 		64612A26A3EA462A895D8788 /* libPods-SwivlDSLR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15D8180D3830431B85CA07BC /* libPods-SwivlDSLR.a */; };
+		8508E40418F6C42500EEC442 /* SWManualController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8508E40318F6C42500EEC442 /* SWManualController.m */; };
+		8508E40618F6C47900EEC442 /* SWManualController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8508E40518F6C47900EEC442 /* SWManualController.storyboard */; };
+		8508E40918F6D54900EEC442 /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = 8508E40718F6D54900EEC442 /* left.png */; };
+		8508E40A18F6D54900EEC442 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = 8508E40818F6D54900EEC442 /* right.png */; };
 		858A4DFB18C8AA700036A0CF /* DKCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A4DF618C8AA700036A0CF /* DKCircularSlider.m */; };
 		858A4DFC18C8AA700036A0CF /* DKRepeatableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A4DF818C8AA700036A0CF /* DKRepeatableButton.m */; };
 		858A4DFD18C8AA700036A0CF /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = 858A4DF918C8AA700036A0CF /* down.png */; };
 		858A4DFE18C8AA700036A0CF /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = 858A4DFA18C8AA700036A0CF /* up.png */; };
 		85956AF318E4AC3C001763BC /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85956AF218E4AC3C001763BC /* ExternalAccessory.framework */; };
+		85CA1762190667230052E6C3 /* SWManualControllerPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85CA1761190667230052E6C3 /* SWManualControllerPhone.storyboard */; };
 		85D97BA118C76DD2002C2665 /* SWTimelapsSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D97BA018C76DD2002C2665 /* SWTimelapsSegue.m */; };
 		F9BBBAC788B14B99AF8252EE /* libPods-SwivlDSLRTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4BCFD640834A729BC853D0 /* libPods-SwivlDSLRTests.a */; };
 /* End PBXBuildFile section */
@@ -155,6 +160,11 @@
 		25BB880218E45F7400ECE14D /* SWProgressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWProgressController.m; sourceTree = "<group>"; };
 		764732E055B646CC958D7B91 /* Pods-SwivlDSLRTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwivlDSLRTests.xcconfig"; path = "Pods/Pods-SwivlDSLRTests.xcconfig"; sourceTree = "<group>"; };
 		7A4BCFD640834A729BC853D0 /* libPods-SwivlDSLRTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwivlDSLRTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8508E40218F6C42500EEC442 /* SWManualController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWManualController.h; sourceTree = "<group>"; };
+		8508E40318F6C42500EEC442 /* SWManualController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWManualController.m; sourceTree = "<group>"; };
+		8508E40518F6C47900EEC442 /* SWManualController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SWManualController.storyboard; sourceTree = "<group>"; };
+		8508E40718F6D54900EEC442 /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
+		8508E40818F6D54900EEC442 /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right.png; sourceTree = "<group>"; };
 		858A4DF518C8AA700036A0CF /* DKCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKCircularSlider.h; sourceTree = "<group>"; };
 		858A4DF618C8AA700036A0CF /* DKCircularSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKCircularSlider.m; sourceTree = "<group>"; };
 		858A4DF718C8AA700036A0CF /* DKRepeatableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKRepeatableButton.h; sourceTree = "<group>"; };
@@ -162,6 +172,7 @@
 		858A4DF918C8AA700036A0CF /* down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down.png; sourceTree = "<group>"; };
 		858A4DFA18C8AA700036A0CF /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up.png; sourceTree = "<group>"; };
 		85956AF218E4AC3C001763BC /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		85CA1761190667230052E6C3 /* SWManualControllerPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SWManualControllerPhone.storyboard; sourceTree = "<group>"; };
 		85D97B9F18C76DD2002C2665 /* SWTimelapsSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTimelapsSegue.h; sourceTree = "<group>"; };
 		85D97BA018C76DD2002C2665 /* SWTimelapsSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTimelapsSegue.m; sourceTree = "<group>"; };
 		875D82B5AC324DAD9BEEE66D /* Pods-SwivlDSLR.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwivlDSLR.xcconfig"; path = "Pods/Pods-SwivlDSLR.xcconfig"; sourceTree = "<group>"; };
@@ -348,6 +359,7 @@
 				25ADC28618C7796800CEB6A7 /* Timelapse settings */,
 				2522F7C618D0B79000915E25 /* Side bar */,
 				2522F7CC18D0C23C00915E25 /* Swivl Settings */,
+				8508E40118F6C42500EEC442 /* ManualController */,
 			);
 			path = GUI;
 			sourceTree = "<group>";
@@ -448,6 +460,17 @@
 			path = Progress;
 			sourceTree = "<group>";
 		};
+		8508E40118F6C42500EEC442 /* ManualController */ = {
+			isa = PBXGroup;
+			children = (
+				8508E40218F6C42500EEC442 /* SWManualController.h */,
+				8508E40318F6C42500EEC442 /* SWManualController.m */,
+				8508E40518F6C47900EEC442 /* SWManualController.storyboard */,
+				85CA1761190667230052E6C3 /* SWManualControllerPhone.storyboard */,
+			);
+			path = ManualController;
+			sourceTree = "<group>";
+		};
 		858A4DF318C8AA700036A0CF /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,6 +489,8 @@
 				858A4DF818C8AA700036A0CF /* DKRepeatableButton.m */,
 				858A4DF918C8AA700036A0CF /* down.png */,
 				858A4DFA18C8AA700036A0CF /* up.png */,
+				8508E40718F6D54900EEC442 /* left.png */,
+				8508E40818F6D54900EEC442 /* right.png */,
 			);
 			path = DKCicularSlider;
 			sourceTree = "<group>";
@@ -552,6 +577,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8508E40618F6C47900EEC442 /* SWManualController.storyboard in Resources */,
 				2595254418C61BA2006EEAFA /* batery_off.png in Resources */,
 				858A4DFD18C8AA700036A0CF /* down.png in Resources */,
 				2595255218C62190006EEAFA /* timelapse_direction_1.png in Resources */,
@@ -562,8 +588,10 @@
 				2595253518C6141C006EEAFA /* Main_iPhone.storyboard in Resources */,
 				2522F7DB18D0C69800915E25 /* battery-100@2x.png in Resources */,
 				2595253418C6141C006EEAFA /* Main_iPad.storyboard in Resources */,
+				8508E40918F6D54900EEC442 /* left.png in Resources */,
 				2522F7D818D0C69800915E25 /* battery-0.png in Resources */,
 				2595255018C62190006EEAFA /* timelapse_distance.png in Resources */,
+				8508E40A18F6D54900EEC442 /* right.png in Resources */,
 				2595254218C61BA2006EEAFA /* base_off.png in Resources */,
 				2595255418C62190006EEAFA /* timelapse_time_between_pictures.png in Resources */,
 				2595255118C62190006EEAFA /* timelapse_step.png in Resources */,
@@ -583,6 +611,7 @@
 				259524FF18C610DF006EEAFA /* InfoPlist.strings in Resources */,
 				2595254518C61BA2006EEAFA /* batery_off@2x.png in Resources */,
 				2595255618C6229D006EEAFA /* timelapse_direction_2.png in Resources */,
+				85CA1762190667230052E6C3 /* SWManualControllerPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,6 +709,7 @@
 				25465B6118E5820900C4DBDF /* SWProgressView.m in Sources */,
 				2522F7C918D0B79000915E25 /* SWSideBar.m in Sources */,
 				2522F7D018D0C23C00915E25 /* SWSettingsController.m in Sources */,
+				8508E40418F6C42500EEC442 /* SWManualController.m in Sources */,
 				2540042118EEAE6F0060ECB2 /* UIAlertView+Blocks.m in Sources */,
 				858A4DFB18C8AA700036A0CF /* DKCircularSlider.m in Sources */,
 				250A4D1818DADEF300E82B1F /* SWScript.m in Sources */,

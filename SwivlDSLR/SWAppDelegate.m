@@ -144,7 +144,7 @@ SWAppDelegate *swAppDelegate = nil;
 
 - (void)swivlMoveFinished:(UInt32)state withID:(UInt32)ID
 {
-
+    NSLog(@"MOVE FINISHED: %i = %i", (unsigned int)state, ID);
 }
 
 - (void)swivlScriptBufferState:(UInt8)state isRunning:(BOOL)swivlIsBusy

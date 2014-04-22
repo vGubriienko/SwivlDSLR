@@ -16,6 +16,9 @@
 typedef NS_ENUM(NSInteger, SWCameraInterface)
 {
     SWCameraInterfaceUSB = 0,
-    SWCameraInterfaceTrigger
+    SWCameraInterfaceTrigger,
+    SWCameraInterfaceUSBshot,
+    SWCameraInterfaceTriggershot
+
 };
 
