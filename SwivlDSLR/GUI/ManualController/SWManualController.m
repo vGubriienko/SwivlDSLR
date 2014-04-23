@@ -124,7 +124,7 @@
     _motionDescriptor.axis = AXIS_TILT;
     _motionDescriptor.type = MOVE_TO_REL_POS;
     _motionDescriptor.steps = 3000;
-    _motionDescriptor.speed = 2000;
+    _motionDescriptor.speed = 400;
     _motionDescriptor.startNow = YES;
     _motionDescriptor.timeoutMs = 0;
     [swAppDelegate.swivl swivlMoveLoad:_motionDescriptor];
@@ -137,7 +137,7 @@
     _motionDescriptor.axis = AXIS_TILT;
     _motionDescriptor.type = MOVE_TO_REL_POS;
     _motionDescriptor.steps = 4;
-    _motionDescriptor.speed = 1000;
+    _motionDescriptor.speed = 100;
     _motionDescriptor.startNow = YES;
     _motionDescriptor.timeoutMs = 0;
     
@@ -152,7 +152,7 @@
     _motionDescriptor.axis = AXIS_TILT;
     _motionDescriptor.type = MOVE_TO_REL_POS;
     _motionDescriptor.steps = -3000;
-    _motionDescriptor.speed = 2000;
+    _motionDescriptor.speed = 400;
     _motionDescriptor.startNow = YES;
     _motionDescriptor.timeoutMs = 0;
     [swAppDelegate.swivl swivlMoveLoad:_motionDescriptor];
@@ -165,7 +165,7 @@
     _motionDescriptor.axis = AXIS_TILT;
     _motionDescriptor.type = MOVE_TO_REL_POS;
     _motionDescriptor.steps = -4;
-    _motionDescriptor.speed = 1000;
+    _motionDescriptor.speed = 100;
     _motionDescriptor.startNow = YES;
     _motionDescriptor.timeoutMs = 0;
     
