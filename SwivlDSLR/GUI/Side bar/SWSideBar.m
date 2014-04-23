@@ -92,16 +92,20 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == _lastSelectedRow && _lastSelectedRow != SWSideBarRowTimeLapse) {
+    if (indexPath.row != SWSideBarRowSwivl) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_HIDE_SIDE_BAR_NOTIFICATION object:self];
+    }
+    if (indexPath.row == _lastSelectedRow) {
         return;
     }
+    
+    
+    [self.navigationController popToRootViewControllerAnimated:NO];
     
     switch (indexPath.row) {
             
         case SWSideBarRowTimeLapse:
         {
-            [self.navigationController popToRootViewControllerAnimated:NO];
-            [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_HIDE_SIDE_BAR_NOTIFICATION object:self];
             break;
         }
             
@@ -109,8 +113,6 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
         {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"SWSettingsController" bundle:nil];
             UIViewController *vc = [storyboard instantiateInitialViewController];
-            
-            [self.navigationController popToRootViewControllerAnimated:NO];
             [self.navigationController pushViewController:vc animated:NO];
             
             break;
@@ -125,8 +127,6 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
                 storyboard = [UIStoryboard storyboardWithName:@"SWManualController" bundle:nil];
             }
             UIViewController *vc = [storyboard instantiateInitialViewController];
-            [self.navigationController popToRootViewControllerAnimated:NO];
-            [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_HIDE_SIDE_BAR_NOTIFICATION object:self];
             [self.navigationController pushViewController:vc animated:NO];
             
             break;
