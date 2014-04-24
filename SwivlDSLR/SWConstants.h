@@ -21,6 +21,6 @@ typedef NS_ENUM(NSInteger, SWCameraInterface)
 
 typedef NS_ENUM(NSInteger, SWScriptType)
 {
-    SWScriptTypeDSLR = 0,
+    SWScriptTypeTimeLaps = 0,
     SWScriptTypeShot
 };

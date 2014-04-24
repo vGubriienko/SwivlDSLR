@@ -44,19 +44,19 @@
 - (NSString *)generateScript
 {
     NSString *scriptStr;
-    if (self.scriptType == SWScriptTypeDSLR) {
+    if (self.scriptType == SWScriptTypeTimeLaps) {
         if (self.connectionType == SWCameraInterfaceUSB) {
-            scriptStr = [self generateScriptForUSB];
+            scriptStr = [self generateScriptForUSBTimeLaps];
         } else if (self.connectionType == SWCameraInterfaceTrigger) {
-            scriptStr = [self generateScriptForTrigger];
+            scriptStr = [self generateScriptForTriggerTimeLaps];
         } else {
             NSAssert(NO, @"Invalid connection type (script)");
         }
-    } else if (self.scriptType == SWScriptTypeDSLR) {
+    } else if (self.scriptType == SWScriptTypeShot) {
         if (self.connectionType == SWCameraInterfaceUSB) {
-            scriptStr = [self generateScriptForUSBshot];
+            scriptStr = [self generateScriptForUSBShot];
         } else if (self.connectionType == SWCameraInterfaceTrigger) {
-            scriptStr = [self generateScriptForTriggershot];
+            scriptStr = [self generateScriptForTriggerShot];
         } else {
             NSAssert(NO, @"Invalid connection type (script)");
         }
@@ -77,7 +77,7 @@
     return timePast < self.timelapseSettings.recordingTime;
 }
 
-- (NSString *)generateScriptForTrigger
+- (NSString *)generateScriptForTriggerTimeLaps
 {
     NSInteger holdShutterTime = 2000;
     NSInteger protectionPause = 500;
@@ -111,7 +111,7 @@
 
 }
 
-- (NSString *)generateScriptForUSB
+- (NSString *)generateScriptForUSBTimeLaps
 {
     NSInteger timeBtwPictures = self.timelapseSettings.timeBetweenPictures * 1000;
     NSInteger stepSize = (self.timelapseSettings.stepSize / 0.11) * 4;
@@ -136,16 +136,16 @@
     return script;
 }
 
-- (NSString *)generateScriptForTriggershot
+- (NSString *)generateScriptForTriggerShot
 {
-    NSString *script = @"1:7ST7D0+1M2:T1L-2<3S.";
+    NSString *script = @"1:7ST7D0+1M2:T1L-2<3S.\0";
     
     return script;
 }
 
-- (NSString *)generateScriptForUSBshot
+- (NSString *)generateScriptForUSBShot
 {
-    NSString *script = @"1:3,0,B9128P2019?1=2001-2#3,A9129P2:.";
+    NSString *script = @"1:3,0,B9128P2019?1=2001-2#3,A9129P2:.\0";
     
     return script;
 }
