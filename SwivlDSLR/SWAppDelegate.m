@@ -156,7 +156,9 @@ SWAppDelegate *swAppDelegate = nil;
     }
     
     if (swivlIsBusy) {
-        [self showSwivlIsBusyMessage];
+        if (self.script.scriptType == SWScriptTypeDSLR) {
+            [self showSwivlIsBusyMessage];
+        }
         return;
     }
     
