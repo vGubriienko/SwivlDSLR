@@ -179,7 +179,8 @@
         if (swAppDelegate.swivl.swivlConnected) {
             SWScript *script = [[SWScript alloc] init];
             swAppDelegate.script = script;
-            script.type = swAppDelegate.currentCameraInterface+2;
+            script.scriptType = SWScriptTypeShot;
+            script.connectionType = swAppDelegate.currentCameraInterface;
             [swAppDelegate.swivl swivlScriptRequestBufferState];
         } else {
             [self showSwivlDisconnectedMessage];
