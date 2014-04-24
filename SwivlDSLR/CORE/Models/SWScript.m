@@ -44,14 +44,22 @@
 - (NSString *)generateScript
 {
     NSString *scriptStr;
-    if (self.type == SWCameraInterfaceUSB) {
-        scriptStr = [self generateScriptForUSB];
-    } else if (self.type == SWCameraInterfaceTrigger) {
-        scriptStr = [self generateScriptForTrigger];
-    } else if (self.type == SWCameraInterfaceUSBshot) {
+    if (self.scriptType == SWScriptTypeDSLR) {
+        if (self.connectionType == SWCameraInterfaceUSB) {
+            scriptStr = [self generateScriptForUSB];
+        } else if (self.connectionType == SWCameraInterfaceTrigger) {
+            scriptStr = [self generateScriptForTrigger];
+        } else {
+            NSAssert(NO, @"Invalid connection type (script)");
+        }
+    } else if (self.scriptType == SWScriptTypeDSLR) {
+        if (self.connectionType == SWCameraInterfaceUSB) {
             scriptStr = [self generateScriptForUSBshot];
-    } else if (self.type == SWCameraInterfaceTriggershot) {
+        } else if (self.connectionType == SWCameraInterfaceTrigger) {
             scriptStr = [self generateScriptForTriggershot];
+        } else {
+            NSAssert(NO, @"Invalid connection type (script)");
+        }
     } else {
         NSAssert(NO, @"Invalid script type");
     }

@@ -15,7 +15,8 @@
 - (instancetype)initWithTimelapseSettings:(SWTimelapseSettings *)timelapseSettings;
 
 @property (nonatomic, readonly) SWTimelapseSettings *timelapseSettings;
-@property (nonatomic, assign) SWCameraInterface type;
+@property (nonatomic, assign) SWCameraInterface connectionType;
+@property (nonatomic, assign) SWScriptType scriptType;
 @property (nonatomic, strong) NSDate *startDate;
 
 - (NSString *)generateScript;
