@@ -156,7 +156,7 @@ SWAppDelegate *swAppDelegate = nil;
     }
     
     if (swivlIsBusy) {
-        if (self.script.scriptType == SWScriptTypeTimeLaps) {
+        if (self.script.scriptType == SWScriptTypeTimelapse) {
             [self showSwivlIsBusyMessage];
         }
         return;

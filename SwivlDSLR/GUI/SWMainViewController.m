@@ -95,7 +95,7 @@
         if (swAppDelegate.swivl.swivlConnected) {
             SWScript *script = [[SWScript alloc] initWithTimelapseSettings:_timelapseSettings];
             swAppDelegate.script = script;
-            script.scriptType = SWScriptTypeTimeLaps;
+            script.scriptType = SWScriptTypeTimelapse;
             script.connectionType = swAppDelegate.currentCameraInterface;
             [swAppDelegate.swivl swivlScriptRequestBufferState];
         } else {

@@ -44,11 +44,11 @@
 - (NSString *)generateScript
 {
     NSString *scriptStr;
-    if (self.scriptType == SWScriptTypeTimeLaps) {
+    if (self.scriptType == SWScriptTypeTimelapse) {
         if (self.connectionType == SWCameraInterfaceUSB) {
-            scriptStr = [self generateScriptForUSBTimeLaps];
+            scriptStr = [self generateScriptForUSBTimelapse];
         } else if (self.connectionType == SWCameraInterfaceTrigger) {
-            scriptStr = [self generateScriptForTriggerTimeLaps];
+            scriptStr = [self generateScriptForTriggerTimelapse];
         } else {
             NSAssert(NO, @"Invalid connection type (script)");
         }
@@ -77,7 +77,7 @@
     return timePast < self.timelapseSettings.recordingTime;
 }
 
-- (NSString *)generateScriptForTriggerTimeLaps
+- (NSString *)generateScriptForTriggerTimelapse
 {
     NSInteger holdShutterTime = 2000;
     NSInteger protectionPause = 500;
@@ -111,7 +111,7 @@
 
 }
 
-- (NSString *)generateScriptForUSBTimeLaps
+- (NSString *)generateScriptForUSBTimelapse
 {
     NSInteger timeBtwPictures = self.timelapseSettings.timeBetweenPictures * 1000;
     NSInteger stepSize = (self.timelapseSettings.stepSize / 0.11) * 4;
