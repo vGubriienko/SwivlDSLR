@@ -60,6 +60,10 @@
 		25B962D218D21ABC002E4FD1 /* MVYSideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B962CF18D21ABC002E4FD1 /* MVYSideMenuController.m */; };
 		25B962D318D21ABC002E4FD1 /* MVYSideMenuOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B962D118D21ABC002E4FD1 /* MVYSideMenuOptions.m */; };
 		25BB880318E45F7400ECE14D /* SWProgressController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BB880218E45F7400ECE14D /* SWProgressController.m */; };
+		25E536D0190E79DD0059FE7C /* arrow_manual_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 25E536CC190E79DD0059FE7C /* arrow_manual_down.png */; };
+		25E536D1190E79DD0059FE7C /* arrow_manual_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 25E536CD190E79DD0059FE7C /* arrow_manual_left.png */; };
+		25E536D2190E79DD0059FE7C /* arrow_manual_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 25E536CE190E79DD0059FE7C /* arrow_manual_right.png */; };
+		25E536D3190E79DD0059FE7C /* arrow_manual_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 25E536CF190E79DD0059FE7C /* arrow_manual_up.png */; };
 		64612A26A3EA462A895D8788 /* libPods-SwivlDSLR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15D8180D3830431B85CA07BC /* libPods-SwivlDSLR.a */; };
 		8508E40418F6C42500EEC442 /* SWManualController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8508E40318F6C42500EEC442 /* SWManualController.m */; };
 		8508E40618F6C47900EEC442 /* SWManualController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8508E40518F6C47900EEC442 /* SWManualController.storyboard */; };
@@ -162,6 +166,10 @@
 		25B962D118D21ABC002E4FD1 /* MVYSideMenuOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVYSideMenuOptions.m; sourceTree = "<group>"; };
 		25BB880118E45F7400ECE14D /* SWProgressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWProgressController.h; sourceTree = "<group>"; };
 		25BB880218E45F7400ECE14D /* SWProgressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWProgressController.m; sourceTree = "<group>"; };
+		25E536CC190E79DD0059FE7C /* arrow_manual_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_manual_down.png; sourceTree = "<group>"; };
+		25E536CD190E79DD0059FE7C /* arrow_manual_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_manual_left.png; sourceTree = "<group>"; };
+		25E536CE190E79DD0059FE7C /* arrow_manual_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_manual_right.png; sourceTree = "<group>"; };
+		25E536CF190E79DD0059FE7C /* arrow_manual_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_manual_up.png; sourceTree = "<group>"; };
 		764732E055B646CC958D7B91 /* Pods-SwivlDSLRTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwivlDSLRTests.xcconfig"; path = "Pods/Pods-SwivlDSLRTests.xcconfig"; sourceTree = "<group>"; };
 		7A4BCFD640834A729BC853D0 /* libPods-SwivlDSLRTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwivlDSLRTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8508E40218F6C42500EEC442 /* SWManualController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWManualController.h; sourceTree = "<group>"; };
@@ -383,6 +391,7 @@
 		2595253818C61BA2006EEAFA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				25E536CB190E79DD0059FE7C /* Manual */,
 				2522F7D218D0C69800915E25 /* Swivl */,
 				2595253918C61BA2006EEAFA /* Main Screen */,
 			);
@@ -466,6 +475,17 @@
 				25BB880218E45F7400ECE14D /* SWProgressController.m */,
 			);
 			path = Progress;
+			sourceTree = "<group>";
+		};
+		25E536CB190E79DD0059FE7C /* Manual */ = {
+			isa = PBXGroup;
+			children = (
+				25E536CC190E79DD0059FE7C /* arrow_manual_down.png */,
+				25E536CD190E79DD0059FE7C /* arrow_manual_left.png */,
+				25E536CE190E79DD0059FE7C /* arrow_manual_right.png */,
+				25E536CF190E79DD0059FE7C /* arrow_manual_up.png */,
+			);
+			path = Manual;
 			sourceTree = "<group>";
 		};
 		8508E40118F6C42500EEC442 /* ManualController */ = {
@@ -595,9 +615,12 @@
 				2595255218C62190006EEAFA /* timelapse_direction_1.png in Resources */,
 				2595254618C61BA2006EEAFA /* capture_normal.png in Resources */,
 				85DDC0B51907EB9B009B5DBF /* left@2x.png in Resources */,
+				25E536D2190E79DD0059FE7C /* arrow_manual_right.png in Resources */,
 				2522F7C318D0B25D00915E25 /* reveal-white.png in Resources */,
 				2595254718C61BA2006EEAFA /* capture_normal@2x.png in Resources */,
 				25B962C418D19CFD002E4FD1 /* base_present.png in Resources */,
+				25E536D1190E79DD0059FE7C /* arrow_manual_left.png in Resources */,
+				25E536D3190E79DD0059FE7C /* arrow_manual_up.png in Resources */,
 				2595253518C6141C006EEAFA /* Main_iPhone.storyboard in Resources */,
 				2522F7DB18D0C69800915E25 /* battery-100@2x.png in Resources */,
 				2595253418C6141C006EEAFA /* Main_iPad.storyboard in Resources */,
@@ -612,6 +635,7 @@
 				2595254318C61BA2006EEAFA /* base_off@2x.png in Resources */,
 				25ADC23D18C724A400CEB6A7 /* timelapse_recording_time.png in Resources */,
 				2522F7D118D0C23C00915E25 /* SWSettingsController.storyboard in Resources */,
+				25E536D0190E79DD0059FE7C /* arrow_manual_down.png in Resources */,
 				85DDC0B61907EB9B009B5DBF /* right@2x.png in Resources */,
 				85DDC0B71907EB9B009B5DBF /* up@2x.png in Resources */,
 				2595254818C61BA2006EEAFA /* capture_pressed.png in Resources */,
