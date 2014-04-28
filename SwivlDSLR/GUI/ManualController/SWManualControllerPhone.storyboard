@@ -57,7 +57,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="PEl-tc-nsC" userLabel="LeftButton">
                                 <rect key="frame" x="0.0" y="160" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <state key="normal" image="left.png">
+                                <state key="normal" image="left.png" backgroundImage="arrow_manual_left.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -69,7 +69,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="F6d-v6-NM8" userLabel="RightButton">
                                 <rect key="frame" x="376" y="160" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <state key="normal" image="right.png">
+                                <state key="normal" image="arrow_manual_right.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -81,7 +81,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ORO-D5-35F" userLabel="UPButton">
                                 <rect key="frame" x="376" y="69" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="up.png">
+                                <state key="normal" image="arrow_manual_up.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -93,7 +93,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EsJ-Xx-35D" userLabel="DownButton">
                                 <rect key="frame" x="0.0" y="69" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="down.png">
+                                <state key="normal" image="arrow_manual_down.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -118,15 +118,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow_manual_down.png" width="512" height="512"/>
+        <image name="arrow_manual_left.png" width="512" height="512"/>
+        <image name="arrow_manual_right.png" width="512" height="512"/>
+        <image name="arrow_manual_up.png" width="512" height="512"/>
         <image name="base_off.png" width="28" height="25"/>
         <image name="base_present.png" width="28" height="25"/>
         <image name="batery_off.png" width="30" height="25"/>
         <image name="capture_normal.png" width="75" height="75"/>
-        <image name="down.png" width="45" height="26"/>
         <image name="left.png" width="26" height="45"/>
         <image name="reveal-white.png" width="22" height="17"/>
-        <image name="right.png" width="26" height="45"/>
-        <image name="up.png" width="45" height="26"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
