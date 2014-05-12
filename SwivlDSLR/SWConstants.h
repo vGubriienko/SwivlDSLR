@@ -16,6 +16,11 @@
 typedef NS_ENUM(NSInteger, SWCameraInterface)
 {
     SWCameraInterfaceUSB = 0,
-    SWCameraInterfaceTrigger
+    SWCameraInterfaceTrigger,
 };
 
+typedef NS_ENUM(NSInteger, SWScriptType)
+{
+    SWScriptTypeTimelapse = 0,
+    SWScriptTypeShot
+};

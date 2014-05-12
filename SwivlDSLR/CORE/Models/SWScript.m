@@ -44,10 +44,22 @@
 - (NSString *)generateScript
 {
     NSString *scriptStr;
-    if (self.type == SWCameraInterfaceUSB) {
-        scriptStr = [self generateScriptForUSB];
-    } else if (self.type == SWCameraInterfaceTrigger) {
-        scriptStr = [self generateScriptForTrigger];
+    if (self.scriptType == SWScriptTypeTimelapse) {
+        if (self.connectionType == SWCameraInterfaceUSB) {
+            scriptStr = [self generateScriptForUSBTimelapse];
+        } else if (self.connectionType == SWCameraInterfaceTrigger) {
+            scriptStr = [self generateScriptForTriggerTimelapse];
+        } else {
+            NSAssert(NO, @"Invalid connection type (script)");
+        }
+    } else if (self.scriptType == SWScriptTypeShot) {
+        if (self.connectionType == SWCameraInterfaceUSB) {
+            scriptStr = [self generateScriptForUSBShot];
+        } else if (self.connectionType == SWCameraInterfaceTrigger) {
+            scriptStr = [self generateScriptForTriggerShot];
+        } else {
+            NSAssert(NO, @"Invalid connection type (script)");
+        }
     } else {
         NSAssert(NO, @"Invalid script type");
     }
@@ -65,7 +77,7 @@
     return timePast < self.timelapseSettings.recordingTime;
 }
 
-- (NSString *)generateScriptForTrigger
+- (NSString *)generateScriptForTriggerTimelapse
 {
     NSInteger holdShutterTime = 2000;
     NSInteger protectionPause = 500;
@@ -99,7 +111,7 @@
 
 }
 
-- (NSString *)generateScriptForUSB
+- (NSString *)generateScriptForUSBTimelapse
 {
     NSInteger timeBtwPictures = self.timelapseSettings.timeBetweenPictures * 1000;
     NSInteger stepSize = (self.timelapseSettings.stepSize / 0.11) * 4;
@@ -121,6 +133,20 @@
                         (long)speed,
                         (long)stepSize,
                         direction];
+    return script;
+}
+
+- (NSString *)generateScriptForTriggerShot
+{
+    NSString *script = @"1:7ST7D0+1M2:T1L-2<3S.\0";
+    
+    return script;
+}
+
+- (NSString *)generateScriptForUSBShot
+{
+    NSString *script = @"1:3,0,B9128P2019?1=2001-2#3,A9129P2:.\0";
+    
     return script;
 }
 

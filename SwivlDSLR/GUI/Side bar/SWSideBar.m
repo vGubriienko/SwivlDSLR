@@ -11,11 +11,12 @@
 typedef NS_ENUM(NSInteger, SWSideBarRow)
 {
     SWSideBarRowTimeLapse = 0,
+    SWSideBarRowManual,
     SWSideBarRowSwivl,
     SWSideBarRowCount,
 };
 
-#define SW_SIDE_BAR_ROW_NAMES @"Time-lapse", @"Swivl settings"
+#define SW_SIDE_BAR_ROW_NAMES @"Time-lapse", @"Manual", @"Swivl settings"
 
 @interface SWSideBar ()
 {
@@ -91,16 +92,20 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == _lastSelectedRow && _lastSelectedRow != SWSideBarRowTimeLapse) {
+    if (indexPath.row != SWSideBarRowSwivl) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_HIDE_SIDE_BAR_NOTIFICATION object:self];
+    }
+    if (indexPath.row == _lastSelectedRow) {
         return;
     }
+    
+    
+    [self.navigationController popToRootViewControllerAnimated:NO];
     
     switch (indexPath.row) {
             
         case SWSideBarRowTimeLapse:
         {
-            [self.navigationController popToRootViewControllerAnimated:NO];
-            [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_HIDE_SIDE_BAR_NOTIFICATION object:self];
             break;
         }
             
@@ -108,11 +113,25 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
         {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"SWSettingsController" bundle:nil];
             UIViewController *vc = [storyboard instantiateInitialViewController];
-            
             [self.navigationController pushViewController:vc animated:NO];
             
             break;
         }
+            
+        case SWSideBarRowManual:
+        {
+            UIStoryboard *storyboard;
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+                storyboard = [UIStoryboard storyboardWithName:@"SWManualControllerPhone" bundle:nil];
+            } else {
+                storyboard = [UIStoryboard storyboardWithName:@"SWManualController" bundle:nil];
+            }
+            UIViewController *vc = [storyboard instantiateInitialViewController];
+            [self.navigationController pushViewController:vc animated:NO];
+            
+            break;
+        }
+
     }
     
     _lastSelectedRow = indexPath.row;

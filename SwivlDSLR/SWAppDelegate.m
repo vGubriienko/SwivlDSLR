@@ -144,7 +144,7 @@ SWAppDelegate *swAppDelegate = nil;
 
 - (void)swivlMoveFinished:(UInt32)state withID:(UInt32)ID
 {
-
+    NSLog(@"MOVE FINISHED: %i = %i", (unsigned int)state, (unsigned int)ID);
 }
 
 - (void)swivlScriptBufferState:(UInt8)state isRunning:(BOOL)swivlIsBusy
@@ -156,7 +156,9 @@ SWAppDelegate *swAppDelegate = nil;
     }
     
     if (swivlIsBusy) {
-        [self showSwivlIsBusyMessage];
+        if (self.script.scriptType == SWScriptTypeTimelapse) {
+            [self showSwivlIsBusyMessage];
+        }
         return;
     }
     
@@ -185,7 +187,7 @@ SWAppDelegate *swAppDelegate = nil;
 
 - (void)swivlScriptResult:(SInt8)thread Result:(SInt8)res Run:(UInt16)run Stack:(UInt32)stack
 {
-    NSLog(@"swivlScriptResult thread: %i, Result: %i, Run: %i, Stack: %i", thread, res, run, stack);
+    NSLog(@"swivlScriptResult thread: %i, Result: %i, Run: %i, Stack: %i", thread, res, run, (unsigned int)stack);
     
     if (_stopForRunningNewScript) {
         _stopForRunningNewScript = NO;
