@@ -7,8 +7,10 @@
 //
 
 #import "SWScript.h"
+#import "SWScript+Template.h"
 
 #import "SWTimelapseSettings.h"
+#import "SWCameraConfiguration.h"
 
 @implementation SWScript
 
@@ -90,15 +92,7 @@
     NSInteger speed = 2000; //MAX
     NSString *direction = self.timelapseSettings.clockwiseDirection ? @"" : @"%";
     
-    NSString *script = [NSString stringWithFormat:
-                        @"1:%lx, 1M %lx, 2M %lx, 3M %lx, 4M F(      \
-                        2:T4L+9M 0, %lx, %lx%@, 5, 0, AR            \
-                        3:AL3=                                      \
-                        4:T9L-4< F( 1L1-,5= 1M2@                    \
-                        5:.                                         \
-                        F:FM 7S T2L+EM                              \
-                        E:TEL-E< 3S T3L+EM                          \
-                        D:TEL-D< FL)\0",
+    NSString *script = [NSString stringWithFormat: [self scriptTemplateForTriggerTimelapse],
                         (long)self.timelapseSettings.stepCount,
                         (long)holdShutterTime,
                         (long)protectionPause,
@@ -118,16 +112,15 @@
     NSString *direction = self.timelapseSettings.clockwiseDirection ? @"" : @"%";
     NSInteger speed = 2000; //MAX
 
-    NSString *script = [NSString stringWithFormat:
-                        @"1:%lx, 1M %lx, 2M T2L+9M F(           \
-                        2:0, %lx, %lx%@, 5, 0, AR               \
-                        3:AL3=                                  \
-                        4:T9L-4< T2L+9M F( 1L1-, 5= 1M2@        \
-                        5:.                                     \
-                        F:FM                                    \
-                        D:3, 0, B9128P2019?D=2001-E#3, A9129P   \
-                        E:FL)\0",
-                        
+    NSString *scriptTemplate;
+    NSArray *ptpCommands = self.cameraConfiguration.ptpCommands;
+    if (self.cameraConfiguration.ptpCommands.count == 1) {
+        scriptTemplate = [self scriptTemplateForUSBTimelapse:ptpCommands[0]];
+    } else if (self.cameraConfiguration.ptpCommands.count == 2) {
+        scriptTemplate = [self scriptTemplateForUSBTimelapse:ptpCommands[0] ptpCommand2:ptpCommands[1]];
+    }
+    
+    NSString *script = [NSString stringWithFormat:scriptTemplate,
                         (long)self.timelapseSettings.stepCount,
                         (long)timeBtwPictures,
                         (long)speed,
@@ -138,14 +131,19 @@
 
 - (NSString *)generateScriptForTriggerShot
 {
-    NSString *script = @"1:7ST7D0+1M2:T1L-2<3S.\0";
-    
+    NSString *script = [self scriptTemplateForTriggerShot];
     return script;
 }
 
 - (NSString *)generateScriptForUSBShot
 {
-    NSString *script = @"1:3,0,B9128P2019?1=2001-2#3,A9129P2:.\0";
+    NSString *script;
+    NSArray *ptpCommands = self.cameraConfiguration.ptpCommands;
+    if (self.cameraConfiguration.ptpCommands.count == 1) {
+        script = [self scriptTemplateForUSBTimelapse:ptpCommands[0]];
+    } else if (self.cameraConfiguration.ptpCommands.count == 2) {
+        script = [self scriptTemplateForUSBTimelapse:ptpCommands[0] ptpCommand2:ptpCommands[1]];
+    }
     
     return script;
 }

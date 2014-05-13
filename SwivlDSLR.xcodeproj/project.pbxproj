@@ -22,6 +22,8 @@
 		2540042118EEAE6F0060ECB2 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 2540042018EEAE6F0060ECB2 /* UIAlertView+Blocks.m */; };
 		25465B5E18E57F7200C4DBDF /* start_screen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25465B5D18E57F7200C4DBDF /* start_screen.jpg */; };
 		25465B6118E5820900C4DBDF /* SWProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25465B6018E5820900C4DBDF /* SWProgressView.m */; };
+		255289B31920F49A00E803B6 /* SWCameraConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 255289B21920F49A00E803B6 /* SWCameraConfiguration.m */; };
+		255289B71921101400E803B6 /* SWScript+Template.m in Sources */ = {isa = PBXBuildFile; fileRef = 255289B61921101400E803B6 /* SWScript+Template.m */; };
 		256C1FD918EC3EE700D0659B /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 256C1FD818EC3EE700D0659B /* info.png */; };
 		259524F518C610DF006EEAFA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259524F418C610DF006EEAFA /* Foundation.framework */; };
 		259524F718C610DF006EEAFA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259524F618C610DF006EEAFA /* CoreGraphics.framework */; };
@@ -117,6 +119,10 @@
 		25465B5D18E57F7200C4DBDF /* start_screen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = start_screen.jpg; sourceTree = "<group>"; };
 		25465B5F18E5820900C4DBDF /* SWProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWProgressView.h; sourceTree = "<group>"; };
 		25465B6018E5820900C4DBDF /* SWProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWProgressView.m; sourceTree = "<group>"; };
+		255289B11920F49A00E803B6 /* SWCameraConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCameraConfiguration.h; sourceTree = "<group>"; };
+		255289B21920F49A00E803B6 /* SWCameraConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCameraConfiguration.m; sourceTree = "<group>"; };
+		255289B51921101400E803B6 /* SWScript+Template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SWScript+Template.h"; sourceTree = "<group>"; };
+		255289B61921101400E803B6 /* SWScript+Template.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SWScript+Template.m"; sourceTree = "<group>"; };
 		256C1FD818EC3EE700D0659B /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		259524F118C610DF006EEAFA /* SwivlDSLR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwivlDSLR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		259524F418C610DF006EEAFA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -440,6 +446,10 @@
 				25ADC24018C72D4A00CEB6A7 /* SWTimelapseSettings.m */,
 				250A4D1618DADEF300E82B1F /* SWScript.h */,
 				250A4D1718DADEF300E82B1F /* SWScript.m */,
+				255289B51921101400E803B6 /* SWScript+Template.h */,
+				255289B61921101400E803B6 /* SWScript+Template.m */,
+				255289B11920F49A00E803B6 /* SWCameraConfiguration.h */,
+				255289B21920F49A00E803B6 /* SWCameraConfiguration.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -746,11 +756,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				255289B71921101400E803B6 /* SWScript+Template.m in Sources */,
 				25465B6118E5820900C4DBDF /* SWProgressView.m in Sources */,
 				2522F7C918D0B79000915E25 /* SWSideBar.m in Sources */,
 				2522F7D018D0C23C00915E25 /* SWSettingsController.m in Sources */,
 				8508E40418F6C42500EEC442 /* SWManualController.m in Sources */,
 				2540042118EEAE6F0060ECB2 /* UIAlertView+Blocks.m in Sources */,
+				255289B31920F49A00E803B6 /* SWCameraConfiguration.m in Sources */,
 				858A4DFB18C8AA700036A0CF /* DKCircularSlider.m in Sources */,
 				250A4D1818DADEF300E82B1F /* SWScript.m in Sources */,
 				25BB880318E45F7400ECE14D /* SWProgressController.m in Sources */,
