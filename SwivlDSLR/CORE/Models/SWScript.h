@@ -13,9 +13,7 @@
 
 @interface SWScript : NSObject
 
-- (instancetype)initWithTimelapseSettings:(SWTimelapseSettings *)timelapseSettings;
-
-@property (nonatomic, readonly) SWTimelapseSettings *timelapseSettings;
+@property (nonatomic, strong) SWTimelapseSettings *timelapseSettings;
 @property (nonatomic, strong) SWCameraConfiguration *cameraConfiguration;
 @property (nonatomic, assign) SWCameraInterface connectionType;
 @property (nonatomic, assign) SWScriptType scriptType;
