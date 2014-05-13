@@ -16,15 +16,6 @@
 
 #pragma mark - Init
 
-- (instancetype)initWithTimelapseSettings:(SWTimelapseSettings *)timelapseSettings
-{
-    self = [super init];
-    if (self) {
-        _timelapseSettings = timelapseSettings;
-    }
-    return self;
-}
-
 - (id)initWithCoder:(NSCoder *)decoder
 {
     self = [super init];
@@ -66,7 +57,7 @@
         NSAssert(NO, @"Invalid script type");
     }
     
-    return [scriptStr stringByReplacingOccurrencesOfString:@" " withString:@""];
+    return [[scriptStr stringByReplacingOccurrencesOfString:@" " withString:@""] uppercaseString];
 }
 
 - (BOOL)isRunningFromStartDate
@@ -88,7 +79,7 @@
         timeBtwPictures = 0;
     }
     
-    NSInteger stepSize = (self.timelapseSettings.stepSize / 0.11) * 4;
+    NSInteger stepSize = roundf(self.timelapseSettings.stepSize / 0.11) * 4;
     NSInteger speed = 2000; //MAX
     NSString *direction = self.timelapseSettings.clockwiseDirection ? @"" : @"%";
     
@@ -108,7 +99,7 @@
 - (NSString *)generateScriptForUSBTimelapse
 {
     NSInteger timeBtwPictures = self.timelapseSettings.timeBetweenPictures * 1000;
-    NSInteger stepSize = (self.timelapseSettings.stepSize / 0.11) * 4;
+    NSInteger stepSize = roundf(self.timelapseSettings.stepSize / 0.11) * 4;
     NSString *direction = self.timelapseSettings.clockwiseDirection ? @"" : @"%";
     NSInteger speed = 2000; //MAX
 
@@ -140,9 +131,9 @@
     NSString *script;
     NSArray *ptpCommands = self.cameraConfiguration.ptpCommands;
     if (self.cameraConfiguration.ptpCommands.count == 1) {
-        script = [self scriptTemplateForUSBTimelapse:ptpCommands[0]];
+        script = [self scriptTemplateForUSBShot:ptpCommands[0]];
     } else if (self.cameraConfiguration.ptpCommands.count == 2) {
-        script = [self scriptTemplateForUSBTimelapse:ptpCommands[0] ptpCommand2:ptpCommands[1]];
+        script = [self scriptTemplateForUSBShot:ptpCommands[0] ptpCommand2:ptpCommands[1]];
     }
     
     return script;

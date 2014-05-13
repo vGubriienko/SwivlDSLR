@@ -12,8 +12,8 @@
 
 - (NSString *)scriptTemplateForTriggerTimelapse
 {
-    NSString *script =  @"1:%%lx, 1M %%lx, 2M %%lx, 3M %%lx, 4M F(      \
-                        2:T4L+9M 0, %%lx, %%lx%%@, 5, 0, AR             \
+    NSString *script =  @"1:%lx, 1M %lx, 2M %lx, 3M %lx, 4M F(          \
+                        2:T4L+9M 0, %lx, %lx%@, 5, 0, AR                \
                         3:AL3=                                          \
                         4:T9L-4< F( 1L1-,5= 1M2@                        \
                         5:.                                             \
@@ -25,47 +25,47 @@
 
 - (NSString *)scriptTemplateForTriggerShot
 {
-    NSString *script = @"1:3,0,B9128P2019?1=2001-2#3,A9129P2:.\0";
+    NSString *script = @"1:7ST7D0+1M2:T1L-2<3S.\0";
     return script;
 }
 
 - (NSString *)scriptTemplateForUSBTimelapse:(NSString *)ptpCommand1 ptpCommand2:(NSString *)ptpCommand2
 {
-    NSString *script = [NSString stringWithFormat:
-                        @"1:%%lx, 1M %%lx, 2M T2L+9M F(             \
-                        2:0, %%lx, %%lx%%@, 5, 0, AR                \
-                        3:AL3=                                      \
-                        4:T9L-4< T2L+9M F( 1L1-, 5= 1M2@            \
-                        5:.                                         \
-                        F:FM                                        \
-                        D:3, 0, B9128P2019?D=2001-E#3, A9129P       \
-                        E:FL)\0"];
+    NSString *script =  [NSString stringWithFormat:
+                         @"1:%%lx, 1M %%lx, 2M T2L+9M F(                \
+                         2:0, %%lx, %%lx%%@, 5, 0, AR                   \
+                         3:AL3=                                         \
+                         4:T9L-4< T2L+9M F( 1L1-, 5= 1M2@               \
+                         5:.                                            \
+                         F:FM                                           \
+                         D:3, 0, B%@P2019?D=2001-E#3, A%@P              \
+                         E:FL)\0", ptpCommand1, ptpCommand2];
     return script;
 }
 
 - (NSString *)scriptTemplateForUSBShot:(NSString *)ptpCommand1 ptpCommand2:(NSString *)ptpCommand2
 {
-    NSString *script = @"1:3,0,B9128P2019?1=2001-2#3,A9129P2:.\0";
+    NSString *script = [NSString stringWithFormat:@"1:3,0,B%@P2019?1=2001-2#3,A%@P2:.\0", ptpCommand1, ptpCommand2];
     return script;
 }
 
 - (NSString *)scriptTemplateForUSBTimelapse:(NSString *)ptpCommand1
 {
     NSString *script = [NSString stringWithFormat:
-                        @"1:%%lx, 1M %%lx, 2M T2L+9M F(             \
-                        2:0, %%lx, %%lx%%@, 5, 0, AR                \
-                        3:AL3=                                      \
-                        4:T9L-4< T2L+9M F( 1L1-, 5= 1M2@            \
-                        5:.                                         \
-                        F:FM                                        \
-                        D:910FP2019?D=                              \
-                        E:FL)\0"];
+                        @"1:%%lx, 1M %%lx, 2M T2L+9M F(                 \
+                        2:0, %%lx, %%lx%%@, 5, 0, AR                    \
+                        3:AL3=                                          \
+                        4:T9L-4< T2L+9M F( 1L1-, 5= 1M2@                \
+                        5:.                                             \
+                        F:FM                                            \
+                        D:%@P2019?D=                                    \
+                        E:FL)\0", ptpCommand1];
     return script;
 }
 
 - (NSString *)scriptTemplateForUSBShot:(NSString *)ptpCommand1
 {
-    NSString *script = @"1:910FP2019?1=.\0";
+    NSString *script = [NSString stringWithFormat:@"1:%@P2019?1=.\0", ptpCommand1];
     return script;
 }
 

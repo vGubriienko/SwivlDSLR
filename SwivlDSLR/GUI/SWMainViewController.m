@@ -93,11 +93,12 @@
 {
     if (!swAppDelegate.isScriptRunning) {
         if (swAppDelegate.swivl.swivlConnected) {
-            SWScript *script = [[SWScript alloc] initWithTimelapseSettings:_timelapseSettings];
-            swAppDelegate.script = script;
+            SWScript *script = [[SWScript alloc] init];
+            script.timelapseSettings = _timelapseSettings;
             script.scriptType = SWScriptTypeTimelapse;
             script.connectionType = swAppDelegate.currentCameraInterface;
             script.cameraConfiguration = swAppDelegate.currentCameraConfiguration;
+            swAppDelegate.script = script;
             [swAppDelegate.swivl swivlScriptRequestBufferState];
         } else {
             [self showSwivlDisconnectedMessage];
