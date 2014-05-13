@@ -10,14 +10,35 @@
 
 @implementation SWCameraConfiguration
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary
+{
+    if ((self = [super init])) {
+        _name = [dictionary[@"name"] copy];
+        _ptpCommands = [dictionary[@"commands"] copy];
+        _dictionary = [dictionary copy];
+        
+        if (_ptpCommands.count != 1 && _ptpCommands.count != 2) {
+            NSAssert(NO, @"SWCameraConfiguration init failed: Invalid PTP commands count");
+        }
+    }
+    return self;
+}
+
 + (instancetype)configurationWithDictionary:(NSDictionary *)dictionary
 {
-    return nil;
+    return [[self alloc] initWithDictionary:dictionary];
 }
 
 + (NSArray *)configurationsWithDictionaries:(NSArray *)dictionaries
 {
-    return nil;
+    NSMutableArray *array = [@[] mutableCopy];
+    for (NSDictionary *dictionary in dictionaries) {
+        SWCameraConfiguration *conf = [SWCameraConfiguration configurationWithDictionary:dictionary];
+        if (conf) {
+            [array addObject:conf];
+        }
+    }
+    return array;
 }
 
 @end
