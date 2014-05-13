@@ -44,6 +44,7 @@ SWAppDelegate *swAppDelegate = nil;
     swAppDelegate = self;
     self.swivl = [SwivlCommonLib sharedSwivlBaseForDelegate:self];
 
+    [self loadDrivers];
     [self loadDefaults];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -219,6 +220,33 @@ SWAppDelegate *swAppDelegate = nil;
         self.script = script;
         self.scriptRunning = YES;
     }
+}
+
+#pragma mark - Load & Copy drivers
+- (void)copyDefaultDrivers
+{
+    BOOL success;
+    NSError *error;
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    NSString *documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"Drivers"];
+    NSLog(@"DOCUMENTS dir = %@", filePath);
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Drivers" ofType:@""];
+    NSLog(@"APP dir = %@", path);
+    success = [fileManager fileExistsAtPath:filePath];
+    if (!success) {
+        success = [fileManager copyItemAtPath:path toPath:filePath error:&error];
+        NSLog(@"Copy success : %i", success);
+    }
+
+}
+
+- (void)loadDrivers
+{
+    [self copyDefaultDrivers];
+    //PARSE IT
 }
 
 #pragma mark - Properties

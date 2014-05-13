@@ -13,8 +13,8 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
     if ((self = [super init])) {
-        _name = [dictionary[@"name"] copy];
-        _ptpCommands = [dictionary[@"commands"] copy];
+        _name = [dictionary[@"DriverName"] copy];
+        _ptpCommands = [dictionary[@"PTPShutterCommands"] copy];
         _dictionary = [dictionary copy];
         
         NSAssert(_ptpCommands.count == 1 || _ptpCommands.count == 2, @"SWCameraConfiguration init failed: Invalid PTP commands count");

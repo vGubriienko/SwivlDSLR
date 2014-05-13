@@ -73,6 +73,7 @@
 		8508E40A18F6D54900EEC442 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = 8508E40818F6D54900EEC442 /* right.png */; };
 		85876BC81922153C0054E4C7 /* SWSelectDriverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85876BC71922153C0054E4C7 /* SWSelectDriverController.m */; };
 		85876BCB19221C0A0054E4C7 /* SWSettingsBackSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 85876BCA19221C0A0054E4C7 /* SWSettingsBackSegue.m */; };
+		85876BCF192229080054E4C7 /* Drivers in Resources */ = {isa = PBXBuildFile; fileRef = 85876BCE192229080054E4C7 /* Drivers */; };
 		858A4DFB18C8AA700036A0CF /* DKCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A4DF618C8AA700036A0CF /* DKCircularSlider.m */; };
 		858A4DFC18C8AA700036A0CF /* DKRepeatableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A4DF818C8AA700036A0CF /* DKRepeatableButton.m */; };
 		858A4DFD18C8AA700036A0CF /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = 858A4DF918C8AA700036A0CF /* down.png */; };
@@ -189,6 +190,7 @@
 		85876BC71922153C0054E4C7 /* SWSelectDriverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWSelectDriverController.m; sourceTree = "<group>"; };
 		85876BC919221C0A0054E4C7 /* SWSettingsBackSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWSettingsBackSegue.h; sourceTree = "<group>"; };
 		85876BCA19221C0A0054E4C7 /* SWSettingsBackSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWSettingsBackSegue.m; sourceTree = "<group>"; };
+		85876BCE192229080054E4C7 /* Drivers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Drivers; sourceTree = "<group>"; };
 		858A4DF518C8AA700036A0CF /* DKCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKCircularSlider.h; sourceTree = "<group>"; };
 		858A4DF618C8AA700036A0CF /* DKCircularSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKCircularSlider.m; sourceTree = "<group>"; };
 		858A4DF718C8AA700036A0CF /* DKRepeatableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKRepeatableButton.h; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 		259524E818C610DE006EEAFA = {
 			isa = PBXGroup;
 			children = (
+				85876BCE192229080054E4C7 /* Drivers */,
 				858A4DF318C8AA700036A0CF /* Vendors */,
 				259524FA18C610DF006EEAFA /* SwivlDSLR */,
 				2595251C18C610DF006EEAFA /* SwivlDSLRTests */,
@@ -639,6 +642,7 @@
 				2522F7C318D0B25D00915E25 /* reveal-white.png in Resources */,
 				2595254718C61BA2006EEAFA /* capture_normal@2x.png in Resources */,
 				25B962C418D19CFD002E4FD1 /* base_present.png in Resources */,
+				85876BCF192229080054E4C7 /* Drivers in Resources */,
 				25E536D1190E79DD0059FE7C /* arrow_manual_left.png in Resources */,
 				25E536D3190E79DD0059FE7C /* arrow_manual_up.png in Resources */,
 				2595253518C6141C006EEAFA /* Main_iPhone.storyboard in Resources */,
