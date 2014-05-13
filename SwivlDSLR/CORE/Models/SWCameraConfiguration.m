@@ -17,9 +17,7 @@
         _ptpCommands = [dictionary[@"commands"] copy];
         _dictionary = [dictionary copy];
         
-        if (_ptpCommands.count != 1 && _ptpCommands.count != 2) {
-            NSAssert(NO, @"SWCameraConfiguration init failed: Invalid PTP commands count");
-        }
+        NSAssert(_ptpCommands.count == 1 || _ptpCommands.count == 2, @"SWCameraConfiguration init failed: Invalid PTP commands count");
     }
     return self;
 }
