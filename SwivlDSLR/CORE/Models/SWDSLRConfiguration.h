@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SWCameraConfiguration : NSObject
+@interface SWDSLRConfiguration : NSObject
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSArray *ptpCommands;

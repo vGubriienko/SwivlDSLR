@@ -10,7 +10,7 @@
 #import "SWScript+Template.h"
 
 #import "SWTimelapseSettings.h"
-#import "SWCameraConfiguration.h"
+#import "SWDSLRConfiguration.h"
 
 @implementation SWScript
 
@@ -104,10 +104,10 @@
     NSInteger speed = 2000; //MAX
 
     NSString *scriptTemplate;
-    NSArray *ptpCommands = self.cameraConfiguration.ptpCommands;
-    if (self.cameraConfiguration.ptpCommands.count == 1) {
+    NSArray *ptpCommands = self.dslrConfiguration.ptpCommands;
+    if (self.dslrConfiguration.ptpCommands.count == 1) {
         scriptTemplate = [self scriptTemplateForUSBTimelapse:ptpCommands[0]];
-    } else if (self.cameraConfiguration.ptpCommands.count == 2) {
+    } else if (self.dslrConfiguration.ptpCommands.count == 2) {
         scriptTemplate = [self scriptTemplateForUSBTimelapse:ptpCommands[0] ptpCommand2:ptpCommands[1]];
     }
     
@@ -129,10 +129,10 @@
 - (NSString *)generateScriptForUSBShot
 {
     NSString *script;
-    NSArray *ptpCommands = self.cameraConfiguration.ptpCommands;
-    if (self.cameraConfiguration.ptpCommands.count == 1) {
+    NSArray *ptpCommands = self.dslrConfiguration.ptpCommands;
+    if (self.dslrConfiguration.ptpCommands.count == 1) {
         script = [self scriptTemplateForUSBShot:ptpCommands[0]];
-    } else if (self.cameraConfiguration.ptpCommands.count == 2) {
+    } else if (self.dslrConfiguration.ptpCommands.count == 2) {
         script = [self scriptTemplateForUSBShot:ptpCommands[0] ptpCommand2:ptpCommands[1]];
     }
     

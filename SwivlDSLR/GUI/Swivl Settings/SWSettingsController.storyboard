@@ -203,6 +203,7 @@
                     </tableView>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="_DSLRConfiguration" destination="3Tq-aY-iFN" id="CzA-2n-38X"/>
                         <outlet property="_appVersion" destination="g5p-gg-w4W" id="AOZ-mS-Bm8"/>
                         <outlet property="_baseLevelView" destination="b0b-ZA-C6t" id="Twd-74-I7e"/>
                         <outlet property="_camereInterface" destination="xD4-ch-sHb" id="35Z-J0-Qfx"/>

@@ -9,6 +9,7 @@
 #import "SWSettingsController.h"
 
 #import "SWAppDelegate.h"
+#import "SWDSLRConfiguration.h"
 #import <Swivl-iOS-SDK/SwivlCommonLib.h>
 
 #import "MVYSideMenuController.h"
@@ -19,6 +20,7 @@
 {
     __weak IBOutlet UILabel *_appVersion;
     __weak IBOutlet UILabel *_fwVersion;
+    __weak IBOutlet UILabel *_DSLRConfiguration;
     __weak IBOutlet UIView *_markerLevelView;
     __weak IBOutlet UIView *_baseLevelView;
     __weak IBOutlet UISegmentedControl *_camereInterface;
@@ -65,6 +67,12 @@
     frame.origin.x = sideBarWidth;
     frame.size.width -= sideBarWidth;
     self.view.frame = frame;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self updateInterfaceElements];
+    [super viewWillAppear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -117,6 +125,7 @@
 
 - (void)updateInterfaceElements
 {
+    _DSLRConfiguration.text = [swAppDelegate.currentDSLRConfiguration name];
     if(swAppDelegate.swivl.swivlConnected)
     {
         NSLog(@"Marker: %d, Base: %d", swAppDelegate.swivl.markerBatteryLevel, swAppDelegate.swivl.baseBatteryLevel);

@@ -181,7 +181,7 @@
             swAppDelegate.script = script;
             script.scriptType = SWScriptTypeShot;
             script.connectionType = swAppDelegate.currentCameraInterface;
-            script.cameraConfiguration = swAppDelegate.currentCameraConfiguration;
+            script.dslrConfiguration = swAppDelegate.currentDSLRConfiguration;
             [swAppDelegate.swivl swivlScriptRequestBufferState];
         } else {
             [self showSwivlDisconnectedMessage];

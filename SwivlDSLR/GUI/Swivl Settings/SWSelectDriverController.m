@@ -63,15 +63,20 @@
 
 #pragma mark - TableView
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+    return [swAppDelegate.availableDSLRConfigurations count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"USBDriverCell"];
-    cell.textLabel.text = @"Cell 1";
+    cell.textLabel.text = [swAppDelegate.availableDSLRConfigurations[indexPath.row] name];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    swAppDelegate.currentDSLRConfiguration = swAppDelegate.availableDSLRConfigurations[indexPath.row];
 }
 
 #pragma mark - 
