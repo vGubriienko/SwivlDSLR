@@ -1,9 +1,9 @@
 //
 //  SettingsViewController.m
-//  AVSandbox
+//  SwivlDSLR
 //
-//  Created by Geoff Chatterton on 9/29/11.
-//  Copyright 2011 Duff Research LLC. All rights reserved.
+//  Created by Sergei Me (mer.sergei@gmai.com) on 4/10/14.
+//  Copyright (c) 2014 Swivl. All rights reserved.
 //
 
 #import "SWSettingsController.h"
@@ -22,7 +22,7 @@
     __weak IBOutlet UIView *_markerLevelView;
     __weak IBOutlet UIView *_baseLevelView;
     __weak IBOutlet UISegmentedControl *_camereInterface;
-
+    IBOutlet UITableViewCell *_driverUSBView;
     NSString *_firmwareVersion;
     NSTimer *_updateTimer;
 }
@@ -44,7 +44,7 @@
     _appVersion.text = bundleVersion;
     
     _camereInterface.selectedSegmentIndex = swAppDelegate.currentCameraInterface;
-    
+    [self loadUSBConfigurations];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedSwivlAttached) name:AVSandboxSwivlDockAttached object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedSwivlDetached) name:AVSandboxSwivlDockDetached object:nil];
     if (swAppDelegate.swivl.dockFWVersion) {
@@ -87,6 +87,7 @@
 - (IBAction)onCaptureInterfaceValueChanged
 {
     swAppDelegate.currentCameraInterface = _camereInterface.selectedSegmentIndex;
+    [self loadUSBConfigurations];
 }
 
 #pragma mark - Interface update
@@ -158,6 +159,48 @@
     [_updateTimer invalidate];
     
     [self updateInterfaceElements];
+}
+
+#pragma mark - USB Drivers
+- (void)loadUSBConfigurations
+{
+    if (_camereInterface.selectedSegmentIndex == 0) {
+        NSLog(@"USB selected");
+        [self cell:_driverUSBView setHidden:NO];
+    
+    } else {
+        //hide USB Driver line
+        [self cell:_driverUSBView setHidden:YES];
+    }
+    
+}
+
+#pragma mark - Custom Table modifications
+- (void)cell:(UITableViewCell *)cell setHidden:(BOOL)hidden
+{
+    if (hidden) {
+        [(ABStaticTableViewController*)self deleteRowsAtIndexPaths:@[[self indexPathForCustomCell:cell]] withRowAnimation:UITableViewRowAnimationMiddle];
+    } else {
+        [(ABStaticTableViewController*)self insertRowsAtIndexPaths:@[[self indexPathForCustomCell:cell]] withRowAnimation:UITableViewRowAnimationMiddle];
+    }
+}
+
+- (NSIndexPath *)indexPathForCustomCell:(UITableViewCell *)cell
+{
+    NSIndexPath *indexPath;
+    //Draft indexPath // Can throw nil exeption
+    indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    
+    if (cell == _driverUSBView) {
+        indexPath = [NSIndexPath indexPathForRow:3 inSection:0];
+    }
+    
+    return indexPath;
+}
+
+- (BOOL)isCellVisible:(UITableViewCell *)cell
+{
+    return [self isRowVisible:[self indexPathForCustomCell:cell]];
 }
 
 #pragma mark - 
