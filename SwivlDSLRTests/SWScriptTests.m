@@ -10,7 +10,7 @@
 #import <OCMock/OCMock.h>
 
 #import "SWScript.h"
-#import "SWCameraConfiguration.h"
+#import "SWDSLRConfiguration.h"
 #import "SWTimelapseSettings.h"
 
 @interface SWScriptTests : XCTestCase
@@ -47,11 +47,11 @@
     [[[_timeLapseSettingsClockWiseDirection stub] andReturnValue:OCMOCK_VALUE((CGFloat)7.5)] timeBetweenPictures];
     [[[_timeLapseSettingsClockWiseDirection stub] andReturnValue:OCMOCK_VALUE(YES)] clockwiseDirection];
     
-    _cameraConfiguration1 = [OCMockObject mockForClass:[SWCameraConfiguration class]];
+    _cameraConfiguration1 = [OCMockObject mockForClass:[SWDSLRConfiguration class]];
     [[[_cameraConfiguration1 stub] andReturn:@"Canon1"] name];
     [[[_cameraConfiguration1 stub] andReturn:@[@"910F"]] ptpCommands];
     
-    _cameraConfiguration2 = [OCMockObject mockForClass:[SWCameraConfiguration class]];
+    _cameraConfiguration2 = [OCMockObject mockForClass:[SWDSLRConfiguration class]];
     [[[_cameraConfiguration2 stub] andReturn:@"Canon2"] name];
     [[[_cameraConfiguration2 stub] andReturn:@[@"9128", @"9129"]] ptpCommands];
     
@@ -104,7 +104,7 @@
 {
     _script.connectionType = SWCameraInterfaceUSB;
     _script.scriptType = SWScriptTypeShot;
-    _script.cameraConfiguration = _cameraConfiguration1;
+    _script.dslrConfiguration = _cameraConfiguration1;
     
     NSString *expectedScript = @"1:910FP2019?1=.\0";
     
@@ -117,7 +117,7 @@
 {
     _script.connectionType = SWCameraInterfaceUSB;
     _script.scriptType = SWScriptTypeShot;
-    _script.cameraConfiguration = _cameraConfiguration2;
+    _script.dslrConfiguration = _cameraConfiguration2;
     
     NSString *expectedScript = @"1:3,0,B9128P2019?1=2001-2#3,A9129P2:.\0";
     
@@ -131,7 +131,7 @@
     _script.connectionType = SWCameraInterfaceUSB;
     _script.scriptType = SWScriptTypeTimelapse;
     _script.timelapseSettings = _timeLapseSettings;
-    _script.cameraConfiguration = _cameraConfiguration1;
+    _script.dslrConfiguration = _cameraConfiguration1;
     
     NSString *expectedScript = @"1:9,1MFA0,2MT2L+9MF(2:0,7D0,16C%,5,0,AR3:AL3=4:T9L-4<T2L+9MF(1L1-,5=1M2@5:.F:FMD:910FP2019?D=E:FL)\0";
     
@@ -145,7 +145,7 @@
     _script.connectionType = SWCameraInterfaceUSB;
     _script.scriptType = SWScriptTypeTimelapse;
     _script.timelapseSettings = _timeLapseSettingsClockWiseDirection;
-    _script.cameraConfiguration = _cameraConfiguration1;
+    _script.dslrConfiguration = _cameraConfiguration1;
     
     NSString *expectedScript = @"1:1,1M1D4C,2MT2L+9MF(2:0,7D0,4,5,0,AR3:AL3=4:T9L-4<T2L+9MF(1L1-,5=1M2@5:.F:FMD:910FP2019?D=E:FL)\0";
     
@@ -159,7 +159,7 @@
     _script.connectionType = SWCameraInterfaceUSB;
     _script.scriptType = SWScriptTypeTimelapse;
     _script.timelapseSettings = _timeLapseSettings;
-    _script.cameraConfiguration = _cameraConfiguration2;
+    _script.dslrConfiguration = _cameraConfiguration2;
     
     NSString *expectedScript = @"1:9,1MFA0,2MT2L+9MF(2:0,7D0,16C%,5,0,AR3:AL3=4:T9L-4<T2L+9MF(1L1-,5=1M2@5:.F:FMD:3,0,B9128P2019?D=2001-E#3,A9129PE:FL)\0";
     
@@ -173,7 +173,7 @@
     _script.connectionType = SWCameraInterfaceUSB;
     _script.scriptType = SWScriptTypeTimelapse;
     _script.timelapseSettings = _timeLapseSettingsClockWiseDirection;
-    _script.cameraConfiguration = _cameraConfiguration2;
+    _script.dslrConfiguration = _cameraConfiguration2;
     
     NSString *expectedScript = @"1:1,1M1D4C,2MT2L+9MF(2:0,7D0,4,5,0,AR3:AL3=4:T9L-4<T2L+9MF(1L1-,5=1M2@5:.F:FMD:3,0,B9128P2019?D=2001-E#3,A9129PE:FL)\0";
     

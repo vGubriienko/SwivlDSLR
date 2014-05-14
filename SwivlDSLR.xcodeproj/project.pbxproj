@@ -25,7 +25,7 @@
 		255289B31920F49A00E803B6 /* SWDSLRConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 255289B21920F49A00E803B6 /* SWDSLRConfiguration.m */; };
 		255289B71921101400E803B6 /* SWScript+Template.m in Sources */ = {isa = PBXBuildFile; fileRef = 255289B61921101400E803B6 /* SWScript+Template.m */; };
 		256C1FD918EC3EE700D0659B /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 256C1FD818EC3EE700D0659B /* info.png */; };
-		258941E9192204B300BCAE55 /* SWCameraConfigurationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 258941E8192204B300BCAE55 /* SWCameraConfigurationTests.m */; };
+		258941E9192204B300BCAE55 /* SWDSLRConfigurationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 258941E8192204B300BCAE55 /* SWDSLRConfigurationTests.m */; };
 		258941EB1922108400BCAE55 /* SWScriptTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 258941EA1922108400BCAE55 /* SWScriptTests.m */; };
 		259524F518C610DF006EEAFA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259524F418C610DF006EEAFA /* Foundation.framework */; };
 		259524F718C610DF006EEAFA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259524F618C610DF006EEAFA /* CoreGraphics.framework */; };
@@ -129,7 +129,7 @@
 		255289B51921101400E803B6 /* SWScript+Template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SWScript+Template.h"; sourceTree = "<group>"; };
 		255289B61921101400E803B6 /* SWScript+Template.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SWScript+Template.m"; sourceTree = "<group>"; };
 		256C1FD818EC3EE700D0659B /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
-		258941E8192204B300BCAE55 /* SWCameraConfigurationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCameraConfigurationTests.m; sourceTree = "<group>"; };
+		258941E8192204B300BCAE55 /* SWDSLRConfigurationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWDSLRConfigurationTests.m; sourceTree = "<group>"; };
 		258941EA1922108400BCAE55 /* SWScriptTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWScriptTests.m; sourceTree = "<group>"; };
 		259524F118C610DF006EEAFA /* SwivlDSLR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwivlDSLR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		259524F418C610DF006EEAFA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -362,7 +362,7 @@
 			children = (
 				2595251D18C610DF006EEAFA /* Supporting Files */,
 				259E2F7418C89F5700ECC07A /* SWTimelapseSettingsTests.m */,
-				258941E8192204B300BCAE55 /* SWCameraConfigurationTests.m */,
+				258941E8192204B300BCAE55 /* SWDSLRConfigurationTests.m */,
 				258941EA1922108400BCAE55 /* SWScriptTests.m */,
 			);
 			path = SwivlDSLRTests;
@@ -808,7 +808,7 @@
 			files = (
 				258941EB1922108400BCAE55 /* SWScriptTests.m in Sources */,
 				259E2F7518C89F5700ECC07A /* SWTimelapseSettingsTests.m in Sources */,
-				258941E9192204B300BCAE55 /* SWCameraConfigurationTests.m in Sources */,
+				258941E9192204B300BCAE55 /* SWDSLRConfigurationTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
