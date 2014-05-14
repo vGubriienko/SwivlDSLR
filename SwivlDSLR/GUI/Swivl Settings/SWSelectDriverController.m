@@ -21,12 +21,6 @@
 
 @implementation SWSelectDriverController
 
-- (void)viewDidLoad 
-{
-    [super viewDidLoad];
-    [self loadUSBConfigurations];
-}
-
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
@@ -46,20 +40,6 @@
     [super viewDidAppear:animated];
 }
 
-
-#pragma mark - IBActions
-
-- (IBAction)onCaptureInterfaceValueChanged
-{
-    [self loadUSBConfigurations];
-}
-
-
-#pragma mark - USB Drivers
-- (void)loadUSBConfigurations
-{
-   
-}
 
 #pragma mark - TableView
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

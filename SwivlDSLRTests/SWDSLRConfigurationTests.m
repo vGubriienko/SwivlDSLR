@@ -70,7 +70,7 @@
     NSDictionary *wrongDictionary = @{@"Name"        :       @"Canon",
                                       @"PTPShutterCommands"    :       @[]};
     
-    XCTAssertThrows([SWCameraConfiguration configurationWithDictionary:wrongDictionary],
+    XCTAssertThrows([SWDSLRConfiguration configurationWithDictionary:wrongDictionary],
                     @"ConfigurationWithDictionary should throw exception if no PTP command");
 }
 
@@ -79,7 +79,7 @@
     NSDictionary *wrongDictionary = @{@"Name"        :       @"Canon",
                                       @"PTPShutterCommands"    :       @[@"9128", @"9129", @"0000"]};
     
-    XCTAssertThrows([SWCameraConfiguration configurationWithDictionary:wrongDictionary],
+    XCTAssertThrows([SWDSLRConfiguration configurationWithDictionary:wrongDictionary],
                     @"ConfigurationWithDictionary should throw exception if no PTP command");
 }
 

@@ -23,7 +23,7 @@
     __weak IBOutlet UILabel *_DSLRConfiguration;
     __weak IBOutlet UIView *_markerLevelView;
     __weak IBOutlet UIView *_baseLevelView;
-    __weak IBOutlet UISegmentedControl *_camereInterface;
+    __weak IBOutlet UISegmentedControl *_cameraInterface;
     IBOutlet UITableViewCell *_driverUSBView;
     NSString *_firmwareVersion;
     NSTimer *_updateTimer;
@@ -45,7 +45,7 @@
     NSString *bundleVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
     _appVersion.text = bundleVersion;
     
-    _camereInterface.selectedSegmentIndex = swAppDelegate.currentCameraInterface;
+    _cameraInterface.selectedSegmentIndex = swAppDelegate.currentCameraInterface;
     [self loadUSBConfigurations];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedSwivlAttached) name:AVSandboxSwivlDockAttached object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedSwivlDetached) name:AVSandboxSwivlDockDetached object:nil];
@@ -94,7 +94,7 @@
 
 - (IBAction)onCaptureInterfaceValueChanged
 {
-    swAppDelegate.currentCameraInterface = _camereInterface.selectedSegmentIndex;
+    swAppDelegate.currentCameraInterface = _cameraInterface.selectedSegmentIndex;
     [self loadUSBConfigurations];
 }
 
@@ -173,15 +173,7 @@
 #pragma mark - USB Drivers
 - (void)loadUSBConfigurations
 {
-    if (_camereInterface.selectedSegmentIndex == 0) {
-        NSLog(@"USB selected");
-        [self cell:_driverUSBView setHidden:NO];
-    
-    } else {
-        //hide USB Driver line
-        [self cell:_driverUSBView setHidden:YES];
-    }
-    
+    [self cell:_driverUSBView setHidden: (swAppDelegate.currentCameraInterface != SWCameraInterfaceUSB)];
 }
 
 #pragma mark - Custom Table modifications
