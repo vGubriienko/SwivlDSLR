@@ -1,14 +1,15 @@
 //
 //  SettingsViewController.m
-//  AVSandbox
+//  SwivlDSLR
 //
-//  Created by Geoff Chatterton on 9/29/11.
-//  Copyright 2011 Duff Research LLC. All rights reserved.
+//  Created by Sergei Me (mer.sergei@gmai.com) on 4/10/14.
+//  Copyright (c) 2014 Swivl. All rights reserved.
 //
 
 #import "SWSettingsController.h"
 
 #import "SWAppDelegate.h"
+#import "SWDSLRConfiguration.h"
 #import <Swivl-iOS-SDK/SwivlCommonLib.h>
 
 #import "MVYSideMenuController.h"
@@ -19,10 +20,11 @@
 {
     __weak IBOutlet UILabel *_appVersion;
     __weak IBOutlet UILabel *_fwVersion;
+    __weak IBOutlet UILabel *_DSLRConfiguration;
     __weak IBOutlet UIView *_markerLevelView;
     __weak IBOutlet UIView *_baseLevelView;
-    __weak IBOutlet UISegmentedControl *_camereInterface;
-
+    __weak IBOutlet UISegmentedControl *_cameraInterface;
+    IBOutlet UITableViewCell *_driverUSBView;
     NSString *_firmwareVersion;
     NSTimer *_updateTimer;
 }
@@ -43,8 +45,8 @@
     NSString *bundleVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
     _appVersion.text = bundleVersion;
     
-    _camereInterface.selectedSegmentIndex = swAppDelegate.currentCameraInterface;
-    
+    _cameraInterface.selectedSegmentIndex = swAppDelegate.currentCameraInterface;
+    [self onCaptureInterfaceValueChanged];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedSwivlAttached) name:AVSandboxSwivlDockAttached object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedSwivlDetached) name:AVSandboxSwivlDockDetached object:nil];
     if (swAppDelegate.swivl.dockFWVersion) {
@@ -67,6 +69,12 @@
     self.view.frame = frame;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self updateInterfaceElements];
+    [super viewWillAppear:animated];
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [[Countly sharedInstance] recordEvent:NSStringFromClass([self class]) segmentation:@{@"open":@YES} count:1];
@@ -86,7 +94,8 @@
 
 - (IBAction)onCaptureInterfaceValueChanged
 {
-    swAppDelegate.currentCameraInterface = _camereInterface.selectedSegmentIndex;
+    swAppDelegate.currentCameraInterface = _cameraInterface.selectedSegmentIndex;
+    [self cell:_driverUSBView setHidden: (swAppDelegate.currentCameraInterface != SWCameraInterfaceUSB)];
 }
 
 #pragma mark - Interface update
@@ -116,6 +125,7 @@
 
 - (void)updateInterfaceElements
 {
+    _DSLRConfiguration.text = [swAppDelegate.currentDSLRConfiguration name];
     if(swAppDelegate.swivl.swivlConnected)
     {
         NSLog(@"Marker: %d, Base: %d", swAppDelegate.swivl.markerBatteryLevel, swAppDelegate.swivl.baseBatteryLevel);
@@ -158,6 +168,34 @@
     [_updateTimer invalidate];
     
     [self updateInterfaceElements];
+}
+
+#pragma mark - Custom Table modifications
+- (void)cell:(UITableViewCell *)cell setHidden:(BOOL)hidden
+{
+    if (hidden) {
+        [(ABStaticTableViewController*)self deleteRowsAtIndexPaths:@[[self indexPathForCustomCell:cell]] withRowAnimation:UITableViewRowAnimationMiddle];
+    } else {
+        [(ABStaticTableViewController*)self insertRowsAtIndexPaths:@[[self indexPathForCustomCell:cell]] withRowAnimation:UITableViewRowAnimationMiddle];
+    }
+}
+
+- (NSIndexPath *)indexPathForCustomCell:(UITableViewCell *)cell
+{
+    NSIndexPath *indexPath;
+    //Draft indexPath // Can throw nil exeption
+    indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    
+    if (cell == _driverUSBView) {
+        indexPath = [NSIndexPath indexPathForRow:3 inSection:0];
+    }
+    
+    return indexPath;
+}
+
+- (BOOL)isCellVisible:(UITableViewCell *)cell
+{
+    return [self isRowVisible:[self indexPathForCustomCell:cell]];
 }
 
 #pragma mark - 

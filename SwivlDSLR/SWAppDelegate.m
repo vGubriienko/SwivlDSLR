@@ -9,6 +9,7 @@
 #import "SWAppDelegate.h"
 
 #import "SWScript.h"
+#import "SWDSLRConfiguration.h"
 #import "SWSideBar.h"
 #import "MVYSideMenuController.h"
 #import <Swivl-iOS-SDK/SwivlCommonLib.h>
@@ -16,6 +17,7 @@
 
 #define SW_SCRIPT_KEY @"SW_SCRIPT_KEY"
 #define SW_CAMERA_INTERFACE_KEY @"SW_CAMERA_INTERFACE_KEY"
+#define SW_CAMERA_CONFIGURATION_KEY @"SW_CAMERA_CONFIGURATION_KEY"
 
 SWAppDelegate *swAppDelegate = nil;
 
@@ -42,13 +44,9 @@ SWAppDelegate *swAppDelegate = nil;
     swAppDelegate = self;
     self.swivl = [SwivlCommonLib sharedSwivlBaseForDelegate:self];
 
-    NSNumber *savedCameraInterface = [[NSUserDefaults standardUserDefaults] objectForKey:SW_CAMERA_INTERFACE_KEY];
-    if (savedCameraInterface) {
-        self.currentCameraInterface = savedCameraInterface.integerValue;
-    } else {
-        self.currentCameraInterface = SWCameraInterfaceUSB;
-    }
-    
+    [self loadConfigurations];
+    [self loadDefaults];
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(needHideSideBarNotification)
                                                  name:SW_NEED_HIDE_SIDE_BAR_NOTIFICATION
@@ -224,12 +222,68 @@ SWAppDelegate *swAppDelegate = nil;
     }
 }
 
+#pragma mark - Load & Copy drivers
+- (NSString *)configurationsDirectory
+{
+    NSString *documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    NSString *pathToDrivers = [documentsDirectory stringByAppendingPathComponent:@"Configurations"];
+    return pathToDrivers;
+}
+
+- (NSString *)pathForConfiguration:(NSString *)configurationPath
+{
+    return [[self configurationsDirectory] stringByAppendingPathComponent:configurationPath];
+}
+
+- (void)copyDefaultConfigurations
+{
+    BOOL success;
+    NSError *error;
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Configurations" ofType:@""];
+    success = [fileManager fileExistsAtPath:[self configurationsDirectory]];
+    if (success) {
+        [fileManager removeItemAtPath:[self configurationsDirectory] error:&error];
+    }
+    success = [fileManager copyItemAtPath:path toPath:[self configurationsDirectory] error:&error];
+
+}
+
+- (void)loadConfigurations
+{
+    [self copyDefaultConfigurations];
+    _availableDSLRConfigurations = nil;
+    NSMutableArray *configurations = [NSMutableArray new];
+    
+    NSError *error;
+    NSArray *configurationsFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[self configurationsDirectory] error:&error];
+    
+    for (NSString *configuration in configurationsFiles) {
+        NSDictionary *configDict = [NSDictionary dictionaryWithContentsOfFile:[self pathForConfiguration:configuration]];
+        SWDSLRConfiguration *configuration = [SWDSLRConfiguration configurationWithDictionary:configDict];
+        [configurations addObject:configuration];
+    }
+    
+    _availableDSLRConfigurations = [configurations copy];
+}
+
 #pragma mark - Properties
 
 - (void)setCurrentCameraInterface:(SWCameraInterface)currentCameraInterface
 {
-    _currentCameraInterface = currentCameraInterface;
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:currentCameraInterface ]forKey:SW_CAMERA_INTERFACE_KEY];
+    if (_currentCameraInterface != currentCameraInterface) {
+        _currentCameraInterface = currentCameraInterface;
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:currentCameraInterface ]forKey:SW_CAMERA_INTERFACE_KEY];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+}
+
+- (void)setCurrentDSLRConfiguration:(SWDSLRConfiguration *)currentCameraConfiguration
+{
+    _currentDSLRConfiguration = currentCameraConfiguration;
+    [[NSUserDefaults standardUserDefaults] setObject:_currentDSLRConfiguration.dictionary forKey:SW_CAMERA_CONFIGURATION_KEY];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -237,6 +291,24 @@ SWAppDelegate *swAppDelegate = nil;
 {
     _scriptRunning = scriptRunning;
     [[NSNotificationCenter defaultCenter] postNotificationName:AVSandboxSwivlScriptStateChangedNotification object:self];
+}
+
+- (void)loadDefaults
+{
+    NSNumber *savedCameraInterface = [[NSUserDefaults standardUserDefaults] objectForKey:SW_CAMERA_INTERFACE_KEY];
+    if (savedCameraInterface) {
+        self.currentCameraInterface = savedCameraInterface.integerValue;
+    } else {
+        self.currentCameraInterface = SWCameraInterfaceUSB;
+    }
+    
+    NSDictionary *savedDSLRConfiguration = [[NSUserDefaults standardUserDefaults] objectForKey:SW_CAMERA_CONFIGURATION_KEY];
+    if (savedDSLRConfiguration) {
+        self.currentDSLRConfiguration = [SWDSLRConfiguration configurationWithDictionary:savedDSLRConfiguration];
+    } else {
+        //Default value is first configuration
+        self.currentDSLRConfiguration = [self.availableDSLRConfigurations firstObject];
+    }
 }
 
 #pragma mark - Config UI

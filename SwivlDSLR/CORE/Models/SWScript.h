@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @class SWTimelapseSettings;
+@class SWDSLRConfiguration;
 
 @interface SWScript : NSObject
 
-- (instancetype)initWithTimelapseSettings:(SWTimelapseSettings *)timelapseSettings;
-
-@property (nonatomic, readonly) SWTimelapseSettings *timelapseSettings;
+@property (nonatomic, strong) SWTimelapseSettings *timelapseSettings;
+@property (nonatomic, strong) SWDSLRConfiguration *dslrConfiguration;
 @property (nonatomic, assign) SWCameraInterface connectionType;
 @property (nonatomic, assign) SWScriptType scriptType;
 @property (nonatomic, strong) NSDate *startDate;

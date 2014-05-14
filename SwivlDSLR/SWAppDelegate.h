@@ -11,6 +11,7 @@
 #import "Countly.h"
 
 @class SWScript;
+@class SWDSLRConfiguration;
 @class SWAppDelegate;
 @class SwivlCommonLib;
 
@@ -25,5 +26,7 @@ extern SWAppDelegate *swAppDelegate;
 @property (nonatomic, strong) SWScript *script;
 @property (nonatomic, readonly, getter = isScriptRunning) BOOL scriptRunning;
 @property (nonatomic, assign) SWCameraInterface currentCameraInterface;
+@property (nonatomic, strong) SWDSLRConfiguration *currentDSLRConfiguration;
+@property (nonatomic, readonly) NSArray *availableDSLRConfigurations;
 
 @end
