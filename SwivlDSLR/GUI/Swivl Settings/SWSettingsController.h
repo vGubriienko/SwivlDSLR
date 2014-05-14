@@ -1,16 +1,14 @@
 //
 //  SettingsViewController.h
-//  AVSandbox
+//  SwivlDSLR
 //
-//  Displays relatively infrequently used status and preferences
-//
-//  Created by Geoff Chatterton on 9/29/11.
-//  Copyright 2011 Duff Research LLC. All rights reserved.
+//  Created by Sergei Me (mer.sergei@gmai.com) on 4/10/14.
+//  Copyright (c) 2014 Swivl. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import <ABStaticTableViewController/ABStaticTableViewController.h>
 
-
-@interface SWSettingsController : UITableViewController
+@interface SWSettingsController : ABStaticTableViewController
 
 @end

@@ -8,15 +8,15 @@
 
 #import <XCTest/XCTest.h>
 
-#import "SWCameraConfiguration.h"
+#import "SWDSLRConfiguration.h"
 
-@interface SWCameraConfigurationTests : XCTestCase
+@interface SWDSLRConfigurationTests : XCTestCase
 {
 
 }
 @end
 
-@implementation SWCameraConfigurationTests
+@implementation SWDSLRConfigurationTests
 
 - (void)setUp
 {
@@ -30,20 +30,20 @@
 
 - (void)testCameraConfigurationInitWithDictionarySaveDictionary
 {
-    NSDictionary *dictionary = @{@"name"        :       @"Canon",
-                                 @"commands"    :       @[@"9128"]};
+    NSDictionary *dictionary = @{@"Name"        :       @"Canon",
+                                 @"PTPShutterCommands"    :       @[@"9128"]};
     
-    SWCameraConfiguration *cameraConfig = [SWCameraConfiguration configurationWithDictionary:dictionary];
+    SWDSLRConfiguration *cameraConfig = [SWDSLRConfiguration configurationWithDictionary:dictionary];
     
     XCTAssertEqualObjects(dictionary, cameraConfig.dictionary, @"Wrong configuration dictionary");
 }
 
 - (void)testCameraConfigurationInitWithDictionaryWithOneCommand
 {
-    NSDictionary *dictionary = @{@"name"        :       @"Canon",
-                                 @"commands"    :       @[@"9128"]};
+    NSDictionary *dictionary = @{@"Name"        :       @"Canon",
+                                 @"PTPShutterCommands"    :       @[@"9128"]};
     
-    SWCameraConfiguration *cameraConfig = [SWCameraConfiguration configurationWithDictionary:dictionary];
+    SWDSLRConfiguration *cameraConfig = [SWDSLRConfiguration configurationWithDictionary:dictionary];
 
     XCTAssertEqualObjects(@"Canon", cameraConfig.name, @"Wrong configuration name");
     
@@ -53,10 +53,10 @@
 
 - (void)testCameraConfigurationInitWithDictionaryWithTwoCommands
 {
-    NSDictionary *dictionary = @{@"name"        :       @"Canon",
-                                 @"commands"    :       @[@"9128", @"9129"]};
+    NSDictionary *dictionary = @{@"Name"        :       @"Canon",
+                                 @"PTPShutterCommands"    :       @[@"9128", @"9129"]};
     
-    SWCameraConfiguration *cameraConfig = [SWCameraConfiguration configurationWithDictionary:dictionary];
+    SWDSLRConfiguration *cameraConfig = [SWDSLRConfiguration configurationWithDictionary:dictionary];
 
     XCTAssertEqualObjects(@"Canon", cameraConfig.name, @"Wrong configuration name");
     
@@ -67,19 +67,19 @@
 
 - (void)testCameraConfigurationThrowsExceptionIfNoCommand
 {
-    NSDictionary *wrongDictionary = @{@"name"        :       @"Canon",
-                                      @"commands"    :       @[]};
+    NSDictionary *wrongDictionary = @{@"Name"        :       @"Canon",
+                                      @"PTPShutterCommands"    :       @[]};
     
-    XCTAssertThrows([SWCameraConfiguration configurationWithDictionary:wrongDictionary],
+    XCTAssertThrows([SWDSLRConfiguration configurationWithDictionary:wrongDictionary],
                     @"ConfigurationWithDictionary should throw exception if no PTP command");
 }
 
 - (void)testCameraConfigurationThrowsExceptionIfMoreCommand
 {
-    NSDictionary *wrongDictionary = @{@"name"        :       @"Canon",
-                                      @"commands"    :       @[@"9128", @"9129", @"0000"]};
+    NSDictionary *wrongDictionary = @{@"Name"        :       @"Canon",
+                                      @"PTPShutterCommands"    :       @[@"9128", @"9129", @"0000"]};
     
-    XCTAssertThrows([SWCameraConfiguration configurationWithDictionary:wrongDictionary],
+    XCTAssertThrows([SWDSLRConfiguration configurationWithDictionary:wrongDictionary],
                     @"ConfigurationWithDictionary should throw exception if no PTP command");
 }
 

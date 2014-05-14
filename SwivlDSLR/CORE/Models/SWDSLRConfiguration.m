@@ -6,15 +6,15 @@
 //  Copyright (c) 2014 Swivl. All rights reserved.
 //
 
-#import "SWCameraConfiguration.h"
+#import "SWDSLRConfiguration.h"
 
-@implementation SWCameraConfiguration
+@implementation SWDSLRConfiguration
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
     if ((self = [super init])) {
-        _name = [dictionary[@"name"] copy];
-        _ptpCommands = [dictionary[@"commands"] copy];
+        _name = [dictionary[@"Name"] copy];
+        _ptpCommands = [dictionary[@"PTPShutterCommands"] copy];
         _dictionary = [dictionary copy];
         
         NSAssert(_ptpCommands.count == 1 || _ptpCommands.count == 2, @"SWCameraConfiguration init failed: Invalid PTP commands count");
@@ -31,7 +31,7 @@
 {
     NSMutableArray *array = [@[] mutableCopy];
     for (NSDictionary *dictionary in dictionaries) {
-        SWCameraConfiguration *conf = [SWCameraConfiguration configurationWithDictionary:dictionary];
+        SWDSLRConfiguration *conf = [SWDSLRConfiguration configurationWithDictionary:dictionary];
         if (conf) {
             [array addObject:conf];
         }

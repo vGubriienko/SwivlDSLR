@@ -97,7 +97,7 @@
             script.timelapseSettings = _timelapseSettings;
             script.scriptType = SWScriptTypeTimelapse;
             script.connectionType = swAppDelegate.currentCameraInterface;
-            script.cameraConfiguration = swAppDelegate.currentCameraConfiguration;
+            script.dslrConfiguration = swAppDelegate.currentDSLRConfiguration;
             swAppDelegate.script = script;
             [swAppDelegate.swivl swivlScriptRequestBufferState];
         } else {
