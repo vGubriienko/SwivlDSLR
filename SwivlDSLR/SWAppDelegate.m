@@ -273,9 +273,11 @@ SWAppDelegate *swAppDelegate = nil;
 
 - (void)setCurrentCameraInterface:(SWCameraInterface)currentCameraInterface
 {
-    _currentCameraInterface = currentCameraInterface;
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:currentCameraInterface ]forKey:SW_CAMERA_INTERFACE_KEY];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    if (_currentCameraInterface != currentCameraInterface) {
+        _currentCameraInterface = currentCameraInterface;
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:currentCameraInterface ]forKey:SW_CAMERA_INTERFACE_KEY];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 }
 
 - (void)setCurrentDSLRConfiguration:(SWDSLRConfiguration *)currentCameraConfiguration

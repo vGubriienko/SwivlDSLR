@@ -46,7 +46,7 @@
     _appVersion.text = bundleVersion;
     
     _cameraInterface.selectedSegmentIndex = swAppDelegate.currentCameraInterface;
-    [self loadUSBConfigurations];
+    [self onCaptureInterfaceValueChanged];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedSwivlAttached) name:AVSandboxSwivlDockAttached object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedSwivlDetached) name:AVSandboxSwivlDockDetached object:nil];
     if (swAppDelegate.swivl.dockFWVersion) {
@@ -95,7 +95,7 @@
 - (IBAction)onCaptureInterfaceValueChanged
 {
     swAppDelegate.currentCameraInterface = _cameraInterface.selectedSegmentIndex;
-    [self loadUSBConfigurations];
+    [self cell:_driverUSBView setHidden: (swAppDelegate.currentCameraInterface != SWCameraInterfaceUSB)];
 }
 
 #pragma mark - Interface update
@@ -168,12 +168,6 @@
     [_updateTimer invalidate];
     
     [self updateInterfaceElements];
-}
-
-#pragma mark - USB Drivers
-- (void)loadUSBConfigurations
-{
-    [self cell:_driverUSBView setHidden: (swAppDelegate.currentCameraInterface != SWCameraInterfaceUSB)];
 }
 
 #pragma mark - Custom Table modifications
