@@ -1,51 +1,37 @@
 //
-//  SWSelectDriverController.m
+//  SWSelectCameraController.m
 //  SwivlDSLR
 //
 //  Created by Sergei Me (mer.sergei@gmai.com) on 5/12/14.
 //  Copyright (c) 2014 Swivl. All rights reserved.
 //
 
-#import "SWSelectDriverController.h"
+#import "SWSelectCameraController.h"
 
 #import "SWAppDelegate.h"
 #import "MVYSideMenuController.h"
 
-
-
-@interface SWSelectDriverController()
-
-
+@interface SWSelectCameraController()
 
 @end
 
-@implementation SWSelectDriverController
+@implementation SWSelectCameraController
 
-- (void)viewDidLayoutSubviews
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLayoutSubviews];
-    
-#warning Temp solution
-    
-    NSInteger sideBarWidth = self.sideMenuController.menuFrame.size.width;
-    CGRect frame = self.navigationController.view.bounds;
-    frame.origin.x = sideBarWidth;
-    frame.size.width -= sideBarWidth;
-    self.view.frame = frame;
-}
+    self.navigationItem.hidesBackButton = NO;
 
-- (void)viewDidAppear:(BOOL)animated
-{
     [[Countly sharedInstance] recordEvent:NSStringFromClass([self class]) segmentation:@{@"open":@YES} count:1];
+    
     [super viewDidAppear:animated];
 }
 
-
 #pragma mark - TableView
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return [swAppDelegate.availableDSLRConfigurations count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -57,6 +43,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     swAppDelegate.currentDSLRConfiguration = swAppDelegate.availableDSLRConfigurations[indexPath.row];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - 

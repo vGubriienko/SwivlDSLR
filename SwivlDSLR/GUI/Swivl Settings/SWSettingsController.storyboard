@@ -98,8 +98,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="735" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="USB Driver" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="p4R-ac-9s6">
-                                                    <rect key="frame" x="15" y="11" width="86" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Camera" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="p4R-ac-9s6">
+                                                    <rect key="frame" x="15" y="11" width="61" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -179,7 +179,7 @@
                             <outletCollection property="gestureRecognizers" destination="F5q-6K-5IL" appends="YES" id="hdo-L9-Fqq"/>
                         </connections>
                     </tableView>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationItem key="navigationItem" title="Settings" id="khQ-lD-Rgo"/>
                     <connections>
                         <outlet property="_DSLRConfiguration" destination="3Tq-aY-iFN" id="CzA-2n-38X"/>
                         <outlet property="_appVersion" destination="g5p-gg-w4W" id="AOZ-mS-Bm8"/>
@@ -197,12 +197,12 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-670" y="-1255"/>
+            <point key="canvasLocation" x="-1534" y="-1427"/>
         </scene>
-        <!--Select Driver Controller-->
+        <!--Select Camera Controller - Camera-->
         <scene sceneID="a1y-ce-0Wn">
             <objects>
-                <tableViewController id="3Tl-lR-VeH" customClass="SWSelectDriverController" sceneMemberID="viewController">
+                <tableViewController id="3Tl-lR-VeH" customClass="SWSelectCameraController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="6v7-CK-DVk">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -224,9 +224,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="7fg-hq-kk2" kind="custom" customClass="SWSettingsBackSegue" id="uG8-Ik-qMC"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -235,12 +232,11 @@
                             <outlet property="delegate" destination="3Tl-lR-VeH" id="KYh-9v-JeJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Q3m-cL-eJc"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationItem key="navigationItem" title="Camera" id="Q3m-cL-eJc"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fom-f8-JRk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2000" y="-553"/>
+            <point key="canvasLocation" x="-436" y="-1419"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

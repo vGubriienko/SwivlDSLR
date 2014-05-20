@@ -65,23 +65,15 @@
     [self updateInterfaceElements];
 }
 
-- (void)viewDidLayoutSubviews
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLayoutSubviews];
-    
-#warning Temp solution
-    
-    NSInteger sideBarWidth = self.sideMenuController.menuFrame.size.width;
-    CGRect frame = self.navigationController.view.bounds;
-    frame.origin.x = sideBarWidth;
-    frame.size.width -= sideBarWidth;
-    self.view.frame = frame;
-}
+    [super viewWillAppear:animated];
 
-- (void)viewDidAppear:(BOOL)animated
-{
+    self.navigationItem.hidesBackButton = YES;
+    
     [[Countly sharedInstance] recordEvent:NSStringFromClass([self class]) segmentation:@{@"open":@YES} count:1];
-    [super viewDidAppear:animated];
+
+    [self updateInterfaceElements];
 }
 
 #pragma mark - IBActions

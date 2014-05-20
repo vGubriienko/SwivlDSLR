@@ -25,6 +25,8 @@
 		255289B31920F49A00E803B6 /* SWDSLRConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 255289B21920F49A00E803B6 /* SWDSLRConfiguration.m */; };
 		255289B71921101400E803B6 /* SWScript+Template.m in Sources */ = {isa = PBXBuildFile; fileRef = 255289B61921101400E803B6 /* SWScript+Template.m */; };
 		256C1FD918EC3EE700D0659B /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 256C1FD818EC3EE700D0659B /* info.png */; };
+		25743A7A192CA50F003740F2 /* SWBatteryLevelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25743A77192CA50F003740F2 /* SWBatteryLevelView.m */; };
+		25743A7B192CA50F003740F2 /* SWSelectCameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25743A79192CA50F003740F2 /* SWSelectCameraController.m */; };
 		258941E9192204B300BCAE55 /* SWDSLRConfigurationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 258941E8192204B300BCAE55 /* SWDSLRConfigurationTests.m */; };
 		258941EB1922108400BCAE55 /* SWScriptTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 258941EA1922108400BCAE55 /* SWScriptTests.m */; };
 		259524F518C610DF006EEAFA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259524F418C610DF006EEAFA /* Foundation.framework */; };
@@ -79,8 +81,6 @@
 		854428C4192B4ECA002732F6 /* timelapse_direction_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 854428C0192B4ECA002732F6 /* timelapse_direction_2@2x.png */; };
 		854428C5192B4ECA002732F6 /* timelapse_recording_time@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 854428C1192B4ECA002732F6 /* timelapse_recording_time@2x.png */; };
 		854428C6192B4ECA002732F6 /* timelapse_step@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 854428C2192B4ECA002732F6 /* timelapse_step@2x.png */; };
-		85876BC81922153C0054E4C7 /* SWSelectDriverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85876BC71922153C0054E4C7 /* SWSelectDriverController.m */; };
-		85876BCB19221C0A0054E4C7 /* SWSettingsBackSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 85876BCA19221C0A0054E4C7 /* SWSettingsBackSegue.m */; };
 		85876BCF192229080054E4C7 /* Configurations in Resources */ = {isa = PBXBuildFile; fileRef = 85876BCE192229080054E4C7 /* Configurations */; };
 		858A4DFB18C8AA700036A0CF /* DKCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A4DF618C8AA700036A0CF /* DKCircularSlider.m */; };
 		858A4DFC18C8AA700036A0CF /* DKRepeatableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A4DF818C8AA700036A0CF /* DKRepeatableButton.m */; };
@@ -135,6 +135,10 @@
 		255289B51921101400E803B6 /* SWScript+Template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SWScript+Template.h"; sourceTree = "<group>"; };
 		255289B61921101400E803B6 /* SWScript+Template.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SWScript+Template.m"; sourceTree = "<group>"; };
 		256C1FD818EC3EE700D0659B /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		25743A76192CA50F003740F2 /* SWBatteryLevelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWBatteryLevelView.h; path = "SwivlDSLR/GUI/Swivl Settings/SWBatteryLevelView.h"; sourceTree = SOURCE_ROOT; };
+		25743A77192CA50F003740F2 /* SWBatteryLevelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWBatteryLevelView.m; path = "SwivlDSLR/GUI/Swivl Settings/SWBatteryLevelView.m"; sourceTree = SOURCE_ROOT; };
+		25743A78192CA50F003740F2 /* SWSelectCameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWSelectCameraController.h; path = "SwivlDSLR/GUI/Swivl Settings/SWSelectCameraController.h"; sourceTree = SOURCE_ROOT; };
+		25743A79192CA50F003740F2 /* SWSelectCameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWSelectCameraController.m; path = "SwivlDSLR/GUI/Swivl Settings/SWSelectCameraController.m"; sourceTree = SOURCE_ROOT; };
 		258941E8192204B300BCAE55 /* SWDSLRConfigurationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWDSLRConfigurationTests.m; sourceTree = "<group>"; };
 		258941EA1922108400BCAE55 /* SWScriptTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWScriptTests.m; sourceTree = "<group>"; };
 		259524F118C610DF006EEAFA /* SwivlDSLR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwivlDSLR.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,10 +206,6 @@
 		854428C0192B4ECA002732F6 /* timelapse_direction_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timelapse_direction_2@2x.png"; sourceTree = "<group>"; };
 		854428C1192B4ECA002732F6 /* timelapse_recording_time@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timelapse_recording_time@2x.png"; sourceTree = "<group>"; };
 		854428C2192B4ECA002732F6 /* timelapse_step@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timelapse_step@2x.png"; sourceTree = "<group>"; };
-		85876BC61922153C0054E4C7 /* SWSelectDriverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWSelectDriverController.h; sourceTree = "<group>"; };
-		85876BC71922153C0054E4C7 /* SWSelectDriverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWSelectDriverController.m; sourceTree = "<group>"; };
-		85876BC919221C0A0054E4C7 /* SWSettingsBackSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWSettingsBackSegue.h; sourceTree = "<group>"; };
-		85876BCA19221C0A0054E4C7 /* SWSettingsBackSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWSettingsBackSegue.m; sourceTree = "<group>"; };
 		85876BCE192229080054E4C7 /* Configurations */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Configurations; sourceTree = "<group>"; };
 		858A4DF518C8AA700036A0CF /* DKCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKCircularSlider.h; sourceTree = "<group>"; };
 		858A4DF618C8AA700036A0CF /* DKCircularSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKCircularSlider.m; sourceTree = "<group>"; };
@@ -265,8 +265,6 @@
 		2522F7CC18D0C23C00915E25 /* Swivl Settings */ = {
 			isa = PBXGroup;
 			children = (
-				85876BC61922153C0054E4C7 /* SWSelectDriverController.h */,
-				85876BC71922153C0054E4C7 /* SWSelectDriverController.m */,
 				2522F7CD18D0C23C00915E25 /* SWSettingsController.h */,
 				2522F7CE18D0C23C00915E25 /* SWSettingsController.m */,
 				2522F7CF18D0C23C00915E25 /* SWSettingsController.storyboard */,
@@ -394,8 +392,6 @@
 			children = (
 				85D97B9F18C76DD2002C2665 /* SWTimelapsSegue.h */,
 				85D97BA018C76DD2002C2665 /* SWTimelapsSegue.m */,
-				85876BC919221C0A0054E4C7 /* SWSettingsBackSegue.h */,
-				85876BCA19221C0A0054E4C7 /* SWSettingsBackSegue.m */,
 				25ADC23E18C72D0D00CEB6A7 /* Models */,
 			);
 			path = CORE;
@@ -538,6 +534,10 @@
 		8508E40118F6C42500EEC442 /* ManualController */ = {
 			isa = PBXGroup;
 			children = (
+				25743A76192CA50F003740F2 /* SWBatteryLevelView.h */,
+				25743A77192CA50F003740F2 /* SWBatteryLevelView.m */,
+				25743A78192CA50F003740F2 /* SWSelectCameraController.h */,
+				25743A79192CA50F003740F2 /* SWSelectCameraController.m */,
 				8508E40218F6C42500EEC442 /* SWManualController.h */,
 				8508E40318F6C42500EEC442 /* SWManualController.m */,
 				8508E40518F6C47900EEC442 /* SWManualController.storyboard */,
@@ -817,10 +817,10 @@
 				25B962D318D21ABC002E4FD1 /* MVYSideMenuOptions.m in Sources */,
 				2595250118C610DF006EEAFA /* main.m in Sources */,
 				25ADC24118C72D4A00CEB6A7 /* SWTimelapseSettings.m in Sources */,
+				25743A7A192CA50F003740F2 /* SWBatteryLevelView.m in Sources */,
 				858A4DFC18C8AA700036A0CF /* DKRepeatableButton.m in Sources */,
-				85876BCB19221C0A0054E4C7 /* SWSettingsBackSegue.m in Sources */,
 				25A3E68418C93E1C002AFBB9 /* SWDegreesController.m in Sources */,
-				85876BC81922153C0054E4C7 /* SWSelectDriverController.m in Sources */,
+				25743A7B192CA50F003740F2 /* SWSelectCameraController.m in Sources */,
 				2522F7DE18D0CAF000915E25 /* AVSandboxNotifications.m in Sources */,
 				25B962D218D21ABC002E4FD1 /* MVYSideMenuController.m in Sources */,
 			);
