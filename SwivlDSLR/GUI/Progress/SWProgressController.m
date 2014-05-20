@@ -34,14 +34,22 @@
     _progressView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     _progressView.backgroundColor = [UIColor clearColor];
     [self.view insertSubview:_progressView belowSubview:_timeLabel];
-    
-    _progressTimer = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(tick) userInfo:nil repeats:YES];
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    [[Countly sharedInstance] recordEvent:NSStringFromClass([self class]) segmentation:@{@"open":@YES} count:1];
     [super viewDidAppear:animated];
+
+    _progressTimer = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+
+    [[Countly sharedInstance] recordEvent:NSStringFromClass([self class]) segmentation:@{@"open":@YES} count:1];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [_progressTimer invalidate];
+    
+    [super viewWillDisappear:animated];
 }
 
 - (void)tick
@@ -64,11 +72,6 @@
 }
 
 #pragma mark -
-
-- (void)dealloc
-{
-    [_progressTimer invalidate];
-}
 
 - (void)didReceiveMemoryWarning
 {
