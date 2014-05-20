@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+#define SW_TIMELAPSE_MIN_STEPCOUNT 1
+#define SW_TIMELAPSE_MAX_STEPCOUNT 3272
+
 #define SW_TIMELAPSE_MIN_DISTANCE 1
 #define SW_TIMELAPSE_MAX_DISTANCE 360
 
@@ -29,13 +32,13 @@ static inline SWTimeComponents SWTimeComponentsMake(CGFloat seconds)
 
 @interface SWTimelapseSettings : NSObject
 
-@property (nonatomic, assign) NSInteger distance;
+@property (nonatomic, readonly) NSInteger distance; //stepCount * stepSize
 @property (nonatomic, assign) CGFloat stepSize;
 @property (nonatomic, assign) BOOL clockwiseDirection;
 @property (nonatomic, assign) CGFloat recordingTime;
 @property (nonatomic, assign) CGFloat timeBetweenPictures;
 
-@property (nonatomic, readonly) NSInteger stepCount;  // distance / stepSize
+@property (nonatomic, assign) NSInteger stepCount;
 
 + (NSArray *)availableStepSizes;
 + (NSDictionary *)timeRanges;

@@ -24,7 +24,7 @@
 
 @interface SWMainViewController ()
 {
-    __weak IBOutlet UIButton *_distanceBtn;
+    __weak IBOutlet UIButton *_stepsBtn;
     __weak IBOutlet UIButton *_directionBtn;
     __weak IBOutlet UIButton *_stepSizeBtn;
     __weak IBOutlet UIButton *_recordingTimeBtn;
@@ -57,7 +57,7 @@
 - (void)configUI
 {
     _stepSizeBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-    _distanceBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    _stepsBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     _recordingTimeBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     _timeBetweenPicturesBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     
@@ -184,7 +184,7 @@
     [self scriptStateDidChanged];
     
     [_timelapseSettings addObserver:self
-                         forKeyPath:@"distance"
+                         forKeyPath:@"stepCount"
                             options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
                             context:nil];
     [_timelapseSettings addObserver:self
@@ -212,7 +212,7 @@
 {
     if (object == _timelapseSettings) {
         
-        [_distanceBtn setTitle:[NSString stringWithFormat:@"%li", (long)_timelapseSettings.distance] forState:UIControlStateNormal];
+        [_stepsBtn setTitle:[NSString stringWithFormat:@"%li", (long)_timelapseSettings.stepCount] forState:UIControlStateNormal];
         
         [_stepSizeBtn setTitle:[NSString stringWithFormat:@"%.2f", _timelapseSettings.stepSize] forState:UIControlStateNormal];
         
