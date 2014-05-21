@@ -36,8 +36,6 @@
     __weak IBOutlet UIImageView *_batteryLevelImg;
     __weak IBOutlet UIImageView *_swivlStatusImg;
     
-    NSTimer *_observeBatteryLevelTimer;
-    
     SWTimelapseSettings *_timelapseSettings;
     UIViewController <SWContentControllerDelegate> *_currentContentController;
 }
@@ -176,6 +174,7 @@
                                              selector:@selector(accessoryStateChanged)
                                                  name:AVSandboxSwivlDockDetached
                                                object:nil];
+    [self accessoryStateChanged];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(scriptStateDidChanged)
@@ -201,11 +200,15 @@
                             options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
                             context:nil];
     
-    _observeBatteryLevelTimer = [NSTimer scheduledTimerWithTimeInterval:5
-                                                                 target:self
-                                                               selector:@selector(updateBatteryLevel)
-                                                               userInfo:nil
-                                                                repeats:YES];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateBatteryLevel)
+                                                 name:AVSandboxBaseBatteryLevelChanged
+                                               object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateBatteryLevel)
+                                                 name:AVSandboxMarkerBatteryLevelChanged
+                                               object:nil];
+    [self updateBatteryLevel];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -276,8 +279,6 @@
     [_timelapseSettings removeObserver:self forKeyPath:@"timeBetweenPictures"];
     [_timelapseSettings removeObserver:self forKeyPath:@"recordingTime"];
     [_timelapseSettings removeObserver:self forKeyPath:@"clockwiseDirection"];
-    
-    [_observeBatteryLevelTimer invalidate];
 }
 
 #pragma mark - Saving

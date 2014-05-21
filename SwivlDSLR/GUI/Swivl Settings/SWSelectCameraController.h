@@ -1,5 +1,5 @@
 //
-//  SWSelectDriverController.h
+//  SWSelectCameraController.h
 //  SwivlDSLR
 //
 //  Created by Sergei Me (mer.sergei@gmai.com) on 5/12/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SWSelectDriverController : UITableViewController
+@interface SWSelectCameraController : UITableViewController
 
 @end
