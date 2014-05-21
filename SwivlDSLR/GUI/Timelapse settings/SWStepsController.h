@@ -1,5 +1,5 @@
 //
-//  SWDegreesController.h
+//  SWStepsController.h
 //  SwivlDSLR
 //
 //  Created by Zhenya Koval on 3/6/14.
@@ -10,7 +10,7 @@
 
 @class SWTimelapseSettings;
 
-@interface SWDegreesController : UIViewController
+@interface SWStepsController : UIViewController
 
 @property (nonatomic, weak) SWTimelapseSettings *timelapseSettings;
 

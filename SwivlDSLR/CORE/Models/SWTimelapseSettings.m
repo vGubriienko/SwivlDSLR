@@ -17,7 +17,9 @@
         self.stepCount = 9;
         self.stepSize = 11.0;
         self.clockwiseDirection = YES;
-        self.timeBetweenPictures = 5.0;
+        self.recordingTime = 60;
+        self.startTiltAngle = (SW_TIMELAPSE_MAX_TILT - SW_TIMELAPSE_MIN_TILT) / 2;
+        self.endTiltAngle = self.startTiltAngle;
     }
     return self;
 }
@@ -35,7 +37,8 @@
         }
         _recordingTime = [[decoder decodeObjectForKey:@"recordingTime"] floatValue];
         _clockwiseDirection = [[decoder decodeObjectForKey:@"clockwiseDirection"] boolValue];
-        _timeBetweenPictures = [[decoder decodeObjectForKey:@"timeBetweenPictures"] floatValue];
+        _startTiltAngle = [[decoder decodeObjectForKey:@"startTiltAngle"] integerValue];
+        _endTiltAngle = [[decoder decodeObjectForKey:@"endTiltAngle"] integerValue];
     }
     return self;
 }
@@ -46,7 +49,8 @@
     [encoder encodeObject:[NSNumber numberWithInteger:_stepCount] forKey:@"stepCount"];
     [encoder encodeObject:[NSNumber numberWithFloat:_recordingTime] forKey:@"recordingTime"];
     [encoder encodeObject:[NSNumber numberWithBool:_clockwiseDirection] forKey:@"clockwiseDirection"];
-    [encoder encodeObject:[NSNumber numberWithFloat:_timeBetweenPictures] forKey:@"timeBetweenPictures"];
+    [encoder encodeObject:[NSNumber numberWithInteger:_startTiltAngle] forKey:@"startTiltAngle"];
+    [encoder encodeObject:[NSNumber numberWithInteger:_endTiltAngle] forKey:@"endTiltAngle"];
 }
 
 #pragma mark - Public methods
@@ -88,21 +92,10 @@
     return SWTimeComponentsMake(self.recordingTime);
 }
 
-- (SWTimeComponents)timeBetweenPicturesComponents
-{
-    return SWTimeComponentsMake(self.timeBetweenPictures);
-}
-
 - (void)setRecordingTimeWithComponents:(SWTimeComponents)recordingTimeComponents
 {
     CGFloat seconds = recordingTimeComponents.hours * 3600 + recordingTimeComponents.minutes * 60 + recordingTimeComponents.seconds;
     self.recordingTime = seconds;
-}
-
-- (void)setTimeBetweenPicturesWithComponents:(SWTimeComponents)timeBtwnPicturesComponents
-{
-    CGFloat seconds = timeBtwnPicturesComponents.hours * 3600 + timeBtwnPicturesComponents.minutes * 60 + timeBtwnPicturesComponents.seconds;
-    self.timeBetweenPictures = seconds;
 }
 
 #pragma mark - Properties
@@ -115,27 +108,13 @@
     
     if (isStepSizeAvailable) {
         _stepSize = stepSize;
-        
     }
-}
-
-- (void)setTimeBetweenPictures:(CGFloat)timeBetweenPictures
-{
-    _timeBetweenPictures = timeBetweenPictures;
-    [self recalculateRecordingTime];
-}
-
-- (void)setRecordingTime:(CGFloat)recordingTime
-{
-    _recordingTime = recordingTime;
-    [self recalculateTimeBtwnPictures];
 }
 
 - (void)setStepCount:(NSInteger)stepCount
 {
     if (stepCount >= SW_TIMELAPSE_MIN_STEPCOUNT && stepCount <= SW_TIMELAPSE_MAX_STEPCOUNT) {
         _stepCount = stepCount;
-        [self recalculateTimeBtwnPictures];
     }
 }
 
@@ -144,52 +123,35 @@
     return (NSInteger)roundf(self.stepCount * self.stepSize);
 }
 
-#pragma mark - Private methods
-
-- (CGFloat)maxStepSizeForDistance:(NSInteger)distance
+- (CGFloat)timeBetweenPictures
 {
-    __block CGFloat stepSize;
-    
-    NSArray *availableStepSizes = [SWTimelapseSettings availableStepSizes].reverseObjectEnumerator.allObjects;
-    [availableStepSizes enumerateObjectsUsingBlock:^(NSNumber *obj, NSUInteger idx, BOOL *stop) {
-        stepSize = obj.floatValue;
-        if (stepSize < distance) {
-            (*stop) = YES;
-        }
-    }];
-    return stepSize;
+    return (CGFloat)self.recordingTime / self.stepCount;
 }
 
-- (void)recalculateTimeBtwnPictures
+- (void)setStartTiltAngle:(NSInteger)startTiltAngle
 {
-    _timeBetweenPictures = _recordingTime / self.stepCount;
+    if (startTiltAngle >= SW_TIMELAPSE_MIN_TILT && startTiltAngle <= SW_TIMELAPSE_MAX_TILT) {
+        _startTiltAngle = startTiltAngle;
+    }
 }
 
-- (void)recalculateRecordingTime
+- (void)setEndTiltAngle:(NSInteger)endTiltAngle
 {
-    _recordingTime = roundf(_timeBetweenPictures * self.stepCount);
+    if (endTiltAngle >= SW_TIMELAPSE_MIN_TILT && endTiltAngle <= SW_TIMELAPSE_MAX_TILT) {
+        _endTiltAngle = endTiltAngle;
+    }
 }
 
 #pragma mark - Dependencies
 
 + (NSSet *)keyPathsForValuesAffectingTimeBetweenPictures
 {
-    return [NSSet setWithObject:@"recordingTime"];
+    return [NSSet setWithObjects:@"recordingTime", @"stepCount", nil];
 }
 
-+ (NSSet *)keyPathsForValuesAffectingRecordingTime
++ (NSSet *)keyPathsForValuesAffectingDistance
 {
-    return [NSSet setWithObject:@"timeBetweenPictures"];
-}
-
-+ (NSSet *)keyPathsForValuesAffectingStepSize
-{
-    return [NSSet setWithObject:@"distance"];
-}
-
-+ (NSSet *)keyPathsForValuesAffectingStepCount
-{
-    return [NSSet setWithObjects:@"timeBetweenPictures", @"distance", nil];
+    return [NSSet setWithObjects:@"stepCount", @"stepSize", nil];
 }
 
 @end
