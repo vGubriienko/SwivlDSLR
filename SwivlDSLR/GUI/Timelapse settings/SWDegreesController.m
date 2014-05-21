@@ -15,10 +15,10 @@
 
 @interface SWDegreesController ()
 {
-    __weak IBOutlet UIView *_distanceContainer;
+    __weak IBOutlet UIView *_stepsContainer;
     __weak IBOutlet UIView *_stepSizeContainer;
     
-    DKCircularSlider *_distanceSlider;
+    DKCircularSlider *_stepsSlider;
     DKCircularSlider *_stepSizeSlider;
     
     NSArray *_stepSizes;
@@ -31,8 +31,8 @@
 {
     [super viewDidLoad];
     
-    if (_distanceContainer) {
-        [self initDistanceSlider];
+    if (_stepsContainer) {
+        [self initStepsSlider];
     }
     
     if (_stepSizeContainer) {
@@ -46,17 +46,19 @@
     [super viewDidAppear:animated];
 }
 
-- (void)initDistanceSlider
+- (void)initStepsSlider
 {
-    _distanceSlider = [[DKCircularSlider alloc] initWithFrame:_distanceContainer.bounds
-                                                     usingMax:360
-                                                     usingMin:1
+    _stepsSlider = [[DKCircularSlider alloc] initWithFrame:_stepsContainer.bounds
+                                                     usingMax:SW_TIMELAPSE_MAX_STEPCOUNT
+                                                     usingMin:SW_TIMELAPSE_MIN_STEPCOUNT
                                              withContentImage:nil
                                                     withTitle:nil
                                                    withTarget:self
-                                                usingSelector:@selector(distanceSliderDidChange:)];
-    [_distanceContainer addSubview:_distanceSlider];
-    [_distanceSlider movehandleToValue:self.timelapseSettings.distance];
+                                                usingSelector:@selector(stepsCountSliderDidChange:)];
+    [_stepsContainer addSubview:_stepsSlider];
+    //Max is 360°
+    _stepsSlider.maxValue =  (NSInteger)roundf(360 / self.timelapseSettings.stepSize);
+    [_stepsSlider movehandleToValue:self.timelapseSettings.stepCount];
 }
 
 - (void)initStepSizeSlider
@@ -85,12 +87,12 @@
 
 #pragma mark - DKCircularSlider
 
-- (void)distanceSliderDidChange:(DKCircularSlider *)distanceSlider
+- (void)stepsCountSliderDidChange:(DKCircularSlider *)stepsSlider
 {
-    if (self.timelapseSettings.distance == distanceSlider.currentValue) {
+    if (self.timelapseSettings.stepCount == stepsSlider.currentValue) {
         return;
     }
-    self.timelapseSettings.distance = distanceSlider.currentValue;
+    self.timelapseSettings.stepCount = stepsSlider.currentValue;
     if (_stepSizeSlider) {
         [self selectCurrentStepSize];
     }
@@ -105,8 +107,9 @@
     CGFloat value = [_stepSizes[stepSizeSlider.currentValue - 1] floatValue];
     if (self.timelapseSettings.stepSize != value) {
         self.timelapseSettings.stepSize = value;
-        if (_distanceSlider) {
-            [_distanceSlider movehandleToValue:self.timelapseSettings.distance];
+        if (_stepsSlider) {
+            _stepsSlider.maxValue =  (NSInteger)roundf(360 / self.timelapseSettings.stepSize);
+            [_stepsSlider movehandleToValue:self.timelapseSettings.stepCount];
         };
     }
 }

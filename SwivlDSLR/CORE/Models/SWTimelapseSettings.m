@@ -14,7 +14,7 @@
 {
     self = [super init];
     if (self) {
-        self.distance = 90;
+        self.stepCount = 9;
         self.stepSize = 11.0;
         self.clockwiseDirection = YES;
         self.timeBetweenPictures = 5.0;
@@ -27,7 +27,12 @@
     self = [super init];
     if(self) {
         _stepSize = [[decoder decodeObjectForKey:@"stepSize"] floatValue];
-        _distance = [[decoder decodeObjectForKey:@"distance"] integerValue];
+        NSInteger distance = [[decoder decodeObjectForKey:@"distance"] integerValue];
+        if (distance > 0) {
+            _stepCount = (NSInteger)roundf(distance / _stepSize);
+        } else {
+            _stepCount = [[decoder decodeObjectForKey:@"stepCount"] integerValue];
+        }
         _recordingTime = [[decoder decodeObjectForKey:@"recordingTime"] floatValue];
         _clockwiseDirection = [[decoder decodeObjectForKey:@"clockwiseDirection"] boolValue];
         _timeBetweenPictures = [[decoder decodeObjectForKey:@"timeBetweenPictures"] floatValue];
@@ -38,7 +43,7 @@
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
     [encoder encodeObject:[NSNumber numberWithFloat:_stepSize] forKey:@"stepSize"];
-    [encoder encodeObject:[NSNumber numberWithInteger:_distance] forKey:@"distance"];
+    [encoder encodeObject:[NSNumber numberWithInteger:_stepCount] forKey:@"stepCount"];
     [encoder encodeObject:[NSNumber numberWithFloat:_recordingTime] forKey:@"recordingTime"];
     [encoder encodeObject:[NSNumber numberWithBool:_clockwiseDirection] forKey:@"clockwiseDirection"];
     [encoder encodeObject:[NSNumber numberWithFloat:_timeBetweenPictures] forKey:@"timeBetweenPictures"];
@@ -102,18 +107,6 @@
 
 #pragma mark - Properties
 
-- (void)setDistance:(NSInteger)distance
-{
-    if (distance >= SW_TIMELAPSE_MIN_DISTANCE && distance <= SW_TIMELAPSE_MAX_DISTANCE) {
-        _distance = distance;
-        
-        if (_distance < self.stepSize) {
-            self.stepSize = [self maxStepSizeForDistance:distance];
-        }
-        [self recalculateTimeBtwnPictures];
-    }
-}
-
 - (void)setStepSize:(CGFloat)stepSize
 {
     NSArray *availableStepSizes = [SWTimelapseSettings availableStepSizes];
@@ -123,10 +116,6 @@
     if (isStepSizeAvailable) {
         _stepSize = stepSize;
         
-        if (stepSize > self.distance && stepSize <= SW_TIMELAPSE_MAX_DISTANCE) {
-            self.distance = ceilf(stepSize);
-        }
-        [self recalculateTimeBtwnPictures];
     }
 }
 
@@ -142,9 +131,17 @@
     [self recalculateTimeBtwnPictures];
 }
 
-- (NSInteger)stepCount
+- (void)setStepCount:(NSInteger)stepCount
 {
-    return (NSInteger)roundf(self.distance / self.stepSize);
+    if (stepCount >= SW_TIMELAPSE_MIN_STEPCOUNT && stepCount <= SW_TIMELAPSE_MAX_STEPCOUNT) {
+        _stepCount = stepCount;
+        [self recalculateTimeBtwnPictures];
+    }
+}
+
+- (NSInteger)distance
+{
+    return (NSInteger)roundf(self.stepCount * self.stepSize);
 }
 
 #pragma mark - Private methods
@@ -187,12 +184,12 @@
 
 + (NSSet *)keyPathsForValuesAffectingStepSize
 {
-    return [NSSet setWithObject:@"timeBetweenPictures"];
+    return [NSSet setWithObject:@"distance"];
 }
 
-+ (NSSet *)keyPathsForValuesAffectingDistance
++ (NSSet *)keyPathsForValuesAffectingStepCount
 {
-    return [NSSet setWithObject:@"timeBetweenPictures"];
+    return [NSSet setWithObjects:@"timeBetweenPictures", @"distance", nil];
 }
 
 @end
