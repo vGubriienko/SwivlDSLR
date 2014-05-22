@@ -215,14 +215,17 @@ SWAppDelegate *swAppDelegate = nil;
 - (void)restoreSavedScript
 {
     NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:SW_SCRIPT_KEY];
-    SWScript *script = (SWScript *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
-    if (script && [script isRunningFromStartDate]) {
-        self.script = script;
-        self.scriptRunning = YES;
+    if (data) {
+        SWScript *script = (SWScript *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
+        if (script && [script isRunningFromStartDate]) {
+            self.script = script;
+            self.scriptRunning = YES;
+        }
     }
 }
 
-#pragma mark - Load & Copy drivers
+#pragma mark - Load & Copy configurations
+
 - (NSString *)configurationsDirectory
 {
     NSString *documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];

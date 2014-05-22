@@ -25,8 +25,12 @@
 		255289B31920F49A00E803B6 /* SWDSLRConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 255289B21920F49A00E803B6 /* SWDSLRConfiguration.m */; };
 		255289B71921101400E803B6 /* SWScript+Template.m in Sources */ = {isa = PBXBuildFile; fileRef = 255289B61921101400E803B6 /* SWScript+Template.m */; };
 		256C1FD918EC3EE700D0659B /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 256C1FD818EC3EE700D0659B /* info.png */; };
-		25743A7A192CA50F003740F2 /* SWBatteryLevelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25743A77192CA50F003740F2 /* SWBatteryLevelView.m */; };
-		25743A7B192CA50F003740F2 /* SWSelectCameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25743A79192CA50F003740F2 /* SWSelectCameraController.m */; };
+		25743A7E192CA9EE003740F2 /* SWTiltController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25743A7D192CA9EE003740F2 /* SWTiltController.m */; };
+		25743A80192CAA05003740F2 /* SWMainControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25743A7F192CAA05003740F2 /* SWMainControllerTests.m */; };
+		25743A83192CCD8E003740F2 /* timelapse_tilt.png in Resources */ = {isa = PBXBuildFile; fileRef = 25743A81192CCD8E003740F2 /* timelapse_tilt.png */; };
+		25743A84192CCD8E003740F2 /* timelapse_tilt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25743A82192CCD8E003740F2 /* timelapse_tilt@2x.png */; };
+		25743A89192CD833003740F2 /* SWBatteryLevelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25743A86192CD833003740F2 /* SWBatteryLevelView.m */; };
+		25743A8A192CD833003740F2 /* SWSelectCameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25743A88192CD833003740F2 /* SWSelectCameraController.m */; };
 		258941E9192204B300BCAE55 /* SWDSLRConfigurationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 258941E8192204B300BCAE55 /* SWDSLRConfigurationTests.m */; };
 		258941EB1922108400BCAE55 /* SWScriptTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 258941EA1922108400BCAE55 /* SWScriptTests.m */; };
 		259524F518C610DF006EEAFA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259524F418C610DF006EEAFA /* Foundation.framework */; };
@@ -57,7 +61,7 @@
 		2595255418C62190006EEAFA /* timelapse_time_between_pictures.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595254F18C6218F006EEAFA /* timelapse_time_between_pictures.png */; };
 		2595255618C6229D006EEAFA /* timelapse_direction_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595255518C6229D006EEAFA /* timelapse_direction_2.png */; };
 		259E2F7518C89F5700ECC07A /* SWTimelapseSettingsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 259E2F7418C89F5700ECC07A /* SWTimelapseSettingsTests.m */; };
-		25A3E68418C93E1C002AFBB9 /* SWDegreesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A3E68118C93E1C002AFBB9 /* SWDegreesController.m */; };
+		25A3E68418C93E1C002AFBB9 /* SWStepsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A3E68118C93E1C002AFBB9 /* SWStepsController.m */; };
 		25A3E68518C93E1C002AFBB9 /* SWTimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A3E68318C93E1C002AFBB9 /* SWTimeController.m */; };
 		25ADC23D18C724A400CEB6A7 /* timelapse_recording_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 25ADC23C18C724A400CEB6A7 /* timelapse_recording_time.png */; };
 		25ADC24118C72D4A00CEB6A7 /* SWTimelapseSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 25ADC24018C72D4A00CEB6A7 /* SWTimelapseSettings.m */; };
@@ -135,10 +139,15 @@
 		255289B51921101400E803B6 /* SWScript+Template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SWScript+Template.h"; sourceTree = "<group>"; };
 		255289B61921101400E803B6 /* SWScript+Template.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SWScript+Template.m"; sourceTree = "<group>"; };
 		256C1FD818EC3EE700D0659B /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
-		25743A76192CA50F003740F2 /* SWBatteryLevelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWBatteryLevelView.h; path = "SwivlDSLR/GUI/Swivl Settings/SWBatteryLevelView.h"; sourceTree = SOURCE_ROOT; };
-		25743A77192CA50F003740F2 /* SWBatteryLevelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWBatteryLevelView.m; path = "SwivlDSLR/GUI/Swivl Settings/SWBatteryLevelView.m"; sourceTree = SOURCE_ROOT; };
-		25743A78192CA50F003740F2 /* SWSelectCameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWSelectCameraController.h; path = "SwivlDSLR/GUI/Swivl Settings/SWSelectCameraController.h"; sourceTree = SOURCE_ROOT; };
-		25743A79192CA50F003740F2 /* SWSelectCameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWSelectCameraController.m; path = "SwivlDSLR/GUI/Swivl Settings/SWSelectCameraController.m"; sourceTree = SOURCE_ROOT; };
+		25743A7C192CA9EE003740F2 /* SWTiltController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTiltController.h; sourceTree = "<group>"; };
+		25743A7D192CA9EE003740F2 /* SWTiltController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTiltController.m; sourceTree = "<group>"; };
+		25743A7F192CAA05003740F2 /* SWMainControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWMainControllerTests.m; sourceTree = "<group>"; };
+		25743A81192CCD8E003740F2 /* timelapse_tilt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_tilt.png; sourceTree = "<group>"; };
+		25743A82192CCD8E003740F2 /* timelapse_tilt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timelapse_tilt@2x.png"; sourceTree = "<group>"; };
+		25743A85192CD833003740F2 /* SWBatteryLevelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWBatteryLevelView.h; sourceTree = "<group>"; };
+		25743A86192CD833003740F2 /* SWBatteryLevelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWBatteryLevelView.m; sourceTree = "<group>"; };
+		25743A87192CD833003740F2 /* SWSelectCameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWSelectCameraController.h; sourceTree = "<group>"; };
+		25743A88192CD833003740F2 /* SWSelectCameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWSelectCameraController.m; sourceTree = "<group>"; };
 		258941E8192204B300BCAE55 /* SWDSLRConfigurationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWDSLRConfigurationTests.m; sourceTree = "<group>"; };
 		258941EA1922108400BCAE55 /* SWScriptTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWScriptTests.m; sourceTree = "<group>"; };
 		259524F118C610DF006EEAFA /* SwivlDSLR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwivlDSLR.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,8 +183,8 @@
 		2595254F18C6218F006EEAFA /* timelapse_time_between_pictures.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_time_between_pictures.png; sourceTree = "<group>"; };
 		2595255518C6229D006EEAFA /* timelapse_direction_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_direction_2.png; sourceTree = "<group>"; };
 		259E2F7418C89F5700ECC07A /* SWTimelapseSettingsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTimelapseSettingsTests.m; sourceTree = "<group>"; };
-		25A3E68018C93E1C002AFBB9 /* SWDegreesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWDegreesController.h; sourceTree = "<group>"; };
-		25A3E68118C93E1C002AFBB9 /* SWDegreesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWDegreesController.m; sourceTree = "<group>"; };
+		25A3E68018C93E1C002AFBB9 /* SWStepsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWStepsController.h; sourceTree = "<group>"; };
+		25A3E68118C93E1C002AFBB9 /* SWStepsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWStepsController.m; sourceTree = "<group>"; };
 		25A3E68218C93E1C002AFBB9 /* SWTimeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTimeController.h; sourceTree = "<group>"; };
 		25A3E68318C93E1C002AFBB9 /* SWTimeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTimeController.m; sourceTree = "<group>"; };
 		25ADC23C18C724A400CEB6A7 /* timelapse_recording_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_recording_time.png; sourceTree = "<group>"; };
@@ -265,6 +274,10 @@
 		2522F7CC18D0C23C00915E25 /* Swivl Settings */ = {
 			isa = PBXGroup;
 			children = (
+				25743A85192CD833003740F2 /* SWBatteryLevelView.h */,
+				25743A86192CD833003740F2 /* SWBatteryLevelView.m */,
+				25743A87192CD833003740F2 /* SWSelectCameraController.h */,
+				25743A88192CD833003740F2 /* SWSelectCameraController.m */,
 				2522F7CD18D0C23C00915E25 /* SWSettingsController.h */,
 				2522F7CE18D0C23C00915E25 /* SWSettingsController.m */,
 				2522F7CF18D0C23C00915E25 /* SWSettingsController.storyboard */,
@@ -374,6 +387,7 @@
 				259E2F7418C89F5700ECC07A /* SWTimelapseSettingsTests.m */,
 				258941E8192204B300BCAE55 /* SWDSLRConfigurationTests.m */,
 				258941EA1922108400BCAE55 /* SWScriptTests.m */,
+				25743A7F192CAA05003740F2 /* SWMainControllerTests.m */,
 			);
 			path = SwivlDSLRTests;
 			sourceTree = "<group>";
@@ -468,6 +482,8 @@
 				25ADC23C18C724A400CEB6A7 /* timelapse_recording_time.png */,
 				854428C1192B4ECA002732F6 /* timelapse_recording_time@2x.png */,
 				2595254F18C6218F006EEAFA /* timelapse_time_between_pictures.png */,
+				25743A81192CCD8E003740F2 /* timelapse_tilt.png */,
+				25743A82192CCD8E003740F2 /* timelapse_tilt@2x.png */,
 			);
 			path = "Time-lapse";
 			sourceTree = "<group>";
@@ -490,10 +506,12 @@
 		25ADC28618C7796800CEB6A7 /* Timelapse settings */ = {
 			isa = PBXGroup;
 			children = (
-				25A3E68018C93E1C002AFBB9 /* SWDegreesController.h */,
-				25A3E68118C93E1C002AFBB9 /* SWDegreesController.m */,
+				25A3E68018C93E1C002AFBB9 /* SWStepsController.h */,
+				25A3E68118C93E1C002AFBB9 /* SWStepsController.m */,
 				25A3E68218C93E1C002AFBB9 /* SWTimeController.h */,
 				25A3E68318C93E1C002AFBB9 /* SWTimeController.m */,
+				25743A7C192CA9EE003740F2 /* SWTiltController.h */,
+				25743A7D192CA9EE003740F2 /* SWTiltController.m */,
 			);
 			path = "Timelapse settings";
 			sourceTree = "<group>";
@@ -534,10 +552,6 @@
 		8508E40118F6C42500EEC442 /* ManualController */ = {
 			isa = PBXGroup;
 			children = (
-				25743A76192CA50F003740F2 /* SWBatteryLevelView.h */,
-				25743A77192CA50F003740F2 /* SWBatteryLevelView.m */,
-				25743A78192CA50F003740F2 /* SWSelectCameraController.h */,
-				25743A79192CA50F003740F2 /* SWSelectCameraController.m */,
 				8508E40218F6C42500EEC442 /* SWManualController.h */,
 				8508E40318F6C42500EEC442 /* SWManualController.m */,
 				8508E40518F6C47900EEC442 /* SWManualController.storyboard */,
@@ -660,6 +674,7 @@
 				2595254418C61BA2006EEAFA /* batery_off.png in Resources */,
 				858A4DFD18C8AA700036A0CF /* down.png in Resources */,
 				2595255218C62190006EEAFA /* timelapse_direction_1.png in Resources */,
+				25743A83192CCD8E003740F2 /* timelapse_tilt.png in Resources */,
 				2595254618C61BA2006EEAFA /* capture_normal.png in Resources */,
 				85DDC0B51907EB9B009B5DBF /* left@2x.png in Resources */,
 				25E536D2190E79DD0059FE7C /* arrow_manual_right.png in Resources */,
@@ -705,6 +720,7 @@
 				2595254518C61BA2006EEAFA /* batery_off@2x.png in Resources */,
 				2595255618C6229D006EEAFA /* timelapse_direction_2.png in Resources */,
 				854428C3192B4ECA002732F6 /* timelapse_direction_1@2x.png in Resources */,
+				25743A84192CCD8E003740F2 /* timelapse_tilt@2x.png in Resources */,
 				85CA1762190667230052E6C3 /* SWManualControllerPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -808,6 +824,7 @@
 				2540042118EEAE6F0060ECB2 /* UIAlertView+Blocks.m in Sources */,
 				255289B31920F49A00E803B6 /* SWDSLRConfiguration.m in Sources */,
 				858A4DFB18C8AA700036A0CF /* DKCircularSlider.m in Sources */,
+				25743A7E192CA9EE003740F2 /* SWTiltController.m in Sources */,
 				250A4D1818DADEF300E82B1F /* SWScript.m in Sources */,
 				25BB880318E45F7400ECE14D /* SWProgressController.m in Sources */,
 				2595253618C6141C006EEAFA /* SWMainViewController.m in Sources */,
@@ -817,12 +834,12 @@
 				25B962D318D21ABC002E4FD1 /* MVYSideMenuOptions.m in Sources */,
 				2595250118C610DF006EEAFA /* main.m in Sources */,
 				25ADC24118C72D4A00CEB6A7 /* SWTimelapseSettings.m in Sources */,
-				25743A7A192CA50F003740F2 /* SWBatteryLevelView.m in Sources */,
 				858A4DFC18C8AA700036A0CF /* DKRepeatableButton.m in Sources */,
-				25A3E68418C93E1C002AFBB9 /* SWDegreesController.m in Sources */,
-				25743A7B192CA50F003740F2 /* SWSelectCameraController.m in Sources */,
+				25A3E68418C93E1C002AFBB9 /* SWStepsController.m in Sources */,
+				25743A8A192CD833003740F2 /* SWSelectCameraController.m in Sources */,
 				2522F7DE18D0CAF000915E25 /* AVSandboxNotifications.m in Sources */,
 				25B962D218D21ABC002E4FD1 /* MVYSideMenuController.m in Sources */,
+				25743A89192CD833003740F2 /* SWBatteryLevelView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -830,6 +847,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25743A80192CAA05003740F2 /* SWMainControllerTests.m in Sources */,
 				258941EB1922108400BCAE55 /* SWScriptTests.m in Sources */,
 				259E2F7518C89F5700ECC07A /* SWTimelapseSettingsTests.m in Sources */,
 				258941E9192204B300BCAE55 /* SWDSLRConfigurationTests.m in Sources */,
