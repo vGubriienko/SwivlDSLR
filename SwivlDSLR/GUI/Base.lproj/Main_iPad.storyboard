@@ -340,6 +340,7 @@ Please note that some parameters are interdependent and changing one will change
                         <outlet property="_captureBtn" destination="vmQ-Ts-cgV" id="joh-lP-xd4"/>
                         <outlet property="_captureBtnActive" destination="U7o-fo-53k" id="6kJ-qu-YCt"/>
                         <outlet property="_directionBtn" destination="Mjr-F8-ZV6" id="h51-uN-pRb"/>
+                        <outlet property="_helpButton" destination="yWz-Hh-J35" id="m0B-VE-iSZ"/>
                         <outlet property="_recordingTimeBtn" destination="APJ-d3-MS4" id="GYK-pA-REz"/>
                         <outlet property="_stepSizeBtn" destination="xGu-vL-9uu" id="Mfq-eG-bDI"/>
                         <outlet property="_stepsBtn" destination="eoN-Lv-yEx" id="4kr-y2-Yfh"/>

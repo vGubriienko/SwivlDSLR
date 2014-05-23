@@ -198,6 +198,7 @@ Please note that some parameters are interdependent and changing one will change
                         <outlet property="_captureBtn" destination="KzJ-nb-XFy" id="Ui7-Be-ptv"/>
                         <outlet property="_captureBtnActive" destination="iJa-59-w95" id="2Dl-5U-Yoz"/>
                         <outlet property="_directionBtn" destination="tFC-Hu-7Oi" id="4Ua-NN-qP2"/>
+                        <outlet property="_helpButton" destination="ZCo-6X-1wD" id="sTG-iR-j4J"/>
                         <outlet property="_infoTextView" destination="oBu-YV-4Fp" id="nap-Gy-AlA"/>
                         <outlet property="_recordingTimeBtn" destination="3ZG-6n-V3I" id="7G4-VY-Gf3"/>
                         <outlet property="_stepSizeBtn" destination="EYn-id-Ddj" id="aJl-h1-ax1"/>

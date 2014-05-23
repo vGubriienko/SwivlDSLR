@@ -30,7 +30,8 @@
     __weak IBOutlet UIButton *_recordingTimeBtn;
     __weak IBOutlet UIButton *_tiltBtn;
     __weak IBOutlet UIView *_timelapseControls;
-
+    __weak IBOutlet UIButton *_helpButton;
+    
     __weak IBOutlet UITextView *_infoTextView;
     __weak IBOutlet UIButton *_captureBtn, *_captureBtnActive;
     __weak IBOutlet UIImageView *_batteryLevelImg;
@@ -116,8 +117,13 @@
 
 - (void)showProgress
 {
-    _timelapseControls.userInteractionEnabled = NO;
-    
+    _stepsBtn.enabled = NO;
+    _stepSizeBtn.enabled = NO;
+    _recordingTimeBtn.enabled = NO;
+    _tiltBtn.enabled = NO;
+    _helpButton.enabled = NO;
+    _directionBtn.enabled = NO;
+
     _captureBtnActive.hidden = NO;
     _captureBtnActive.alpha = 1.0;
     [UIView animateWithDuration:0.5
@@ -133,8 +139,13 @@
 
 - (void)hideProgress
 {
-    _timelapseControls.userInteractionEnabled = YES;
-
+    _directionBtn.enabled = YES;
+    _stepsBtn.enabled = YES;
+    _stepSizeBtn.enabled = YES;
+    _recordingTimeBtn.enabled = YES;
+    _tiltBtn.enabled = YES;
+    _helpButton.enabled = YES;
+    
     _captureBtnActive.hidden = YES;
     [_captureBtnActive.layer removeAllAnimations];
     
@@ -158,7 +169,9 @@
 
 - (void)clearContent
 {
+    [_currentContentController willMoveToParentViewController:nil];
     [_currentContentController.view removeFromSuperview];
+    [_currentContentController removeFromParentViewController];
     _currentContentController = nil;
 }
 
