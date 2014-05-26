@@ -165,7 +165,7 @@
 
 - (IBAction)onCaptureBtnTapped
 {
-    if (!swAppDelegate.isScriptRunning) {
+    if (swAppDelegate.scriptState == SWScriptStateNone) {
         if (swAppDelegate.swivl.swivlConnected) {
             SWScript *script = [[SWScript alloc] init];
             swAppDelegate.script = script;
@@ -176,7 +176,7 @@
         } else {
             [self showSwivlDisconnectedMessage];
         }
-    } else {
+    } else if (swAppDelegate.scriptState == SWScriptStateRunning) {
         if (swAppDelegate.swivl.swivlConnected) {
             NSLog(@"swivlScriptStop");
             [swAppDelegate.swivl swivlScriptStop];

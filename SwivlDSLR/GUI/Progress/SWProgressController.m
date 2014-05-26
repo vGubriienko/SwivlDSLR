@@ -34,13 +34,16 @@
     _progressView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     _progressView.backgroundColor = [UIColor clearColor];
     [self.view insertSubview:_progressView belowSubview:_timeLabel];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(startProgress)
+                                                 name:AVSandboxScriptProgressNeedStartNotification
+                                               object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-
-    _progressTimer = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(tick) userInfo:nil repeats:YES];
 
     [[Countly sharedInstance] recordEvent:NSStringFromClass([self class]) segmentation:@{@"open":@YES} count:1];
 }
@@ -48,8 +51,16 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [_progressTimer invalidate];
+    _progressTimer = nil;
     
     [super viewWillDisappear:animated];
+}
+
+- (void)startProgress
+{
+    if (!_progressTimer) {
+        _progressTimer = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+    }
 }
 
 - (void)tick
@@ -60,6 +71,7 @@
     if (progress > 1) {
         _timeLabel.hidden = YES;
         [_progressTimer invalidate];
+        _progressTimer = nil;
         progress = 1;
         
         [[NSNotificationCenter defaultCenter] postNotificationName:AVSandboxScriptProgressDidFinishNotification object:self];
@@ -72,6 +84,11 @@
 }
 
 #pragma mark -
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (void)didReceiveMemoryWarning
 {

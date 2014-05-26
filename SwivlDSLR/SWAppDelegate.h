@@ -10,6 +10,12 @@
 //Analitycs for all classes
 #import "Countly.h"
 
+typedef NS_ENUM(NSInteger, SWScriptState) {
+    SWScriptStateNone = 0,
+    SWScriptStatePreparing,
+    SWScriptStateRunning,
+};
+
 @class SWScript;
 @class SWDSLRConfiguration;
 @class SWAppDelegate;
@@ -24,7 +30,7 @@ extern SWAppDelegate *swAppDelegate;
 @property (nonatomic, strong) SwivlCommonLib *swivl;
 
 @property (nonatomic, strong) SWScript *script;
-@property (nonatomic, readonly, getter = isScriptRunning) BOOL scriptRunning;
+@property (nonatomic, readonly) SWScriptState scriptState;
 @property (nonatomic, assign) SWCameraInterface currentCameraInterface;
 @property (nonatomic, strong) SWDSLRConfiguration *currentDSLRConfiguration;
 @property (nonatomic, readonly) NSArray *availableDSLRConfigurations;

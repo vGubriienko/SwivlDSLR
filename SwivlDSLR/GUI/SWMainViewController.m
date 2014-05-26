@@ -39,6 +39,8 @@
     
     SWTimelapseSettings *_timelapseSettings;
     UIViewController <SWContentControllerDelegate> *_currentContentController;
+    
+    BOOL _isShowingProgress;
 }
 @end
 
@@ -63,10 +65,20 @@
     _infoTextView.contentOffset = CGPointZero;
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     [[Countly sharedInstance] recordEvent:NSStringFromClass([self class]) segmentation:@{@"open":@YES} count:1];
-    [super viewDidAppear:animated];
+    
+    [self startObserving];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self finishObserving];
 }
 
 #pragma mark - IBActions
@@ -90,7 +102,7 @@
 
 - (IBAction)onCaptureBtnTapped
 {
-    if (!swAppDelegate.isScriptRunning) {
+    if (swAppDelegate.scriptState == SWScriptStateNone) {
         if (swAppDelegate.swivl.swivlConnected) {
             SWScript *script = [[SWScript alloc] init];
             script.timelapseSettings = _timelapseSettings;
@@ -102,7 +114,7 @@
         } else {
             [self showSwivlDisconnectedMessage];
         }
-    } else {
+    } else if (swAppDelegate.scriptState == SWScriptStateRunning) {
         if (swAppDelegate.swivl.swivlConnected) {
             NSLog(@"swivlScriptStop");
             [swAppDelegate.swivl swivlScriptStop];
@@ -117,6 +129,8 @@
 
 - (void)showProgress
 {
+    _isShowingProgress = YES;
+    
     _stepsBtn.enabled = NO;
     _stepSizeBtn.enabled = NO;
     _recordingTimeBtn.enabled = NO;
@@ -139,6 +153,8 @@
 
 - (void)hideProgress
 {
+    _isShowingProgress = NO;
+    
     _directionBtn.enabled = YES;
     _stepsBtn.enabled = YES;
     _stepSizeBtn.enabled = YES;
@@ -278,9 +294,14 @@
 
 - (void)scriptStateDidChanged
 {
-    if (swAppDelegate.isScriptRunning) {
+    if (swAppDelegate.scriptState == SWScriptStatePreparing) {
         [self showProgress];
-    } else {
+    } else if (swAppDelegate.scriptState == SWScriptStateRunning) {
+        if (!_isShowingProgress) {
+            [self showProgress];
+        }
+        [[NSNotificationCenter defaultCenter] postNotificationName:AVSandboxScriptProgressNeedStartNotification object:nil];
+    } else if (swAppDelegate.scriptState == SWScriptStateNone) {
         [self hideProgress];
     }
 }

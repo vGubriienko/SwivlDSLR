@@ -86,13 +86,13 @@
     NSInteger speed = 2000; //MAX
     
     NSString *startTiltSign = self.timelapseSettings.startTiltAngle >= 0 ? @"" : @"%";
-    NSInteger startTiltSwivl = roundf((self.timelapseSettings.startTiltAngle / 0.11) * 4);
+    NSInteger startTiltSwivl = roundf(self.timelapseSettings.startTiltAngle / 0.0088);
     startTiltSwivl = fabsf(startTiltSwivl);
     NSString *startAngleStr = [NSString stringWithFormat:@"%lx%@", (long)startTiltSwivl, startTiltSign];
     
     CGFloat tiltStep = (CGFloat)(self.timelapseSettings.endTiltAngle - self.timelapseSettings.startTiltAngle) / self.timelapseSettings.stepCount;
     NSString *tiltStepSign = tiltStep >= 0 ? @"" : @"%";
-    NSInteger tiltStepSwivl = roundf((tiltStep / 0.11) * 4);
+    NSInteger tiltStepSwivl = roundf(tiltStep / 0.0088);
     tiltStepSwivl = fabsf(tiltStepSwivl);
     NSString *tiltStepStr = [NSString stringWithFormat:@"%lx%@", (long)tiltStepSwivl, tiltStepSign];
 
@@ -113,20 +113,20 @@
 {
     NSInteger timeBtwPictures = self.timelapseSettings.timeBetweenPictures * 1000;
     
-    NSInteger stepSize = roundf(self.timelapseSettings.stepSize / 0.11) * 4;
+    NSInteger stepSize = roundf((self.timelapseSettings.stepSize / 0.11) * 4);
     NSString *direction = self.timelapseSettings.clockwiseDirection ? @"" : @"%";
     NSString *stepSizeStr = [NSString stringWithFormat:@"%lx%@", (long)stepSize, direction];
     
     NSInteger speed = 2000; //MAX
     
     NSString *startTiltSign = self.timelapseSettings.startTiltAngle >= 0 ? @"" : @"%";
-    NSInteger startTiltSwivl = roundf((self.timelapseSettings.startTiltAngle / 0.11) * 4);
+    NSInteger startTiltSwivl = roundf(self.timelapseSettings.startTiltAngle / 0.0088);
     startTiltSwivl = fabsf(startTiltSwivl);
     NSString *startAngleStr = [NSString stringWithFormat:@"%lx%@", (long)startTiltSwivl, startTiltSign];
     
     CGFloat tiltStep = (CGFloat)(self.timelapseSettings.endTiltAngle - self.timelapseSettings.startTiltAngle) / self.timelapseSettings.stepCount;
     NSString *tiltStepSign = tiltStep >= 0 ? @"" : @"%";
-    NSInteger tiltStepSwivl = roundf((tiltStep / 0.11) * 4);
+    NSInteger tiltStepSwivl = roundf(tiltStep / 0.0088);
     tiltStepSwivl = fabsf(tiltStepSwivl);
     NSString *tiltStepStr = [NSString stringWithFormat:@"%lx%@", (long)tiltStepSwivl, tiltStepSign];
 
