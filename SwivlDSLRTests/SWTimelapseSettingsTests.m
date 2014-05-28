@@ -146,7 +146,7 @@
 {
     _timelapseSettings.startTiltAngle = 20;
     
-    _timelapseSettings.startTiltAngle = -1;
+    _timelapseSettings.startTiltAngle = -26;
     XCTAssertEqual(_timelapseSettings.startTiltAngle, 20, @"Invalid start tilt value");
     _timelapseSettings.startTiltAngle = 26;
     XCTAssertEqual(_timelapseSettings.startTiltAngle, 20, @"Invalid start tilt value");
@@ -156,7 +156,7 @@
 {
     _timelapseSettings.endTiltAngle = 10;
     
-    _timelapseSettings.endTiltAngle = -1;
+    _timelapseSettings.endTiltAngle = -26;
     XCTAssertEqual(_timelapseSettings.endTiltAngle, 10, @"Invalid end tilt value");
     _timelapseSettings.endTiltAngle = 26;
     XCTAssertEqual(_timelapseSettings.endTiltAngle, 10, @"Invalid end tilt value");

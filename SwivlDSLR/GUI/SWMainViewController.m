@@ -30,7 +30,8 @@
     __weak IBOutlet UIButton *_recordingTimeBtn;
     __weak IBOutlet UIButton *_tiltBtn;
     __weak IBOutlet UIView *_timelapseControls;
-
+    __weak IBOutlet UIButton *_helpButton;
+    
     __weak IBOutlet UITextView *_infoTextView;
     __weak IBOutlet UIButton *_captureBtn, *_captureBtnActive;
     __weak IBOutlet UIImageView *_batteryLevelImg;
@@ -38,6 +39,8 @@
     
     SWTimelapseSettings *_timelapseSettings;
     UIViewController <SWContentControllerDelegate> *_currentContentController;
+    
+    BOOL _isShowingProgress;
 }
 @end
 
@@ -62,10 +65,20 @@
     _infoTextView.contentOffset = CGPointZero;
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     [[Countly sharedInstance] recordEvent:NSStringFromClass([self class]) segmentation:@{@"open":@YES} count:1];
-    [super viewDidAppear:animated];
+    
+    [self startObserving];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self finishObserving];
 }
 
 #pragma mark - IBActions
@@ -89,7 +102,7 @@
 
 - (IBAction)onCaptureBtnTapped
 {
-    if (!swAppDelegate.isScriptRunning) {
+    if (swAppDelegate.scriptState == SWScriptStateNone) {
         if (swAppDelegate.swivl.swivlConnected) {
             SWScript *script = [[SWScript alloc] init];
             script.timelapseSettings = _timelapseSettings;
@@ -101,7 +114,7 @@
         } else {
             [self showSwivlDisconnectedMessage];
         }
-    } else {
+    } else if (swAppDelegate.scriptState == SWScriptStateRunning) {
         if (swAppDelegate.swivl.swivlConnected) {
             NSLog(@"swivlScriptStop");
             [swAppDelegate.swivl swivlScriptStop];
@@ -116,8 +129,15 @@
 
 - (void)showProgress
 {
-    _timelapseControls.userInteractionEnabled = NO;
+    _isShowingProgress = YES;
     
+    _stepsBtn.enabled = NO;
+    _stepSizeBtn.enabled = NO;
+    _recordingTimeBtn.enabled = NO;
+    _tiltBtn.enabled = NO;
+    _helpButton.enabled = NO;
+    _directionBtn.enabled = NO;
+
     _captureBtnActive.hidden = NO;
     _captureBtnActive.alpha = 1.0;
     [UIView animateWithDuration:0.5
@@ -133,8 +153,15 @@
 
 - (void)hideProgress
 {
-    _timelapseControls.userInteractionEnabled = YES;
-
+    _isShowingProgress = NO;
+    
+    _directionBtn.enabled = YES;
+    _stepsBtn.enabled = YES;
+    _stepSizeBtn.enabled = YES;
+    _recordingTimeBtn.enabled = YES;
+    _tiltBtn.enabled = YES;
+    _helpButton.enabled = YES;
+    
     _captureBtnActive.hidden = YES;
     [_captureBtnActive.layer removeAllAnimations];
     
@@ -158,7 +185,9 @@
 
 - (void)clearContent
 {
+    [_currentContentController willMoveToParentViewController:nil];
     [_currentContentController.view removeFromSuperview];
+    [_currentContentController removeFromParentViewController];
     _currentContentController = nil;
 }
 
@@ -265,9 +294,14 @@
 
 - (void)scriptStateDidChanged
 {
-    if (swAppDelegate.isScriptRunning) {
+    if (swAppDelegate.scriptState == SWScriptStatePreparing) {
         [self showProgress];
-    } else {
+    } else if (swAppDelegate.scriptState == SWScriptStateRunning) {
+        if (!_isShowingProgress) {
+            [self showProgress];
+        }
+        [[NSNotificationCenter defaultCenter] postNotificationName:AVSandboxScriptProgressNeedStartNotification object:nil];
+    } else if (swAppDelegate.scriptState == SWScriptStateNone) {
         [self hideProgress];
     }
 }
