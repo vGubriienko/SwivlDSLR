@@ -17,7 +17,7 @@
         self.stepCount = 9;
         self.stepSize = 11.0;
         self.clockwiseDirection = YES;
-        self.recordingTime = 60;
+        self.timeBetweenPictures = 5;
         self.startTiltAngle = (SW_TIMELAPSE_MAX_TILT - SW_TIMELAPSE_MIN_TILT) / 2;
         self.endTiltAngle = self.startTiltAngle;
     }
@@ -35,7 +35,7 @@
         } else {
             _stepCount = [[decoder decodeObjectForKey:@"stepCount"] integerValue];
         }
-        _recordingTime = [[decoder decodeObjectForKey:@"recordingTime"] floatValue];
+        _timeBetweenPictures = [[decoder decodeObjectForKey:@"timeBetweenPictures"] integerValue];
         _clockwiseDirection = [[decoder decodeObjectForKey:@"clockwiseDirection"] boolValue];
         _startTiltAngle = [[decoder decodeObjectForKey:@"startTiltAngle"] integerValue];
         _endTiltAngle = [[decoder decodeObjectForKey:@"endTiltAngle"] integerValue];
@@ -47,7 +47,7 @@
 {
     [encoder encodeObject:[NSNumber numberWithFloat:_stepSize] forKey:@"stepSize"];
     [encoder encodeObject:[NSNumber numberWithInteger:_stepCount] forKey:@"stepCount"];
-    [encoder encodeObject:[NSNumber numberWithFloat:_recordingTime] forKey:@"recordingTime"];
+    [encoder encodeObject:[NSNumber numberWithInteger:_timeBetweenPictures] forKey:@"timeBetweenPictures"];
     [encoder encodeObject:[NSNumber numberWithBool:_clockwiseDirection] forKey:@"clockwiseDirection"];
     [encoder encodeObject:[NSNumber numberWithInteger:_startTiltAngle] forKey:@"startTiltAngle"];
     [encoder encodeObject:[NSNumber numberWithInteger:_endTiltAngle] forKey:@"endTiltAngle"];
@@ -87,15 +87,20 @@
     return dict;
 }
 
+- (SWTimeComponents)timeBetweenPicturesComponents
+{
+    return SWTimeComponentsMake(self.timeBetweenPictures);
+}
+
 - (SWTimeComponents)recordingTimeComponents
 {
     return SWTimeComponentsMake(self.recordingTime);
 }
 
-- (void)setRecordingTimeWithComponents:(SWTimeComponents)recordingTimeComponents
+- (void)setTimeBetweenPicturesWithComponents:(SWTimeComponents)timeBetweenPicturesComponents
 {
-    CGFloat seconds = recordingTimeComponents.hours * 3600 + recordingTimeComponents.minutes * 60 + recordingTimeComponents.seconds;
-    self.recordingTime = seconds;
+    NSInteger seconds = timeBetweenPicturesComponents.hours * 3600 + timeBetweenPicturesComponents.minutes * 60 + timeBetweenPicturesComponents.seconds;
+    self.timeBetweenPictures = seconds;
 }
 
 #pragma mark - Properties
@@ -123,9 +128,9 @@
     return (NSInteger)roundf(self.stepCount * self.stepSize);
 }
 
-- (CGFloat)timeBetweenPictures
+- (NSInteger)recordingTime
 {
-    return (CGFloat)self.recordingTime / self.stepCount;
+    return self.stepCount * self.timeBetweenPictures;
 }
 
 - (void)setStartTiltAngle:(NSInteger)startTiltAngle
@@ -144,9 +149,9 @@
 
 #pragma mark - Dependencies
 
-+ (NSSet *)keyPathsForValuesAffectingTimeBetweenPictures
++ (NSSet *)keyPathsForValuesAffectingRecordingTime
 {
-    return [NSSet setWithObjects:@"recordingTime", @"stepCount", nil];
+    return [NSSet setWithObjects:@"timeBetweenPictures", @"stepCount", nil];
 }
 
 + (NSSet *)keyPathsForValuesAffectingDistance

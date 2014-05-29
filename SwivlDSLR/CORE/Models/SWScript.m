@@ -67,7 +67,12 @@
     }
     
     CGFloat timePast = [[NSDate date] timeIntervalSinceDate:self.startDate];
-    return timePast < self.timelapseSettings.recordingTime;
+    return timePast < [self scriptDuration];
+}
+
+- (NSInteger)scriptDuration
+{
+    return self.timelapseSettings.recordingTime + self.timelapseSettings.timeBetweenPictures;
 }
 
 - (NSString *)generateScriptForTriggerTimelapse

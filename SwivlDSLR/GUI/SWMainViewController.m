@@ -27,7 +27,7 @@
     __weak IBOutlet UIButton *_stepsBtn;
     __weak IBOutlet UIButton *_directionBtn;
     __weak IBOutlet UIButton *_stepSizeBtn;
-    __weak IBOutlet UIButton *_recordingTimeBtn;
+    __weak IBOutlet UIButton *_timeBtn;
     __weak IBOutlet UIButton *_tiltBtn;
     __weak IBOutlet UIView *_timelapseControls;
     __weak IBOutlet UIButton *_helpButton;
@@ -59,7 +59,7 @@
 {
     _stepSizeBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     _stepsBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-    _recordingTimeBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    _timeBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     _tiltBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     
     _infoTextView.contentOffset = CGPointZero;
@@ -133,7 +133,7 @@
     
     _stepsBtn.enabled = NO;
     _stepSizeBtn.enabled = NO;
-    _recordingTimeBtn.enabled = NO;
+    _timeBtn.enabled = NO;
     _tiltBtn.enabled = NO;
     _helpButton.enabled = NO;
     _directionBtn.enabled = NO;
@@ -158,7 +158,7 @@
     _directionBtn.enabled = YES;
     _stepsBtn.enabled = YES;
     _stepSizeBtn.enabled = YES;
-    _recordingTimeBtn.enabled = YES;
+    _timeBtn.enabled = YES;
     _tiltBtn.enabled = YES;
     _helpButton.enabled = YES;
     
@@ -219,7 +219,7 @@
                          forKeyPath:@"stepSize"
                             options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
                             context:nil];
-    [_timelapseSettings addObserver:self forKeyPath:@"recordingTime"
+    [_timelapseSettings addObserver:self forKeyPath:@"timeBetweenPictures"
                             options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
                             context:nil];
     [_timelapseSettings addObserver:self forKeyPath:@"clockwiseDirection"
@@ -254,9 +254,9 @@
         NSString *strTime = [NSString stringWithFormat:@"%li - %li", (long)_timelapseSettings.startTiltAngle, (long)_timelapseSettings.endTiltAngle];
         [_tiltBtn setTitle:strTime forState:UIControlStateNormal];
         
-        SWTimeComponents timeComps = [_timelapseSettings recordingTimeComponents];
+        SWTimeComponents timeComps = [_timelapseSettings timeBetweenPicturesComponents];
         strTime = [NSString stringWithFormat:@"%.2li:%.2li:%.2li", (long)timeComps.hours, (long)timeComps.minutes, (long)timeComps.seconds];
-        [_recordingTimeBtn setTitle:strTime forState:UIControlStateNormal];
+        [_timeBtn setTitle:strTime forState:UIControlStateNormal];
         
         _directionBtn.selected = !_timelapseSettings.clockwiseDirection;
         
@@ -312,7 +312,7 @@
     
     [_timelapseSettings removeObserver:self forKeyPath:@"stepCount"];
     [_timelapseSettings removeObserver:self forKeyPath:@"stepSize"];
-    [_timelapseSettings removeObserver:self forKeyPath:@"recordingTime"];
+    [_timelapseSettings removeObserver:self forKeyPath:@"timeBetweenPictures"];
     [_timelapseSettings removeObserver:self forKeyPath:@"clockwiseDirection"];
     [_timelapseSettings removeObserver:self forKeyPath:@"startTiltAngle"];
     [_timelapseSettings removeObserver:self forKeyPath:@"endTiltAngle"];

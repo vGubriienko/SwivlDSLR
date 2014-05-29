@@ -20,6 +20,8 @@
 @property (nonatomic, strong) NSDate *startDate;
 
 - (NSString *)generateScript;
+
 - (BOOL)isRunningFromStartDate;
+- (NSInteger)scriptDuration;
 
 @end

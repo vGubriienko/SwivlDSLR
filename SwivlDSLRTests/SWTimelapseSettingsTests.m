@@ -75,18 +75,11 @@
 
 #pragma mark - Time btwn pictures
 
-- (void)testTimeBtwnPicturesCalculatesCorrectly
+- (void)testRecordingTimeCalculatesCorrectly
 {
-    _timelapseSettings.recordingTime = 200;
+    _timelapseSettings.timeBetweenPictures = 3;
     _timelapseSettings.stepCount = 10;
-    XCTAssertEqual(_timelapseSettings.timeBetweenPictures, 20, @"Wrong timeBtwnPictures");
-}
-
-- (void)testTimeBtwnPicturesIsNOTRounded
-{
-    _timelapseSettings.recordingTime = 515;
-    _timelapseSettings.stepCount = 100;
-    XCTAssertEqualWithAccuracy(_timelapseSettings.timeBetweenPictures, 5.15, FLT_EPSILON, @"Wrong timeBtwnPictures");
+    XCTAssertEqual(_timelapseSettings.recordingTime, 30, @"Wrong recordingTime");
 }
 
 #pragma mark - Distance
@@ -107,25 +100,13 @@
 
 #pragma mark - Time components
 
-- (void)testRecordingTimeComponents
+- (void)testTimeBetweenPicturesComponents
 {
-    _timelapseSettings.recordingTime = 5145;
-    SWTimeComponents timeComponents = [_timelapseSettings recordingTimeComponents];
+    _timelapseSettings.timeBetweenPictures = 5145;
+    SWTimeComponents timeComponents = [_timelapseSettings timeBetweenPicturesComponents];
     XCTAssertEqual(timeComponents.hours, 1, @"Incorrect recordingTime hours");
     XCTAssertEqual(timeComponents.minutes, 25, @"Incorrect recordingTime minutes");
     XCTAssertEqual(timeComponents.seconds, 45, @"Incorrect recordingTime seconds");
-}
-
-- (void)testSetRecordingTimeWithComponents
-{
-    SWTimeComponents timeComponents;
-    timeComponents.hours = 1;
-    timeComponents.minutes = 10;
-    timeComponents.seconds = 35;
-    
-    [_timelapseSettings setRecordingTimeWithComponents:timeComponents];
-    
-    XCTAssertEqual(_timelapseSettings.recordingTime, 4235, @"Incorrect timeBetweenPictures seconds");
 }
 
 - (void)testSetTimeBetweenPicturesWithComponents
@@ -135,9 +116,9 @@
     timeComponents.minutes = 0;
     timeComponents.seconds = 30;
     
-    [_timelapseSettings setRecordingTimeWithComponents:timeComponents];
+    [_timelapseSettings setTimeBetweenPicturesWithComponents:timeComponents];
     
-    XCTAssertEqual(_timelapseSettings.recordingTime, 7230, @"Incorrect timeBetweenPictures seconds");
+    XCTAssertEqual(_timelapseSettings.timeBetweenPictures, 7230, @"Incorrect timeBetweenPictures seconds");
 }
 
 #pragma mark - Tilt
@@ -168,7 +149,7 @@
 {
     _timelapseSettings.stepCount = 1000;
     _timelapseSettings.stepSize = 0.11;
-    _timelapseSettings.recordingTime = 200;
+    _timelapseSettings.timeBetweenPictures = 200;
     _timelapseSettings.clockwiseDirection = YES;
     _timelapseSettings.startTiltAngle = 10;
     _timelapseSettings.endTiltAngle = 24;
@@ -179,7 +160,7 @@
     XCTAssertEqual(_timelapseSettings.stepCount, 1000, @"Invalid distance value after save & restore");
     XCTAssertEqualWithAccuracy(_timelapseSettings.stepSize, 0.11, FLT_EPSILON, @"Invalid stepSize value after save & restore");
     XCTAssertEqual(_timelapseSettings.clockwiseDirection, YES, @"Invalid clockwiseDirection value after save & restore");
-    XCTAssertEqual(_timelapseSettings.recordingTime, 200, @"Invalid recordingTime value after save & restore");
+    XCTAssertEqual(_timelapseSettings.timeBetweenPictures, 200, @"Invalid recordingTime value after save & restore");
     XCTAssertEqual(_timelapseSettings.startTiltAngle, 10, @"Invalid startTiltAngle value after save & restore");
     XCTAssertEqual(_timelapseSettings.endTiltAngle, 24, @"Invalid endTiltAngle value after save & restore");
 }

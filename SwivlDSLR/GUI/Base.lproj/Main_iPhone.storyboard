@@ -146,9 +146,9 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instruction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xI2-TH-Tp1">
-                                        <rect key="frame" x="126" y="20" width="154" height="44"/>
+                                        <rect key="frame" x="126" y="25" width="154" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -200,11 +200,11 @@ Please note that some parameters are interdependent and changing one will change
                         <outlet property="_directionBtn" destination="tFC-Hu-7Oi" id="4Ua-NN-qP2"/>
                         <outlet property="_helpButton" destination="ZCo-6X-1wD" id="sTG-iR-j4J"/>
                         <outlet property="_infoTextView" destination="oBu-YV-4Fp" id="nap-Gy-AlA"/>
-                        <outlet property="_recordingTimeBtn" destination="3ZG-6n-V3I" id="7G4-VY-Gf3"/>
                         <outlet property="_stepSizeBtn" destination="EYn-id-Ddj" id="aJl-h1-ax1"/>
                         <outlet property="_stepsBtn" destination="U5R-kl-DxV" id="F3C-Jt-fB9"/>
                         <outlet property="_swivlStatusImg" destination="fL1-6N-TkC" id="uKu-Sy-5uV"/>
                         <outlet property="_tiltBtn" destination="DkC-Ok-yPF" id="R7m-Ai-SeO"/>
+                        <outlet property="_timeBtn" destination="3ZG-6n-V3I" id="Joo-1b-NcW"/>
                         <outlet property="_timelapseControls" destination="HKi-8w-6BC" id="QQc-I7-yuj"/>
                         <outlet property="contentView" destination="62a-P8-j6y" id="sNO-9v-OzQ"/>
                         <segue destination="s1M-uc-xLO" kind="custom" identifier="ScriptProgress" customClass="SWTimelapsSegue" id="Q2f-6o-8JS"/>
@@ -249,33 +249,40 @@ Please note that some parameters are interdependent and changing one will change
             </objects>
             <point key="canvasLocation" x="38" y="817"/>
         </scene>
-        <!--RecordingTime Controller-->
+        <!--TimeBetweenPictures Controller-->
         <scene sceneID="xs8-A5-erZ">
             <objects>
-                <viewController id="cys-Cz-MS5" userLabel="RecordingTime Controller" customClass="SWTimeController" sceneMemberID="viewController">
+                <viewController id="cys-Cz-MS5" userLabel="TimeBetweenPictures Controller" customClass="SWTimeController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zy5-xZ-BhJ">
                         <rect key="frame" x="0.0" y="0.0" width="406" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" id="9Ui-V7-jAq">
-                                <rect key="frame" x="0.0" y="138" width="406" height="162"/>
+                                <rect key="frame" x="0.0" y="98" width="406" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="cys-Cz-MS5" id="2Lp-ki-Q53"/>
                                     <outlet property="delegate" destination="cys-Cz-MS5" id="GfV-aU-yYJ"/>
                                 </connections>
                             </pickerView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording time " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hdI-8m-lir" userLabel="Label - Recording time">
-                                <rect key="frame" x="0.0" y="44" width="406" height="40"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recordig Time:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="20" id="MZm-gQ-v25" userLabel="Label - Recording time">
+                                <rect key="frame" x="20" y="276" width="366" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Between Pictures" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="19" id="hdI-8m-lir" userLabel="Label - Time Between Pictures">
+                                <rect key="frame" x="60" y="20" width="286" height="40"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(hours : minutes : seconds)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eZg-9d-7cS">
-                                <rect key="frame" x="100" y="92" width="207" height="21"/>
+                                <rect key="frame" x="100" y="59" width="207" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -287,37 +294,45 @@ Please note that some parameters are interdependent and changing one will change
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="406" height="320"/>
                     <connections>
-                        <outlet property="_recordingTimePicker" destination="9Ui-V7-jAq" id="JAP-Ev-0Nz"/>
+                        <outlet property="_recordingTimeLabel" destination="MZm-gQ-v25" id="NVI-v1-RnC"/>
+                        <outlet property="_timePicker" destination="9Ui-V7-jAq" id="e2c-Ju-DfG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="knR-oP-eEa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="634" y="728"/>
         </scene>
-        <!--Distance Controller-->
+        <!--Steps Controller-->
         <scene sceneID="WzL-Yf-mz9">
             <objects>
-                <viewController id="kiG-6Q-bGr" userLabel="Distance Controller" customClass="SWStepsController" sceneMemberID="viewController">
+                <viewController id="kiG-6Q-bGr" userLabel="Steps Controller" customClass="SWStepsController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qlt-es-aUC">
                         <rect key="frame" x="0.0" y="0.0" width="406" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steps" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cqh-pH-iEc">
-                                <rect key="frame" x="0.0" y="30" width="406" height="36"/>
+                                <rect key="frame" x="60" y="25" width="286" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" id="Phn-bG-xgF" userLabel="Distance container">
-                                <rect key="frame" x="103" y="100" width="200" height="200"/>
+                                <rect key="frame" x="113" y="88" width="180" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="20" id="wDy-gz-Y0I">
+                                <rect key="frame" x="20" y="276" width="366" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(number)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WLO-iF-dma">
-                                <rect key="frame" x="170" y="71" width="68" height="21"/>
+                                <rect key="frame" x="169" y="59" width="68" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -329,6 +344,7 @@ Please note that some parameters are interdependent and changing one will change
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="406" height="320"/>
                     <connections>
+                        <outlet property="_distanceLabel" destination="wDy-gz-Y0I" id="4BO-LI-BqP"/>
                         <outlet property="_stepCountContainer" destination="Phn-bG-xgF" id="6MT-dw-Tsa"/>
                     </connections>
                 </viewController>
@@ -345,22 +361,29 @@ Please note that some parameters are interdependent and changing one will change
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step Size" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a4o-9O-GY4">
-                                <rect key="frame" x="0.0" y="30" width="406" height="30"/>
+                                <rect key="frame" x="60" y="25" width="286" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" id="SfP-tP-jQG" userLabel="Step size container">
-                                <rect key="frame" x="103" y="100" width="200" height="200"/>
+                                <rect key="frame" x="113" y="88" width="180" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(degrees)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bFu-o3-sJy">
-                                <rect key="frame" x="168" y="70" width="71" height="21"/>
+                                <rect key="frame" x="168" y="59" width="71" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="20" id="CWv-m4-EYb">
+                                <rect key="frame" x="20" y="276" width="366" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -371,6 +394,7 @@ Please note that some parameters are interdependent and changing one will change
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="406" height="320"/>
                     <connections>
+                        <outlet property="_distanceLabel" destination="CWv-m4-EYb" id="dUR-xC-9f2"/>
                         <outlet property="_stepSizeContainer" destination="SfP-tP-jQG" id="H1K-OS-1c8"/>
                     </connections>
                 </viewController>
@@ -387,17 +411,17 @@ Please note that some parameters are interdependent and changing one will change
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start &amp; End Tilt" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FKB-Ia-upB">
-                                <rect key="frame" x="0.0" y="30" width="406" height="36"/>
+                                <rect key="frame" x="60" y="25" width="286" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(degrees)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1JR-Tj-Kko">
-                                <rect key="frame" x="0.0" y="68" width="406" height="21"/>
+                                <rect key="frame" x="0.0" y="59" width="406" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>

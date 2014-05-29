@@ -13,43 +13,50 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steps" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nDq-Tc-oTc">
-                                <rect key="frame" x="159" y="166" width="171" height="50"/>
+                                <rect key="frame" x="159" y="146" width="171" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step Size" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dWm-k4-2OP">
-                                <rect key="frame" x="533" y="166" width="186" height="50"/>
+                                <rect key="frame" x="533" y="146" width="186" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(number)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="O6K-Ag-szU">
-                                <rect key="frame" x="209" y="224" width="68" height="21"/>
+                                <rect key="frame" x="209" y="203.5" width="68" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(degrees)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2hT-B1-JMs">
-                                <rect key="frame" x="591" y="224" width="71" height="21"/>
+                                <rect key="frame" x="591" y="203.5" width="71" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" id="cCL-eX-14q" userLabel="Distance container">
-                                <rect key="frame" x="80" y="288" width="320" height="320"/>
+                                <rect key="frame" x="80" y="268" width="320" height="320"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="Jno-5I-ij0" userLabel="Step size container">
-                                <rect key="frame" x="462" y="288" width="320" height="320"/>
+                                <rect key="frame" x="462" y="268" width="320" height="320"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total distance:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MUc-80-4pN">
+                                <rect key="frame" x="115" y="665" width="633" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -58,6 +65,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="862" height="768"/>
                     <connections>
+                        <outlet property="_distanceLabel" destination="MUc-80-4pN" id="qjZ-Qh-BZ6"/>
                         <outlet property="_stepCountContainer" destination="cCL-eX-14q" id="XOd-NQ-95C"/>
                         <outlet property="_stepSizeContainer" destination="Jno-5I-ij0" id="rsc-gv-LpA"/>
                     </connections>
@@ -75,7 +83,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" id="ZOf-26-pmG">
-                                <rect key="frame" x="0.0" y="384" width="862" height="216"/>
+                                <rect key="frame" x="0.0" y="292" width="862" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="ncr-gY-u5L" id="NN3-vf-juF"/>
@@ -83,14 +91,21 @@
                                 </connections>
                             </pickerView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(hours:minutes:seconds)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YWb-14-b4k">
-                                <rect key="frame" x="337" y="240" width="188" height="21"/>
+                                <rect key="frame" x="337" y="213" width="188" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording time " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aAl-bG-Cy3">
-                                <rect key="frame" x="270" y="182" width="323" height="50"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Between Pictures" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aAl-bG-Cy3">
+                                <rect key="frame" x="181" y="155" width="500" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording Time:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="692-FZ-eiu">
+                                <rect key="frame" x="98" y="645" width="666" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -104,7 +119,8 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="862" height="768"/>
                     <connections>
-                        <outlet property="_recordingTimePicker" destination="ZOf-26-pmG" id="xjG-43-yVc"/>
+                        <outlet property="_recordingTimeLabel" destination="692-FZ-eiu" id="SF9-gQ-eHc"/>
+                        <outlet property="_timePicker" destination="ZOf-26-pmG" id="wS8-c7-Kfb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5HY-N3-KnD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -341,11 +357,11 @@ Please note that some parameters are interdependent and changing one will change
                         <outlet property="_captureBtnActive" destination="U7o-fo-53k" id="6kJ-qu-YCt"/>
                         <outlet property="_directionBtn" destination="Mjr-F8-ZV6" id="h51-uN-pRb"/>
                         <outlet property="_helpButton" destination="yWz-Hh-J35" id="m0B-VE-iSZ"/>
-                        <outlet property="_recordingTimeBtn" destination="APJ-d3-MS4" id="GYK-pA-REz"/>
                         <outlet property="_stepSizeBtn" destination="xGu-vL-9uu" id="Mfq-eG-bDI"/>
                         <outlet property="_stepsBtn" destination="eoN-Lv-yEx" id="4kr-y2-Yfh"/>
                         <outlet property="_swivlStatusImg" destination="oWf-df-0gR" id="Bot-yv-96F"/>
                         <outlet property="_tiltBtn" destination="BJN-1d-nsv" id="Vxl-4d-inW"/>
+                        <outlet property="_timeBtn" destination="APJ-d3-MS4" id="XGu-S6-Qqp"/>
                         <outlet property="_timelapseControls" destination="1z8-OZ-cj9" id="JLg-3F-3Lg"/>
                         <outlet property="contentView" destination="AiC-wQ-tzg" id="R5e-NV-xBB"/>
                         <segue destination="BGd-zx-yDw" kind="custom" identifier="ScriptProgress" customClass="SWTimelapsSegue" id="0Ww-cd-wAq"/>
