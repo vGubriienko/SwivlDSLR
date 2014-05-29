@@ -29,7 +29,7 @@ SWAppDelegate *swAppDelegate = nil;
     MVYSideMenuController *_sideBarController;
     
     BOOL _stopForRunningNewScript;
-    BOOL _moveBeforeTimelapse;
+    //BOOL _moveBeforeTimelapse;
 }
 
 @end
@@ -155,28 +155,28 @@ SWAppDelegate *swAppDelegate = nil;
         return;
     }
     
-    if (self.script.timelapseSettings) {
-        _moveBeforeTimelapse = YES;
-        [self prepareForRunningScript];
-    } else {
+//    if (self.script.timelapseSettings) {
+//        _moveBeforeTimelapse = YES;
+//        [self prepareForRunningScript];
+//    } else {
         [self runScript];
-    }
+//    }
 }
 
-- (void)prepareForRunningScript
-{
-    self.scriptState = SWScriptStatePreparing;
-    
-    MotionDescriptor *motionDescriptor = [[MotionDescriptor alloc] init];
-    motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId] + 1;
-    motionDescriptor.axis = AXIS_TILT;
-    motionDescriptor.type = MOVE_TO_ABS_POS;
-    motionDescriptor.steps = self.script.timelapseSettings.startTiltAngle / 0.0088;
-    motionDescriptor.speed = 1000;
-    motionDescriptor.startNow = YES;
-    motionDescriptor.timeoutMs = 0;
-    [swAppDelegate.swivl swivlMoveLoad:motionDescriptor];
-}
+//- (void)prepareForRunningScript
+//{
+//    self.scriptState = SWScriptStatePreparing;
+//    
+//    MotionDescriptor *motionDescriptor = [[MotionDescriptor alloc] init];
+//    motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId] + 1;
+//    motionDescriptor.axis = AXIS_TILT;
+//    motionDescriptor.type = MOVE_TO_ABS_POS;
+//    motionDescriptor.steps = self.script.timelapseSettings.startTiltAngle / 0.0088;
+//    motionDescriptor.speed = 1000;
+//    motionDescriptor.startNow = YES;
+//    motionDescriptor.timeoutMs = 0;
+//    [swAppDelegate.swivl swivlMoveLoad:motionDescriptor];
+//}
 
 - (void)runScript
 {
@@ -219,10 +219,10 @@ SWAppDelegate *swAppDelegate = nil;
 
 - (void)swivlMoveFinished:(int32_t)state withID:(int32_t)ID;
 {
-    if (_moveBeforeTimelapse) {
-        _moveBeforeTimelapse = NO;
-        [self runScript];
-    }
+//    if (_moveBeforeTimelapse) {
+//        _moveBeforeTimelapse = NO;
+//        [self runScript];
+//    }
     NSLog(@"swivlMoveFinished state: %i, ID: %i", (unsigned int)state, (unsigned int)ID);
 }
 
