@@ -35,10 +35,10 @@ static inline SWTimeComponents SWTimeComponentsMake(NSInteger seconds)
 @interface SWTimelapseSettings : NSObject
 
 @property (nonatomic, readonly) NSInteger distance;             //stepCount * stepSize
-@property (nonatomic, readonly) CGFloat timeBetweenPictures;    //recordingTime / stepCount
+@property (nonatomic, readonly) NSInteger recordingTime;        //timeBetweenPictures * stepCount
+@property (nonatomic, assign) NSInteger timeBetweenPictures;
 @property (nonatomic, assign) CGFloat stepSize;
 @property (nonatomic, assign) BOOL clockwiseDirection;
-@property (nonatomic, assign) NSInteger recordingTime;
 @property (nonatomic, assign) NSInteger startTiltAngle;
 @property (nonatomic, assign) NSInteger endTiltAngle;
 @property (nonatomic, assign) NSInteger stepCount;
@@ -46,7 +46,8 @@ static inline SWTimeComponents SWTimeComponentsMake(NSInteger seconds)
 + (NSArray *)availableStepSizes;
 + (NSDictionary *)timeRanges;
 
+- (SWTimeComponents)timeBetweenPicturesComponents;
 - (SWTimeComponents)recordingTimeComponents;
-- (void)setRecordingTimeWithComponents:(SWTimeComponents)recordingTimeComponents;
+- (void)setTimeBetweenPicturesWithComponents:(SWTimeComponents)timeBetweenPicturesComponents;
 
 @end

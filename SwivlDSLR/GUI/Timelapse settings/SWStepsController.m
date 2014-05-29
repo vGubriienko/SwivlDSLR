@@ -17,7 +17,8 @@
 {
     __weak IBOutlet UIView *_stepCountContainer;
     __weak IBOutlet UIView *_stepSizeContainer;
-    
+    __weak IBOutlet UILabel *_distanceLabel;
+
     DKCircularSlider *_stepCountSlider;
     DKCircularSlider *_stepSizeSlider;
     
@@ -38,6 +39,8 @@
     if (_stepSizeContainer) {
         [self initStepSizeSlider];
     }
+    
+    [self reloadDistance];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -83,6 +86,11 @@
     [_stepSizeSlider movehandleToValue:index + 1];
 }
 
+- (void)reloadDistance
+{
+    _distanceLabel.text = [NSString stringWithFormat:@"Total Distance: %li degrees", (long)self.timelapseSettings.distance];
+}
+
 #pragma mark - DKCircularSlider
 
 - (void)stepsCountSliderDidChange:(DKCircularSlider *)stepsSlider
@@ -91,6 +99,7 @@
         return;
     }
     self.timelapseSettings.stepCount = stepsSlider.currentValue;
+    [self reloadDistance];
 }
 
 - (void)stepSizeSliderDidChange:(DKCircularSlider *)stepSizeSlider
@@ -102,6 +111,7 @@
     CGFloat value = [_stepSizes[stepSizeSlider.currentValue - 1] floatValue];
     if (self.timelapseSettings.stepSize != value) {
         self.timelapseSettings.stepSize = value;
+        [self reloadDistance];
     }
 }
 
