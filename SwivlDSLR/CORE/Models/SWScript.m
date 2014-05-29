@@ -95,9 +95,11 @@
     startTiltSwivl = fabsf(startTiltSwivl);
     NSString *startAngleStr = [NSString stringWithFormat:@"%lx%@", (long)startTiltSwivl, startTiltSign];
     
-    CGFloat tiltStep = (CGFloat)(self.timelapseSettings.endTiltAngle - self.timelapseSettings.startTiltAngle) / self.timelapseSettings.stepCount;
-    NSString *tiltStepSign = tiltStep >= 0 ? @"" : @"%";
-    NSInteger tiltStepSwivl = roundf(tiltStep / 0.0088);
+    CGFloat tiltDistance = (self.timelapseSettings.endTiltAngle - self.timelapseSettings.startTiltAngle);
+    CGFloat tiltSwivlDistance = tiltDistance / 0.0088;
+    NSInteger tiltStepSwivl = roundf(tiltSwivlDistance / self.timelapseSettings.stepCount);
+    
+    NSString *tiltStepSign = tiltStepSwivl >= 0 ? @"" : @"%";
     tiltStepSwivl = fabsf(tiltStepSwivl);
     NSString *tiltStepStr = [NSString stringWithFormat:@"%lx%@", (long)tiltStepSwivl, tiltStepSign];
 
@@ -129,9 +131,11 @@
     startTiltSwivl = fabsf(startTiltSwivl);
     NSString *startAngleStr = [NSString stringWithFormat:@"%lx%@", (long)startTiltSwivl, startTiltSign];
     
-    CGFloat tiltStep = (CGFloat)(self.timelapseSettings.endTiltAngle - self.timelapseSettings.startTiltAngle) / self.timelapseSettings.stepCount;
-    NSString *tiltStepSign = tiltStep >= 0 ? @"" : @"%";
-    NSInteger tiltStepSwivl = roundf(tiltStep / 0.0088);
+    CGFloat tiltDistance = (self.timelapseSettings.endTiltAngle - self.timelapseSettings.startTiltAngle);
+    CGFloat tiltSwivlDistance = tiltDistance / 0.0088;
+    NSInteger tiltStepSwivl = roundf(tiltSwivlDistance / self.timelapseSettings.stepCount);
+   
+    NSString *tiltStepSign = tiltStepSwivl >= 0 ? @"" : @"%";
     tiltStepSwivl = fabsf(tiltStepSwivl);
     NSString *tiltStepStr = [NSString stringWithFormat:@"%lx%@", (long)tiltStepSwivl, tiltStepSign];
 
