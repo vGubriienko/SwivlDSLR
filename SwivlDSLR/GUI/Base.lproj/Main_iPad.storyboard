@@ -227,7 +227,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="275°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dZM-Cp-N9u">
-                                        <rect key="frame" x="38" y="366" width="26" height="15"/>
+                                        <rect key="frame" x="26" y="366" width="47" height="15"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.70788663625717163" green="0.70788663625717163" blue="0.70788663625717163" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -289,7 +289,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <inset key="titleEdgeInsets" minX="-60" minY="65" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="-25" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="00:00:01" image="timelapse_tilt.png">
+                                        <state key="normal" title="25  -25" image="timelapse_tilt.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
