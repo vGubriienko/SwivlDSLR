@@ -36,6 +36,8 @@
     __weak IBOutlet UIButton *_captureBtn, *_captureBtnActive;
     __weak IBOutlet UIImageView *_batteryLevelImg;
     __weak IBOutlet UIImageView *_swivlStatusImg;
+    __weak IBOutlet UILabel *_distanceLabel;
+    __weak IBOutlet UILabel *_recordingTimeLabel;
     
     SWTimelapseSettings *_timelapseSettings;
     UIViewController <SWContentControllerDelegate> *_currentContentController;
@@ -137,7 +139,9 @@
     _tiltBtn.enabled = NO;
     _helpButton.enabled = NO;
     _directionBtn.enabled = NO;
-
+    _recordingTimeLabel.hidden = YES;
+    _distanceLabel.hidden = YES;
+    
     _captureBtnActive.hidden = NO;
     _captureBtnActive.alpha = 1.0;
     [UIView animateWithDuration:0.5
@@ -161,6 +165,8 @@
     _timeBtn.enabled = YES;
     _tiltBtn.enabled = YES;
     _helpButton.enabled = YES;
+    _recordingTimeLabel.hidden = NO;
+    _distanceLabel.hidden = NO;
     
     _captureBtnActive.hidden = YES;
     [_captureBtnActive.layer removeAllAnimations];
@@ -250,6 +256,7 @@
         [_stepsBtn setTitle:[NSString stringWithFormat:@"%li", (long)_timelapseSettings.stepCount] forState:UIControlStateNormal];
         
         [_stepSizeBtn setTitle:[NSString stringWithFormat:@"%.2f", _timelapseSettings.stepSize] forState:UIControlStateNormal];
+        [_distanceLabel setText:[NSString stringWithFormat:@"%d°", _timelapseSettings.distance]];
         
         NSString *strTime = [NSString stringWithFormat:@"%li - %li", (long)_timelapseSettings.startTiltAngle, (long)_timelapseSettings.endTiltAngle];
         [_tiltBtn setTitle:strTime forState:UIControlStateNormal];
@@ -257,6 +264,9 @@
         SWTimeComponents timeComps = [_timelapseSettings timeBetweenPicturesComponents];
         strTime = [NSString stringWithFormat:@"%.2li:%.2li:%.2li", (long)timeComps.hours, (long)timeComps.minutes, (long)timeComps.seconds];
         [_timeBtn setTitle:strTime forState:UIControlStateNormal];
+        timeComps = [_timelapseSettings recordingTimeComponents];
+        strTime = [NSString stringWithFormat:@"%.2li:%.2li:%.2li", (long)timeComps.hours, (long)timeComps.minutes, (long)timeComps.seconds];
+        [_recordingTimeLabel setText:strTime];
         
         _directionBtn.selected = !_timelapseSettings.clockwiseDirection;
         

@@ -138,6 +138,20 @@
                                             <action selector="onInfoBtnTapped" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8Le-Bj-HTy"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="275°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uDe-hY-syg">
+                                        <rect key="frame" x="23" y="140" width="53" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="0.29211336678832117" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:55:08" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wJw-8M-TtN">
+                                        <rect key="frame" x="23" y="156" width="53" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="0.29211336678832117" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.070588235289999995" green="0.074509803920000006" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -198,8 +212,10 @@ Please note that some parameters are interdependent and changing one will change
                         <outlet property="_captureBtn" destination="KzJ-nb-XFy" id="Ui7-Be-ptv"/>
                         <outlet property="_captureBtnActive" destination="iJa-59-w95" id="2Dl-5U-Yoz"/>
                         <outlet property="_directionBtn" destination="tFC-Hu-7Oi" id="4Ua-NN-qP2"/>
+                        <outlet property="_distanceLabel" destination="uDe-hY-syg" id="Btg-6w-ORm"/>
                         <outlet property="_helpButton" destination="ZCo-6X-1wD" id="sTG-iR-j4J"/>
                         <outlet property="_infoTextView" destination="oBu-YV-4Fp" id="nap-Gy-AlA"/>
+                        <outlet property="_recordingTimeLabel" destination="wJw-8M-TtN" id="Hc4-O7-BAG"/>
                         <outlet property="_stepSizeBtn" destination="EYn-id-Ddj" id="aJl-h1-ax1"/>
                         <outlet property="_stepsBtn" destination="U5R-kl-DxV" id="F3C-Jt-fB9"/>
                         <outlet property="_swivlStatusImg" destination="fL1-6N-TkC" id="uKu-Sy-5uV"/>
@@ -426,14 +442,14 @@ Please note that some parameters are interdependent and changing one will change
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="IE0-PN-U6s">
-                                <rect key="frame" x="0.0" y="184.5" width="203" height="31"/>
+                                <rect key="frame" x="0.0" y="185" width="203" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="onStartAngleValueChanged" destination="sU1-z7-jpm" eventType="valueChanged" id="eIZ-CX-wbX"/>
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="UbP-95-2uF">
-                                <rect key="frame" x="203" y="184.5" width="203" height="31"/>
+                                <rect key="frame" x="203" y="185" width="203" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="onEndAngleValueChanged" destination="sU1-z7-jpm" eventType="valueChanged" id="y1F-4y-OBV"/>
