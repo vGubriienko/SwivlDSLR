@@ -81,6 +81,8 @@
     [super viewWillDisappear:animated];
     
     [self finishObserving];
+    
+    [self saveSettings];
 }
 
 #pragma mark - IBActions
@@ -256,9 +258,9 @@
         [_stepsBtn setTitle:[NSString stringWithFormat:@"%li", (long)_timelapseSettings.stepCount] forState:UIControlStateNormal];
         
         [_stepSizeBtn setTitle:[NSString stringWithFormat:@"%.2f", _timelapseSettings.stepSize] forState:UIControlStateNormal];
-        [_distanceLabel setText:[NSString stringWithFormat:@"%d°", _timelapseSettings.distance]];
+        [_distanceLabel setText:[NSString stringWithFormat:@"%li°", (long)_timelapseSettings.distance]];
         
-        NSString *strTime = [NSString stringWithFormat:@"%li - %li", (long)_timelapseSettings.startTiltAngle, (long)_timelapseSettings.endTiltAngle];
+        NSString *strTime = [NSString stringWithFormat:@"%li  %li", (long)_timelapseSettings.startTiltAngle, (long)_timelapseSettings.endTiltAngle];
         [_tiltBtn setTitle:strTime forState:UIControlStateNormal];
         
         SWTimeComponents timeComps = [_timelapseSettings timeBetweenPicturesComponents];
@@ -269,8 +271,6 @@
         [_recordingTimeLabel setText:strTime];
         
         _directionBtn.selected = !_timelapseSettings.clockwiseDirection;
-        
-        [self saveSettings];
     }
 }
 
@@ -378,6 +378,8 @@
 - (void)dealloc
 {
     [self finishObserving];
+    
+    [self saveSettings];
 }
 
 - (void)didReceiveMemoryWarning
