@@ -106,7 +106,7 @@
 - (NSString *)generateScriptForUSBTimelapse
 {
     NSInteger timeBtwPictures = self.timelapseSettings.timeBetweenPictures * 1000;
-    NSInteger speed = 800; //MAX
+    NSInteger speed = 800;
     NSInteger timeForStartPosition = SW_SCRIPT_TIME_FOR_START_TILT * 1000;
 
     NSString *scriptTemplate;
