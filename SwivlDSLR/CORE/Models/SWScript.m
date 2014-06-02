@@ -72,7 +72,7 @@
 
 - (NSInteger)scriptDuration
 {
-    return self.timelapseSettings.recordingTime + self.timelapseSettings.timeBetweenPictures;
+    return self.timelapseSettings.recordingTime + SW_SCRIPT_TIME_FOR_START_TILT;
 }
 
 #pragma mark - Private methods
@@ -87,6 +87,7 @@
     }
     
     NSInteger speed = 800;
+    NSInteger timeForStartPosition = SW_SCRIPT_TIME_FOR_START_TILT * 1000;
 
     NSString *script = [NSString stringWithFormat: [self scriptTemplateForTriggerTimelapse],
                         (long)self.timelapseSettings.stepCount,
@@ -96,7 +97,8 @@
                         [self startTiltParameter],
                         [self tiltStepParameter],
                         (long)holdShutterTime,
-                        (long)protectionPause];
+                        (long)protectionPause,
+                        timeForStartPosition];
     return script;
 
 }
@@ -105,7 +107,8 @@
 {
     NSInteger timeBtwPictures = self.timelapseSettings.timeBetweenPictures * 1000;
     NSInteger speed = 800; //MAX
-    
+    NSInteger timeForStartPosition = SW_SCRIPT_TIME_FOR_START_TILT * 1000;
+
     NSString *scriptTemplate;
     NSArray *ptpCommands = self.dslrConfiguration.ptpCommands;
     if (self.dslrConfiguration.ptpCommands.count == 1) {
@@ -120,7 +123,8 @@
                         [self panStepParameter],
                         (long)speed,
                         [self startTiltParameter],
-                        [self tiltStepParameter]];
+                        [self tiltStepParameter],
+                        timeForStartPosition];
     return script;
 }
 

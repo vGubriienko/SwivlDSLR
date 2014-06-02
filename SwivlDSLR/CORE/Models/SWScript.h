@@ -11,6 +11,8 @@
 @class SWTimelapseSettings;
 @class SWDSLRConfiguration;
 
+#define SW_SCRIPT_TIME_FOR_START_TILT 4
+
 @interface SWScript : NSObject
 
 @property (nonatomic, strong) SWTimelapseSettings *timelapseSettings;

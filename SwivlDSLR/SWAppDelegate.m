@@ -368,7 +368,7 @@ SWAppDelegate *swAppDelegate = nil;
         storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     }
     
-    UIViewController *mainVC = [storyboard instantiateViewControllerWithIdentifier:@"SWMainViewController"];
+    UIViewController *mainVC = self.window.rootViewController;
     
     UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:mainVC];
     [navVC setNavigationBarHidden:YES];
