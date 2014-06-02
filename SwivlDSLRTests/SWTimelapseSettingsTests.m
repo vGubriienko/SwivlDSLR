@@ -100,13 +100,24 @@
 
 #pragma mark - Time components
 
+- (void)testRecordigTimeComponents
+{
+    _timelapseSettings.timeBetweenPictures = 5;
+    _timelapseSettings.stepCount = 20;
+
+    SWTimeComponents timeComponents = [_timelapseSettings recordingTimeComponents];
+    XCTAssertEqual(timeComponents.hours, 0, @"Incorrect recordingTime hours");
+    XCTAssertEqual(timeComponents.minutes, 1, @"Incorrect recordingTime minutes");
+    XCTAssertEqual(timeComponents.seconds, 40, @"Incorrect recordingTime seconds");
+}
+
 - (void)testTimeBetweenPicturesComponents
 {
     _timelapseSettings.timeBetweenPictures = 5145;
     SWTimeComponents timeComponents = [_timelapseSettings timeBetweenPicturesComponents];
-    XCTAssertEqual(timeComponents.hours, 1, @"Incorrect recordingTime hours");
-    XCTAssertEqual(timeComponents.minutes, 25, @"Incorrect recordingTime minutes");
-    XCTAssertEqual(timeComponents.seconds, 45, @"Incorrect recordingTime seconds");
+    XCTAssertEqual(timeComponents.hours, 1, @"Incorrect timeBetweenPictures hours");
+    XCTAssertEqual(timeComponents.minutes, 25, @"Incorrect timeBetweenPictures minutes");
+    XCTAssertEqual(timeComponents.seconds, 45, @"Incorrect timeBetweenPictures seconds");
 }
 
 - (void)testSetTimeBetweenPicturesWithComponents
@@ -125,22 +136,22 @@
 
 - (void)testStartTiltDoesNotChangesAfterSettingInvalidValue
 {
-    _timelapseSettings.startTiltAngle = 20;
+    _timelapseSettings.startTiltAngle = -12;
     
-    _timelapseSettings.startTiltAngle = -26;
-    XCTAssertEqual(_timelapseSettings.startTiltAngle, 20, @"Invalid start tilt value");
-    _timelapseSettings.startTiltAngle = 26;
-    XCTAssertEqual(_timelapseSettings.startTiltAngle, 20, @"Invalid start tilt value");
+    _timelapseSettings.startTiltAngle = -13;
+    XCTAssertEqual(_timelapseSettings.startTiltAngle, -12, @"Invalid start tilt value");
+    _timelapseSettings.startTiltAngle = 13;
+    XCTAssertEqual(_timelapseSettings.startTiltAngle, -12, @"Invalid start tilt value");
 }
 
 - (void)testEndTiltDoesNotChangesAfterSettingInvalidValue
 {
-    _timelapseSettings.endTiltAngle = 10;
+    _timelapseSettings.endTiltAngle = 12;
     
-    _timelapseSettings.endTiltAngle = -26;
-    XCTAssertEqual(_timelapseSettings.endTiltAngle, 10, @"Invalid end tilt value");
-    _timelapseSettings.endTiltAngle = 26;
-    XCTAssertEqual(_timelapseSettings.endTiltAngle, 10, @"Invalid end tilt value");
+    _timelapseSettings.endTiltAngle = 13;
+    XCTAssertEqual(_timelapseSettings.endTiltAngle, 12, @"Invalid end tilt value");
+    _timelapseSettings.endTiltAngle = 13;
+    XCTAssertEqual(_timelapseSettings.endTiltAngle, 12, @"Invalid end tilt value");
 }
 
 #pragma mark - Save & Restore
@@ -151,8 +162,8 @@
     _timelapseSettings.stepSize = 0.11;
     _timelapseSettings.timeBetweenPictures = 200;
     _timelapseSettings.clockwiseDirection = YES;
-    _timelapseSettings.startTiltAngle = 10;
-    _timelapseSettings.endTiltAngle = 24;
+    _timelapseSettings.startTiltAngle = -10;
+    _timelapseSettings.endTiltAngle = -12;
     
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:_timelapseSettings];
     _timelapseSettings = (SWTimelapseSettings *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
@@ -161,8 +172,8 @@
     XCTAssertEqualWithAccuracy(_timelapseSettings.stepSize, 0.11, FLT_EPSILON, @"Invalid stepSize value after save & restore");
     XCTAssertEqual(_timelapseSettings.clockwiseDirection, YES, @"Invalid clockwiseDirection value after save & restore");
     XCTAssertEqual(_timelapseSettings.timeBetweenPictures, 200, @"Invalid recordingTime value after save & restore");
-    XCTAssertEqual(_timelapseSettings.startTiltAngle, 10, @"Invalid startTiltAngle value after save & restore");
-    XCTAssertEqual(_timelapseSettings.endTiltAngle, 24, @"Invalid endTiltAngle value after save & restore");
+    XCTAssertEqual(_timelapseSettings.startTiltAngle, -10, @"Invalid startTiltAngle value after save & restore");
+    XCTAssertEqual(_timelapseSettings.endTiltAngle, -12, @"Invalid endTiltAngle value after save & restore");
 }
 
 @end

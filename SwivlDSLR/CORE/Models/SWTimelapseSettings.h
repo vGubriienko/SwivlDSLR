@@ -11,8 +11,8 @@
 #define SW_TIMELAPSE_MIN_STEPCOUNT 1
 #define SW_TIMELAPSE_MAX_STEPCOUNT 3000
 
-#define SW_TIMELAPSE_MIN_TILT -25
-#define SW_TIMELAPSE_MAX_TILT 25
+#define SW_TIMELAPSE_MIN_TILT -12
+#define SW_TIMELAPSE_MAX_TILT 12
 
 typedef struct SWTimeComponents SWTimeComponents;
 
