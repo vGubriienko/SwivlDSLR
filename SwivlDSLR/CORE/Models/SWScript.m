@@ -75,6 +75,8 @@
     return self.timelapseSettings.recordingTime + self.timelapseSettings.timeBetweenPictures;
 }
 
+#pragma mark - Private methods
+
 - (NSString *)generateScriptForTriggerTimelapse
 {
     NSInteger holdShutterTime = 2000;
@@ -84,32 +86,15 @@
         timeBtwPictures = 0;
     }
     
-    NSInteger stepSize = roundf((self.timelapseSettings.stepSize / 0.11) * 4);
-    NSString *direction = self.timelapseSettings.clockwiseDirection ? @"" : @"%";
-    NSString *stepSizeStr = [NSString stringWithFormat:@"%lx%@", (long)stepSize, direction];
-    
-    NSInteger speed = 2000; //MAX
-    
-    NSString *startTiltSign = self.timelapseSettings.startTiltAngle >= 0 ? @"" : @"%";
-    NSInteger startTiltSwivl = roundf(self.timelapseSettings.startTiltAngle / 0.0088);
-    startTiltSwivl = fabsf(startTiltSwivl);
-    NSString *startAngleStr = [NSString stringWithFormat:@"%lx%@", (long)startTiltSwivl, startTiltSign];
-    
-    CGFloat tiltDistance = (self.timelapseSettings.endTiltAngle - self.timelapseSettings.startTiltAngle);
-    CGFloat tiltSwivlDistance = tiltDistance / 0.0088;
-    NSInteger tiltStepSwivl = roundf(tiltSwivlDistance / self.timelapseSettings.stepCount);
-    
-    NSString *tiltStepSign = tiltStepSwivl >= 0 ? @"" : @"%";
-    tiltStepSwivl = fabsf(tiltStepSwivl);
-    NSString *tiltStepStr = [NSString stringWithFormat:@"%lx%@", (long)tiltStepSwivl, tiltStepSign];
+    NSInteger speed = 800;
 
     NSString *script = [NSString stringWithFormat: [self scriptTemplateForTriggerTimelapse],
                         (long)self.timelapseSettings.stepCount,
                         (long)timeBtwPictures,
-                        stepSizeStr,
+                        [self panStepParameter],
                         (long)speed,
-                        startAngleStr,
-                        tiltStepStr,
+                        [self startTiltParameter],
+                        [self tiltStepParameter],
                         (long)holdShutterTime,
                         (long)protectionPause];
     return script;
@@ -119,26 +104,8 @@
 - (NSString *)generateScriptForUSBTimelapse
 {
     NSInteger timeBtwPictures = self.timelapseSettings.timeBetweenPictures * 1000;
+    NSInteger speed = 800; //MAX
     
-    NSInteger stepSize = roundf((self.timelapseSettings.stepSize / 0.11) * 4);
-    NSString *direction = self.timelapseSettings.clockwiseDirection ? @"" : @"%";
-    NSString *stepSizeStr = [NSString stringWithFormat:@"%lx%@", (long)stepSize, direction];
-    
-    NSInteger speed = 2000; //MAX
-    
-    NSString *startTiltSign = self.timelapseSettings.startTiltAngle >= 0 ? @"" : @"%";
-    NSInteger startTiltSwivl = roundf(self.timelapseSettings.startTiltAngle / 0.0088);
-    startTiltSwivl = fabsf(startTiltSwivl);
-    NSString *startAngleStr = [NSString stringWithFormat:@"%lx%@", (long)startTiltSwivl, startTiltSign];
-    
-    CGFloat tiltDistance = (self.timelapseSettings.endTiltAngle - self.timelapseSettings.startTiltAngle);
-    CGFloat tiltSwivlDistance = tiltDistance / 0.0088;
-    NSInteger tiltStepSwivl = roundf(tiltSwivlDistance / self.timelapseSettings.stepCount);
-   
-    NSString *tiltStepSign = tiltStepSwivl >= 0 ? @"" : @"%";
-    tiltStepSwivl = fabsf(tiltStepSwivl);
-    NSString *tiltStepStr = [NSString stringWithFormat:@"%lx%@", (long)tiltStepSwivl, tiltStepSign];
-
     NSString *scriptTemplate;
     NSArray *ptpCommands = self.dslrConfiguration.ptpCommands;
     if (self.dslrConfiguration.ptpCommands.count == 1) {
@@ -150,10 +117,10 @@
     NSString *script = [NSString stringWithFormat:scriptTemplate,
                         (long)self.timelapseSettings.stepCount,
                         (long)timeBtwPictures,
-                        stepSizeStr,
+                        [self panStepParameter],
                         (long)speed,
-                        startAngleStr,
-                        tiltStepStr];
+                        [self startTiltParameter],
+                        [self tiltStepParameter]];
     return script;
 }
 
@@ -174,6 +141,38 @@
     }
     
     return script;
+}
+
+- (NSString *)startTiltParameter
+{
+    NSString *startTiltSign = self.timelapseSettings.startTiltAngle >= 0 ? @"" : @"%";
+    NSInteger startTiltSwivl = roundf(self.timelapseSettings.startTiltAngle / 0.0088);
+    startTiltSwivl = fabsf(startTiltSwivl);
+    NSString *startAngleStr = [NSString stringWithFormat:@"%lx%@", (long)startTiltSwivl, startTiltSign];
+    
+    return startAngleStr;
+}
+
+- (NSString *)tiltStepParameter
+{
+    CGFloat tiltDistance = (self.timelapseSettings.endTiltAngle - self.timelapseSettings.startTiltAngle);
+    CGFloat tiltSwivlDistance = tiltDistance / 0.0088;
+    NSInteger tiltStepSwivl = roundf(tiltSwivlDistance / self.timelapseSettings.stepCount);
+    
+    NSString *tiltStepSign = tiltStepSwivl >= 0 ? @"" : @"%";
+    tiltStepSwivl = fabsf(tiltStepSwivl);
+    NSString *tiltStepStr = [NSString stringWithFormat:@"%lx%@", (long)tiltStepSwivl, tiltStepSign];
+    
+    return tiltStepStr;
+}
+
+- (NSString *)panStepParameter
+{
+    NSInteger stepSize = roundf((self.timelapseSettings.stepSize / 0.11) * 4);
+    NSString *direction = self.timelapseSettings.clockwiseDirection ? @"" : @"%";
+    NSString *stepSizeStr = [NSString stringWithFormat:@"%lx%@", (long)stepSize, direction];
+    
+    return stepSizeStr;
 }
 
 @end
