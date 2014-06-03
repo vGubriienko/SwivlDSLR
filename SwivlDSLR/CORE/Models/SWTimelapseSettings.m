@@ -60,9 +60,10 @@
     static NSArray *array = nil;
     if (!array) {
         NSMutableArray *tempArray = [NSMutableArray arrayWithCapacity:20];
-        for (double i = 0.11; i <= 11.0; i+= 0.11) {
+        for (double i = 0.11; i < 20.0; i+= 0.0275) {
             [tempArray addObject:[NSNumber numberWithFloat:i]];
         }
+        [tempArray addObject:@20.0];
         array = [tempArray copy];
     }
     return array;
