@@ -67,7 +67,8 @@
     _stepSizes = [SWTimelapseSettings availableStepSizes];
     NSMutableArray *elements = [@[] mutableCopy];
     [_stepSizes enumerateObjectsUsingBlock:^(NSNumber *obj, NSUInteger idx, BOOL *stop) {
-        [elements addObject:[obj stringValue]];
+        CGFloat step = [obj floatValue];
+        [elements addObject:[NSString stringWithFormat:@"%.2f", step]];
     }];
     
     _stepSizeSlider = [[DKCircularSlider alloc] initWithFrame:_stepSizeContainer.bounds
