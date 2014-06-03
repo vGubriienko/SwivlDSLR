@@ -86,14 +86,14 @@
 
 - (void)testDistanceCalculatesCorrectly
 {
-    _timelapseSettings.stepCount = 10;
-    _timelapseSettings.stepSize = 0.11;
-    XCTAssertEqual(_timelapseSettings.distance, 1, @"Wrong distance");
+    _timelapseSettings.stepCount = 11;
+    _timelapseSettings.stepSize = 10.01;
+    XCTAssertEqual(_timelapseSettings.distance, 100, @"Wrong distance");
 }
 
 - (void)testDistanceIsRounded
 {
-    _timelapseSettings.stepCount = 10;
+    _timelapseSettings.stepCount = 11;
     _timelapseSettings.stepSize = 10.89;
     XCTAssertEqual(_timelapseSettings.distance, 109, @"Wrong distance");
 }

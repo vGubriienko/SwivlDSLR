@@ -90,7 +90,7 @@
     NSInteger timeForStartPosition = SW_SCRIPT_TIME_FOR_START_TILT * 1000;
 
     NSString *script = [NSString stringWithFormat: [self scriptTemplateForTriggerTimelapse],
-                        (long)self.timelapseSettings.stepCount,
+                        (long)self.timelapseSettings.stepCount - 1,
                         (long)timeBtwPictures,
                         [self panStepParameter],
                         (long)speed,
@@ -118,7 +118,7 @@
     }
     
     NSString *script = [NSString stringWithFormat:scriptTemplate,
-                        (long)self.timelapseSettings.stepCount,
+                        (long)self.timelapseSettings.stepCount - 1,
                         (long)timeBtwPictures,
                         [self panStepParameter],
                         (long)speed,

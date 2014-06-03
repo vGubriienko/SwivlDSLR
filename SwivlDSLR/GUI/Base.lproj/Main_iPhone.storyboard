@@ -170,21 +170,18 @@
                                         <rect key="frame" x="15" y="64" width="376" height="256"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <string key="text">1. Make sure Swivl is on and has Bluetooth connection with your iOS device.
+                                        <mutableString key="text">1. Make sure Swivl is on and has Bluetooth connection with your iOS device.
 
 2. Set DSLR camera on Swivl and connect it via USB or Trigger port. Select corresponding camera interface in "Swivl settings" menu.
 
 3. Select the necessary time-lapse parameters:
-    a. Distance – time-lapse path in degrees;
+    a. Shots – number of shots in time-lapse;
     b. Step size – number of degrees in each step;
     c. Direction - clock or counter clock rotation;
-    d. Recording time – total time-lapse duration;
-    e. Time between pictures.
-Please note that some parameters are interdependent and changing one will change the other.
-
+    d. Time between pictures;     e. Start &amp; end tilt. 
 4. To start time-lapse photography tap on capture button.
 
-5. Enjoy :-)</string>
+5. Enjoy :-)</mutableString>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -326,7 +323,7 @@ Please note that some parameters are interdependent and changing one will change
                         <rect key="frame" x="0.0" y="0.0" width="406" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steps" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cqh-pH-iEc">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shots" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cqh-pH-iEc">
                                 <rect key="frame" x="60" y="25" width="286" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>

@@ -125,7 +125,7 @@
 
 - (NSInteger)distance
 {
-    return (NSInteger)roundf(self.stepCount * self.stepSize);
+    return (NSInteger)roundf((self.stepCount - 1) * self.stepSize);
 }
 
 - (NSInteger)recordingTime
