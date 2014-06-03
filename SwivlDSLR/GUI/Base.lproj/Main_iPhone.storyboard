@@ -175,7 +175,7 @@
 2. Set DSLR camera on Swivl and connect it via USB or Trigger port. Select corresponding camera interface in "Swivl settings" menu.
 
 3. Select the necessary time-lapse parameters:
-    a. Shots – number of shots in time-lapse;
+    a. Images – number of shots in time-lapse;
     b. Step size – number of degrees in each step;
     c. Direction - clock or counter clock rotation;
     d. Time between pictures;     e. Start &amp; end tilt. 
@@ -323,7 +323,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="406" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shots" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cqh-pH-iEc">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Images" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cqh-pH-iEc">
                                 <rect key="frame" x="60" y="25" width="286" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
