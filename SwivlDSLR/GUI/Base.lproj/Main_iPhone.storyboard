@@ -175,10 +175,12 @@
 2. Set DSLR camera on Swivl and connect it via USB or Trigger port. Select corresponding camera interface in "Swivl settings" menu.
 
 3. Select the necessary time-lapse parameters:
-    a. Images – number of shots in time-lapse;
-    b. Step size – number of degrees in each step;
-    c. Direction - clock or counter clock rotation;
-    d. Time between pictures;     e. Start &amp; end tilt. 
+   a. Images - total number of images (shutter activations);
+   b. Step Size - number of degrees to rotate by per step;
+   c. Direction - clockwise or counter-clockwise rotation;
+   d. Time Between Pictures - time interval (h:m:s) per step;
+   e. Start &amp; End Tilt - beginning and final tilt angles in degrees [-12..+12];
+   Please note that total rotation angle in degrees and total time-lapse time are displayed inside round capture button. These values are not directly adjustable, but they are recalculated and updated with every change of adjustable parameters. 
 4. To start time-lapse photography tap on capture button.
 
 5. Enjoy :-)</mutableString>
