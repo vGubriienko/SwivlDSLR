@@ -14,10 +14,12 @@
 {
     self = [super init];
     if (self) {
-        self.distance = 90;
+        self.stepCount = 9;
         self.stepSize = 11.0;
         self.clockwiseDirection = YES;
-        self.timeBetweenPictures = 5.0;
+        self.timeBetweenPictures = 5;
+        self.startTiltAngle = (SW_TIMELAPSE_MAX_TILT - SW_TIMELAPSE_MIN_TILT) / 2;
+        self.endTiltAngle = self.startTiltAngle;
     }
     return self;
 }
@@ -27,10 +29,16 @@
     self = [super init];
     if(self) {
         _stepSize = [[decoder decodeObjectForKey:@"stepSize"] floatValue];
-        _distance = [[decoder decodeObjectForKey:@"distance"] integerValue];
-        _recordingTime = [[decoder decodeObjectForKey:@"recordingTime"] floatValue];
+        NSInteger distance = [[decoder decodeObjectForKey:@"distance"] integerValue];
+        if (distance > 0) {
+            _stepCount = (NSInteger)roundf(distance / _stepSize);
+        } else {
+            _stepCount = [[decoder decodeObjectForKey:@"stepCount"] integerValue];
+        }
+        _timeBetweenPictures = [[decoder decodeObjectForKey:@"timeBetweenPictures"] integerValue];
         _clockwiseDirection = [[decoder decodeObjectForKey:@"clockwiseDirection"] boolValue];
-        _timeBetweenPictures = [[decoder decodeObjectForKey:@"timeBetweenPictures"] floatValue];
+        _startTiltAngle = [[decoder decodeObjectForKey:@"startTiltAngle"] integerValue];
+        _endTiltAngle = [[decoder decodeObjectForKey:@"endTiltAngle"] integerValue];
     }
     return self;
 }
@@ -38,10 +46,11 @@
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
     [encoder encodeObject:[NSNumber numberWithFloat:_stepSize] forKey:@"stepSize"];
-    [encoder encodeObject:[NSNumber numberWithInteger:_distance] forKey:@"distance"];
-    [encoder encodeObject:[NSNumber numberWithFloat:_recordingTime] forKey:@"recordingTime"];
+    [encoder encodeObject:[NSNumber numberWithInteger:_stepCount] forKey:@"stepCount"];
+    [encoder encodeObject:[NSNumber numberWithInteger:_timeBetweenPictures] forKey:@"timeBetweenPictures"];
     [encoder encodeObject:[NSNumber numberWithBool:_clockwiseDirection] forKey:@"clockwiseDirection"];
-    [encoder encodeObject:[NSNumber numberWithFloat:_timeBetweenPictures] forKey:@"timeBetweenPictures"];
+    [encoder encodeObject:[NSNumber numberWithInteger:_startTiltAngle] forKey:@"startTiltAngle"];
+    [encoder encodeObject:[NSNumber numberWithInteger:_endTiltAngle] forKey:@"endTiltAngle"];
 }
 
 #pragma mark - Public methods
@@ -51,9 +60,10 @@
     static NSArray *array = nil;
     if (!array) {
         NSMutableArray *tempArray = [NSMutableArray arrayWithCapacity:20];
-        for (double i = 0.11; i <= 11.0; i+= 0.11) {
+        for (double i = 0.11; i < 20.0; i+= 0.0275) {
             [tempArray addObject:[NSNumber numberWithFloat:i]];
         }
+        [tempArray addObject:@20.0];
         array = [tempArray copy];
     }
     return array;
@@ -78,41 +88,23 @@
     return dict;
 }
 
-- (SWTimeComponents)recordingTimeComponents
-{
-    return SWTimeComponentsMake(self.recordingTime);
-}
-
 - (SWTimeComponents)timeBetweenPicturesComponents
 {
     return SWTimeComponentsMake(self.timeBetweenPictures);
 }
 
-- (void)setRecordingTimeWithComponents:(SWTimeComponents)recordingTimeComponents
+- (SWTimeComponents)recordingTimeComponents
 {
-    CGFloat seconds = recordingTimeComponents.hours * 3600 + recordingTimeComponents.minutes * 60 + recordingTimeComponents.seconds;
-    self.recordingTime = seconds;
+    return SWTimeComponentsMake(self.recordingTime);
 }
 
-- (void)setTimeBetweenPicturesWithComponents:(SWTimeComponents)timeBtwnPicturesComponents
+- (void)setTimeBetweenPicturesWithComponents:(SWTimeComponents)timeBetweenPicturesComponents
 {
-    CGFloat seconds = timeBtwnPicturesComponents.hours * 3600 + timeBtwnPicturesComponents.minutes * 60 + timeBtwnPicturesComponents.seconds;
+    NSInteger seconds = timeBetweenPicturesComponents.hours * 3600 + timeBetweenPicturesComponents.minutes * 60 + timeBetweenPicturesComponents.seconds;
     self.timeBetweenPictures = seconds;
 }
 
 #pragma mark - Properties
-
-- (void)setDistance:(NSInteger)distance
-{
-    if (distance >= SW_TIMELAPSE_MIN_DISTANCE && distance <= SW_TIMELAPSE_MAX_DISTANCE) {
-        _distance = distance;
-        
-        if (_distance < self.stepSize) {
-            self.stepSize = [self maxStepSizeForDistance:distance];
-        }
-        [self recalculateTimeBtwnPictures];
-    }
-}
 
 - (void)setStepSize:(CGFloat)stepSize
 {
@@ -122,77 +114,50 @@
     
     if (isStepSizeAvailable) {
         _stepSize = stepSize;
-        
-        if (stepSize > self.distance && stepSize <= SW_TIMELAPSE_MAX_DISTANCE) {
-            self.distance = ceilf(stepSize);
-        }
-        [self recalculateTimeBtwnPictures];
     }
 }
 
-- (void)setTimeBetweenPictures:(CGFloat)timeBetweenPictures
+- (void)setStepCount:(NSInteger)stepCount
 {
-    _timeBetweenPictures = timeBetweenPictures;
-    [self recalculateRecordingTime];
+    if (stepCount >= SW_TIMELAPSE_MIN_STEPCOUNT && stepCount <= SW_TIMELAPSE_MAX_STEPCOUNT) {
+        _stepCount = stepCount;
+    }
 }
 
-- (void)setRecordingTime:(CGFloat)recordingTime
+- (NSInteger)distance
 {
-    _recordingTime = recordingTime;
-    [self recalculateTimeBtwnPictures];
+    return (NSInteger)roundf((self.stepCount - 1) * self.stepSize);
 }
 
-- (NSInteger)stepCount
+- (NSInteger)recordingTime
 {
-    return (NSInteger)roundf(self.distance / self.stepSize);
+    return self.stepCount * self.timeBetweenPictures;
 }
 
-#pragma mark - Private methods
-
-- (CGFloat)maxStepSizeForDistance:(NSInteger)distance
+- (void)setStartTiltAngle:(NSInteger)startTiltAngle
 {
-    __block CGFloat stepSize;
-    
-    NSArray *availableStepSizes = [SWTimelapseSettings availableStepSizes].reverseObjectEnumerator.allObjects;
-    [availableStepSizes enumerateObjectsUsingBlock:^(NSNumber *obj, NSUInteger idx, BOOL *stop) {
-        stepSize = obj.floatValue;
-        if (stepSize < distance) {
-            (*stop) = YES;
-        }
-    }];
-    return stepSize;
+    if (startTiltAngle >= SW_TIMELAPSE_MIN_TILT && startTiltAngle <= SW_TIMELAPSE_MAX_TILT) {
+        _startTiltAngle = startTiltAngle;
+    }
 }
 
-- (void)recalculateTimeBtwnPictures
+- (void)setEndTiltAngle:(NSInteger)endTiltAngle
 {
-    _timeBetweenPictures = _recordingTime / self.stepCount;
-}
-
-- (void)recalculateRecordingTime
-{
-    _recordingTime = roundf(_timeBetweenPictures * self.stepCount);
+    if (endTiltAngle >= SW_TIMELAPSE_MIN_TILT && endTiltAngle <= SW_TIMELAPSE_MAX_TILT) {
+        _endTiltAngle = endTiltAngle;
+    }
 }
 
 #pragma mark - Dependencies
 
-+ (NSSet *)keyPathsForValuesAffectingTimeBetweenPictures
-{
-    return [NSSet setWithObject:@"recordingTime"];
-}
-
 + (NSSet *)keyPathsForValuesAffectingRecordingTime
 {
-    return [NSSet setWithObject:@"timeBetweenPictures"];
-}
-
-+ (NSSet *)keyPathsForValuesAffectingStepSize
-{
-    return [NSSet setWithObject:@"timeBetweenPictures"];
+    return [NSSet setWithObjects:@"timeBetweenPictures", @"stepCount", nil];
 }
 
 + (NSSet *)keyPathsForValuesAffectingDistance
 {
-    return [NSSet setWithObject:@"timeBetweenPictures"];
+    return [NSSet setWithObjects:@"stepCount", @"stepSize", nil];
 }
 
 @end

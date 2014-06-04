@@ -17,8 +17,6 @@
 {
     __weak IBOutlet UIImageView *_batteryLevelImg;
     __weak IBOutlet UIImageView *_swivlStatusImg;
-
-    NSTimer *_observeBatteryLevelTimer;
 }
 
 @end
@@ -63,119 +61,111 @@
 
 - (IBAction)onLeftBtnStart:(id)sender
 {
-    MotionDescriptor *_motionDescriptor = [[MotionDescriptor alloc] init];
-    _motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId]+1;
-    _motionDescriptor.axis = AXIS_PAN;
-    _motionDescriptor.type = MOVE_TO_REL_POS;
-    _motionDescriptor.steps = -80000;
-    _motionDescriptor.speed = 2000;
-    _motionDescriptor.startNow = YES;
-    _motionDescriptor.timeoutMs = 0;
-    [swAppDelegate.swivl swivlMoveLoad:_motionDescriptor];
+    MotionDescriptor *motionDescriptor = [[MotionDescriptor alloc] init];
+    motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId] + 1;
+    motionDescriptor.axis = AXIS_PAN;
+    motionDescriptor.type = MOVE_TO_REL_POS;
+    motionDescriptor.steps = -80000;
+    motionDescriptor.speed = 2000;
+    motionDescriptor.startNow = YES;
+    motionDescriptor.timeoutMs = 0;
+    [swAppDelegate.swivl swivlMoveLoad:motionDescriptor];
 }
 
 - (IBAction)onLeftBtnStop:(id)sender
 {
-    MotionDescriptor *_motionDescriptor = [[MotionDescriptor alloc] init];
-    _motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId]+1;
-    _motionDescriptor.axis = AXIS_PAN;
-    _motionDescriptor.type = MOVE_TO_REL_POS;
-    _motionDescriptor.steps = -4;
-    _motionDescriptor.speed = 1000;
-    _motionDescriptor.startNow = YES;
-    _motionDescriptor.timeoutMs = 0;
-    
-    [swAppDelegate.swivl swivlMoveLoad:_motionDescriptor];
-    
+    MotionDescriptor *motionDescriptor = [[MotionDescriptor alloc] init];
+    motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId] + 1;
+    motionDescriptor.axis = AXIS_PAN;
+    motionDescriptor.type = MOVE_TO_REL_POS;
+    motionDescriptor.steps = -4;
+    motionDescriptor.speed = 1000;
+    motionDescriptor.startNow = YES;
+    motionDescriptor.timeoutMs = 0;
+    [swAppDelegate.swivl swivlMoveLoad:motionDescriptor];
 }
 
 - (IBAction)onRightBtnStart:(id)sender
 {
-    MotionDescriptor *_motionDescriptor = [[MotionDescriptor alloc] init];
-    _motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId]+1;
-    _motionDescriptor.axis = AXIS_PAN;
-    _motionDescriptor.type = MOVE_TO_REL_POS;
-    _motionDescriptor.steps = 80000;
-    _motionDescriptor.speed = 2000;
-    _motionDescriptor.startNow = YES;
-    _motionDescriptor.timeoutMs = 0;
-    [swAppDelegate.swivl swivlMoveLoad:_motionDescriptor];
+    MotionDescriptor *motionDescriptor = [[MotionDescriptor alloc] init];
+    motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId] + 1;
+    motionDescriptor.axis = AXIS_PAN;
+    motionDescriptor.type = MOVE_TO_REL_POS;
+    motionDescriptor.steps = 80000;
+    motionDescriptor.speed = 2000;
+    motionDescriptor.startNow = YES;
+    motionDescriptor.timeoutMs = 0;
+    [swAppDelegate.swivl swivlMoveLoad:motionDescriptor];
 }
 
 - (IBAction)onRightBtnStop:(id)sender
 {
-    MotionDescriptor *_motionDescriptor = [[MotionDescriptor alloc] init];
-    _motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId]+1;
-    _motionDescriptor.axis = AXIS_PAN;
-    _motionDescriptor.type = MOVE_TO_REL_POS;
-    _motionDescriptor.steps = 4;
-    _motionDescriptor.speed = 1000;
-    _motionDescriptor.startNow = YES;
-    _motionDescriptor.timeoutMs = 0;
-    
-    [swAppDelegate.swivl swivlMoveLoad:_motionDescriptor];
-
+    MotionDescriptor *motionDescriptor = [[MotionDescriptor alloc] init];
+    motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId] + 1;
+    motionDescriptor.axis = AXIS_PAN;
+    motionDescriptor.type = MOVE_TO_REL_POS;
+    motionDescriptor.steps = 4;
+    motionDescriptor.speed = 1000;
+    motionDescriptor.startNow = YES;
+    motionDescriptor.timeoutMs = 0;
+    [swAppDelegate.swivl swivlMoveLoad:motionDescriptor];
 }
 
 - (IBAction)onUpBtnStart:(id)sender
 {
-    MotionDescriptor *_motionDescriptor = [[MotionDescriptor alloc] init];
-    _motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId]+1;
-    _motionDescriptor.axis = AXIS_TILT;
-    _motionDescriptor.type = MOVE_TO_REL_POS;
-    _motionDescriptor.steps = 3000;
-    _motionDescriptor.speed = 400;
-    _motionDescriptor.startNow = YES;
-    _motionDescriptor.timeoutMs = 0;
-    [swAppDelegate.swivl swivlMoveLoad:_motionDescriptor];
+    MotionDescriptor *motionDescriptor = [[MotionDescriptor alloc] init];
+    motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId] + 1;
+    motionDescriptor.axis = AXIS_TILT;
+    motionDescriptor.type = MOVE_TO_REL_POS;
+    motionDescriptor.steps = 3000;
+    motionDescriptor.speed = 400;
+    motionDescriptor.startNow = YES;
+    motionDescriptor.timeoutMs = 0;
+    [swAppDelegate.swivl swivlMoveLoad:motionDescriptor];
 }
 
 - (IBAction)onUpBtnStop:(id)sender
 {
-    MotionDescriptor *_motionDescriptor = [[MotionDescriptor alloc] init];
-    _motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId]+1;
-    _motionDescriptor.axis = AXIS_TILT;
-    _motionDescriptor.type = MOVE_TO_REL_POS;
-    _motionDescriptor.steps = 4;
-    _motionDescriptor.speed = 100;
-    _motionDescriptor.startNow = YES;
-    _motionDescriptor.timeoutMs = 0;
-    
-    [swAppDelegate.swivl swivlMoveLoad:_motionDescriptor];
-    
+    MotionDescriptor *motionDescriptor = [[MotionDescriptor alloc] init];
+    motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId] + 1;
+    motionDescriptor.axis = AXIS_TILT;
+    motionDescriptor.type = MOVE_TO_REL_POS;
+    motionDescriptor.steps = 4;
+    motionDescriptor.speed = 100;
+    motionDescriptor.startNow = YES;
+    motionDescriptor.timeoutMs = 0;
+    [swAppDelegate.swivl swivlMoveLoad:motionDescriptor];
 }
 
 - (IBAction)onDownBtnStart:(id)sender
 {
-    MotionDescriptor *_motionDescriptor = [[MotionDescriptor alloc] init];
-    _motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId]+1;
-    _motionDescriptor.axis = AXIS_TILT;
-    _motionDescriptor.type = MOVE_TO_REL_POS;
-    _motionDescriptor.steps = -3000;
-    _motionDescriptor.speed = 400;
-    _motionDescriptor.startNow = YES;
-    _motionDescriptor.timeoutMs = 0;
-    [swAppDelegate.swivl swivlMoveLoad:_motionDescriptor];
+    MotionDescriptor *motionDescriptor = [[MotionDescriptor alloc] init];
+    motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId] + 1;
+    motionDescriptor.axis = AXIS_TILT;
+    motionDescriptor.type = MOVE_TO_REL_POS;
+    motionDescriptor.steps = -3000;
+    motionDescriptor.speed = 400;
+    motionDescriptor.startNow = YES;
+    motionDescriptor.timeoutMs = 0;
+    [swAppDelegate.swivl swivlMoveLoad:motionDescriptor];
 }
 
 - (IBAction)onDownBtnStop:(id)sender
 {
-    MotionDescriptor *_motionDescriptor = [[MotionDescriptor alloc] init];
-    _motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId]+1;
-    _motionDescriptor.axis = AXIS_TILT;
-    _motionDescriptor.type = MOVE_TO_REL_POS;
-    _motionDescriptor.steps = -4;
-    _motionDescriptor.speed = 100;
-    _motionDescriptor.startNow = YES;
-    _motionDescriptor.timeoutMs = 0;
-    
-    [swAppDelegate.swivl swivlMoveLoad:_motionDescriptor];
-    
+    MotionDescriptor *motionDescriptor = [[MotionDescriptor alloc] init];
+    motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId] + 1;
+    motionDescriptor.axis = AXIS_TILT;
+    motionDescriptor.type = MOVE_TO_REL_POS;
+    motionDescriptor.steps = -4;
+    motionDescriptor.speed = 100;
+    motionDescriptor.startNow = YES;
+    motionDescriptor.timeoutMs = 0;
+    [swAppDelegate.swivl swivlMoveLoad:motionDescriptor];
 }
 
 - (IBAction)onCaptureBtnTapped
 {
-    if (!swAppDelegate.isScriptRunning) {
+    if (swAppDelegate.scriptState == SWScriptStateNone) {
         if (swAppDelegate.swivl.swivlConnected) {
             SWScript *script = [[SWScript alloc] init];
             swAppDelegate.script = script;
@@ -186,7 +176,7 @@
         } else {
             [self showSwivlDisconnectedMessage];
         }
-    } else {
+    } else if (swAppDelegate.scriptState == SWScriptStateRunning) {
         if (swAppDelegate.swivl.swivlConnected) {
             NSLog(@"swivlScriptStop");
             [swAppDelegate.swivl swivlScriptStop];
@@ -198,6 +188,7 @@
 }
 
 #pragma mark - Observing
+
 - (void)startObserving
 {
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -209,11 +200,17 @@
                                                  name:AVSandboxSwivlDockDetached
                                                object:nil];
     [self accessoryStateChanged];
-    _observeBatteryLevelTimer = [NSTimer scheduledTimerWithTimeInterval:5
-                                                                 target:self
-                                                               selector:@selector(updateBatteryLevel)
-                                                               userInfo:nil
-                                                                repeats:YES];
+
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateBatteryLevel)
+                                                 name:AVSandboxBaseBatteryLevelChanged
+                                               object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateBatteryLevel)
+                                                 name:AVSandboxMarkerBatteryLevelChanged
+                                               object:nil];
+    [self updateBatteryLevel];
 }
 
 - (void)accessoryStateChanged
@@ -247,20 +244,7 @@
 - (void)finishObserving
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-        
-    [_observeBatteryLevelTimer invalidate];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark - Messages
 

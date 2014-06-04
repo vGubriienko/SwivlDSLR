@@ -20,11 +20,16 @@
 		2522F7DB18D0C69800915E25 /* battery-100@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2522F7D718D0C69800915E25 /* battery-100@2x.png */; };
 		2522F7DE18D0CAF000915E25 /* AVSandboxNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 2522F7DD18D0CAF000915E25 /* AVSandboxNotifications.m */; };
 		2540042118EEAE6F0060ECB2 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 2540042018EEAE6F0060ECB2 /* UIAlertView+Blocks.m */; };
-		25465B5E18E57F7200C4DBDF /* start_screen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25465B5D18E57F7200C4DBDF /* start_screen.jpg */; };
 		25465B6118E5820900C4DBDF /* SWProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25465B6018E5820900C4DBDF /* SWProgressView.m */; };
 		255289B31920F49A00E803B6 /* SWDSLRConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 255289B21920F49A00E803B6 /* SWDSLRConfiguration.m */; };
 		255289B71921101400E803B6 /* SWScript+Template.m in Sources */ = {isa = PBXBuildFile; fileRef = 255289B61921101400E803B6 /* SWScript+Template.m */; };
 		256C1FD918EC3EE700D0659B /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 256C1FD818EC3EE700D0659B /* info.png */; };
+		25743A7E192CA9EE003740F2 /* SWTiltController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25743A7D192CA9EE003740F2 /* SWTiltController.m */; };
+		25743A80192CAA05003740F2 /* SWMainControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25743A7F192CAA05003740F2 /* SWMainControllerTests.m */; };
+		25743A83192CCD8E003740F2 /* timelapse_tilt.png in Resources */ = {isa = PBXBuildFile; fileRef = 25743A81192CCD8E003740F2 /* timelapse_tilt.png */; };
+		25743A84192CCD8E003740F2 /* timelapse_tilt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25743A82192CCD8E003740F2 /* timelapse_tilt@2x.png */; };
+		25743A89192CD833003740F2 /* SWBatteryLevelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25743A86192CD833003740F2 /* SWBatteryLevelView.m */; };
+		25743A8A192CD833003740F2 /* SWSelectCameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25743A88192CD833003740F2 /* SWSelectCameraController.m */; };
 		258941E9192204B300BCAE55 /* SWDSLRConfigurationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 258941E8192204B300BCAE55 /* SWDSLRConfigurationTests.m */; };
 		258941EB1922108400BCAE55 /* SWScriptTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 258941EA1922108400BCAE55 /* SWScriptTests.m */; };
 		259524F518C610DF006EEAFA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259524F418C610DF006EEAFA /* Foundation.framework */; };
@@ -55,7 +60,7 @@
 		2595255418C62190006EEAFA /* timelapse_time_between_pictures.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595254F18C6218F006EEAFA /* timelapse_time_between_pictures.png */; };
 		2595255618C6229D006EEAFA /* timelapse_direction_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595255518C6229D006EEAFA /* timelapse_direction_2.png */; };
 		259E2F7518C89F5700ECC07A /* SWTimelapseSettingsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 259E2F7418C89F5700ECC07A /* SWTimelapseSettingsTests.m */; };
-		25A3E68418C93E1C002AFBB9 /* SWDegreesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A3E68118C93E1C002AFBB9 /* SWDegreesController.m */; };
+		25A3E68418C93E1C002AFBB9 /* SWStepsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A3E68118C93E1C002AFBB9 /* SWStepsController.m */; };
 		25A3E68518C93E1C002AFBB9 /* SWTimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A3E68318C93E1C002AFBB9 /* SWTimeController.m */; };
 		25ADC23D18C724A400CEB6A7 /* timelapse_recording_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 25ADC23C18C724A400CEB6A7 /* timelapse_recording_time.png */; };
 		25ADC24118C72D4A00CEB6A7 /* SWTimelapseSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 25ADC24018C72D4A00CEB6A7 /* SWTimelapseSettings.m */; };
@@ -73,8 +78,12 @@
 		8508E40618F6C47900EEC442 /* SWManualController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8508E40518F6C47900EEC442 /* SWManualController.storyboard */; };
 		8508E40918F6D54900EEC442 /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = 8508E40718F6D54900EEC442 /* left.png */; };
 		8508E40A18F6D54900EEC442 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = 8508E40818F6D54900EEC442 /* right.png */; };
-		85876BC81922153C0054E4C7 /* SWSelectDriverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85876BC71922153C0054E4C7 /* SWSelectDriverController.m */; };
-		85876BCB19221C0A0054E4C7 /* SWSettingsBackSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 85876BCA19221C0A0054E4C7 /* SWSettingsBackSegue.m */; };
+		854428BC192B4A7F002732F6 /* timelapse_steps.png in Resources */ = {isa = PBXBuildFile; fileRef = 854428BB192B4A7F002732F6 /* timelapse_steps.png */; };
+		854428BE192B4B2D002732F6 /* timelapse_steps@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 854428BD192B4B2D002732F6 /* timelapse_steps@2x.png */; };
+		854428C3192B4ECA002732F6 /* timelapse_direction_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 854428BF192B4ECA002732F6 /* timelapse_direction_1@2x.png */; };
+		854428C4192B4ECA002732F6 /* timelapse_direction_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 854428C0192B4ECA002732F6 /* timelapse_direction_2@2x.png */; };
+		854428C5192B4ECA002732F6 /* timelapse_recording_time@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 854428C1192B4ECA002732F6 /* timelapse_recording_time@2x.png */; };
+		854428C6192B4ECA002732F6 /* timelapse_step@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 854428C2192B4ECA002732F6 /* timelapse_step@2x.png */; };
 		85876BCF192229080054E4C7 /* Configurations in Resources */ = {isa = PBXBuildFile; fileRef = 85876BCE192229080054E4C7 /* Configurations */; };
 		858A4DFB18C8AA700036A0CF /* DKCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A4DF618C8AA700036A0CF /* DKCircularSlider.m */; };
 		858A4DFC18C8AA700036A0CF /* DKRepeatableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A4DF818C8AA700036A0CF /* DKRepeatableButton.m */; };
@@ -121,7 +130,6 @@
 		2522F7DD18D0CAF000915E25 /* AVSandboxNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVSandboxNotifications.m; sourceTree = "<group>"; };
 		2540041F18EEAE6F0060ECB2 /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
 		2540042018EEAE6F0060ECB2 /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
-		25465B5D18E57F7200C4DBDF /* start_screen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = start_screen.jpg; sourceTree = "<group>"; };
 		25465B5F18E5820900C4DBDF /* SWProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWProgressView.h; sourceTree = "<group>"; };
 		25465B6018E5820900C4DBDF /* SWProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWProgressView.m; sourceTree = "<group>"; };
 		255289B11920F49A00E803B6 /* SWDSLRConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWDSLRConfiguration.h; sourceTree = "<group>"; };
@@ -129,6 +137,15 @@
 		255289B51921101400E803B6 /* SWScript+Template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SWScript+Template.h"; sourceTree = "<group>"; };
 		255289B61921101400E803B6 /* SWScript+Template.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SWScript+Template.m"; sourceTree = "<group>"; };
 		256C1FD818EC3EE700D0659B /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		25743A7C192CA9EE003740F2 /* SWTiltController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTiltController.h; sourceTree = "<group>"; };
+		25743A7D192CA9EE003740F2 /* SWTiltController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTiltController.m; sourceTree = "<group>"; };
+		25743A7F192CAA05003740F2 /* SWMainControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWMainControllerTests.m; sourceTree = "<group>"; };
+		25743A81192CCD8E003740F2 /* timelapse_tilt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_tilt.png; sourceTree = "<group>"; };
+		25743A82192CCD8E003740F2 /* timelapse_tilt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timelapse_tilt@2x.png"; sourceTree = "<group>"; };
+		25743A85192CD833003740F2 /* SWBatteryLevelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWBatteryLevelView.h; sourceTree = "<group>"; };
+		25743A86192CD833003740F2 /* SWBatteryLevelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWBatteryLevelView.m; sourceTree = "<group>"; };
+		25743A87192CD833003740F2 /* SWSelectCameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWSelectCameraController.h; sourceTree = "<group>"; };
+		25743A88192CD833003740F2 /* SWSelectCameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWSelectCameraController.m; sourceTree = "<group>"; };
 		258941E8192204B300BCAE55 /* SWDSLRConfigurationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWDSLRConfigurationTests.m; sourceTree = "<group>"; };
 		258941EA1922108400BCAE55 /* SWScriptTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWScriptTests.m; sourceTree = "<group>"; };
 		259524F118C610DF006EEAFA /* SwivlDSLR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwivlDSLR.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,8 +181,8 @@
 		2595254F18C6218F006EEAFA /* timelapse_time_between_pictures.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_time_between_pictures.png; sourceTree = "<group>"; };
 		2595255518C6229D006EEAFA /* timelapse_direction_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_direction_2.png; sourceTree = "<group>"; };
 		259E2F7418C89F5700ECC07A /* SWTimelapseSettingsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTimelapseSettingsTests.m; sourceTree = "<group>"; };
-		25A3E68018C93E1C002AFBB9 /* SWDegreesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWDegreesController.h; sourceTree = "<group>"; };
-		25A3E68118C93E1C002AFBB9 /* SWDegreesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWDegreesController.m; sourceTree = "<group>"; };
+		25A3E68018C93E1C002AFBB9 /* SWStepsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWStepsController.h; sourceTree = "<group>"; };
+		25A3E68118C93E1C002AFBB9 /* SWStepsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWStepsController.m; sourceTree = "<group>"; };
 		25A3E68218C93E1C002AFBB9 /* SWTimeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTimeController.h; sourceTree = "<group>"; };
 		25A3E68318C93E1C002AFBB9 /* SWTimeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTimeController.m; sourceTree = "<group>"; };
 		25ADC23C18C724A400CEB6A7 /* timelapse_recording_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_recording_time.png; sourceTree = "<group>"; };
@@ -190,10 +207,12 @@
 		8508E40518F6C47900EEC442 /* SWManualController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SWManualController.storyboard; sourceTree = "<group>"; };
 		8508E40718F6D54900EEC442 /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
 		8508E40818F6D54900EEC442 /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right.png; sourceTree = "<group>"; };
-		85876BC61922153C0054E4C7 /* SWSelectDriverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWSelectDriverController.h; sourceTree = "<group>"; };
-		85876BC71922153C0054E4C7 /* SWSelectDriverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWSelectDriverController.m; sourceTree = "<group>"; };
-		85876BC919221C0A0054E4C7 /* SWSettingsBackSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWSettingsBackSegue.h; sourceTree = "<group>"; };
-		85876BCA19221C0A0054E4C7 /* SWSettingsBackSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWSettingsBackSegue.m; sourceTree = "<group>"; };
+		854428BB192B4A7F002732F6 /* timelapse_steps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_steps.png; sourceTree = "<group>"; };
+		854428BD192B4B2D002732F6 /* timelapse_steps@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timelapse_steps@2x.png"; sourceTree = "<group>"; };
+		854428BF192B4ECA002732F6 /* timelapse_direction_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timelapse_direction_1@2x.png"; sourceTree = "<group>"; };
+		854428C0192B4ECA002732F6 /* timelapse_direction_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timelapse_direction_2@2x.png"; sourceTree = "<group>"; };
+		854428C1192B4ECA002732F6 /* timelapse_recording_time@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timelapse_recording_time@2x.png"; sourceTree = "<group>"; };
+		854428C2192B4ECA002732F6 /* timelapse_step@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timelapse_step@2x.png"; sourceTree = "<group>"; };
 		85876BCE192229080054E4C7 /* Configurations */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Configurations; sourceTree = "<group>"; };
 		858A4DF518C8AA700036A0CF /* DKCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKCircularSlider.h; sourceTree = "<group>"; };
 		858A4DF618C8AA700036A0CF /* DKCircularSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKCircularSlider.m; sourceTree = "<group>"; };
@@ -253,8 +272,10 @@
 		2522F7CC18D0C23C00915E25 /* Swivl Settings */ = {
 			isa = PBXGroup;
 			children = (
-				85876BC61922153C0054E4C7 /* SWSelectDriverController.h */,
-				85876BC71922153C0054E4C7 /* SWSelectDriverController.m */,
+				25743A85192CD833003740F2 /* SWBatteryLevelView.h */,
+				25743A86192CD833003740F2 /* SWBatteryLevelView.m */,
+				25743A87192CD833003740F2 /* SWSelectCameraController.h */,
+				25743A88192CD833003740F2 /* SWSelectCameraController.m */,
 				2522F7CD18D0C23C00915E25 /* SWSettingsController.h */,
 				2522F7CE18D0C23C00915E25 /* SWSettingsController.m */,
 				2522F7CF18D0C23C00915E25 /* SWSettingsController.storyboard */,
@@ -364,6 +385,7 @@
 				259E2F7418C89F5700ECC07A /* SWTimelapseSettingsTests.m */,
 				258941E8192204B300BCAE55 /* SWDSLRConfigurationTests.m */,
 				258941EA1922108400BCAE55 /* SWScriptTests.m */,
+				25743A7F192CAA05003740F2 /* SWMainControllerTests.m */,
 			);
 			path = SwivlDSLRTests;
 			sourceTree = "<group>";
@@ -382,8 +404,6 @@
 			children = (
 				85D97B9F18C76DD2002C2665 /* SWTimelapsSegue.h */,
 				85D97BA018C76DD2002C2665 /* SWTimelapsSegue.m */,
-				85876BC919221C0A0054E4C7 /* SWSettingsBackSegue.h */,
-				85876BCA19221C0A0054E4C7 /* SWSettingsBackSegue.m */,
 				25ADC23E18C72D0D00CEB6A7 /* Models */,
 			);
 			path = CORE;
@@ -440,7 +460,6 @@
 				2595253F18C61BA2006EEAFA /* capture_normal@2x.png */,
 				2595254018C61BA2006EEAFA /* capture_pressed.png */,
 				2595254118C61BA2006EEAFA /* capture_pressed@2x.png */,
-				25465B5D18E57F7200C4DBDF /* start_screen.jpg */,
 			);
 			path = "Main Screen";
 			sourceTree = "<group>";
@@ -449,11 +468,19 @@
 			isa = PBXGroup;
 			children = (
 				2595254B18C6218F006EEAFA /* timelapse_distance.png */,
+				854428BB192B4A7F002732F6 /* timelapse_steps.png */,
+				854428BD192B4B2D002732F6 /* timelapse_steps@2x.png */,
 				2595254C18C6218F006EEAFA /* timelapse_step.png */,
+				854428C2192B4ECA002732F6 /* timelapse_step@2x.png */,
 				2595254D18C6218F006EEAFA /* timelapse_direction_1.png */,
+				854428BF192B4ECA002732F6 /* timelapse_direction_1@2x.png */,
 				2595255518C6229D006EEAFA /* timelapse_direction_2.png */,
+				854428C0192B4ECA002732F6 /* timelapse_direction_2@2x.png */,
 				25ADC23C18C724A400CEB6A7 /* timelapse_recording_time.png */,
+				854428C1192B4ECA002732F6 /* timelapse_recording_time@2x.png */,
 				2595254F18C6218F006EEAFA /* timelapse_time_between_pictures.png */,
+				25743A81192CCD8E003740F2 /* timelapse_tilt.png */,
+				25743A82192CCD8E003740F2 /* timelapse_tilt@2x.png */,
 			);
 			path = "Time-lapse";
 			sourceTree = "<group>";
@@ -476,10 +503,12 @@
 		25ADC28618C7796800CEB6A7 /* Timelapse settings */ = {
 			isa = PBXGroup;
 			children = (
-				25A3E68018C93E1C002AFBB9 /* SWDegreesController.h */,
-				25A3E68118C93E1C002AFBB9 /* SWDegreesController.m */,
+				25A3E68018C93E1C002AFBB9 /* SWStepsController.h */,
+				25A3E68118C93E1C002AFBB9 /* SWStepsController.m */,
 				25A3E68218C93E1C002AFBB9 /* SWTimeController.h */,
 				25A3E68318C93E1C002AFBB9 /* SWTimeController.m */,
+				25743A7C192CA9EE003740F2 /* SWTiltController.h */,
+				25743A7D192CA9EE003740F2 /* SWTiltController.m */,
 			);
 			path = "Timelapse settings";
 			sourceTree = "<group>";
@@ -642,11 +671,13 @@
 				2595254418C61BA2006EEAFA /* batery_off.png in Resources */,
 				858A4DFD18C8AA700036A0CF /* down.png in Resources */,
 				2595255218C62190006EEAFA /* timelapse_direction_1.png in Resources */,
+				25743A83192CCD8E003740F2 /* timelapse_tilt.png in Resources */,
 				2595254618C61BA2006EEAFA /* capture_normal.png in Resources */,
 				85DDC0B51907EB9B009B5DBF /* left@2x.png in Resources */,
 				25E536D2190E79DD0059FE7C /* arrow_manual_right.png in Resources */,
 				2522F7C318D0B25D00915E25 /* reveal-white.png in Resources */,
 				2595254718C61BA2006EEAFA /* capture_normal@2x.png in Resources */,
+				854428C5192B4ECA002732F6 /* timelapse_recording_time@2x.png in Resources */,
 				25B962C418D19CFD002E4FD1 /* base_present.png in Resources */,
 				85876BCF192229080054E4C7 /* Configurations in Resources */,
 				25E536D1190E79DD0059FE7C /* arrow_manual_left.png in Resources */,
@@ -659,14 +690,18 @@
 				2595255018C62190006EEAFA /* timelapse_distance.png in Resources */,
 				8508E40A18F6D54900EEC442 /* right.png in Resources */,
 				2595254218C61BA2006EEAFA /* base_off.png in Resources */,
+				854428BE192B4B2D002732F6 /* timelapse_steps@2x.png in Resources */,
 				2595255418C62190006EEAFA /* timelapse_time_between_pictures.png in Resources */,
 				2595255118C62190006EEAFA /* timelapse_step.png in Resources */,
 				256C1FD918EC3EE700D0659B /* info.png in Resources */,
 				2595254318C61BA2006EEAFA /* base_off@2x.png in Resources */,
+				854428BC192B4A7F002732F6 /* timelapse_steps.png in Resources */,
 				25ADC23D18C724A400CEB6A7 /* timelapse_recording_time.png in Resources */,
 				2522F7D118D0C23C00915E25 /* SWSettingsController.storyboard in Resources */,
 				25E536D0190E79DD0059FE7C /* arrow_manual_down.png in Resources */,
+				854428C4192B4ECA002732F6 /* timelapse_direction_2@2x.png in Resources */,
 				85DDC0B61907EB9B009B5DBF /* right@2x.png in Resources */,
+				854428C6192B4ECA002732F6 /* timelapse_step@2x.png in Resources */,
 				85DDC0B71907EB9B009B5DBF /* up@2x.png in Resources */,
 				2595254818C61BA2006EEAFA /* capture_pressed.png in Resources */,
 				2522F7C418D0B25D00915E25 /* reveal-white@2x.png in Resources */,
@@ -676,11 +711,12 @@
 				858A4DFE18C8AA700036A0CF /* up.png in Resources */,
 				2522F7DA18D0C69800915E25 /* battery-100.png in Resources */,
 				2522F7D918D0C69800915E25 /* battery-0@2x.png in Resources */,
-				25465B5E18E57F7200C4DBDF /* start_screen.jpg in Resources */,
 				259524FF18C610DF006EEAFA /* InfoPlist.strings in Resources */,
 				85DDC0B41907EB9B009B5DBF /* down@2x.png in Resources */,
 				2595254518C61BA2006EEAFA /* batery_off@2x.png in Resources */,
 				2595255618C6229D006EEAFA /* timelapse_direction_2.png in Resources */,
+				854428C3192B4ECA002732F6 /* timelapse_direction_1@2x.png in Resources */,
+				25743A84192CCD8E003740F2 /* timelapse_tilt@2x.png in Resources */,
 				85CA1762190667230052E6C3 /* SWManualControllerPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -784,6 +820,7 @@
 				2540042118EEAE6F0060ECB2 /* UIAlertView+Blocks.m in Sources */,
 				255289B31920F49A00E803B6 /* SWDSLRConfiguration.m in Sources */,
 				858A4DFB18C8AA700036A0CF /* DKCircularSlider.m in Sources */,
+				25743A7E192CA9EE003740F2 /* SWTiltController.m in Sources */,
 				250A4D1818DADEF300E82B1F /* SWScript.m in Sources */,
 				25BB880318E45F7400ECE14D /* SWProgressController.m in Sources */,
 				2595253618C6141C006EEAFA /* SWMainViewController.m in Sources */,
@@ -794,11 +831,11 @@
 				2595250118C610DF006EEAFA /* main.m in Sources */,
 				25ADC24118C72D4A00CEB6A7 /* SWTimelapseSettings.m in Sources */,
 				858A4DFC18C8AA700036A0CF /* DKRepeatableButton.m in Sources */,
-				85876BCB19221C0A0054E4C7 /* SWSettingsBackSegue.m in Sources */,
-				25A3E68418C93E1C002AFBB9 /* SWDegreesController.m in Sources */,
-				85876BC81922153C0054E4C7 /* SWSelectDriverController.m in Sources */,
+				25A3E68418C93E1C002AFBB9 /* SWStepsController.m in Sources */,
+				25743A8A192CD833003740F2 /* SWSelectCameraController.m in Sources */,
 				2522F7DE18D0CAF000915E25 /* AVSandboxNotifications.m in Sources */,
 				25B962D218D21ABC002E4FD1 /* MVYSideMenuController.m in Sources */,
+				25743A89192CD833003740F2 /* SWBatteryLevelView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -806,6 +843,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25743A80192CAA05003740F2 /* SWMainControllerTests.m in Sources */,
 				258941EB1922108400BCAE55 /* SWScriptTests.m in Sources */,
 				259E2F7518C89F5700ECC07A /* SWTimelapseSettingsTests.m in Sources */,
 				258941E9192204B300BCAE55 /* SWDSLRConfigurationTests.m in Sources */,

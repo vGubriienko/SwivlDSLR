@@ -24,22 +24,25 @@
 
 @interface SWMainViewController ()
 {
-    __weak IBOutlet UIButton *_distanceBtn;
+    __weak IBOutlet UIButton *_stepsBtn;
     __weak IBOutlet UIButton *_directionBtn;
     __weak IBOutlet UIButton *_stepSizeBtn;
-    __weak IBOutlet UIButton *_recordingTimeBtn;
-    __weak IBOutlet UIButton *_timeBetweenPicturesBtn;
+    __weak IBOutlet UIButton *_timeBtn;
+    __weak IBOutlet UIButton *_tiltBtn;
     __weak IBOutlet UIView *_timelapseControls;
-
+    __weak IBOutlet UIButton *_helpButton;
+    
     __weak IBOutlet UITextView *_infoTextView;
     __weak IBOutlet UIButton *_captureBtn, *_captureBtnActive;
     __weak IBOutlet UIImageView *_batteryLevelImg;
     __weak IBOutlet UIImageView *_swivlStatusImg;
-    
-    NSTimer *_observeBatteryLevelTimer;
+    __weak IBOutlet UILabel *_distanceLabel;
+    __weak IBOutlet UILabel *_recordingTimeLabel;
     
     SWTimelapseSettings *_timelapseSettings;
     UIViewController <SWContentControllerDelegate> *_currentContentController;
+    
+    BOOL _isShowingProgress;
 }
 @end
 
@@ -57,17 +60,29 @@
 - (void)configUI
 {
     _stepSizeBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-    _distanceBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-    _recordingTimeBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-    _timeBetweenPicturesBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    _stepsBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    _timeBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    _tiltBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     
     _infoTextView.contentOffset = CGPointZero;
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     [[Countly sharedInstance] recordEvent:NSStringFromClass([self class]) segmentation:@{@"open":@YES} count:1];
-    [super viewDidAppear:animated];
+    
+    [self startObserving];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self finishObserving];
+    
+    [self saveSettings];
 }
 
 #pragma mark - IBActions
@@ -91,7 +106,7 @@
 
 - (IBAction)onCaptureBtnTapped
 {
-    if (!swAppDelegate.isScriptRunning) {
+    if (swAppDelegate.scriptState == SWScriptStateNone) {
         if (swAppDelegate.swivl.swivlConnected) {
             SWScript *script = [[SWScript alloc] init];
             script.timelapseSettings = _timelapseSettings;
@@ -103,7 +118,7 @@
         } else {
             [self showSwivlDisconnectedMessage];
         }
-    } else {
+    } else if (swAppDelegate.scriptState == SWScriptStateRunning) {
         if (swAppDelegate.swivl.swivlConnected) {
             NSLog(@"swivlScriptStop");
             [swAppDelegate.swivl swivlScriptStop];
@@ -118,7 +133,16 @@
 
 - (void)showProgress
 {
-    _timelapseControls.userInteractionEnabled = NO;
+    _isShowingProgress = YES;
+    
+    _stepsBtn.enabled = NO;
+    _stepSizeBtn.enabled = NO;
+    _timeBtn.enabled = NO;
+    _tiltBtn.enabled = NO;
+    _helpButton.enabled = NO;
+    _directionBtn.enabled = NO;
+    _recordingTimeLabel.hidden = YES;
+    _distanceLabel.hidden = YES;
     
     _captureBtnActive.hidden = NO;
     _captureBtnActive.alpha = 1.0;
@@ -135,8 +159,17 @@
 
 - (void)hideProgress
 {
-    _timelapseControls.userInteractionEnabled = YES;
-
+    _isShowingProgress = NO;
+    
+    _directionBtn.enabled = YES;
+    _stepsBtn.enabled = YES;
+    _stepSizeBtn.enabled = YES;
+    _timeBtn.enabled = YES;
+    _tiltBtn.enabled = YES;
+    _helpButton.enabled = YES;
+    _recordingTimeLabel.hidden = NO;
+    _distanceLabel.hidden = NO;
+    
     _captureBtnActive.hidden = YES;
     [_captureBtnActive.layer removeAllAnimations];
     
@@ -160,7 +193,9 @@
 
 - (void)clearContent
 {
+    [_currentContentController willMoveToParentViewController:nil];
     [_currentContentController.view removeFromSuperview];
+    [_currentContentController removeFromParentViewController];
     _currentContentController = nil;
 }
 
@@ -176,6 +211,7 @@
                                              selector:@selector(accessoryStateChanged)
                                                  name:AVSandboxSwivlDockDetached
                                                object:nil];
+    [self accessoryStateChanged];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(scriptStateDidChanged)
@@ -184,7 +220,7 @@
     [self scriptStateDidChanged];
     
     [_timelapseSettings addObserver:self
-                         forKeyPath:@"distance"
+                         forKeyPath:@"stepCount"
                             options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
                             context:nil];
     [_timelapseSettings addObserver:self
@@ -194,39 +230,47 @@
     [_timelapseSettings addObserver:self forKeyPath:@"timeBetweenPictures"
                             options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
                             context:nil];
-    [_timelapseSettings addObserver:self forKeyPath:@"recordingTime"
-                            options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
-                            context:nil];
     [_timelapseSettings addObserver:self forKeyPath:@"clockwiseDirection"
                             options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
                             context:nil];
+    [_timelapseSettings addObserver:self forKeyPath:@"startTiltAngle"
+                            options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
+                            context:nil];
+    [_timelapseSettings addObserver:self forKeyPath:@"endTiltAngle"
+                            options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
+                            context:nil];
     
-    _observeBatteryLevelTimer = [NSTimer scheduledTimerWithTimeInterval:5
-                                                                 target:self
-                                                               selector:@selector(updateBatteryLevel)
-                                                               userInfo:nil
-                                                                repeats:YES];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateBatteryLevel)
+                                                 name:AVSandboxBaseBatteryLevelChanged
+                                               object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateBatteryLevel)
+                                                 name:AVSandboxMarkerBatteryLevelChanged
+                                               object:nil];
+    [self updateBatteryLevel];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if (object == _timelapseSettings) {
         
-        [_distanceBtn setTitle:[NSString stringWithFormat:@"%li", (long)_timelapseSettings.distance] forState:UIControlStateNormal];
+        [_stepsBtn setTitle:[NSString stringWithFormat:@"%li", (long)_timelapseSettings.stepCount] forState:UIControlStateNormal];
         
         [_stepSizeBtn setTitle:[NSString stringWithFormat:@"%.2f", _timelapseSettings.stepSize] forState:UIControlStateNormal];
+        [_distanceLabel setText:[NSString stringWithFormat:@"%li°", (long)_timelapseSettings.distance]];
+        
+        NSString *strTime = [NSString stringWithFormat:@"%li  %li", (long)_timelapseSettings.startTiltAngle, (long)_timelapseSettings.endTiltAngle];
+        [_tiltBtn setTitle:strTime forState:UIControlStateNormal];
         
         SWTimeComponents timeComps = [_timelapseSettings timeBetweenPicturesComponents];
-        NSString *strTime = [NSString stringWithFormat:@"%.2li:%.2li:%.2li", (long)timeComps.hours, (long)timeComps.minutes, (long)timeComps.seconds];
-        [_timeBetweenPicturesBtn setTitle:strTime forState:UIControlStateNormal];
-        
+        strTime = [NSString stringWithFormat:@"%.2li:%.2li:%.2li", (long)timeComps.hours, (long)timeComps.minutes, (long)timeComps.seconds];
+        [_timeBtn setTitle:strTime forState:UIControlStateNormal];
         timeComps = [_timelapseSettings recordingTimeComponents];
         strTime = [NSString stringWithFormat:@"%.2li:%.2li:%.2li", (long)timeComps.hours, (long)timeComps.minutes, (long)timeComps.seconds];
-        [_recordingTimeBtn setTitle:strTime forState:UIControlStateNormal];
+        [_recordingTimeLabel setText:strTime];
         
         _directionBtn.selected = !_timelapseSettings.clockwiseDirection;
-        
-        [self saveSettings];
     }
 }
 
@@ -260,9 +304,14 @@
 
 - (void)scriptStateDidChanged
 {
-    if (swAppDelegate.isScriptRunning) {
+    if (swAppDelegate.scriptState == SWScriptStatePreparing) {
         [self showProgress];
-    } else {
+    } else if (swAppDelegate.scriptState == SWScriptStateRunning) {
+        if (!_isShowingProgress) {
+            [self showProgress];
+        }
+        [[NSNotificationCenter defaultCenter] postNotificationName:AVSandboxScriptProgressNeedStartNotification object:nil];
+    } else if (swAppDelegate.scriptState == SWScriptStateNone) {
         [self hideProgress];
     }
 }
@@ -271,13 +320,13 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
-    [_timelapseSettings removeObserver:self forKeyPath:@"distance"];
+    [_timelapseSettings removeObserver:self forKeyPath:@"stepCount"];
     [_timelapseSettings removeObserver:self forKeyPath:@"stepSize"];
     [_timelapseSettings removeObserver:self forKeyPath:@"timeBetweenPictures"];
-    [_timelapseSettings removeObserver:self forKeyPath:@"recordingTime"];
     [_timelapseSettings removeObserver:self forKeyPath:@"clockwiseDirection"];
-    
-    [_observeBatteryLevelTimer invalidate];
+    [_timelapseSettings removeObserver:self forKeyPath:@"startTiltAngle"];
+    [_timelapseSettings removeObserver:self forKeyPath:@"endTiltAngle"];
+
 }
 
 #pragma mark - Saving
@@ -329,6 +378,8 @@
 - (void)dealloc
 {
     [self finishObserving];
+    
+    [self saveSettings];
 }
 
 - (void)didReceiveMemoryWarning

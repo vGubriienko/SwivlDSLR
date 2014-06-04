@@ -9,6 +9,7 @@
 #import "SWAppDelegate.h"
 
 #import "SWScript.h"
+#import "SWTimelapseSettings.h"
 #import "SWDSLRConfiguration.h"
 #import "SWSideBar.h"
 #import "MVYSideMenuController.h"
@@ -28,9 +29,8 @@ SWAppDelegate *swAppDelegate = nil;
     MVYSideMenuController *_sideBarController;
     
     BOOL _stopForRunningNewScript;
+    //BOOL _moveBeforeTimelapse;
 }
-
-@property (nonatomic, assign, getter = isScriptRunning) BOOL scriptRunning;
 
 @end
 
@@ -140,16 +140,11 @@ SWAppDelegate *swAppDelegate = nil;
 
 }
 
-- (void)swivlMoveFinished:(UInt32)state withID:(UInt32)ID
-{
-    NSLog(@"MOVE FINISHED: %i = %i", (unsigned int)state, (unsigned int)ID);
-}
-
 - (void)swivlScriptBufferState:(UInt8)state isRunning:(BOOL)swivlIsBusy
 {
     NSLog(@"swivlScriptBufferState isRunning: %i, state: %i", swivlIsBusy, state);
 
-    if (self.isScriptRunning || !self.script) {
+    if (self.scriptState == SWScriptStateRunning || !self.script) {
         return;
     }
     
@@ -160,13 +155,38 @@ SWAppDelegate *swAppDelegate = nil;
         return;
     }
     
-    self.scriptRunning = YES;
-    self.script.startDate = [NSDate date];
+//    if (self.script.timelapseSettings) {
+//        _moveBeforeTimelapse = YES;
+//        [self prepareForRunningScript];
+//    } else {
+        [self runScript];
+//    }
+}
 
+//- (void)prepareForRunningScript
+//{
+//    self.scriptState = SWScriptStatePreparing;
+//    
+//    MotionDescriptor *motionDescriptor = [[MotionDescriptor alloc] init];
+//    motionDescriptor.ID = [swAppDelegate.swivl swivlLastFinishedMoveId] + 1;
+//    motionDescriptor.axis = AXIS_TILT;
+//    motionDescriptor.type = MOVE_TO_ABS_POS;
+//    motionDescriptor.steps = self.script.timelapseSettings.startTiltAngle / 0.0088;
+//    motionDescriptor.speed = 1000;
+//    motionDescriptor.startNow = YES;
+//    motionDescriptor.timeoutMs = 0;
+//    [swAppDelegate.swivl swivlMoveLoad:motionDescriptor];
+//}
+
+- (void)runScript
+{
+    self.scriptState = SWScriptStateRunning;
+    self.script.startDate = [NSDate date];
+    
     NSString *strScript = [self.script generateScript];
     char *ptr = (char *)[strScript UTF8String];
     NSInteger length = strScript.length;
-
+    
     while(length > 100)
     {
         [self.swivl swivlScriptLoadBlock:ptr length:100];
@@ -179,6 +199,7 @@ SWAppDelegate *swAppDelegate = nil;
     }
     
     [self saveScript];
+    
     [self.swivl swivlScriptStartSingleThread];
     NSLog(@"swivlScriptStartSingleThread");
 }
@@ -191,9 +212,18 @@ SWAppDelegate *swAppDelegate = nil;
         _stopForRunningNewScript = NO;
         [self.swivl swivlScriptRequestBufferState];
     } else {
-        self.scriptRunning = NO;
+        self.scriptState = SWScriptStateNone;
         [self removeScript];
     }
+}
+
+- (void)swivlMoveFinished:(int32_t)state withID:(int32_t)ID;
+{
+//    if (_moveBeforeTimelapse) {
+//        _moveBeforeTimelapse = NO;
+//        [self runScript];
+//    }
+    NSLog(@"swivlMoveFinished state: %i, ID: %i", (unsigned int)state, (unsigned int)ID);
 }
 
 #pragma mark - Save script
@@ -215,14 +245,17 @@ SWAppDelegate *swAppDelegate = nil;
 - (void)restoreSavedScript
 {
     NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:SW_SCRIPT_KEY];
-    SWScript *script = (SWScript *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
-    if (script && [script isRunningFromStartDate]) {
-        self.script = script;
-        self.scriptRunning = YES;
+    if (data) {
+        SWScript *script = (SWScript *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
+        if (script && [script isRunningFromStartDate]) {
+            self.script = script;
+            self.scriptState = SWScriptStateRunning;
+        }
     }
 }
 
-#pragma mark - Load & Copy drivers
+#pragma mark - Load & Copy configurations
+
 - (NSString *)configurationsDirectory
 {
     NSString *documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
@@ -282,20 +315,25 @@ SWAppDelegate *swAppDelegate = nil;
 
 - (void)setCurrentDSLRConfiguration:(SWDSLRConfiguration *)currentCameraConfiguration
 {
-    _currentDSLRConfiguration = currentCameraConfiguration;
-    [[NSUserDefaults standardUserDefaults] setObject:_currentDSLRConfiguration.dictionary forKey:SW_CAMERA_CONFIGURATION_KEY];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    if (_currentDSLRConfiguration != currentCameraConfiguration) {
+        _currentDSLRConfiguration = currentCameraConfiguration;
+        [[NSUserDefaults standardUserDefaults] setObject:_currentDSLRConfiguration.dictionary forKey:SW_CAMERA_CONFIGURATION_KEY];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 }
 
-- (void)setScriptRunning:(BOOL)scriptRunning
+- (void)setScriptState:(SWScriptState)scriptState
 {
-    _scriptRunning = scriptRunning;
-    [[NSNotificationCenter defaultCenter] postNotificationName:AVSandboxSwivlScriptStateChangedNotification object:self];
+    if (scriptState != _scriptState) {
+        _scriptState = scriptState;
+        [[NSNotificationCenter defaultCenter] postNotificationName:AVSandboxSwivlScriptStateChangedNotification object:self];
+    }
 }
 
 - (void)loadDefaults
 {
     NSNumber *savedCameraInterface = [[NSUserDefaults standardUserDefaults] objectForKey:SW_CAMERA_INTERFACE_KEY];
+    
     if (savedCameraInterface) {
         self.currentCameraInterface = savedCameraInterface.integerValue;
     } else {
@@ -330,7 +368,7 @@ SWAppDelegate *swAppDelegate = nil;
         storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     }
     
-    UIViewController *mainVC = [storyboard instantiateViewControllerWithIdentifier:@"SWMainViewController"];
+    UIViewController *mainVC = self.window.rootViewController;
     
     UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:mainVC];
     [navVC setNavigationBarHidden:YES];
@@ -362,7 +400,7 @@ SWAppDelegate *swAppDelegate = nil;
 {
     NSLog(@"scriptProgressDidFinish");
 
-    self.scriptRunning = NO;
+    self.scriptState = SWScriptStateNone;
     [self removeScript];
 }
 
