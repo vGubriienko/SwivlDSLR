@@ -315,33 +315,35 @@
                                 <rect key="frame" x="0.0" y="0.0" width="862" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RcV-KU-7A8">
-                                        <rect key="frame" x="87" y="133" width="689" height="560"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <mutableString key="text">1. Make sure Swivl is on and has Bluetooth connection with your iOS device.
-
-2. Set DSLR camera on Swivl and connect it via USB or Trigger port. Select corresponding camera interface in "Swivl settings" menu.
-
-3. Select the necessary time-lapse parameters:
-    a. Images – number of shots in time-lapse;
-    b. Step size – number of degrees in each step;
-    c. Direction - clock or counter clock rotation;
-    d. Time between pictures;     e. Start &amp; end tilt.
-
-4. To start time-lapse photography tap on capture button.
-
-5. Enjoy :-)</mutableString>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instruction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="u1T-FR-CBR">
-                                        <rect key="frame" x="279" y="75" width="304" height="50"/>
+                                        <rect key="frame" x="279" y="60" width="304" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" editable="NO" selectable="NO" id="wmK-Lx-83x">
+                                        <rect key="frame" x="50" y="140" width="772" height="670"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <mutableString key="text">1. Make sure Swivl is on and has Bluetooth connection with your iOS device.
+
+2. Set DSLR camera on Swivl and connect it via USB or Trigger port. Select corresponding camera interface in "Swivl settings" menu.
+
+3. Select the necessary time-lapse parameters:
+   a. Images - total number of images (shutter activations);
+   b. Step Size - number of degrees to rotate by per step;
+   c. Direction - clockwise or counter-clockwise rotation;
+   d. Time Between Pictures - time interval (h:m:s) per step;
+   e. Start &amp; End Tilt - beginning and final tilt angles in degrees [-12..+12];
+   Please note that total rotation angle in degrees and total time-lapse time are displayed inside round capture button. These values are not directly adjustable, but they are recalculated and updated with every change of adjustable parameters. 
+4. To start time-lapse photography tap on capture button.
+
+5. Enjoy :-)</mutableString>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -370,6 +372,7 @@
                         <outlet property="_directionBtn" destination="Mjr-F8-ZV6" id="h51-uN-pRb"/>
                         <outlet property="_distanceLabel" destination="dZM-Cp-N9u" id="8aU-yV-8NS"/>
                         <outlet property="_helpButton" destination="yWz-Hh-J35" id="m0B-VE-iSZ"/>
+                        <outlet property="_infoTextView" destination="wmK-Lx-83x" id="vwh-k4-OeE"/>
                         <outlet property="_recordingTimeLabel" destination="HN3-M1-ZMP" id="DDP-pY-0NN"/>
                         <outlet property="_stepSizeBtn" destination="xGu-vL-9uu" id="Mfq-eG-bDI"/>
                         <outlet property="_stepsBtn" destination="eoN-Lv-yEx" id="4kr-y2-Yfh"/>
