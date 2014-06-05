@@ -22,6 +22,10 @@ typedef NS_ENUM(NSInteger, SWScriptState) {
 @class SwivlCommonLib;
 
 extern SWAppDelegate *swAppDelegate;
+//Latest known Swivl firmware
+#define KNOWN_FIRMWARE 52065
+#define UPDATESWIVLVERSION_MSG        @"There is a required firmware update for your Swivl. Launch Swivl Capture App to get the Instructions.\n"
+#define UPDATEAPPSTOREVERSION_MSG        @"There is a required firmware update for your Swivl. Download latest version Swivl Capture App to get the Instructions.\n"
 
 @interface SWAppDelegate : UIResponder <UIApplicationDelegate>
 
