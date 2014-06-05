@@ -43,6 +43,7 @@
     UIViewController <SWContentControllerDelegate> *_currentContentController;
     
     BOOL _isShowingProgress;
+    BOOL _isShowingUpdateAlert;
 }
 @end
 
@@ -214,6 +215,11 @@
     [self accessoryStateChanged];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(firmwareVersionChanged:)
+                                                 name:AVSandboxSwivlFirmwareChanged
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(scriptStateDidChanged)
                                                  name:AVSandboxSwivlScriptStateChangedNotification
                                                object:nil];
@@ -277,6 +283,52 @@
 - (void)accessoryStateChanged
 {
     _swivlStatusImg.highlighted = swAppDelegate.swivl.swivlConnected;
+}
+
+- (void)firmwareVersionChanged:(NSNotification *)notification
+{
+    NSMutableString *fwVersion = [swAppDelegate.swivl.dockFWVersion mutableCopy];
+    if ([fwVersion length]>8) {
+        return;
+    }
+    //Delete FW symbols
+    [fwVersion deleteCharactersInRange:(NSRange){0,2}];
+    
+    NSInteger numVersion = [fwVersion integerValue];
+    if (numVersion < KNOWN_FIRMWARE && !_isShowingUpdateAlert) {
+        //Need update
+        _isShowingUpdateAlert = YES;
+        NSURL *swivlCaptureURL = [NSURL URLWithString:[NSString stringWithFormat:@"SWIVL-%d://", KNOWN_FIRMWARE]];
+        NSURL *swivlAppStoreURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/app/%@", @"id805185573"]];
+        
+        if ([[UIApplication sharedApplication] canOpenURL:swivlCaptureURL]) {
+            [[[UIAlertView alloc] initWithTitle:NEEDSFULLUPDATE_TITLE
+                                        message:UPDATESWIVLVERSION_MSG
+                                       delegate:nil
+                              cancelButtonTitle:UPDATELATER_MSG
+                              otherButtonTitles:@"Capture App", nil]
+             
+             showWithCompletion:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                 if (buttonIndex == 1) {
+                     [[UIApplication sharedApplication] openURL:swivlCaptureURL];
+                 }
+                 _isShowingUpdateAlert = NO;
+             }];
+        } else {
+            [[[UIAlertView alloc] initWithTitle:NEEDSFULLUPDATE_TITLE
+                                        message:UPDATEAPPSTOREVERSION_MSG
+                                       delegate:nil
+                              cancelButtonTitle:UPDATELATER_MSG
+                              otherButtonTitles:@"AppStore", nil]
+             
+             showWithCompletion:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                 if (buttonIndex == 1) {
+                     [[UIApplication sharedApplication] openURL:swivlAppStoreURL];
+                 }
+                 _isShowingUpdateAlert = NO;
+             }];
+        }
+    }
 }
 
 - (void)updateBatteryLevel
