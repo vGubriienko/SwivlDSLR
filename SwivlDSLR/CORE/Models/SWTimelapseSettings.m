@@ -31,7 +31,7 @@
         _stepSize = [[decoder decodeObjectForKey:@"stepSize"] floatValue];
         NSInteger distance = [[decoder decodeObjectForKey:@"distance"] integerValue];
         if (distance > 0) {
-            _stepCount = (NSInteger)roundf(distance / _stepSize);
+            _stepCount = (NSInteger)roundf(distance / _stepSize) + 1;
         } else {
             _stepCount = [[decoder decodeObjectForKey:@"stepCount"] integerValue];
         }
@@ -131,7 +131,7 @@
 
 - (NSInteger)recordingTime
 {
-    return self.stepCount * self.timeBetweenPictures;
+    return (self.stepCount - 1) * self.timeBetweenPictures;
 }
 
 - (void)setStartTiltAngle:(NSInteger)startTiltAngle

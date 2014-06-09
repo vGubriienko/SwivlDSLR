@@ -61,6 +61,8 @@
     
     _timelapseSettings.stepCount = 0;
     XCTAssertEqual(_timelapseSettings.stepCount, 1000, @"Invalid stepCount value");
+    _timelapseSettings.stepCount = 1;
+    XCTAssertEqual(_timelapseSettings.stepCount, 1000, @"Invalid stepCount value");
     _timelapseSettings.stepCount = -1;
     XCTAssertEqual(_timelapseSettings.stepCount, 1000, @"Invalid stepCount value");
     _timelapseSettings.stepCount = 3001;
@@ -79,7 +81,7 @@
 {
     _timelapseSettings.timeBetweenPictures = 3;
     _timelapseSettings.stepCount = 10;
-    XCTAssertEqual(_timelapseSettings.recordingTime, 30, @"Wrong recordingTime");
+    XCTAssertEqual(_timelapseSettings.recordingTime, 27, @"Wrong recordingTime");
 }
 
 #pragma mark - Distance
@@ -103,7 +105,7 @@
 - (void)testRecordigTimeComponents
 {
     _timelapseSettings.timeBetweenPictures = 5;
-    _timelapseSettings.stepCount = 20;
+    _timelapseSettings.stepCount = 21;
 
     SWTimeComponents timeComponents = [_timelapseSettings recordingTimeComponents];
     XCTAssertEqual(timeComponents.hours, 0, @"Incorrect recordingTime hours");

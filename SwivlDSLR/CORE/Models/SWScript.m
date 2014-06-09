@@ -161,7 +161,7 @@
 {
     CGFloat tiltDistance = (self.timelapseSettings.endTiltAngle - self.timelapseSettings.startTiltAngle);
     CGFloat tiltSwivlDistance = tiltDistance / 0.0088;
-    NSInteger tiltStepSwivl = roundf(tiltSwivlDistance / self.timelapseSettings.stepCount);
+    NSInteger tiltStepSwivl = roundf(tiltSwivlDistance / (self.timelapseSettings.stepCount - 1));
     
     NSString *tiltStepSign = tiltStepSwivl >= 0 ? @"" : @"%";
     tiltStepSwivl = fabsf(tiltStepSwivl);
