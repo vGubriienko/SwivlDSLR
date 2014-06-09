@@ -18,8 +18,8 @@
         self.stepSize = 11.0;
         self.clockwiseDirection = YES;
         self.timeBetweenPictures = 5;
-        self.startTiltAngle = (SW_TIMELAPSE_MAX_TILT - SW_TIMELAPSE_MIN_TILT) / 2;
-        self.endTiltAngle = self.startTiltAngle;
+        self.startTiltAngle = 0;
+        self.endTiltAngle = 0;
     }
     return self;
 }

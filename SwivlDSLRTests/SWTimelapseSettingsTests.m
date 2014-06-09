@@ -134,6 +134,16 @@
 
 #pragma mark - Tilt
 
+- (void)testStartTiltIsZeroAfterInit
+{
+    XCTAssertEqual(_timelapseSettings.startTiltAngle, 0, @"Invalid initial start tilt value");
+}
+
+- (void)testEndTiltIsZeroAfterInit
+{
+    XCTAssertEqual(_timelapseSettings.endTiltAngle, 0, @"Invalid initial end tilt value");
+}
+
 - (void)testStartTiltDoesNotChangesAfterSettingInvalidValue
 {
     _timelapseSettings.startTiltAngle = -12;
