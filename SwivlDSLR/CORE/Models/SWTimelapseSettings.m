@@ -14,8 +14,8 @@
 {
     self = [super init];
     if (self) {
-        self.stepCount = 9;
-        self.stepSize = 11.0;
+        self.stepCount = 10;
+        self.stepSize = 6.75;
         self.clockwiseDirection = YES;
         self.timeBetweenPictures = 5;
         self.startTiltAngle = 0;
@@ -60,7 +60,7 @@
     static NSArray *array = nil;
     if (!array) {
         NSMutableArray *tempArray = [NSMutableArray arrayWithCapacity:20];
-        for (double i = 0.11; i < 20.0; i+= 0.0275) {
+        for (double i = SW_PAN_DEGREES_PER_ONE_MOTOR_STEP * 4; i < 20.0; i+= SW_PAN_DEGREES_PER_ONE_MOTOR_STEP) {
             [tempArray addObject:[NSNumber numberWithFloat:i]];
         }
         [tempArray addObject:@20.0];

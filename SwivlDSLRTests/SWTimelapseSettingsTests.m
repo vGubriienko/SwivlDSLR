@@ -34,16 +34,14 @@
 
 - (void)testStepSizeDoesNotChangesAfterSettingInvalidValue
 {
-    _timelapseSettings.stepSize = 0.11;
+    _timelapseSettings.stepSize = 6.75;
     
     _timelapseSettings.stepSize = 0;
-    XCTAssertEqualWithAccuracy(_timelapseSettings.stepSize, 0.11, FLT_EPSILON, @"Invalid stepSize value");
+    XCTAssertEqualWithAccuracy(_timelapseSettings.stepSize, 6.75, FLT_EPSILON, @"Invalid stepSize value");
     _timelapseSettings.stepSize = -1;
-    XCTAssertEqualWithAccuracy(_timelapseSettings.stepSize, 0.11, FLT_EPSILON, @"Invalid stepSize value");
-    _timelapseSettings.stepSize = 12;
-    XCTAssertEqualWithAccuracy(_timelapseSettings.stepSize, 0.11, FLT_EPSILON, @"Invalid stepSize value");
-    _timelapseSettings.stepSize = 10;
-    XCTAssertEqualWithAccuracy(_timelapseSettings.stepSize, 0.11, FLT_EPSILON, @"Invalid stepSize value");
+    XCTAssertEqualWithAccuracy(_timelapseSettings.stepSize, 6.75, FLT_EPSILON, @"Invalid stepSize value");
+    _timelapseSettings.stepSize = 21;
+    XCTAssertEqualWithAccuracy(_timelapseSettings.stepSize, 6.75, FLT_EPSILON, @"Invalid stepSize value");
 }
 
 - (void)testStepSizeHasValidInitValue
@@ -88,16 +86,16 @@
 
 - (void)testDistanceCalculatesCorrectly
 {
-    _timelapseSettings.stepCount = 11;
-    _timelapseSettings.stepSize = 10.01;
-    XCTAssertEqual(_timelapseSettings.distance, 100, @"Wrong distance");
+    _timelapseSettings.stepCount = 101;
+    _timelapseSettings.stepSize = 6.75;
+    XCTAssertEqual(_timelapseSettings.distance, 675, @"Wrong distance");
 }
 
 - (void)testDistanceIsRounded
 {
     _timelapseSettings.stepCount = 11;
-    _timelapseSettings.stepSize = 10.89;
-    XCTAssertEqual(_timelapseSettings.distance, 109, @"Wrong distance");
+    _timelapseSettings.stepSize = 6.75;
+    XCTAssertEqual(_timelapseSettings.distance, 68, @"Wrong distance");
 }
 
 #pragma mark - Time components
@@ -171,7 +169,7 @@
 - (void)testSavingIsCorrect
 {
     _timelapseSettings.stepCount = 1000;
-    _timelapseSettings.stepSize = 0.11;
+    _timelapseSettings.stepSize = 6.75;
     _timelapseSettings.timeBetweenPictures = 200;
     _timelapseSettings.clockwiseDirection = YES;
     _timelapseSettings.startTiltAngle = -10;
@@ -181,7 +179,7 @@
     _timelapseSettings = (SWTimelapseSettings *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
     
     XCTAssertEqual(_timelapseSettings.stepCount, 1000, @"Invalid distance value after save & restore");
-    XCTAssertEqualWithAccuracy(_timelapseSettings.stepSize, 0.11, FLT_EPSILON, @"Invalid stepSize value after save & restore");
+    XCTAssertEqualWithAccuracy(_timelapseSettings.stepSize, 6.75, FLT_EPSILON, @"Invalid stepSize value after save & restore");
     XCTAssertEqual(_timelapseSettings.clockwiseDirection, YES, @"Invalid clockwiseDirection value after save & restore");
     XCTAssertEqual(_timelapseSettings.timeBetweenPictures, 200, @"Invalid recordingTime value after save & restore");
     XCTAssertEqual(_timelapseSettings.startTiltAngle, -10, @"Invalid startTiltAngle value after save & restore");
