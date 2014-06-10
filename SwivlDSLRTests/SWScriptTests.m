@@ -33,7 +33,7 @@
 
     _timeLapseSettings = [OCMockObject mockForClass:[SWTimelapseSettings class]];
     [[[_timeLapseSettings stub] andReturnValue:OCMOCK_VALUE((CGFloat)10.0)] stepSize];
-    [[[_timeLapseSettings stub] andReturnValue:OCMOCK_VALUE((NSInteger)9)] stepCount];
+    [[[_timeLapseSettings stub] andReturnValue:OCMOCK_VALUE((NSInteger)10)] stepCount];
     [[[_timeLapseSettings stub] andReturnValue:OCMOCK_VALUE((NSInteger)4)] timeBetweenPictures];
     [[[_timeLapseSettings stub] andReturnValue:OCMOCK_VALUE((NSInteger)36)] recordingTime];
     [[[_timeLapseSettings stub] andReturnValue:OCMOCK_VALUE((NSInteger)0)] startTiltAngle];
@@ -42,7 +42,7 @@
 
     _timeLapseSettingsClockWiseDirection = [OCMockObject mockForClass:[SWTimelapseSettings class]];
     [[[_timeLapseSettingsClockWiseDirection stub] andReturnValue:OCMOCK_VALUE((CGFloat)0.11)] stepSize];
-    [[[_timeLapseSettingsClockWiseDirection stub] andReturnValue:OCMOCK_VALUE((NSInteger)1)] stepCount];
+    [[[_timeLapseSettingsClockWiseDirection stub] andReturnValue:OCMOCK_VALUE((NSInteger)2)] stepCount];
     [[[_timeLapseSettingsClockWiseDirection stub] andReturnValue:OCMOCK_VALUE((NSInteger)7)] timeBetweenPictures];
     [[[_timeLapseSettingsClockWiseDirection stub] andReturnValue:OCMOCK_VALUE((NSInteger)7)] recordingTime];
     [[[_timeLapseSettingsClockWiseDirection stub] andReturnValue:OCMOCK_VALUE((NSInteger)-12)] startTiltAngle];
@@ -94,7 +94,7 @@
     _script.scriptType = SWScriptTypeTimelapse;
     _script.timelapseSettings = _timeLapseSettings;
     
-    NSString *expectedScript = @"1:8,0M5DC,1M16C%,2M320,3M0,4M13C,5M7D0,6M1F4,7MFA0,8M8L3L4L6,1,9R2:9L2=T3E8+8M3:T8L-3<F(4:0L7=T1L+8M1L3L2L5,0,9R1L3L5L5,1,CR5:9L5=CL5=6:T8L-6<F(0L1-0M4@7:.F:FM7ST6L+8ME:T8L-E<3ST7L+8MD:T8L-D<FL)\0";
+    NSString *expectedScript = @"1:9,0M5DC,1M194%,2M320,3M0,4M160,5M7D0,6M1F4,7MFA0,8M8L3L4L6,1,9R2:9L2=T3E8+8M3:T8L-3<F(4:0L7=T1L+8M1L3L2L5,0,9R1L3L5L5,1,CR5:9L5=CL5=6:T8L-6<F(0L1-0M4@7:.F:FM7ST6L+8ME:T8L-E<3ST7L+8MD:T8L-D<FL)\0";
     
     NSString *resultScript = [_script generateScript];
     
@@ -107,7 +107,7 @@
     _script.scriptType = SWScriptTypeTimelapse;
     _script.timelapseSettings = _timeLapseSettingsClockWiseDirection;
     
-    NSString *expectedScript = @"1:0,0M1194,1M4,2M320,3M554%,4MAA7,5M7D0,6M1F4,7MFA0,8M8L3L4L6,1,9R2:9L2=T3E8+8M3:T8L-3<F(4:0L7=T1L+8M1L3L2L5,0,9R1L3L5L5,1,CR5:9L5=CL5=6:T8L-6<F(0L1-0M4@7:.F:FM7ST6L+8ME:T8L-E<3ST7L+8MD:T8L-D<FL)\0";
+    NSString *expectedScript = @"1:1,0M1194,1M4,2M320,3M5F0%,4MBE0,5M7D0,6M1F4,7MFA0,8M8L3L4L6,1,9R2:9L2=T3E8+8M3:T8L-3<F(4:0L7=T1L+8M1L3L2L5,0,9R1L3L5L5,1,CR5:9L5=CL5=6:T8L-6<F(0L1-0M4@7:.F:FM7ST6L+8ME:T8L-E<3ST7L+8MD:T8L-D<FL)\0";
     
     NSString *resultScript = [_script generateScript];
     
@@ -147,7 +147,7 @@
     _script.timelapseSettings = _timeLapseSettings;
     _script.dslrConfiguration = _cameraConfiguration1;
     
-    NSString *expectedScript = @"1:8,0MFA0,1M16C%,2M320,3M0,4M13C,5MFA0,6M6L3L4L6,1,9R2:9L2=T3E8+8M3:T8L-3<T1L+8MF(4:0L7=1L3L2L5,0,9R1L3L5L5,1,CR5:9L5=CL5=6:T8L-6<T1L+8MF(0L1-0M4@7:.F:FMD:910FP2019?D=FL)\0";
+    NSString *expectedScript = @"1:9,0MFA0,1M194%,2M320,3M0,4M160,5MFA0,6M6L3L4L6,1,9R2:9L2=T3E8+8M3:T8L-3<T1L+8MF(4:0L7=1L3L2L5,0,9R1L3L5L5,1,CR5:9L5=CL5=6:T8L-6<T1L+8MF(0L1-0M4@7:.F:FMD:910FP2019?D=FL)\0";
     
     NSString *resultScript = [_script generateScript];
     
@@ -161,7 +161,7 @@
     _script.timelapseSettings = _timeLapseSettingsClockWiseDirection;
     _script.dslrConfiguration = _cameraConfiguration1;
     
-    NSString *expectedScript = @"1:0,0M1B58,1M4,2M320,3M554%,4MAA7,5MFA0,6M6L3L4L6,1,9R2:9L2=T3E8+8M3:T8L-3<T1L+8MF(4:0L7=1L3L2L5,0,9R1L3L5L5,1,CR5:9L5=CL5=6:T8L-6<T1L+8MF(0L1-0M4@7:.F:FMD:910FP2019?D=FL)\0";
+    NSString *expectedScript = @"1:1,0M1B58,1M4,2M320,3M5F0%,4MBE0,5MFA0,6M6L3L4L6,1,9R2:9L2=T3E8+8M3:T8L-3<T1L+8MF(4:0L7=1L3L2L5,0,9R1L3L5L5,1,CR5:9L5=CL5=6:T8L-6<T1L+8MF(0L1-0M4@7:.F:FMD:910FP2019?D=FL)\0";
     
     NSString *resultScript = [_script generateScript];
     
@@ -175,7 +175,7 @@
     _script.timelapseSettings = _timeLapseSettings;
     _script.dslrConfiguration = _cameraConfiguration2;
     
-    NSString *expectedScript = @"1:8,0MFA0,1M16C%,2M320,3M0,4M13C,5MFA0,6M6L3L4L6,1,9R2:9L2=T3E8+8M3:T8L-3<T1L+8MF(4:0L7=1L3L2L5,0,9R1L3L5L5,1,CR5:9L5=CL5=6:T8L-6<T1L+8MF(0L1-0M4@7:.F:FMD:3,0,B9128P2019?D=2001-E#3,A9129PE:FL)\0";
+    NSString *expectedScript = @"1:9,0MFA0,1M194%,2M320,3M0,4M160,5MFA0,6M6L3L4L6,1,9R2:9L2=T3E8+8M3:T8L-3<T1L+8MF(4:0L7=1L3L2L5,0,9R1L3L5L5,1,CR5:9L5=CL5=6:T8L-6<T1L+8MF(0L1-0M4@7:.F:FMD:3,0,B9128P2019?D=2001-E#3,A9129PE:FL)\0";
     
     NSString *resultScript = [_script generateScript];
     
@@ -189,7 +189,7 @@
     _script.timelapseSettings = _timeLapseSettingsClockWiseDirection;
     _script.dslrConfiguration = _cameraConfiguration2;
     
-    NSString *expectedScript = @"1:0,0M1B58,1M4,2M320,3M554%,4MAA7,5MFA0,6M6L3L4L6,1,9R2:9L2=T3E8+8M3:T8L-3<T1L+8MF(4:0L7=1L3L2L5,0,9R1L3L5L5,1,CR5:9L5=CL5=6:T8L-6<T1L+8MF(0L1-0M4@7:.F:FMD:3,0,B9128P2019?D=2001-E#3,A9129PE:FL)\0";
+    NSString *expectedScript = @"1:1,0M1B58,1M4,2M320,3M5F0%,4MBE0,5MFA0,6M6L3L4L6,1,9R2:9L2=T3E8+8M3:T8L-3<T1L+8MF(4:0L7=1L3L2L5,0,9R1L3L5L5,1,CR5:9L5=CL5=6:T8L-6<T1L+8MF(0L1-0M4@7:.F:FMD:3,0,B9128P2019?D=2001-E#3,A9129PE:FL)\0";
 
     NSString *resultScript = [_script generateScript];
     
