@@ -23,6 +23,7 @@
 		25465B6118E5820900C4DBDF /* SWProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25465B6018E5820900C4DBDF /* SWProgressView.m */; };
 		255289B31920F49A00E803B6 /* SWDSLRConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 255289B21920F49A00E803B6 /* SWDSLRConfiguration.m */; };
 		255289B71921101400E803B6 /* SWScript+Template.m in Sources */ = {isa = PBXBuildFile; fileRef = 255289B61921101400E803B6 /* SWScript+Template.m */; };
+		2558AB83194721370043C2D0 /* SwivlFWUpdate.bin in Resources */ = {isa = PBXBuildFile; fileRef = 2558AB82194721370043C2D0 /* SwivlFWUpdate.bin */; };
 		256C1FD918EC3EE700D0659B /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 256C1FD818EC3EE700D0659B /* info.png */; };
 		25743A7E192CA9EE003740F2 /* SWTiltController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25743A7D192CA9EE003740F2 /* SWTiltController.m */; };
 		25743A80192CAA05003740F2 /* SWMainControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25743A7F192CAA05003740F2 /* SWMainControllerTests.m */; };
@@ -136,6 +137,7 @@
 		255289B21920F49A00E803B6 /* SWDSLRConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWDSLRConfiguration.m; sourceTree = "<group>"; };
 		255289B51921101400E803B6 /* SWScript+Template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SWScript+Template.h"; sourceTree = "<group>"; };
 		255289B61921101400E803B6 /* SWScript+Template.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SWScript+Template.m"; sourceTree = "<group>"; };
+		2558AB82194721370043C2D0 /* SwivlFWUpdate.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = SwivlFWUpdate.bin; sourceTree = "<group>"; };
 		256C1FD818EC3EE700D0659B /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		25743A7C192CA9EE003740F2 /* SWTiltController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTiltController.h; sourceTree = "<group>"; };
 		25743A7D192CA9EE003740F2 /* SWTiltController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTiltController.m; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 		259524E818C610DE006EEAFA = {
 			isa = PBXGroup;
 			children = (
+				2558AB82194721370043C2D0 /* SwivlFWUpdate.bin */,
 				85876BCE192229080054E4C7 /* Configurations */,
 				858A4DF318C8AA700036A0CF /* Vendors */,
 				259524FA18C610DF006EEAFA /* SwivlDSLR */,
@@ -668,6 +671,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8508E40618F6C47900EEC442 /* SWManualController.storyboard in Resources */,
+				2558AB83194721370043C2D0 /* SwivlFWUpdate.bin in Resources */,
 				2595254418C61BA2006EEAFA /* batery_off.png in Resources */,
 				858A4DFD18C8AA700036A0CF /* down.png in Resources */,
 				2595255218C62190006EEAFA /* timelapse_direction_1.png in Resources */,
