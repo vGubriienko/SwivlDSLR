@@ -14,12 +14,12 @@
 {
     self = [super init];
     if (self) {
-        self.stepCount = 9;
-        self.stepSize = 11.0;
+        self.stepCount = 10;
+        self.stepSize = 6.75;
         self.clockwiseDirection = YES;
         self.timeBetweenPictures = 5;
-        self.startTiltAngle = (SW_TIMELAPSE_MAX_TILT - SW_TIMELAPSE_MIN_TILT) / 2;
-        self.endTiltAngle = self.startTiltAngle;
+        self.startTiltAngle = 0;
+        self.endTiltAngle = 0;
     }
     return self;
 }
@@ -31,7 +31,7 @@
         _stepSize = [[decoder decodeObjectForKey:@"stepSize"] floatValue];
         NSInteger distance = [[decoder decodeObjectForKey:@"distance"] integerValue];
         if (distance > 0) {
-            _stepCount = (NSInteger)roundf(distance / _stepSize);
+            _stepCount = (NSInteger)roundf(distance / _stepSize) + 1;
         } else {
             _stepCount = [[decoder decodeObjectForKey:@"stepCount"] integerValue];
         }
@@ -60,7 +60,7 @@
     static NSArray *array = nil;
     if (!array) {
         NSMutableArray *tempArray = [NSMutableArray arrayWithCapacity:20];
-        for (double i = 0.11; i < 20.0; i+= 0.0275) {
+        for (double i = SW_PAN_DEGREES_PER_ONE_MOTOR_STEP * 4; i < 20.0; i+= SW_PAN_DEGREES_PER_ONE_MOTOR_STEP) {
             [tempArray addObject:[NSNumber numberWithFloat:i]];
         }
         [tempArray addObject:@20.0];
@@ -131,7 +131,7 @@
 
 - (NSInteger)recordingTime
 {
-    return self.stepCount * self.timeBetweenPictures;
+    return (self.stepCount - 1) * self.timeBetweenPictures;
 }
 
 - (void)setStartTiltAngle:(NSInteger)startTiltAngle

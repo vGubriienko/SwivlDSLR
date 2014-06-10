@@ -150,7 +150,7 @@
 - (NSString *)startTiltParameter
 {
     NSString *startTiltSign = self.timelapseSettings.startTiltAngle >= 0 ? @"" : @"%";
-    NSInteger startTiltSwivl = roundf(self.timelapseSettings.startTiltAngle / 0.0088);
+    NSInteger startTiltSwivl = roundf(self.timelapseSettings.startTiltAngle * SW_MOTOR_STEPS_FOR_ONE_DEGREE_TILT);
     startTiltSwivl = fabsf(startTiltSwivl);
     NSString *startAngleStr = [NSString stringWithFormat:@"%lx%@", (long)startTiltSwivl, startTiltSign];
     
@@ -160,8 +160,8 @@
 - (NSString *)tiltStepParameter
 {
     CGFloat tiltDistance = (self.timelapseSettings.endTiltAngle - self.timelapseSettings.startTiltAngle);
-    CGFloat tiltSwivlDistance = tiltDistance / 0.0088;
-    NSInteger tiltStepSwivl = roundf(tiltSwivlDistance / self.timelapseSettings.stepCount);
+    CGFloat tiltSwivlDistance = tiltDistance * SW_MOTOR_STEPS_FOR_ONE_DEGREE_TILT;
+    NSInteger tiltStepSwivl = roundf(tiltSwivlDistance / (self.timelapseSettings.stepCount - 1));
     
     NSString *tiltStepSign = tiltStepSwivl >= 0 ? @"" : @"%";
     tiltStepSwivl = fabsf(tiltStepSwivl);
@@ -172,7 +172,7 @@
 
 - (NSString *)panStepParameter
 {
-    NSInteger stepSize = roundf((self.timelapseSettings.stepSize / 0.11) * 4);
+    NSInteger stepSize = roundf(self.timelapseSettings.stepSize * SW_MOTOR_STEPS_FOR_ONE_DEGREE_PAN);
     NSString *direction = self.timelapseSettings.clockwiseDirection ? @"" : @"%";
     NSString *stepSizeStr = [NSString stringWithFormat:@"%lx%@", (long)stepSize, direction];
     
