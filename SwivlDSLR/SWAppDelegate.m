@@ -23,9 +23,7 @@
 SWAppDelegate *swAppDelegate = nil;
 
 @interface SWAppDelegate ()
-{
-    UIBarButtonItem *_splitVCBtn;
-    
+{ 
     MVYSideMenuController *_sideBarController;
     
     BOOL _stopForRunningNewScript;
@@ -195,7 +193,7 @@ SWAppDelegate *swAppDelegate = nil;
     }
     if (length > 0)
     {
-        [self.swivl swivlScriptLoadBlock:ptr length:length];
+        [self.swivl swivlScriptLoadBlock:ptr length:(int)length];
     }
     
     [self saveScript];

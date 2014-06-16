@@ -29,7 +29,7 @@
 
 + (NSArray *)configurationsWithDictionaries:(NSArray *)dictionaries
 {
-    NSMutableArray *array = [@[] mutableCopy];
+    NSMutableArray *array = [NSMutableArray new];
     for (NSDictionary *dictionary in dictionaries) {
         SWDSLRConfiguration *conf = [SWDSLRConfiguration configurationWithDictionary:dictionary];
         if (conf) {

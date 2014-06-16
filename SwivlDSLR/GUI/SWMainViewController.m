@@ -33,7 +33,8 @@
     __weak IBOutlet UIButton *_helpButton;
     
     __weak IBOutlet UITextView *_infoTextView;
-    __weak IBOutlet UIButton *_captureBtn, *_captureBtnActive;
+    __weak IBOutlet UIButton *_captureBtn;
+    __weak IBOutlet UIButton *_captureBtnActive;
     __weak IBOutlet UIImageView *_batteryLevelImg;
     __weak IBOutlet UIImageView *_swivlStatusImg;
     __weak IBOutlet UILabel *_distanceLabel;

@@ -65,7 +65,7 @@
 - (void)initStepSizeSlider
 {
     _stepSizes = [SWTimelapseSettings availableStepSizes];
-    NSMutableArray *elements = [@[] mutableCopy];
+    NSMutableArray *elements = [NSMutableArray new];
     [_stepSizes enumerateObjectsUsingBlock:^(NSNumber *obj, NSUInteger idx, BOOL *stop) {
         CGFloat step = [obj floatValue];
         [elements addObject:[NSString stringWithFormat:@"%.2f", step]];
