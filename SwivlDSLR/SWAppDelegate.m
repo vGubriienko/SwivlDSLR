@@ -13,7 +13,7 @@
 #import "SWDSLRConfiguration.h"
 #import "SWSideBar.h"
 #import "MVYSideMenuController.h"
-#import <Swivl-iOS-SDK/SwivlCommonLib.h>
+#import <Swivl2Lib/SwivlCommonLib.h>
 #import <Crashlytics/Crashlytics.h>
 
 #define SW_SCRIPT_KEY @"SW_SCRIPT_KEY"
@@ -22,7 +22,7 @@
 
 SWAppDelegate *swAppDelegate = nil;
 
-@interface SWAppDelegate ()
+@interface SWAppDelegate () <SwivlBaseDelegate>
 { 
     MVYSideMenuController *_sideBarController;
     
@@ -106,6 +106,11 @@ SWAppDelegate *swAppDelegate = nil;
 - (BOOL)appIsRecording
 {
 	return NO;
+}
+
+- (BOOL)appShouldStartRecording
+{
+    return NO;
 }
 
 - (void)setAppRecording:(BOOL)recording

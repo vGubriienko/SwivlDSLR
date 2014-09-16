@@ -9,23 +9,6 @@
 
 #include "AVSandboxNotifications.h"
 
-
-NSString* AVSandboxLibraryChangedNotification = @"AVSandboxLibraryChangedNotification";
-NSString* AVSandboxRecordingStoppedNotification = @"AVSandboxRecordingStoppedNotification";
-NSString* AVSandboxRecordingSafeToExitNotification = @"AVSandboxRecordingSafeToExitNotification";
-NSString* AVSandboxRecordingStartedNotification = @"AVSandboxRecordingStartedNotification";
-NSString* AVSandboxApplicationActiveNotification = @"AVSandboxApplicationActiveNotification";
-NSString* AVSandboxSwivlDockAttached = @"AVSandboxSwivlDockAttached";
-NSString* AVSandboxSwivlDockDetached = @"AVSandboxSwivlDockDetached";
-NSString* AVSandboxSwivlFirmwareChanged = @"AVSandboxSwivlFirmwareChanged";
-NSString* AVSandboxMarkersStateChanged = @"AVSandboxMarkersStateChanged";
-NSString* AVSandboxMarkerBatteryLevelChanged = @"AVSandboxMarkerBatteryLevelChanged";
-NSString* AVSandboxBaseBatteryLevelChanged = @"AVSandboxBaseBatteryLevelChanged";
-NSString* AVSandboxTrackingStateChangedNotification = @"AVSandboxTrackingStateChangedNotification";
-NSString* AVSandboxFastTrackingEnabledStateChangedNotification = @"AVSandboxFastTrackingEnabledStateChangedNotification";
-NSString* AVSandboxNavToFromRecordingScreen = @"AVSandboxNavToFromRecordingScreen";
-NSString* AVSandboxPanningStateChangedNotification = @"AVSandboxPanningStateChangedNotification";
-
-NSString* AVSandboxSwivlScriptStateChangedNotification = @"AVSandboxSwivlScriptStateChangedNotification";
-NSString* AVSandboxScriptProgressNeedStartNotification = @"AVSandboxScriptProgressNeedStartNotification";
-NSString* AVSandboxScriptProgressDidFinishNotification = @"AVSandboxScriptProgressDidFinishNotification";
+NSString *AVSandboxSwivlScriptStateChangedNotification = @"AVSandboxSwivlScriptStateChangedNotification";
+NSString *AVSandboxScriptProgressNeedStartNotification = @"AVSandboxScriptProgressNeedStartNotification";
+NSString *AVSandboxScriptProgressDidFinishNotification = @"AVSandboxScriptProgressDidFinishNotification";

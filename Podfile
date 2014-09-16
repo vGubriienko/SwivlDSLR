@@ -4,7 +4,7 @@ target :SwivlDSLR do
 	pod 'MBProgressHUD'
    	pod 'Countly'
     pod 'ABStaticTableViewController', '~> 1.1.0'
-    pod 'Swivl-iOS-SDK',  :git => "git@github.com:Swivl/Swivl-iOS-SDK.git", :tag => "0.2.3"
+    pod 'Swivl2Lib', :git => "git@github.com:Swivl/Swivl2Lib.git", :tag => '0.3.4'
 end
  
 target :SwivlDSLRTests do

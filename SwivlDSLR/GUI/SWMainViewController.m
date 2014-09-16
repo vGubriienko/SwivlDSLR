@@ -12,7 +12,7 @@
 #import "SWTimelapseSettings.h"
 #import "SWAppDelegate.h"
 
-#import <Swivl-iOS-SDK/SwivlCommonLib.h>
+#import <Swivl2Lib/SwivlCommonLib.h>
 
 #define SW_TIMELAPSE_SETTINGS_KEY @"SW_TIMELAPSE_SETTINGS_KEY"
 
