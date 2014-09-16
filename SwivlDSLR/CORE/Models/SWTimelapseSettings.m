@@ -60,6 +60,7 @@
     static NSArray *array = nil;
     if (!array) {
         NSMutableArray *tempArray = [NSMutableArray arrayWithCapacity:20];
+        [tempArray addObject:@(0.0)];
         for (double i = SW_PAN_DEGREES_PER_ONE_MOTOR_STEP * 4; i < 20.0; i+= SW_PAN_DEGREES_PER_ONE_MOTOR_STEP) {
             [tempArray addObject:[NSNumber numberWithFloat:i]];
         }

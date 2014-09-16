@@ -36,8 +36,6 @@
 {
     _timelapseSettings.stepSize = 6.75;
     
-    _timelapseSettings.stepSize = 0;
-    XCTAssertEqualWithAccuracy(_timelapseSettings.stepSize, 6.75, FLT_EPSILON, @"Invalid stepSize value");
     _timelapseSettings.stepSize = -1;
     XCTAssertEqualWithAccuracy(_timelapseSettings.stepSize, 6.75, FLT_EPSILON, @"Invalid stepSize value");
     _timelapseSettings.stepSize = 21;
