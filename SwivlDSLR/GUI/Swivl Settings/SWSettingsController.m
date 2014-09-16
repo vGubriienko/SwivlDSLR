@@ -13,7 +13,7 @@
 #import "SWBatteryLevelView.h"
 
 #import "MVYSideMenuController.h"
-#import <Swivl-iOS-SDK/SwivlCommonLib.h>
+#import <Swivl2Lib/SwivlCommonLib.h>
 
 #define DOCK_FW_VERSION_UNREPORTED  @"Dock Doesn't Report FW Version"
 

@@ -12,7 +12,7 @@
 #import "SWTimelapseSettings.h"
 #import "SWAppDelegate.h"
 
-#import <Swivl-iOS-SDK/SwivlCommonLib.h>
+#import <Swivl2Lib/SwivlCommonLib.h>
 
 #define SW_TIMELAPSE_SETTINGS_KEY @"SW_TIMELAPSE_SETTINGS_KEY"
 
@@ -55,8 +55,12 @@
     [super viewDidLoad];
 
     [self restoreSettings];
-    [self startObserving];
     [self configUI];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(applicationDidBecomeActive)
+                                                 name:UIApplicationDidBecomeActiveNotification
+                                               object:nil];
 }
 
 - (void)configUI
@@ -76,6 +80,10 @@
     [[Countly sharedInstance] recordEvent:NSStringFromClass([self class]) segmentation:@{@"open":@YES} count:1];
     
     [self startObserving];
+    
+    if (_isShowingProgress) {
+        [self startCaptureBtnAnimation];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -146,6 +154,15 @@
     _recordingTimeLabel.hidden = YES;
     _distanceLabel.hidden = YES;
     
+    [self startCaptureBtnAnimation];
+    
+    [self performSegueWithIdentifier:@"ScriptProgress" sender:nil];
+}
+
+- (void)startCaptureBtnAnimation
+{
+    [_captureBtnActive.layer removeAllAnimations];
+    
     _captureBtnActive.hidden = NO;
     _captureBtnActive.alpha = 1.0;
     [UIView animateWithDuration:0.5
@@ -155,8 +172,6 @@
                          _captureBtnActive.alpha = 0.0;
                      }
                      completion:nil];
-    
-    [self performSegueWithIdentifier:@"ScriptProgress" sender:nil];
 }
 
 - (void)hideProgress
@@ -366,6 +381,13 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:AVSandboxScriptProgressNeedStartNotification object:nil];
     } else if (swAppDelegate.scriptState == SWScriptStateNone) {
         [self hideProgress];
+    }
+}
+
+- (void)applicationDidBecomeActive
+{
+    if (_isShowingProgress) {
+        [self startCaptureBtnAnimation];
     }
 }
 

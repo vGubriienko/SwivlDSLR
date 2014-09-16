@@ -70,6 +70,7 @@
 		25B962D218D21ABC002E4FD1 /* MVYSideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B962CF18D21ABC002E4FD1 /* MVYSideMenuController.m */; };
 		25B962D318D21ABC002E4FD1 /* MVYSideMenuOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B962D118D21ABC002E4FD1 /* MVYSideMenuOptions.m */; };
 		25BB880318E45F7400ECE14D /* SWProgressController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BB880218E45F7400ECE14D /* SWProgressController.m */; };
+		25DDE74D19C8837C0061245E /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25DDE74C19C8837C0061245E /* ExternalAccessory.framework */; };
 		25E536D0190E79DD0059FE7C /* arrow_manual_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 25E536CC190E79DD0059FE7C /* arrow_manual_down.png */; };
 		25E536D1190E79DD0059FE7C /* arrow_manual_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 25E536CD190E79DD0059FE7C /* arrow_manual_left.png */; };
 		25E536D2190E79DD0059FE7C /* arrow_manual_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 25E536CE190E79DD0059FE7C /* arrow_manual_right.png */; };
@@ -90,7 +91,6 @@
 		858A4DFC18C8AA700036A0CF /* DKRepeatableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A4DF818C8AA700036A0CF /* DKRepeatableButton.m */; };
 		858A4DFD18C8AA700036A0CF /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = 858A4DF918C8AA700036A0CF /* down.png */; };
 		858A4DFE18C8AA700036A0CF /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = 858A4DFA18C8AA700036A0CF /* up.png */; };
-		85956AF318E4AC3C001763BC /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85956AF218E4AC3C001763BC /* ExternalAccessory.framework */; };
 		85CA1762190667230052E6C3 /* SWManualControllerPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85CA1761190667230052E6C3 /* SWManualControllerPhone.storyboard */; };
 		85D97BA118C76DD2002C2665 /* SWTimelapsSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D97BA018C76DD2002C2665 /* SWTimelapsSegue.m */; };
 		85DDC0B41907EB9B009B5DBF /* down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 85DDC0B01907EB9B009B5DBF /* down@2x.png */; };
@@ -198,6 +198,8 @@
 		25B962D118D21ABC002E4FD1 /* MVYSideMenuOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVYSideMenuOptions.m; sourceTree = "<group>"; };
 		25BB880118E45F7400ECE14D /* SWProgressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWProgressController.h; sourceTree = "<group>"; };
 		25BB880218E45F7400ECE14D /* SWProgressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWProgressController.m; sourceTree = "<group>"; };
+		25DDE74C19C8837C0061245E /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		25DDE74E19C8837D0061245E /* SwivlDSLR.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SwivlDSLR.entitlements; sourceTree = "<group>"; };
 		25E536CC190E79DD0059FE7C /* arrow_manual_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_manual_down.png; sourceTree = "<group>"; };
 		25E536CD190E79DD0059FE7C /* arrow_manual_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_manual_left.png; sourceTree = "<group>"; };
 		25E536CE190E79DD0059FE7C /* arrow_manual_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_manual_right.png; sourceTree = "<group>"; };
@@ -222,7 +224,6 @@
 		858A4DF818C8AA700036A0CF /* DKRepeatableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKRepeatableButton.m; sourceTree = "<group>"; };
 		858A4DF918C8AA700036A0CF /* down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down.png; sourceTree = "<group>"; };
 		858A4DFA18C8AA700036A0CF /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up.png; sourceTree = "<group>"; };
-		85956AF218E4AC3C001763BC /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		85CA1761190667230052E6C3 /* SWManualControllerPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SWManualControllerPhone.storyboard; sourceTree = "<group>"; };
 		85D97B9F18C76DD2002C2665 /* SWTimelapsSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTimelapsSegue.h; sourceTree = "<group>"; };
 		85D97BA018C76DD2002C2665 /* SWTimelapsSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTimelapsSegue.m; sourceTree = "<group>"; };
@@ -238,7 +239,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85956AF318E4AC3C001763BC /* ExternalAccessory.framework in Frameworks */,
+				25DDE74D19C8837C0061245E /* ExternalAccessory.framework in Frameworks */,
 				259524F718C610DF006EEAFA /* CoreGraphics.framework in Frameworks */,
 				25070FE118E2FDA1006FBD2D /* Crashlytics.framework in Frameworks */,
 				259524F918C610DF006EEAFA /* UIKit.framework in Frameworks */,
@@ -340,7 +341,7 @@
 		259524F318C610DF006EEAFA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				85956AF218E4AC3C001763BC /* ExternalAccessory.framework */,
+				25DDE74C19C8837C0061245E /* ExternalAccessory.framework */,
 				25070FE018E2FDA1006FBD2D /* Crashlytics.framework */,
 				259524F418C610DF006EEAFA /* Foundation.framework */,
 				259524F618C610DF006EEAFA /* CoreGraphics.framework */,
@@ -355,6 +356,7 @@
 		259524FA18C610DF006EEAFA /* SwivlDSLR */ = {
 			isa = PBXGroup;
 			children = (
+				25DDE74E19C8837D0061245E /* SwivlDSLR.entitlements */,
 				2522F7DC18D0CAF000915E25 /* AVSandboxNotifications.h */,
 				2522F7DD18D0CAF000915E25 /* AVSandboxNotifications.m */,
 				2595250318C610DF006EEAFA /* SWAppDelegate.h */,
@@ -638,9 +640,17 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SW;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = Swivl;
 				TargetAttributes = {
+					259524F018C610DE006EEAFA = {
+						DevelopmentTeam = H9QT4S334X;
+						SystemCapabilities = {
+							com.apple.WAC = {
+								enabled = 1;
+							};
+						};
+					};
 					2595251418C610DF006EEAFA = {
 						TestTargetID = 259524F018C610DE006EEAFA;
 					};
@@ -916,6 +926,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -934,6 +945,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "EDAF6D12-2C09-4925-93FE-5974E4DE67E5";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -955,6 +967,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -966,6 +979,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PROVISIONING_PROFILE = "EDAF6D12-2C09-4925-93FE-5974E4DE67E5";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -976,10 +990,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 875D82B5AC324DAD9BEEE66D /* Pods-SwivlDSLR.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_ENTITLEMENTS = SwivlDSLR/SwivlDSLR.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -988,7 +1003,7 @@
 				GCC_PREFIX_HEADER = "SwivlDSLR/SwivlDSLR-Prefix.pch";
 				INFOPLIST_FILE = "SwivlDSLR/SwivlDSLR-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "60F4D4D6-9C7E-4C7C-9FB7-1BDC57B50D91";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -997,10 +1012,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 875D82B5AC324DAD9BEEE66D /* Pods-SwivlDSLR.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_ENTITLEMENTS = SwivlDSLR/SwivlDSLR.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1009,7 +1025,7 @@
 				GCC_PREFIX_HEADER = "SwivlDSLR/SwivlDSLR-Prefix.pch";
 				INFOPLIST_FILE = "SwivlDSLR/SwivlDSLR-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "60F4D4D6-9C7E-4C7C-9FB7-1BDC57B50D91";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
