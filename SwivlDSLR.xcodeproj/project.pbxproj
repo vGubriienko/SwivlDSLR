@@ -26,7 +26,6 @@
 		2558AB83194721370043C2D0 /* SwivlFWUpdate.bin in Resources */ = {isa = PBXBuildFile; fileRef = 2558AB82194721370043C2D0 /* SwivlFWUpdate.bin */; };
 		256C1FD918EC3EE700D0659B /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 256C1FD818EC3EE700D0659B /* info.png */; };
 		25743A7E192CA9EE003740F2 /* SWTiltController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25743A7D192CA9EE003740F2 /* SWTiltController.m */; };
-		25743A80192CAA05003740F2 /* SWMainControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25743A7F192CAA05003740F2 /* SWMainControllerTests.m */; };
 		25743A83192CCD8E003740F2 /* timelapse_tilt.png in Resources */ = {isa = PBXBuildFile; fileRef = 25743A81192CCD8E003740F2 /* timelapse_tilt.png */; };
 		25743A84192CCD8E003740F2 /* timelapse_tilt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25743A82192CCD8E003740F2 /* timelapse_tilt@2x.png */; };
 		25743A89192CD833003740F2 /* SWBatteryLevelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25743A86192CD833003740F2 /* SWBatteryLevelView.m */; };
@@ -141,7 +140,6 @@
 		256C1FD818EC3EE700D0659B /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		25743A7C192CA9EE003740F2 /* SWTiltController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTiltController.h; sourceTree = "<group>"; };
 		25743A7D192CA9EE003740F2 /* SWTiltController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTiltController.m; sourceTree = "<group>"; };
-		25743A7F192CAA05003740F2 /* SWMainControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWMainControllerTests.m; sourceTree = "<group>"; };
 		25743A81192CCD8E003740F2 /* timelapse_tilt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_tilt.png; sourceTree = "<group>"; };
 		25743A82192CCD8E003740F2 /* timelapse_tilt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timelapse_tilt@2x.png"; sourceTree = "<group>"; };
 		25743A85192CD833003740F2 /* SWBatteryLevelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWBatteryLevelView.h; sourceTree = "<group>"; };
@@ -390,7 +388,6 @@
 				259E2F7418C89F5700ECC07A /* SWTimelapseSettingsTests.m */,
 				258941E8192204B300BCAE55 /* SWDSLRConfigurationTests.m */,
 				258941EA1922108400BCAE55 /* SWScriptTests.m */,
-				25743A7F192CAA05003740F2 /* SWMainControllerTests.m */,
 			);
 			path = SwivlDSLRTests;
 			sourceTree = "<group>";
@@ -857,7 +854,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25743A80192CAA05003740F2 /* SWMainControllerTests.m in Sources */,
 				258941EB1922108400BCAE55 /* SWScriptTests.m in Sources */,
 				259E2F7518C89F5700ECC07A /* SWTimelapseSettingsTests.m in Sources */,
 				258941E9192204B300BCAE55 /* SWDSLRConfigurationTests.m in Sources */,

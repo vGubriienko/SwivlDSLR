@@ -17,6 +17,9 @@
 #define SW_TIMELAPSE_MIN_TILT -12
 #define SW_TIMELAPSE_MAX_TILT 12
 
+#define SW_TIMELAPSE_MIN_EXPOSURE 1
+#define SW_TIMELAPSE_MAX_EXPOSURE 1000
+
 typedef struct SWTimeComponents SWTimeComponents;
 
 struct SWTimeComponents {
@@ -40,6 +43,7 @@ static inline SWTimeComponents SWTimeComponentsMake(NSInteger seconds)
 @property (nonatomic, readonly) NSInteger distance;             //(stepCount - 1) * stepSize
 @property (nonatomic, readonly) NSInteger recordingTime;        //timeBetweenPictures * (stepCount - 1)
 @property (nonatomic, assign) NSInteger timeBetweenPictures;
+@property (nonatomic, assign) NSInteger exposureTime;
 @property (nonatomic, assign) CGFloat stepSize;
 @property (nonatomic, assign) BOOL clockwiseDirection;
 @property (nonatomic, assign) NSInteger startTiltAngle;

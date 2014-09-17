@@ -70,6 +70,8 @@
     return array;
 }
 
+#pragma mark - Properties
+
 - (SWTimeComponents)timeBetweenPicturesComponents
 {
     return SWTimeComponentsMake(self.timeBetweenPictures);
@@ -84,6 +86,9 @@
 {
     if (timeBetweenPictures >= SW_TIMELAPSE_MIN_TIME_BTWN_PICTURES && timeBetweenPictures <= SW_TIMELAPSE_MAX_TIME_BTWN_PICTURES) {
         _timeBetweenPictures = timeBetweenPictures;
+        if (self.exposureTime >= timeBetweenPictures) {
+            self.exposureTime = timeBetweenPictures - 1;
+        }
     }
 }
 
@@ -93,7 +98,15 @@
     self.timeBetweenPictures = seconds;
 }
 
-#pragma mark - Properties
+- (void)setExposureTime:(NSInteger)exposureTime
+{
+    if (exposureTime >= SW_TIMELAPSE_MIN_EXPOSURE && exposureTime <= SW_TIMELAPSE_MAX_EXPOSURE) {
+        _exposureTime = exposureTime;
+        if (exposureTime >= self.timeBetweenPictures) {
+            self.timeBetweenPictures = exposureTime + 1;
+        }
+    }
+}
 
 - (void)setStepSize:(CGFloat)stepSize
 {

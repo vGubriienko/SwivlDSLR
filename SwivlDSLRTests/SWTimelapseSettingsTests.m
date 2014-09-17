@@ -71,7 +71,7 @@
     XCTAssertTrue(_timelapseSettings.stepCount <= 3000, @"StepCount has invalid init value");
 }
 
-#pragma mark - Time btwn pictures
+#pragma mark - Time between pictures
 
 - (void)testTimeBtwnPicturesDoesNotChangeAfterSettingInvalidValue
 {
@@ -81,6 +81,15 @@
     
     _timelapseSettings.timeBetweenPictures = 23 * 3600 + 59 * 60 + 59 + 1;
     XCTAssertEqual(_timelapseSettings.timeBetweenPictures, 10, @"Invalid timeBetweenPictures value");
+}
+
+- (void)testSettingTimeBtwnPicturesDecreasesExposureIfNeeded
+{
+    _timelapseSettings.timeBetweenPictures = 10;
+    _timelapseSettings.exposureTime = 8;
+    _timelapseSettings.timeBetweenPictures = 3;
+
+    XCTAssertEqual(_timelapseSettings.exposureTime, 2, @"exposure should be bigger then timeBetweenPictures");
 }
 
 #pragma mark - Recording time
@@ -172,6 +181,26 @@
     XCTAssertEqual(_timelapseSettings.endTiltAngle, 12, @"Invalid end tilt value");
     _timelapseSettings.endTiltAngle = 13;
     XCTAssertEqual(_timelapseSettings.endTiltAngle, 12, @"Invalid end tilt value");
+}
+
+#pragma mark - Exposure
+
+- (void)testExposureDoesNotChangesAfterSettingInvalidValue
+{
+    _timelapseSettings.exposureTime = 10;
+    _timelapseSettings.exposureTime = 0;
+    XCTAssertEqual(_timelapseSettings.exposureTime, 10, @"Invalid exposure value");
+    
+    _timelapseSettings.exposureTime = 100;
+    _timelapseSettings.exposureTime = 1001;
+    XCTAssertEqual(_timelapseSettings.exposureTime, 100, @"Invalid exposure value");
+}
+
+- (void)testSettingExposureIncreasesTimeBtwnPicturesIfNeeded
+{
+    _timelapseSettings.timeBetweenPictures = 5;
+    _timelapseSettings.exposureTime = 10;
+    XCTAssertEqual(_timelapseSettings.timeBetweenPictures, 11, @"timeBetweenPictures should be bigger then exposure");
 }
 
 #pragma mark - Save & Restore
