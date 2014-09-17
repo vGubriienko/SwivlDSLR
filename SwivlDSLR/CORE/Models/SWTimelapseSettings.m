@@ -70,25 +70,6 @@
     return array;
 }
 
-+ (NSDictionary *)timeRanges
-{
-    static NSDictionary *dict = nil;
-    if (!dict) {
-        
-        NSMutableArray *hours = [NSMutableArray arrayWithCapacity:24];
-        for (NSInteger i = 0; i < 24; i++) {
-            [hours addObject:[NSNumber numberWithInteger:i]];
-        }
-        NSMutableArray *minutesOrSeconds = [NSMutableArray arrayWithCapacity:60];
-        for (NSInteger i = 0; i < 60; i++) {
-            [minutesOrSeconds addObject:[NSNumber numberWithInteger:i]];
-        }
-        
-        dict = @{@"hours" : hours, @"minutes" : minutesOrSeconds, @"seconds" : minutesOrSeconds};
-    }
-    return dict;
-}
-
 - (SWTimeComponents)timeBetweenPicturesComponents
 {
     return SWTimeComponentsMake(self.timeBetweenPictures);
@@ -97,6 +78,13 @@
 - (SWTimeComponents)recordingTimeComponents
 {
     return SWTimeComponentsMake(self.recordingTime);
+}
+
+- (void)setTimeBetweenPictures:(NSInteger)timeBetweenPictures
+{
+    if (timeBetweenPictures >= SW_TIMELAPSE_MIN_TIME_BTWN_PICTURES && timeBetweenPictures <= SW_TIMELAPSE_MAX_TIME_BTWN_PICTURES) {
+        _timeBetweenPictures = timeBetweenPictures;
+    }
 }
 
 - (void)setTimeBetweenPicturesWithComponents:(SWTimeComponents)timeBetweenPicturesComponents

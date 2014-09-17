@@ -73,6 +73,18 @@
 
 #pragma mark - Time btwn pictures
 
+- (void)testTimeBtwnPicturesDoesNotChangeAfterSettingInvalidValue
+{
+    _timelapseSettings.timeBetweenPictures = 10;
+    _timelapseSettings.timeBetweenPictures = 2;
+    XCTAssertEqual(_timelapseSettings.timeBetweenPictures, 10, @"Invalid timeBetweenPictures value");
+    
+    _timelapseSettings.timeBetweenPictures = 23 * 3600 + 59 * 60 + 59 + 1;
+    XCTAssertEqual(_timelapseSettings.timeBetweenPictures, 10, @"Invalid timeBetweenPictures value");
+}
+
+#pragma mark - Recording time
+
 - (void)testRecordingTimeCalculatesCorrectly
 {
     _timelapseSettings.timeBetweenPictures = 3;

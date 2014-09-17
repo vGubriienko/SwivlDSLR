@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+#define SW_TIMELAPSE_MIN_TIME_BTWN_PICTURES 3
+#define SW_TIMELAPSE_MAX_TIME_BTWN_PICTURES 23 * 3600 + 59 * 60 + 59    //23 hours, 59 minutes, 59 seconds
+
 #define SW_TIMELAPSE_MIN_STEPCOUNT 2
 #define SW_TIMELAPSE_MAX_STEPCOUNT 3000
 
@@ -44,7 +47,6 @@ static inline SWTimeComponents SWTimeComponentsMake(NSInteger seconds)
 @property (nonatomic, assign) NSInteger stepCount;
 
 + (NSArray *)availableStepSizes;
-+ (NSDictionary *)timeRanges;
 
 - (SWTimeComponents)timeBetweenPicturesComponents;
 - (SWTimeComponents)recordingTimeComponents;

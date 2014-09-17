@@ -17,8 +17,8 @@
     __weak IBOutlet UIPickerView *_timePicker;
     __weak IBOutlet UILabel *_recordingTimeLabel;
 
-    NSArray *_timeComponentsKeys;
-    NSDictionary *_timeRanges;
+    SWTimeComponents _minTimeComponents;
+    SWTimeComponents _maxTimeComponents;
 }
 @end
 
@@ -27,9 +27,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    _timeRanges = [SWTimelapseSettings timeRanges];
-    _timeComponentsKeys = @[@"hours", @"minutes", @"seconds"];
+
+    _minTimeComponents = SWTimeComponentsMake(SW_TIMELAPSE_MIN_TIME_BTWN_PICTURES);
+    _maxTimeComponents = SWTimeComponentsMake(SW_TIMELAPSE_MAX_TIME_BTWN_PICTURES);
 
     [self setupTimePicker:NO];
     
@@ -44,58 +44,59 @@
 
 - (void)setupTimePicker:(BOOL)animated
 {
-    NSMutableArray *hoursRange = [_timeRanges[@"hours"] mutableCopy];
-    NSNumber *hours = [NSNumber numberWithInteger:_timelapseSettings.timeBetweenPicturesComponents.hours];
-    NSInteger index = [hoursRange indexOfObject:hours];
-    [_timePicker selectRow:index inComponent:0 animated:animated];
-    
-    NSMutableArray *minutesRange = [_timeRanges[@"minutes"] mutableCopy];
-    NSNumber *minutes = [NSNumber numberWithInteger:_timelapseSettings.timeBetweenPicturesComponents.minutes];
-    index = [minutesRange indexOfObject:minutes];
-    [_timePicker selectRow:index inComponent:1 animated:animated];
-    
-    NSMutableArray *secondsRange = [_timeRanges[@"seconds"] mutableCopy];
-    NSNumber *seconds = [NSNumber numberWithInteger:_timelapseSettings.timeBetweenPicturesComponents.seconds];
-    index = [secondsRange indexOfObject:seconds];
-    [_timePicker selectRow:index inComponent:2 animated:animated];
+    [_timePicker selectRow:_timelapseSettings.timeBetweenPicturesComponents.hours inComponent:0 animated:animated];
+    [_timePicker selectRow:_timelapseSettings.timeBetweenPicturesComponents.minutes inComponent:1 animated:animated];
+    [_timePicker selectRow:_timelapseSettings.timeBetweenPicturesComponents.seconds inComponent:2 animated:animated];
 }
 
 #pragma mark UIPickerViewDelegate & UIPickerViewDataSource
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-    return _timeComponentsKeys.count;
+    return 3;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    NSString *componentKey = _timeComponentsKeys[component];
-    return [_timeRanges[componentKey] count];
+    if (component == 0) {
+        return _maxTimeComponents.hours - _minTimeComponents.hours + 1;
+    } else if (component == 1) {
+        return _maxTimeComponents.minutes - _minTimeComponents.minutes + 1;
+    } else if (component == 2) {
+        return _maxTimeComponents.seconds - _minTimeComponents.seconds + 1;
+    } else {
+        return 0;
+    }
 }
 
 - (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    NSString *componentKey = _timeComponentsKeys[component];
-    NSNumber *number = [_timeRanges[componentKey] objectAtIndex:row];
-    NSString *title = number.stringValue;
-   
+    NSInteger time = 0;
+    
+    if (component == 0) {
+        time = row + _minTimeComponents.hours;
+    } else if (component == 1) {
+        time = row + _minTimeComponents.minutes;
+    } else if (component == 2) {
+        time = row + _minTimeComponents.seconds;
+    }
+    
+    NSString *title = [NSString stringWithFormat:@"%li", (long)time];
     return [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    NSString *componentKey = _timeComponentsKeys[component];
     SWTimeComponents timeComponents = [_timelapseSettings timeBetweenPicturesComponents];
-    NSString *selectedValue = [_timeRanges[componentKey] objectAtIndex:row];
     
-    if ([componentKey isEqualToString:@"hours"]) {
-        timeComponents.hours = [selectedValue integerValue];
-    } else if ([componentKey isEqualToString:@"minutes"]) {
-        timeComponents.minutes = [selectedValue integerValue];
-    } else if ([componentKey isEqualToString:@"seconds"]) {
-        timeComponents.seconds = [selectedValue integerValue];
+    if (component == 0) {
+        timeComponents.hours = row + _minTimeComponents.hours;
+    } else if (component == 1) {
+        timeComponents.minutes = row + _minTimeComponents.minutes;
+    } else if (component == 2) {
+        timeComponents.seconds = row + _minTimeComponents.seconds;
     }
-
+    
     [_timelapseSettings setTimeBetweenPicturesWithComponents:timeComponents];
     
     [self reloadRecordingTimeLabel];
@@ -106,13 +107,6 @@
     SWTimeComponents recordingTimeComps = [_timelapseSettings recordingTimeComponents];
     NSString *strTime = [NSString stringWithFormat:@"Recording Time: %.2li:%.2li:%.2li", (long)recordingTimeComps.hours, (long)recordingTimeComps.minutes, (long)recordingTimeComps.seconds];
     _recordingTimeLabel.text = strTime;
-}
-
-#pragma mark -
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
 }
 
 @end
