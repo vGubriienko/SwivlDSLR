@@ -29,6 +29,7 @@
     __weak IBOutlet UIButton *_stepSizeBtn;
     __weak IBOutlet UIButton *_timeBtn;
     __weak IBOutlet UIButton *_tiltBtn;
+    __weak IBOutlet UIButton *_exposureBtn;
     __weak IBOutlet UIView *_timelapseControls;
     __weak IBOutlet UIButton *_helpButton;
     
@@ -252,6 +253,9 @@
     [_timelapseSettings addObserver:self forKeyPath:@"timeBetweenPictures"
                             options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
                             context:nil];
+    [_timelapseSettings addObserver:self forKeyPath:@"exposure"
+                            options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
+                            context:nil];
     [_timelapseSettings addObserver:self forKeyPath:@"clockwiseDirection"
                             options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
                             context:nil];
@@ -291,6 +295,13 @@
         timeComps = [_timelapseSettings recordingTimeComponents];
         strTime = [NSString stringWithFormat:@"%.2li:%.2li:%.2li", (long)timeComps.hours, (long)timeComps.minutes, (long)timeComps.seconds];
         [_recordingTimeLabel setText:strTime];
+        
+        if (_timelapseSettings.exposure == SW_TIMELAPSE_MIN_EXPOSURE) {
+            [_exposureBtn setTitle:[NSString stringWithFormat:@"<=%li", _timelapseSettings.exposure] forState:UIControlStateNormal];
+        } else {
+            [_exposureBtn setTitle:[NSString stringWithFormat:@"%li", _timelapseSettings.exposure] forState:UIControlStateNormal];
+        }
+
         
         _directionBtn.selected = !_timelapseSettings.clockwiseDirection;
     }
@@ -398,6 +409,7 @@
     [_timelapseSettings removeObserver:self forKeyPath:@"stepCount"];
     [_timelapseSettings removeObserver:self forKeyPath:@"stepSize"];
     [_timelapseSettings removeObserver:self forKeyPath:@"timeBetweenPictures"];
+    [_timelapseSettings removeObserver:self forKeyPath:@"exposure"];
     [_timelapseSettings removeObserver:self forKeyPath:@"clockwiseDirection"];
     [_timelapseSettings removeObserver:self forKeyPath:@"startTiltAngle"];
     [_timelapseSettings removeObserver:self forKeyPath:@"endTiltAngle"];

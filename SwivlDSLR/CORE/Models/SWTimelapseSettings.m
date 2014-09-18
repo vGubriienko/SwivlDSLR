@@ -20,6 +20,7 @@
         self.timeBetweenPictures = 5;
         self.startTiltAngle = 0;
         self.endTiltAngle = 0;
+        self.exposure = 1;
     }
     return self;
 }
@@ -86,8 +87,8 @@
 {
     if (timeBetweenPictures >= SW_TIMELAPSE_MIN_TIME_BTWN_PICTURES && timeBetweenPictures <= SW_TIMELAPSE_MAX_TIME_BTWN_PICTURES) {
         _timeBetweenPictures = timeBetweenPictures;
-        if (self.exposureTime >= timeBetweenPictures) {
-            self.exposureTime = timeBetweenPictures - 1;
+        if (self.exposure >= timeBetweenPictures) {
+            self.exposure = timeBetweenPictures - 1;
         }
     }
 }
@@ -98,10 +99,10 @@
     self.timeBetweenPictures = seconds;
 }
 
-- (void)setExposureTime:(NSInteger)exposureTime
+- (void)setExposure:(NSInteger)exposureTime
 {
     if (exposureTime >= SW_TIMELAPSE_MIN_EXPOSURE && exposureTime <= SW_TIMELAPSE_MAX_EXPOSURE) {
-        _exposureTime = exposureTime;
+        _exposure = exposureTime;
         if (exposureTime >= self.timeBetweenPictures) {
             self.timeBetweenPictures = exposureTime + 1;
         }

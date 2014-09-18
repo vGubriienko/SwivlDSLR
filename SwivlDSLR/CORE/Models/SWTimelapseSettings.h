@@ -43,7 +43,7 @@ static inline SWTimeComponents SWTimeComponentsMake(NSInteger seconds)
 @property (nonatomic, readonly) NSInteger distance;             //(stepCount - 1) * stepSize
 @property (nonatomic, readonly) NSInteger recordingTime;        //timeBetweenPictures * (stepCount - 1)
 @property (nonatomic, assign) NSInteger timeBetweenPictures;
-@property (nonatomic, assign) NSInteger exposureTime;
+@property (nonatomic, assign) NSInteger exposure;
 @property (nonatomic, assign) CGFloat stepSize;
 @property (nonatomic, assign) BOOL clockwiseDirection;
 @property (nonatomic, assign) NSInteger startTiltAngle;
