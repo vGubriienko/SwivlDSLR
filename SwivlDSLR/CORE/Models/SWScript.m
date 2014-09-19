@@ -80,7 +80,7 @@
 - (NSString *)generateScriptForTriggerTimelapse
 {
     NSInteger holdShutterTime = 2000;
-    NSInteger protectionPause = 500;
+    NSInteger protectionPause = self.timelapseSettings.exposure * 1000;
     NSInteger timeBtwPictures = self.timelapseSettings.timeBetweenPictures * 1000 - holdShutterTime - protectionPause;
     if (timeBtwPictures < 0) {
         timeBtwPictures = 0;

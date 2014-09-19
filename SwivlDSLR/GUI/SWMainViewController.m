@@ -297,9 +297,9 @@
         [_recordingTimeLabel setText:strTime];
         
         if (_timelapseSettings.exposure == SW_TIMELAPSE_MIN_EXPOSURE) {
-            [_exposureBtn setTitle:[NSString stringWithFormat:@"<=%li", _timelapseSettings.exposure] forState:UIControlStateNormal];
+            [_exposureBtn setTitle:[NSString stringWithFormat:@"<=%li", (long)_timelapseSettings.exposure] forState:UIControlStateNormal];
         } else {
-            [_exposureBtn setTitle:[NSString stringWithFormat:@"%li", _timelapseSettings.exposure] forState:UIControlStateNormal];
+            [_exposureBtn setTitle:[NSString stringWithFormat:@"%li", (long)_timelapseSettings.exposure] forState:UIControlStateNormal];
         }
 
         

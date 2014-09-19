@@ -40,6 +40,13 @@
         _clockwiseDirection = [[decoder decodeObjectForKey:@"clockwiseDirection"] boolValue];
         _startTiltAngle = [[decoder decodeObjectForKey:@"startTiltAngle"] integerValue];
         _endTiltAngle = [[decoder decodeObjectForKey:@"endTiltAngle"] integerValue];
+        
+        NSNumber *exposureNumber = [decoder decodeObjectForKey:@"exposure"];
+        if (exposureNumber) {
+            _exposure = [[decoder decodeObjectForKey:@"exposure"] integerValue];
+        } else {
+            _exposure = 1;
+        }
     }
     return self;
 }
@@ -52,6 +59,7 @@
     [encoder encodeObject:[NSNumber numberWithBool:_clockwiseDirection] forKey:@"clockwiseDirection"];
     [encoder encodeObject:[NSNumber numberWithInteger:_startTiltAngle] forKey:@"startTiltAngle"];
     [encoder encodeObject:[NSNumber numberWithInteger:_endTiltAngle] forKey:@"endTiltAngle"];
+    [encoder encodeObject:[NSNumber numberWithInteger:_exposure] forKey:@"exposure"];
 }
 
 #pragma mark - Public methods
