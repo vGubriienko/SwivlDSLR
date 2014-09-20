@@ -100,7 +100,6 @@
                         (long)protectionPause,
                         timeForStartPosition];
     return script;
-
 }
 
 - (NSString *)generateScriptForUSBTimelapse
@@ -108,6 +107,7 @@
     NSInteger timeBtwPictures = self.timelapseSettings.timeBetweenPictures * 1000;
     NSInteger speed = 800;
     NSInteger timeForStartPosition = SW_SCRIPT_TIME_FOR_START_TILT * 1000;
+    NSInteger protectionPause = self.timelapseSettings.exposure * 1000;
 
     NSString *scriptTemplate;
     NSArray *ptpCommands = self.dslrConfiguration.ptpCommands;
@@ -124,7 +124,8 @@
                         (long)speed,
                         [self startTiltParameter],
                         [self tiltStepParameter],
-                        timeForStartPosition];
+                        timeForStartPosition,
+                        protectionPause];
     return script;
 }
 

@@ -45,24 +45,24 @@
 - (NSString *)scriptTemplateForUSBTimelapse:(NSString *)ptpCommand1 ptpCommand2:(NSString *)ptpCommand2
 {
     NSString *script = [NSString stringWithFormat:
-                        @"1:%%lx,0M                                     \
-                        %%lx,1M                                         \
-                        %%@,2M                                          \
-                        %%lx,3M                                         \
-                        %%@,4M                                          \
-                        %%@,5M                                          \
-                        %%lx, 6M                                        \
-                        6L3L4L6,1,9R                                    \
-                        2:9L2= T3E8+8M                                  \
-                        3:T8L-3< T1L+8M F(                              \
-                        4:0L7= 1L3L2L5,0,9R 1L3L5L5,1,CR                \
-                        5:9L5= CL5=                                     \
-                        6:T8L-6< T1L+8M F( 0L1-0M4@                     \
-                        7:.                                             \
-                        F:FM                                            \
-                        D:3, 0, B%@P2019?D=2001-E#3, A%@P               \
-                        E:FL)\0", ptpCommand1, ptpCommand2];
-    
+                        @"1:%%lx,0M                         \
+                        %%lx,1M                             \
+                        %%@,2M                              \
+                        %%lx,3M                             \
+                        %%@,4M                              \
+                        %%@,5M                              \
+                        %%lx, 6M                            \
+                        %%lx,7M                             \
+                        6L3L4L6,1,AR                        \
+                        2:AL2= T3E8+8M                      \
+                        3:T8L-3< F(                         \
+                        4:0L7= 1L3L2L5,0,AR 1L3L5L5,1,DR    \
+                        5:AL5= DL5=                         \
+                        6:T8L-6< F( 0L1-0M4@                \
+                        7:.                                 \
+                        F:FM T1L+8M T7L+9M                  \
+                        D:3, 0, B%@P2019?D=2001-E#3, A%@P   \
+                        E:T9L-E< FL)\0", ptpCommand1, ptpCommand2];
     return script;
 }
 
@@ -82,15 +82,17 @@
                         %%@,4M                              \
                         %%@,5M                              \
                         %%lx, 6M                            \
-                        6L3L4L6,1,9R                        \
-                        2:9L2= T3E8+8M                      \
-                        3:T8L-3< T1L+8M F(                  \
-                        4:0L7= 1L3L2L5,0,9R 1L3L5L5,1,CR    \
-                        5:9L5= CL5=                         \
-                        6:T8L-6< T1L+8M F( 0L1-0M4@         \
+                        %%lx,7M                             \
+                        6L3L4L6,1,AR                        \
+                        2:AL2= T3E8+8M                      \
+                        3:T8L-3< F(                         \
+                        4:0L7= 1L3L2L5,0,AR 1L3L5L5,1,DR    \
+                        5:AL5= DL5=                         \
+                        6:T8L-6< F( 0L1-0M4@                \
                         7:.                                 \
-                        F:FM                                \
-                        D:%@P2019?D=FL)\0", ptpCommand1];
+                        F:FM T1L+8M T7L+9M                  \
+                        D:%@P2019?D=                        \
+                        E:T9L-E< FL)\0", ptpCommand1];
     return script;
 }
 

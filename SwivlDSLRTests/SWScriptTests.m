@@ -149,7 +149,7 @@
     _script.timelapseSettings = _timeLapseSettings;
     _script.dslrConfiguration = _cameraConfiguration1;
     
-    NSString *expectedScript = @"1:9,0MFA0,1M194%,2M320,3M0,4M160,5MFA0,6M6L3L4L6,1,9R2:9L2=T3E8+8M3:T8L-3<T1L+8MF(4:0L7=1L3L2L5,0,9R1L3L5L5,1,CR5:9L5=CL5=6:T8L-6<T1L+8MF(0L1-0M4@7:.F:FMD:910FP2019?D=FL)\0";
+     NSString *expectedScript = @"1:9,0MFA0,1M194%,2M320,3M0,4M160,5MFA0,6M3E8,7M6L3L4L6,1,AR2:AL2=T3E8+8M3:T8L-3<F(4:0L7=1L3L2L5,0,AR1L3L5L5,1,DR5:AL5=DL5=6:T8L-6<F(0L1-0M4@7:.F:FMT1L+8MT7L+9MD:910FP2019?D=E:T9L-E<FL)\0";
     
     NSString *resultScript = [_script generateScript];
     
@@ -163,7 +163,7 @@
     _script.timelapseSettings = _timeLapseSettingsClockWiseDirection;
     _script.dslrConfiguration = _cameraConfiguration1;
     
-    NSString *expectedScript = @"1:1,0M1B58,1M4,2M320,3M5F0%,4MBE0,5MFA0,6M6L3L4L6,1,9R2:9L2=T3E8+8M3:T8L-3<T1L+8MF(4:0L7=1L3L2L5,0,9R1L3L5L5,1,CR5:9L5=CL5=6:T8L-6<T1L+8MF(0L1-0M4@7:.F:FMD:910FP2019?D=FL)\0";
+    NSString *expectedScript = @"1:1,0M1B58,1M4,2M320,3M5F0%,4MBE0,5MFA0,6M7D0,7M6L3L4L6,1,AR2:AL2=T3E8+8M3:T8L-3<F(4:0L7=1L3L2L5,0,AR1L3L5L5,1,DR5:AL5=DL5=6:T8L-6<F(0L1-0M4@7:.F:FMT1L+8MT7L+9MD:910FP2019?D=E:T9L-E<FL)\0";
     
     NSString *resultScript = [_script generateScript];
     
@@ -177,7 +177,7 @@
     _script.timelapseSettings = _timeLapseSettings;
     _script.dslrConfiguration = _cameraConfiguration2;
     
-    NSString *expectedScript = @"1:9,0MFA0,1M194%,2M320,3M0,4M160,5MFA0,6M6L3L4L6,1,9R2:9L2=T3E8+8M3:T8L-3<T1L+8MF(4:0L7=1L3L2L5,0,9R1L3L5L5,1,CR5:9L5=CL5=6:T8L-6<T1L+8MF(0L1-0M4@7:.F:FMD:3,0,B9128P2019?D=2001-E#3,A9129PE:FL)\0";
+    NSString *expectedScript = @"1:9,0MFA0,1M194%,2M320,3M0,4M160,5MFA0,6M3E8,7M6L3L4L6,1,AR2:AL2=T3E8+8M3:T8L-3<F(4:0L7=1L3L2L5,0,AR1L3L5L5,1,DR5:AL5=DL5=6:T8L-6<F(0L1-0M4@7:.F:FMT1L+8MT7L+9MD:3,0,B9128P2019?D=2001-E#3,A9129PE:T9L-E<FL)\0";
     
     NSString *resultScript = [_script generateScript];
     
@@ -191,7 +191,7 @@
     _script.timelapseSettings = _timeLapseSettingsClockWiseDirection;
     _script.dslrConfiguration = _cameraConfiguration2;
     
-    NSString *expectedScript = @"1:1,0M1B58,1M4,2M320,3M5F0%,4MBE0,5MFA0,6M6L3L4L6,1,9R2:9L2=T3E8+8M3:T8L-3<T1L+8MF(4:0L7=1L3L2L5,0,9R1L3L5L5,1,CR5:9L5=CL5=6:T8L-6<T1L+8MF(0L1-0M4@7:.F:FMD:3,0,B9128P2019?D=2001-E#3,A9129PE:FL)\0";
+    NSString *expectedScript = @"1:1,0M1B58,1M4,2M320,3M5F0%,4MBE0,5MFA0,6M7D0,7M6L3L4L6,1,AR2:AL2=T3E8+8M3:T8L-3<F(4:0L7=1L3L2L5,0,AR1L3L5L5,1,DR5:AL5=DL5=6:T8L-6<F(0L1-0M4@7:.F:FMT1L+8MT7L+9MD:3,0,B9128P2019?D=2001-E#3,A9129PE:T9L-E<FL)\0";
 
     NSString *resultScript = [_script generateScript];
     
