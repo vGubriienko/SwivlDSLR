@@ -95,8 +95,8 @@
 {
     if (timeBetweenPictures >= SW_TIMELAPSE_MIN_TIME_BTWN_PICTURES && timeBetweenPictures <= SW_TIMELAPSE_MAX_TIME_BTWN_PICTURES) {
         _timeBetweenPictures = timeBetweenPictures;
-        if (self.exposure >= timeBetweenPictures) {
-            self.exposure = timeBetweenPictures - 1;
+        if (timeBetweenPictures - self.exposure < SW_TIMELAPSE_TIME_EXPOSURE_GAP) {
+            self.exposure = timeBetweenPictures - SW_TIMELAPSE_TIME_EXPOSURE_GAP;
         }
     }
 }
@@ -111,8 +111,8 @@
 {
     if (exposureTime >= SW_TIMELAPSE_MIN_EXPOSURE && exposureTime <= SW_TIMELAPSE_MAX_EXPOSURE) {
         _exposure = exposureTime;
-        if (exposureTime >= self.timeBetweenPictures) {
-            self.timeBetweenPictures = exposureTime + 1;
+        if (self.timeBetweenPictures - exposureTime < SW_TIMELAPSE_TIME_EXPOSURE_GAP) {
+            self.timeBetweenPictures = exposureTime + SW_TIMELAPSE_TIME_EXPOSURE_GAP;
         }
     }
 }
