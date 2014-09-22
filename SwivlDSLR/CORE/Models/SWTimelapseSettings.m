@@ -43,9 +43,9 @@
         
         NSNumber *exposureNumber = [decoder decodeObjectForKey:@"exposure"];
         if (exposureNumber) {
-            _exposure = [[decoder decodeObjectForKey:@"exposure"] integerValue];
+            _exposure = [exposureNumber integerValue];
         } else {
-            _exposure = 1;
+            _exposure = SW_TIMELAPSE_MIN_EXPOSURE;
         }
     }
     return self;
