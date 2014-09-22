@@ -20,6 +20,7 @@
         self.timeBetweenPictures = 5;
         self.startTiltAngle = 0;
         self.endTiltAngle = 0;
+        self.exposure = 1;
     }
     return self;
 }
@@ -39,6 +40,13 @@
         _clockwiseDirection = [[decoder decodeObjectForKey:@"clockwiseDirection"] boolValue];
         _startTiltAngle = [[decoder decodeObjectForKey:@"startTiltAngle"] integerValue];
         _endTiltAngle = [[decoder decodeObjectForKey:@"endTiltAngle"] integerValue];
+        
+        NSNumber *exposureNumber = [decoder decodeObjectForKey:@"exposure"];
+        if (exposureNumber) {
+            _exposure = [exposureNumber integerValue];
+        } else {
+            _exposure = SW_TIMELAPSE_MIN_EXPOSURE;
+        }
     }
     return self;
 }
@@ -51,6 +59,7 @@
     [encoder encodeObject:[NSNumber numberWithBool:_clockwiseDirection] forKey:@"clockwiseDirection"];
     [encoder encodeObject:[NSNumber numberWithInteger:_startTiltAngle] forKey:@"startTiltAngle"];
     [encoder encodeObject:[NSNumber numberWithInteger:_endTiltAngle] forKey:@"endTiltAngle"];
+    [encoder encodeObject:[NSNumber numberWithInteger:_exposure] forKey:@"exposure"];
 }
 
 #pragma mark - Public methods
@@ -70,24 +79,7 @@
     return array;
 }
 
-+ (NSDictionary *)timeRanges
-{
-    static NSDictionary *dict = nil;
-    if (!dict) {
-        
-        NSMutableArray *hours = [NSMutableArray arrayWithCapacity:24];
-        for (NSInteger i = 0; i < 24; i++) {
-            [hours addObject:[NSNumber numberWithInteger:i]];
-        }
-        NSMutableArray *minutesOrSeconds = [NSMutableArray arrayWithCapacity:60];
-        for (NSInteger i = 0; i < 60; i++) {
-            [minutesOrSeconds addObject:[NSNumber numberWithInteger:i]];
-        }
-        
-        dict = @{@"hours" : hours, @"minutes" : minutesOrSeconds, @"seconds" : minutesOrSeconds};
-    }
-    return dict;
-}
+#pragma mark - Properties
 
 - (SWTimeComponents)timeBetweenPicturesComponents
 {
@@ -99,13 +91,31 @@
     return SWTimeComponentsMake(self.recordingTime);
 }
 
+- (void)setTimeBetweenPictures:(NSInteger)timeBetweenPictures
+{
+    if (timeBetweenPictures >= SW_TIMELAPSE_MIN_TIME_BTWN_PICTURES && timeBetweenPictures <= SW_TIMELAPSE_MAX_TIME_BTWN_PICTURES) {
+        _timeBetweenPictures = timeBetweenPictures;
+        if (timeBetweenPictures - self.exposure < SW_TIMELAPSE_TIME_EXPOSURE_GAP) {
+            self.exposure = timeBetweenPictures - SW_TIMELAPSE_TIME_EXPOSURE_GAP;
+        }
+    }
+}
+
 - (void)setTimeBetweenPicturesWithComponents:(SWTimeComponents)timeBetweenPicturesComponents
 {
     NSInteger seconds = timeBetweenPicturesComponents.hours * 3600 + timeBetweenPicturesComponents.minutes * 60 + timeBetweenPicturesComponents.seconds;
     self.timeBetweenPictures = seconds;
 }
 
-#pragma mark - Properties
+- (void)setExposure:(NSInteger)exposureTime
+{
+    if (exposureTime >= SW_TIMELAPSE_MIN_EXPOSURE && exposureTime <= SW_TIMELAPSE_MAX_EXPOSURE) {
+        _exposure = exposureTime;
+        if (self.timeBetweenPictures - exposureTime < SW_TIMELAPSE_TIME_EXPOSURE_GAP) {
+            self.timeBetweenPictures = exposureTime + SW_TIMELAPSE_TIME_EXPOSURE_GAP;
+        }
+    }
+}
 
 - (void)setStepSize:(CGFloat)stepSize
 {

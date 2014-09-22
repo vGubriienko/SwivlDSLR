@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+#define SW_TIMELAPSE_MIN_TIME_BTWN_PICTURES 3
+#define SW_TIMELAPSE_MAX_TIME_BTWN_PICTURES 23 * 3600 + 59 * 60 + 59    //23 hours, 59 minutes, 59 seconds
+
+#define SW_TIMELAPSE_MIN_EXPOSURE 1
+#define SW_TIMELAPSE_MAX_EXPOSURE 1000
+#define SW_TIMELAPSE_TIME_EXPOSURE_GAP 2
+
 #define SW_TIMELAPSE_MIN_STEPCOUNT 2
 #define SW_TIMELAPSE_MAX_STEPCOUNT 3000
 
@@ -37,6 +44,7 @@ static inline SWTimeComponents SWTimeComponentsMake(NSInteger seconds)
 @property (nonatomic, readonly) NSInteger distance;             //(stepCount - 1) * stepSize
 @property (nonatomic, readonly) NSInteger recordingTime;        //timeBetweenPictures * (stepCount - 1)
 @property (nonatomic, assign) NSInteger timeBetweenPictures;
+@property (nonatomic, assign) NSInteger exposure;
 @property (nonatomic, assign) CGFloat stepSize;
 @property (nonatomic, assign) BOOL clockwiseDirection;
 @property (nonatomic, assign) NSInteger startTiltAngle;
@@ -44,7 +52,6 @@ static inline SWTimeComponents SWTimeComponentsMake(NSInteger seconds)
 @property (nonatomic, assign) NSInteger stepCount;
 
 + (NSArray *)availableStepSizes;
-+ (NSDictionary *)timeRanges;
 
 - (SWTimeComponents)timeBetweenPicturesComponents;
 - (SWTimeComponents)recordingTimeComponents;

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--Steps Controller-->
@@ -59,7 +60,6 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -82,30 +82,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="862" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" id="ZOf-26-pmG">
-                                <rect key="frame" x="0.0" y="277" width="862" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="ncr-gY-u5L" id="NN3-vf-juF"/>
-                                    <outlet property="delegate" destination="ncr-gY-u5L" id="ft5-pd-v0J"/>
-                                </connections>
-                            </pickerView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(hours:minutes:seconds)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YWb-14-b4k">
-                                <rect key="frame" x="337" y="184" width="188" height="21"/>
+                                <rect key="frame" x="335" y="120" width="188" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Between Pictures" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aAl-bG-Cy3">
-                                <rect key="frame" x="181" y="126" width="500" height="50"/>
+                                <rect key="frame" x="179" y="62" width="500" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" id="ZOf-26-pmG">
+                                <rect key="frame" x="-2" y="149" width="862" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ncr-gY-u5L" id="NN3-vf-juF"/>
+                                    <outlet property="delegate" destination="ncr-gY-u5L" id="ft5-pd-v0J"/>
+                                </connections>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" id="TAs-35-Kjy">
+                                <rect key="frame" x="3" y="475" width="862" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ncr-gY-u5L" id="vSk-7h-EJB"/>
+                                    <outlet property="delegate" destination="ncr-gY-u5L" id="rpJ-Na-X5H"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(seconds)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zvV-tq-SKl">
+                                <rect key="frame" x="340" y="446" width="188" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exposure time" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2YK-ew-m2l">
+                                <rect key="frame" x="184" y="388" width="500" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording Time:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="692-FZ-eiu">
-                                <rect key="frame" x="98" y="645" width="666" height="50"/>
+                                <rect key="frame" x="101" y="698" width="666" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -113,12 +135,12 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="862" height="768"/>
                     <connections>
+                        <outlet property="_exposurePicker" destination="TAs-35-Kjy" id="Pou-bN-SKo"/>
                         <outlet property="_recordingTimeLabel" destination="692-FZ-eiu" id="SF9-gQ-eHc"/>
                         <outlet property="_timePicker" destination="ZOf-26-pmG" id="wS8-c7-Kfb"/>
                     </connections>
@@ -149,7 +171,6 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -174,7 +195,7 @@
                                 <rect key="frame" x="922" y="0.0" width="102" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vmQ-Ts-cgV">
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vmQ-Ts-cgV" userLabel="Capture">
                                         <rect key="frame" x="12" y="346" width="75" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -189,7 +210,7 @@
                                             <action selector="onCaptureBtnTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="2XV-Pv-Clu"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="U7o-fo-53k">
+                                    <button hidden="YES" opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="U7o-fo-53k" userLabel="Capture Active">
                                         <rect key="frame" x="12" y="346" width="75" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -205,17 +226,12 @@
                                             <action selector="onCaptureBtnTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="pZB-eq-lla"/>
                                         </connections>
                                     </button>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="base_off.png" highlightedImage="base_present.png" id="oWf-df-0gR">
-                                        <rect key="frame" x="37" y="208" width="28" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                        <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
-                                    </imageView>
                                     <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="batery_off.png" id="jo8-vt-brI">
-                                        <rect key="frame" x="35" y="556" width="28" height="25"/>
+                                        <rect key="frame" x="35" y="668" width="28" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yWz-Hh-J35">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yWz-Hh-J35" userLabel="Help">
                                         <rect key="frame" x="29" y="44" width="44" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <inset key="contentEdgeInsets" minX="11" minY="11" maxX="11" maxY="11"/>
@@ -240,6 +256,22 @@
                                         <color key="textColor" white="0.2921133668" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="base_off.png" highlightedImage="base_present.png" id="oWf-df-0gR">
+                                        <rect key="frame" x="35" y="516" width="28" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Cvh-3x-oj7" userLabel="Motion direction">
+                                        <rect key="frame" x="21" y="191" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="5" image="timelapse_direction_1.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" image="timelapse_direction_2.png"/>
+                                        <connections>
+                                            <action selector="onDirectionBtnTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="zw4-pv-BEC"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.070588235289999995" green="0.074509803920000006" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -259,19 +291,21 @@
                                             <segue destination="QTQ-mi-21a" kind="custom" customClass="SWTimelapsSegue" id="Zhm-Bb-j14"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Mjr-F8-ZV6" userLabel="Motion direction">
-                                        <rect key="frame" x="0.0" y="308" width="60" height="154"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Mjr-F8-ZV6" userLabel="Exposure">
+                                        <rect key="frame" x="0.0" y="462" width="60" height="154"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="5" image="timelapse_direction_1.png">
+                                        <inset key="titleEdgeInsets" minX="-59" minY="65" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="-25" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="2" image="timelapse_exposure.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="selected" image="timelapse_direction_2.png"/>
                                         <connections>
-                                            <action selector="onDirectionBtnTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="HRF-jZ-H1M"/>
+                                            <segue destination="ncr-gY-u5L" kind="custom" customClass="SWTimelapsSegue" id="IDq-lf-Vxw"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="APJ-d3-MS4" userLabel="Recording time">
-                                        <rect key="frame" x="0.0" y="462" width="60" height="154"/>
+                                        <rect key="frame" x="0.0" y="308" width="60" height="154"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <inset key="titleEdgeInsets" minX="-59" minY="65" maxX="0.0" maxY="0.0"/>
@@ -326,7 +360,7 @@
                                         <rect key="frame" x="70" y="200" width="732" height="500"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <mutableString key="text">1. Make sure Swivl is on and has Bluetooth connection with your iOS device.
+                                        <string key="text">1. Make sure Swivl is on and has Bluetooth connection with your iOS device.
 
 2. Set DSLR camera on Swivl and connect it via USB or Trigger port. Select corresponding camera interface in "Swivl settings" menu.
 
@@ -339,7 +373,7 @@
     Please note that total rotation angle in degrees and total time-lapse time are displayed inside round capture button. These values are not directly adjustable, but they are recalculated and updated with every change of adjustable parameters. 
 4. To start time-lapse photography tap on capture button.
 
-5. Enjoy :-)</mutableString>
+5. Enjoy :-)</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -359,7 +393,6 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="fgb-Uf-EYt"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -369,8 +402,9 @@
                         <outlet property="_batteryLevelImg" destination="jo8-vt-brI" id="Kqn-eH-3G7"/>
                         <outlet property="_captureBtn" destination="vmQ-Ts-cgV" id="joh-lP-xd4"/>
                         <outlet property="_captureBtnActive" destination="U7o-fo-53k" id="6kJ-qu-YCt"/>
-                        <outlet property="_directionBtn" destination="Mjr-F8-ZV6" id="h51-uN-pRb"/>
+                        <outlet property="_directionBtn" destination="Cvh-3x-oj7" id="cFb-eJ-csX"/>
                         <outlet property="_distanceLabel" destination="dZM-Cp-N9u" id="8aU-yV-8NS"/>
+                        <outlet property="_exposureBtn" destination="Mjr-F8-ZV6" id="N5B-MW-afD"/>
                         <outlet property="_helpButton" destination="yWz-Hh-J35" id="m0B-VE-iSZ"/>
                         <outlet property="_infoTextView" destination="wmK-Lx-83x" id="vwh-k4-OeE"/>
                         <outlet property="_recordingTimeLabel" destination="HN3-M1-ZMP" id="DDP-pY-0NN"/>
@@ -440,7 +474,6 @@
                             </slider>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -456,7 +489,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="base_off.png" width="28" height="25"/>
+        <image name="base_off.png" width="32" height="32"/>
         <image name="base_present.png" width="28" height="25"/>
         <image name="batery_off.png" width="30" height="25"/>
         <image name="capture_normal.png" width="75" height="75"/>
@@ -465,6 +498,7 @@
         <image name="reveal-white.png" width="22" height="17"/>
         <image name="timelapse_direction_1.png" width="60" height="60"/>
         <image name="timelapse_direction_2.png" width="60" height="60"/>
+        <image name="timelapse_exposure.png" width="60" height="60"/>
         <image name="timelapse_recording_time.png" width="60" height="60"/>
         <image name="timelapse_step.png" width="60" height="60"/>
         <image name="timelapse_steps.png" width="60" height="60"/>
@@ -476,6 +510,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="mHk-tb-Ofw"/>
         <segue reference="7hZ-qv-cr3"/>
     </inferredMetricsTieBreakers>
 </document>
