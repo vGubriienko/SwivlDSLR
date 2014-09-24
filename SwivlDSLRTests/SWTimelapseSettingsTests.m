@@ -82,7 +82,7 @@
 - (void)testTimeBtwnPicturesDoesNotChangeAfterSettingInvalidValue
 {
     _timelapseSettings.timeBetweenPictures = 10;
-    _timelapseSettings.timeBetweenPictures = 2;
+    _timelapseSettings.timeBetweenPictures = 1;
     XCTAssertEqual(_timelapseSettings.timeBetweenPictures, 10, @"Invalid timeBetweenPictures value");
     
     _timelapseSettings.timeBetweenPictures = 23 * 3600 + 59 * 60 + 59 + 1;
@@ -95,7 +95,7 @@
     _timelapseSettings.exposure = 8;
     _timelapseSettings.timeBetweenPictures = 3;
 
-    XCTAssertEqual(_timelapseSettings.exposure, 1, @"exposure should be bigger then timeBetweenPictures");
+    XCTAssertEqual(_timelapseSettings.exposure, 2, @"exposure should be bigger then timeBetweenPictures");
 }
 
 #pragma mark - Recording time
@@ -212,7 +212,7 @@
 {
     _timelapseSettings.timeBetweenPictures = 5;
     _timelapseSettings.exposure = 10;
-    XCTAssertEqual(_timelapseSettings.timeBetweenPictures, 12, @"timeBetweenPictures should be bigger then exposure");
+    XCTAssertEqual(_timelapseSettings.timeBetweenPictures, 11, @"timeBetweenPictures should be bigger then exposure");
 }
 
 #pragma mark - Save & Restore

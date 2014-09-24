@@ -96,7 +96,7 @@
     _script.scriptType = SWScriptTypeTimelapse;
     _script.timelapseSettings = _timeLapseSettings;
     
-    NSString *expectedScript = @"1:9,0M3E8,1M194%,2M320,3M0,4M160,5M7D0,6M3E8,7MFA0,8M8L3L4L6,1,9R2:9L2=T3E8+8M3:T8L-3<F(4:0L7=T1L+8M1L3L2L5,0,9R1L3L5L5,1,CR5:9L5=CL5=6:T8L-6<F(0L1-0M4@7:.F:FM7ST6L+8ME:T8L-E<3ST7L+8MD:T8L-D<FL)\0";
+    NSString *expectedScript = @"1:9,0MBB8,1M194%,2M320,3M0,4M160,5M1F4,6M1F4,7MFA0,8M8L3L4L6,1,9R2:9L2=T3E8+8M3:T8L-3<F(4:0L7=T1L+8M1L3L2L5,0,9R1L3L5L5,1,CR5:9L5=CL5=6:T8L-6<F(0L1-0M4@7:.F:FM7ST6L+8ME:T8L-E<3ST7L+8MD:T8L-D<FL)\0";
     
     NSString *resultScript = [_script generateScript];
     
@@ -109,7 +109,7 @@
     _script.scriptType = SWScriptTypeTimelapse;
     _script.timelapseSettings = _timeLapseSettingsClockWiseDirection;
     
-    NSString *expectedScript = @"1:1,0MBB8,1M4,2M320,3M5F0%,4MBE0,5M7D0,6M7D0,7MFA0,8M8L3L4L6,1,9R2:9L2=T3E8+8M3:T8L-3<F(4:0L7=T1L+8M1L3L2L5,0,9R1L3L5L5,1,CR5:9L5=CL5=6:T8L-6<F(0L1-0M4@7:.F:FM7ST6L+8ME:T8L-E<3ST7L+8MD:T8L-D<FL)\0";
+    NSString *expectedScript = @"1:1,0M1388,1M4,2M320,3M5F0%,4MBE0,5M5DC,6M1F4,7MFA0,8M8L3L4L6,1,9R2:9L2=T3E8+8M3:T8L-3<F(4:0L7=T1L+8M1L3L2L5,0,9R1L3L5L5,1,CR5:9L5=CL5=6:T8L-6<F(0L1-0M4@7:.F:FM7ST6L+8ME:T8L-E<3ST7L+8MD:T8L-D<FL)\0";
     
     NSString *resultScript = [_script generateScript];
     

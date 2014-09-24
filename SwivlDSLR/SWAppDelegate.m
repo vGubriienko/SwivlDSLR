@@ -61,6 +61,9 @@ SWAppDelegate *swAppDelegate = nil;
     [self configRootController];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    // HACK: avoid autohiding on iOS 8 + iPhone
+    [UIApplication sharedApplication].statusBarHidden = YES;
+    [UIApplication sharedApplication].statusBarHidden = NO;
     
     [self restoreSavedScript];
 
