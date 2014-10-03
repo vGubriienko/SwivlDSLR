@@ -29,7 +29,7 @@
 {
     [super viewDidLoad];
 
-    _minTimeComponents = SWTimeComponentsMake(SW_TIMELAPSE_MIN_TIME_BTWN_PICTURES);
+    _minTimeComponents = SWTimeComponentsMake(_timelapseSettings.minimumTimeBetweenPictures);
     _maxTimeComponents = SWTimeComponentsMake(SW_TIMELAPSE_MAX_TIME_BTWN_PICTURES);
 
     [self setupTimePicker:NO];
@@ -53,7 +53,7 @@
 
 - (void)setupExposurePicker:(BOOL)animated
 {
-    [_exposurePicker selectRow:_timelapseSettings.exposure - SW_TIMELAPSE_MIN_EXPOSURE inComponent:0 animated:animated];
+    [_exposurePicker selectRow:_timelapseSettings.exposure - _timelapseSettings.minimumExposure inComponent:0 animated:animated];
 }
 
 #pragma mark UIPickerViewDelegate & UIPickerViewDataSource
@@ -80,7 +80,7 @@
             return _maxTimeComponents.seconds - _minTimeComponents.seconds + 1;
         }
     } else if (pickerView == _exposurePicker) {
-        return SW_TIMELAPSE_MAX_EXPOSURE - SW_TIMELAPSE_MIN_EXPOSURE + 1;
+        return SW_TIMELAPSE_MAX_EXPOSURE - _timelapseSettings.minimumExposure + 1;
     }
     
     return 0;
@@ -101,8 +101,8 @@
         }
         title = [NSString stringWithFormat:@"%li", (long)value];
     } else if (pickerView == _exposurePicker) {
-        value = row + SW_TIMELAPSE_MIN_EXPOSURE;
-        if (value == SW_TIMELAPSE_MIN_EXPOSURE) {
+        value = row + _timelapseSettings.minimumExposure;
+        if (value == _timelapseSettings.minimumExposure) {
             title = [NSString stringWithFormat:@"<=%li", (long)value];
         } else {
             title = [NSString stringWithFormat:@"%li", (long)value];
@@ -128,7 +128,7 @@
         [_timelapseSettings setTimeBetweenPicturesWithComponents:timeComponents];
         [self setupExposurePicker:YES];
     } else {
-        _timelapseSettings.exposure = row + SW_TIMELAPSE_MIN_EXPOSURE;
+        _timelapseSettings.exposure = row + _timelapseSettings.minimumExposure;
         [self setupTimePicker:YES];
     }
     

@@ -34,21 +34,21 @@
 
 #pragma mark - Public methods
 
-- (NSString *)generateScript
+- (NSString *)generateScriptForInterface:(SWCameraInterface)cameraInterface
 {
     NSString *scriptStr;
     if (self.scriptType == SWScriptTypeTimelapse) {
-        if (self.connectionType == SWCameraInterfaceUSB) {
+        if (cameraInterface == SWCameraInterfaceUSB) {
             scriptStr = [self generateScriptForUSBTimelapse];
-        } else if (self.connectionType == SWCameraInterfaceTrigger) {
+        } else if (cameraInterface == SWCameraInterfaceTrigger) {
             scriptStr = [self generateScriptForTriggerTimelapse];
         } else {
             NSAssert(NO, @"Invalid connection type (script)");
         }
     } else if (self.scriptType == SWScriptTypeShot) {
-        if (self.connectionType == SWCameraInterfaceUSB) {
+        if (cameraInterface == SWCameraInterfaceUSB) {
             scriptStr = [self generateScriptForUSBShot];
-        } else if (self.connectionType == SWCameraInterfaceTrigger) {
+        } else if (cameraInterface == SWCameraInterfaceTrigger) {
             scriptStr = [self generateScriptForTriggerShot];
         } else {
             NSAssert(NO, @"Invalid connection type (script)");
@@ -79,8 +79,8 @@
 
 - (NSString *)generateScriptForTriggerTimelapse
 {
-    NSInteger protectionPause = 500;
-    NSInteger holdShutterTime = self.timelapseSettings.exposure * 1000 - protectionPause;
+    NSInteger protectionPause = (self.timelapseSettings.exposure - self.timelapseSettings.holdShutterTime) * 1000;
+    NSInteger holdShutterTime = self.timelapseSettings.holdShutterTime * 1000;
     NSInteger timeBtwPictures = self.timelapseSettings.timeBetweenPictures * 1000 - holdShutterTime - protectionPause;
     if (timeBtwPictures < 0) {
         timeBtwPictures = 0;
@@ -107,7 +107,7 @@
     NSInteger timeBtwPictures = self.timelapseSettings.timeBetweenPictures * 1000;
     NSInteger speed = 800;
     NSInteger timeForStartPosition = SW_SCRIPT_TIME_FOR_START_TILT * 1000;
-    NSInteger protectionPause = self.timelapseSettings.exposure * 1000;
+    NSInteger exposure = self.timelapseSettings.exposure * 1000;
 
     NSString *scriptTemplate;
     NSArray *ptpCommands = self.dslrConfiguration.ptpCommands;
@@ -125,7 +125,7 @@
                         [self startTiltParameter],
                         [self tiltStepParameter],
                         timeForStartPosition,
-                        protectionPause];
+                        exposure];
     return script;
 }
 

@@ -122,7 +122,6 @@
             SWScript *script = [[SWScript alloc] init];
             script.timelapseSettings = _timelapseSettings;
             script.scriptType = SWScriptTypeTimelapse;
-            script.connectionType = swAppDelegate.currentCameraInterface;
             script.dslrConfiguration = swAppDelegate.currentDSLRConfiguration;
             swAppDelegate.script = script;
             [swAppDelegate.swivl swivlScriptRequestBufferState];
@@ -242,6 +241,10 @@
                                                object:nil];
     [self scriptStateDidChanged];
     
+    
+    [swAppDelegate addObserver:self forKeyPath:@"currentCameraInterface"
+                       options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
+                       context:nil];
     [_timelapseSettings addObserver:self
                          forKeyPath:@"stepCount"
                             options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
@@ -296,14 +299,17 @@
         strTime = [NSString stringWithFormat:@"%.2li:%.2li:%.2li", (long)timeComps.hours, (long)timeComps.minutes, (long)timeComps.seconds];
         [_recordingTimeLabel setText:strTime];
         
-        if (_timelapseSettings.exposure == SW_TIMELAPSE_MIN_EXPOSURE) {
+        if (_timelapseSettings.exposure == _timelapseSettings.minimumExposure) {
             [_exposureBtn setTitle:[NSString stringWithFormat:@"<=%li", (long)_timelapseSettings.exposure] forState:UIControlStateNormal];
         } else {
             [_exposureBtn setTitle:[NSString stringWithFormat:@"%li", (long)_timelapseSettings.exposure] forState:UIControlStateNormal];
         }
 
-        
         _directionBtn.selected = !_timelapseSettings.clockwiseDirection;
+    } else if (object == swAppDelegate) {
+        if ([keyPath isEqualToString:@"currentCameraInterface"]) {
+            _timelapseSettings.cameraInterface = swAppDelegate.currentCameraInterface;
+        }
     }
 }
 
@@ -413,7 +419,8 @@
     [_timelapseSettings removeObserver:self forKeyPath:@"clockwiseDirection"];
     [_timelapseSettings removeObserver:self forKeyPath:@"startTiltAngle"];
     [_timelapseSettings removeObserver:self forKeyPath:@"endTiltAngle"];
-
+    
+    [swAppDelegate removeObserver:self forKeyPath:@"currentCameraInterface"];
 }
 
 #pragma mark - Saving
@@ -432,6 +439,7 @@
     if (!_timelapseSettings) {
         _timelapseSettings = [[SWTimelapseSettings alloc] init];
     }
+    _timelapseSettings.cameraInterface = swAppDelegate.currentCameraInterface;
 }
 
 #pragma mark - Messages

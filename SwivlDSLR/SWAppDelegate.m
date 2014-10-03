@@ -189,7 +189,7 @@ SWAppDelegate *swAppDelegate = nil;
     self.scriptState = SWScriptStateRunning;
     self.script.startDate = [NSDate date];
     
-    NSString *strScript = [self.script generateScript];
+    NSString *strScript = [self.script generateScriptForInterface:self.currentCameraInterface];
     char *ptr = (char *)[strScript UTF8String];
     NSInteger length = strScript.length;
     

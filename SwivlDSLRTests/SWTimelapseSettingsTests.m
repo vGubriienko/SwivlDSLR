@@ -30,6 +30,16 @@
     [super tearDown];
 }
 
+#pragma mark - Camera Interface
+
+- (void)testChangingCameraInterfaceChangesMinExposure
+{
+    _timelapseSettings.cameraInterface = SWCameraInterfaceUSB;
+    _timelapseSettings.exposure = 1;
+    _timelapseSettings.cameraInterface = SWCameraInterfaceTrigger;
+    XCTAssertTrue(_timelapseSettings.exposure == 2, @"exposure has incorrect init value");
+}
+
 #pragma mark - Step size
 
 - (void)testStepSizeDoesNotChangesAfterSettingInvalidValue
@@ -75,18 +85,30 @@
 
 - (void)testTimeBtwnPicturesHasValidInitValue
 {
-    XCTAssertTrue(_timelapseSettings.timeBetweenPictures >= SW_TIMELAPSE_MIN_TIME_BTWN_PICTURES, @"TimeBetweenPictures has invalid init value");
+    XCTAssertTrue(_timelapseSettings.timeBetweenPictures >= _timelapseSettings.minimumTimeBetweenPictures, @"TimeBetweenPictures has invalid init value");
     XCTAssertTrue(_timelapseSettings.timeBetweenPictures <= SW_TIMELAPSE_MAX_TIME_BTWN_PICTURES, @"TimeBetweenPictures has invalid init value");
+}
+
+- (void)testMinimumTimeBtwnPicturesIsMinimimumExposure
+{
+    _timelapseSettings.cameraInterface = SWCameraInterfaceUSB;
+    XCTAssertEqual(_timelapseSettings.minimumExposure, _timelapseSettings.minimumTimeBetweenPictures, @"minimumTimeBetweenPictures should be equal minimumExposure");
 }
 
 - (void)testTimeBtwnPicturesDoesNotChangeAfterSettingInvalidValue
 {
-    _timelapseSettings.timeBetweenPictures = 10;
+    _timelapseSettings.cameraInterface = SWCameraInterfaceUSB;
     _timelapseSettings.timeBetweenPictures = 1;
-    XCTAssertEqual(_timelapseSettings.timeBetweenPictures, 10, @"Invalid timeBetweenPictures value");
+    _timelapseSettings.timeBetweenPictures = 0;
+    XCTAssertEqual(_timelapseSettings.timeBetweenPictures, 1, @"Invalid timeBetweenPictures value");
+    
+    _timelapseSettings.cameraInterface = SWCameraInterfaceTrigger;
+    _timelapseSettings.timeBetweenPictures = 2;
+    _timelapseSettings.timeBetweenPictures = 1;
+    XCTAssertEqual(_timelapseSettings.timeBetweenPictures, 2, @"Invalid timeBetweenPictures value");
     
     _timelapseSettings.timeBetweenPictures = 23 * 3600 + 59 * 60 + 59 + 1;
-    XCTAssertEqual(_timelapseSettings.timeBetweenPictures, 10, @"Invalid timeBetweenPictures value");
+    XCTAssertEqual(_timelapseSettings.timeBetweenPictures, 2, @"Invalid timeBetweenPictures value");
 }
 
 - (void)testSettingTimeBtwnPicturesDecreasesExposureIfNeeded
@@ -95,7 +117,7 @@
     _timelapseSettings.exposure = 8;
     _timelapseSettings.timeBetweenPictures = 3;
 
-    XCTAssertEqual(_timelapseSettings.exposure, 2, @"exposure should be bigger then timeBetweenPictures");
+    XCTAssertEqual(_timelapseSettings.exposure, 3, @"exposure should be bigger then timeBetweenPictures");
 }
 
 #pragma mark - Recording time
@@ -189,19 +211,44 @@
     XCTAssertEqual(_timelapseSettings.endTiltAngle, 12, @"Invalid end tilt value");
 }
 
+#pragma mark - Hold shutter time
+
+- (void)testHoldShutterTimeHasCorrectInitValue
+{
+    XCTAssertTrue(_timelapseSettings.holdShutterTime == 2, @"holdShutterTime has incorrect init value");
+}
+
 #pragma mark - Exposure
+
+- (void)testMinExposureForUSB
+{
+    _timelapseSettings.cameraInterface = SWCameraInterfaceUSB;
+    XCTAssertTrue(_timelapseSettings.minimumExposure == 1, @"minimumExposure has incorrect init value");
+}
+
+- (void)testMinExposureForTrigger
+{
+    _timelapseSettings.cameraInterface = SWCameraInterfaceTrigger;
+    XCTAssertTrue(_timelapseSettings.minimumExposure == 2, @"minimumExposure has incorrect init value");
+}
 
 - (void)testExposureHasValidInitValue
 {
-    XCTAssertTrue(_timelapseSettings.exposure >= SW_TIMELAPSE_MIN_EXPOSURE, @"Exposure has invalid init value");
+    XCTAssertTrue(_timelapseSettings.exposure >= _timelapseSettings.minimumExposure, @"Exposure has invalid init value");
     XCTAssertTrue(_timelapseSettings.exposure <= SW_TIMELAPSE_MAX_EXPOSURE, @"Exposure has invalid init value");
 }
 
 - (void)testExposureDoesNotChangesAfterSettingInvalidValue
 {
-    _timelapseSettings.exposure = 10;
+    _timelapseSettings.cameraInterface = SWCameraInterfaceUSB;
+    _timelapseSettings.exposure = 1;
     _timelapseSettings.exposure = 0;
-    XCTAssertEqual(_timelapseSettings.exposure, 10, @"Invalid exposure value");
+    XCTAssertEqual(_timelapseSettings.exposure, 1, @"Invalid exposure value");
+    
+    _timelapseSettings.cameraInterface = SWCameraInterfaceTrigger;
+    _timelapseSettings.exposure = 2;
+    _timelapseSettings.exposure = 1;
+    XCTAssertEqual(_timelapseSettings.exposure, 2, @"Invalid exposure value");
     
     _timelapseSettings.exposure = 100;
     _timelapseSettings.exposure = 1001;
@@ -212,13 +259,15 @@
 {
     _timelapseSettings.timeBetweenPictures = 5;
     _timelapseSettings.exposure = 10;
-    XCTAssertEqual(_timelapseSettings.timeBetweenPictures, 11, @"timeBetweenPictures should be bigger then exposure");
+    XCTAssertEqual(_timelapseSettings.timeBetweenPictures, 10, @"timeBetweenPictures should be bigger then exposure");
 }
 
 #pragma mark - Save & Restore
 
 - (void)testSavingIsCorrect
 {
+    _timelapseSettings.cameraInterface = SWCameraInterfaceTrigger;
+    _timelapseSettings.exposure = 3;
     _timelapseSettings.stepCount = 1000;
     _timelapseSettings.stepSize = 6.75;
     _timelapseSettings.timeBetweenPictures = 200;
@@ -232,9 +281,11 @@
     XCTAssertEqual(_timelapseSettings.stepCount, 1000, @"Invalid distance value after save & restore");
     XCTAssertEqualWithAccuracy(_timelapseSettings.stepSize, 6.75, FLT_EPSILON, @"Invalid stepSize value after save & restore");
     XCTAssertEqual(_timelapseSettings.clockwiseDirection, YES, @"Invalid clockwiseDirection value after save & restore");
-    XCTAssertEqual(_timelapseSettings.timeBetweenPictures, 200, @"Invalid recordingTime value after save & restore");
+    XCTAssertEqual(_timelapseSettings.timeBetweenPictures, 200, @"Invalid timeBetweenPictures value after save & restore");
     XCTAssertEqual(_timelapseSettings.startTiltAngle, -10, @"Invalid startTiltAngle value after save & restore");
     XCTAssertEqual(_timelapseSettings.endTiltAngle, -12, @"Invalid endTiltAngle value after save & restore");
+    XCTAssertEqual(_timelapseSettings.cameraInterface, SWCameraInterfaceTrigger, @"Invalid cameraInterface value after save & restore");
+    XCTAssertEqual(_timelapseSettings.exposure, 3, @"Invalid exposure value after save & restore");
 }
 
 @end
