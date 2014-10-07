@@ -66,11 +66,11 @@
         return YES;
     }
     
-    CGFloat timePast = [[NSDate date] timeIntervalSinceDate:self.startDate];
+    NSTimeInterval timePast = [[NSDate date] timeIntervalSinceDate:self.startDate];
     return timePast < [self scriptDuration];
 }
 
-- (NSInteger)scriptDuration
+- (NSTimeInterval)scriptDuration
 {
     return self.timelapseSettings.recordingTime + SW_SCRIPT_TIME_FOR_START_TILT;
 }

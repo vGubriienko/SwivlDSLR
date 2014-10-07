@@ -11,7 +11,7 @@
 @class SWTimelapseSettings;
 @class SWDSLRConfiguration;
 
-#define SW_SCRIPT_TIME_FOR_START_TILT 4
+#define SW_SCRIPT_TIME_FOR_START_TILT 4.0
 
 @interface SWScript : NSObject
 
@@ -23,6 +23,6 @@
 - (NSString *)generateScriptForInterface:(SWCameraInterface)cameraInterface;
 
 - (BOOL)isRunningFromStartDate;
-- (NSInteger)scriptDuration;
+- (NSTimeInterval)scriptDuration;
 
 @end

@@ -12,6 +12,13 @@
 
 #import "Countly.h"
 
+typedef NS_ENUM(NSInteger, SWTimeComponent)
+{
+    SWTimeComponentHour,
+    SWTimeComponentMinute,
+    SWTimeComponentSecond,
+};
+
 @interface SWTimeController ()
 {
     __weak IBOutlet UIPickerView *_timePicker;
@@ -20,6 +27,11 @@
 
     SWTimeComponents _minTimeComponents;
     SWTimeComponents _maxTimeComponents;
+    NSMutableArray *_hoursRange;
+    NSMutableArray *_minutesRange;
+    NSMutableArray *_secondsRangeFull;
+    NSMutableArray *_secondsRangeMin;
+    NSMutableArray *_exposureRange;
 }
 @end
 
@@ -32,6 +44,7 @@
     _minTimeComponents = SWTimeComponentsMake(_timelapseSettings.minimumTimeBetweenPictures);
     _maxTimeComponents = SWTimeComponentsMake(SW_TIMELAPSE_MAX_TIME_BTWN_PICTURES);
 
+    [self setupTimeRanges];
     [self setupTimePicker:NO];
     [self setupExposurePicker:NO];
 
@@ -44,16 +57,83 @@
     [super viewDidAppear:animated];
 }
 
+- (void)setupTimeRanges
+{
+    _hoursRange = [NSMutableArray new];
+    for (NSTimeInterval i = 0.0; i <= _maxTimeComponents.hours; i++) {
+        [_hoursRange addObject:@(i)];
+    }
+    _minutesRange = [NSMutableArray new];
+    for (NSTimeInterval i = 0.0; i <= _maxTimeComponents.minutes; i++) {
+        [_minutesRange addObject:@(i)];
+    }
+    _secondsRangeFull = [NSMutableArray new];
+    for (NSTimeInterval i = 0.0; i <= _maxTimeComponents.seconds; i++) {
+        [_secondsRangeFull addObject:@(i)];
+    }
+    _secondsRangeMin = [NSMutableArray new];
+    if ([self hasTimeDecimalPart:_timelapseSettings.minimumTimeBetweenPictures]) {
+        [_secondsRangeMin addObject:@(_timelapseSettings.minimumTimeBetweenPictures)];
+    }
+    for (NSTimeInterval i = ceil(_timelapseSettings.minimumTimeBetweenPictures); i <= _maxTimeComponents.seconds; i++) {
+        [_secondsRangeMin addObject:@(i)];
+    }
+    _exposureRange = [NSMutableArray new];
+    if ([self hasTimeDecimalPart:_timelapseSettings.minimumExposure]) {
+        [_exposureRange addObject:@(_timelapseSettings.minimumExposure)];
+    }
+    for (NSTimeInterval i = ceil(_timelapseSettings.minimumExposure); i <= SW_TIMELAPSE_MAX_EXPOSURE; i++) {
+        [_exposureRange addObject:@(i)];
+    }
+}
+
 - (void)setupTimePicker:(BOOL)animated
 {
-    [_timePicker selectRow:_timelapseSettings.timeBetweenPicturesComponents.hours - _minTimeComponents.hours inComponent:0 animated:animated];
-    [_timePicker selectRow:_timelapseSettings.timeBetweenPicturesComponents.minutes - _minTimeComponents.minutes inComponent:1 animated:animated];
-    [_timePicker selectRow:_timelapseSettings.timeBetweenPicturesComponents.seconds - _minTimeComponents.seconds inComponent:2 animated:animated];
+    NSNumber *hours = [NSNumber numberWithInteger:_timelapseSettings.timeBetweenPicturesComponents.hours];
+    NSInteger index = [_hoursRange indexOfObject:hours];
+    index = (index == NSNotFound) ? 0 : index;
+    [_timePicker selectRow:index inComponent:0 animated:animated];
+    
+    NSNumber *minutes = [NSNumber numberWithInteger:_timelapseSettings.timeBetweenPicturesComponents.minutes];
+    index = [_minutesRange indexOfObject:minutes];
+    index = (index == NSNotFound) ? 0 : index;
+    [_timePicker selectRow:index inComponent:1 animated:animated];
+    
+    NSNumber *seconds = [NSNumber numberWithDouble:_timelapseSettings.timeBetweenPicturesComponents.seconds];
+    index = [[self secondsRange] indexOfObject:seconds];
+    index = (index == NSNotFound) ? 0 : index;
+    [_timePicker selectRow:index inComponent:2 animated:animated];
 }
 
 - (void)setupExposurePicker:(BOOL)animated
 {
-    [_exposurePicker selectRow:_timelapseSettings.exposure - _timelapseSettings.minimumExposure inComponent:0 animated:animated];
+    NSNumber *exposure = [NSNumber numberWithDouble:_timelapseSettings.exposure];
+    NSInteger index = [_exposureRange indexOfObject:exposure];
+    index = (index == NSNotFound) ? 0 : index;
+    [_exposurePicker selectRow:index inComponent:0 animated:animated];
+}
+
+- (BOOL)hasTimeDecimalPart:(NSTimeInterval)time
+{
+    return fabs(_timelapseSettings.minimumExposure - (long)_timelapseSettings.minimumExposure) > DBL_EPSILON;
+}
+
+- (NSMutableArray *)secondsRange
+{
+    if (_timelapseSettings.timeBetweenPicturesComponents.minutes == 0 && _timelapseSettings.timeBetweenPicturesComponents.hours == 0) {
+        return _secondsRangeMin;
+    } else {
+        return _secondsRangeFull;
+    }
+}
+
+- (void)reloadSecondsPicker
+{
+    [_timePicker reloadComponent:2];
+    NSNumber *seconds = [NSNumber numberWithDouble:_timelapseSettings.timeBetweenPicturesComponents.seconds];
+    NSInteger index = [[self secondsRange] indexOfObject:seconds];
+    index = (index == NSNotFound) ? 0 : index;
+    [_timePicker selectRow:index inComponent:2 animated:NO];
 }
 
 #pragma mark UIPickerViewDelegate & UIPickerViewDataSource
@@ -72,15 +152,15 @@
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     if (pickerView == _timePicker) {
-        if (component == 0) {
-            return _maxTimeComponents.hours - _minTimeComponents.hours + 1;
-        } else if (component == 1) {
-            return _maxTimeComponents.minutes - _minTimeComponents.minutes + 1;
-        } else if (component == 2) {
-            return _maxTimeComponents.seconds - _minTimeComponents.seconds + 1;
+        if (component == SWTimeComponentHour) {
+            return _hoursRange.count;
+        } else if (component == SWTimeComponentMinute) {
+            return _minutesRange.count;
+        } else if (component == SWTimeComponentSecond) {
+            return [self secondsRange].count;
         }
     } else if (pickerView == _exposurePicker) {
-        return SW_TIMELAPSE_MAX_EXPOSURE - _timelapseSettings.minimumExposure + 1;
+        return _exposureRange.count;
     }
     
     return 0;
@@ -89,26 +169,20 @@
 - (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     NSString *title;
-    NSInteger value = 0;
+    NSTimeInterval value = 0.0;
     
     if (pickerView == _timePicker) {
-        if (component == 0) {
-            value = row + _minTimeComponents.hours;
-        } else if (component == 1) {
-            value = row + _minTimeComponents.minutes;
-        } else if (component == 2) {
-            value = row + _minTimeComponents.seconds;
+        if (component == SWTimeComponentHour) {
+            value = [_hoursRange[row] doubleValue];
+        } else if (component == SWTimeComponentMinute) {
+            value = [_minutesRange[row] doubleValue];
+        } else if (component == SWTimeComponentSecond) {
+            value = [[self secondsRange][row] doubleValue];
         }
-        title = [NSString stringWithFormat:@"%li", (long)value];
     } else if (pickerView == _exposurePicker) {
-        value = row + _timelapseSettings.minimumExposure;
-        if (value == _timelapseSettings.minimumExposure) {
-            title = [NSString stringWithFormat:@"<=%li", (long)value];
-        } else {
-            title = [NSString stringWithFormat:@"%li", (long)value];
-        }
+        value = [_exposureRange[row] doubleValue];
     }
-    
+    title = [NSString stringWithFormat:@"%g", value];
     return [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
 }
 
@@ -117,18 +191,24 @@
     if (pickerView == _timePicker) {
         SWTimeComponents timeComponents = [_timelapseSettings timeBetweenPicturesComponents];
         
-        if (component == 0) {
-            timeComponents.hours = row + _minTimeComponents.hours;
-        } else if (component == 1) {
-            timeComponents.minutes = row + _minTimeComponents.minutes;
-        } else if (component == 2) {
-            timeComponents.seconds = row + _minTimeComponents.seconds;
+        if (component == SWTimeComponentHour) {
+            timeComponents.hours = [_hoursRange[row] integerValue];
+        } else if (component == SWTimeComponentMinute) {
+            timeComponents.minutes = [_minutesRange[row] integerValue];
+        } else if (component == SWTimeComponentSecond) {
+            timeComponents.seconds = [[self secondsRange][row] doubleValue];
+        }
+        
+        if (timeComponents.hours == 0 && timeComponents.minutes == 0 && timeComponents.seconds <= _timelapseSettings.minimumTimeBetweenPictures) {
+            timeComponents.seconds = _timelapseSettings.minimumTimeBetweenPictures;
         }
         
         [_timelapseSettings setTimeBetweenPicturesWithComponents:timeComponents];
+        
+        [self reloadSecondsPicker];
         [self setupExposurePicker:YES];
     } else {
-        _timelapseSettings.exposure = row + _timelapseSettings.minimumExposure;
+        _timelapseSettings.exposure = [_exposureRange[row] doubleValue];
         [self setupTimePicker:YES];
     }
     

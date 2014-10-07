@@ -37,7 +37,7 @@
     _timelapseSettings.cameraInterface = SWCameraInterfaceUSB;
     _timelapseSettings.exposure = 1;
     _timelapseSettings.cameraInterface = SWCameraInterfaceTrigger;
-    XCTAssertTrue(_timelapseSettings.exposure == 2, @"exposure has incorrect init value");
+    XCTAssertTrue(_timelapseSettings.exposure == 2.5, @"exposure has incorrect init value");
 }
 
 #pragma mark - Step size
@@ -103,12 +103,12 @@
     XCTAssertEqual(_timelapseSettings.timeBetweenPictures, 1, @"Invalid timeBetweenPictures value");
     
     _timelapseSettings.cameraInterface = SWCameraInterfaceTrigger;
+    _timelapseSettings.timeBetweenPictures = 2.5;
     _timelapseSettings.timeBetweenPictures = 2;
-    _timelapseSettings.timeBetweenPictures = 1;
-    XCTAssertEqual(_timelapseSettings.timeBetweenPictures, 2, @"Invalid timeBetweenPictures value");
+    XCTAssertEqual(_timelapseSettings.timeBetweenPictures, 2.5, @"Invalid timeBetweenPictures value");
     
     _timelapseSettings.timeBetweenPictures = 23 * 3600 + 59 * 60 + 59 + 1;
-    XCTAssertEqual(_timelapseSettings.timeBetweenPictures, 2, @"Invalid timeBetweenPictures value");
+    XCTAssertEqual(_timelapseSettings.timeBetweenPictures, 2.5, @"Invalid timeBetweenPictures value");
 }
 
 - (void)testSettingTimeBtwnPicturesDecreasesExposureIfNeeded
@@ -229,7 +229,7 @@
 - (void)testMinExposureForTrigger
 {
     _timelapseSettings.cameraInterface = SWCameraInterfaceTrigger;
-    XCTAssertTrue(_timelapseSettings.minimumExposure == 2, @"minimumExposure has incorrect init value");
+    XCTAssertTrue(_timelapseSettings.minimumExposure == 2.5, @"minimumExposure has incorrect init value");
 }
 
 - (void)testExposureHasValidInitValue
@@ -246,9 +246,9 @@
     XCTAssertEqual(_timelapseSettings.exposure, 1, @"Invalid exposure value");
     
     _timelapseSettings.cameraInterface = SWCameraInterfaceTrigger;
+    _timelapseSettings.exposure = 2.5;
     _timelapseSettings.exposure = 2;
-    _timelapseSettings.exposure = 1;
-    XCTAssertEqual(_timelapseSettings.exposure, 2, @"Invalid exposure value");
+    XCTAssertEqual(_timelapseSettings.exposure, 2.5, @"Invalid exposure value");
     
     _timelapseSettings.exposure = 100;
     _timelapseSettings.exposure = 1001;

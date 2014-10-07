@@ -293,17 +293,13 @@
         [_tiltBtn setTitle:strTime forState:UIControlStateNormal];
         
         SWTimeComponents timeComps = [_timelapseSettings timeBetweenPicturesComponents];
-        strTime = [NSString stringWithFormat:@"%.2li:%.2li:%.2li", (long)timeComps.hours, (long)timeComps.minutes, (long)timeComps.seconds];
+        strTime = [NSString stringWithFormat:@"%.2li:%.2li:%.2li", (long)timeComps.hours, (long)timeComps.minutes, (long)ceil(timeComps.seconds)];
         [_timeBtn setTitle:strTime forState:UIControlStateNormal];
         timeComps = [_timelapseSettings recordingTimeComponents];
         strTime = [NSString stringWithFormat:@"%.2li:%.2li:%.2li", (long)timeComps.hours, (long)timeComps.minutes, (long)timeComps.seconds];
         [_recordingTimeLabel setText:strTime];
         
-        if (_timelapseSettings.exposure == _timelapseSettings.minimumExposure) {
-            [_exposureBtn setTitle:[NSString stringWithFormat:@"<=%li", (long)_timelapseSettings.exposure] forState:UIControlStateNormal];
-        } else {
-            [_exposureBtn setTitle:[NSString stringWithFormat:@"%li", (long)_timelapseSettings.exposure] forState:UIControlStateNormal];
-        }
+        [_exposureBtn setTitle:[NSString stringWithFormat:@"%g", _timelapseSettings.exposure] forState:UIControlStateNormal];
 
         _directionBtn.selected = !_timelapseSettings.clockwiseDirection;
     } else if (object == swAppDelegate) {

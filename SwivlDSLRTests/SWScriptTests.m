@@ -32,25 +32,25 @@
     [super setUp];
 
     _timeLapseSettings = [OCMockObject mockForClass:[SWTimelapseSettings class]];
-    [[[_timeLapseSettings stub] andReturnValue:OCMOCK_VALUE((NSInteger)2)] holdShutterTime];
+    [[[_timeLapseSettings stub] andReturnValue:OCMOCK_VALUE((NSTimeInterval)2.0)] holdShutterTime];
     [[[_timeLapseSettings stub] andReturnValue:OCMOCK_VALUE((CGFloat)10.0)] stepSize];
     [[[_timeLapseSettings stub] andReturnValue:OCMOCK_VALUE((NSInteger)10)] stepCount];
-    [[[_timeLapseSettings stub] andReturnValue:OCMOCK_VALUE((NSInteger)4)] timeBetweenPictures];
-    [[[_timeLapseSettings stub] andReturnValue:OCMOCK_VALUE((NSInteger)36)] recordingTime];
+    [[[_timeLapseSettings stub] andReturnValue:OCMOCK_VALUE((NSTimeInterval)4.0)] timeBetweenPictures];
+    [[[_timeLapseSettings stub] andReturnValue:OCMOCK_VALUE((NSTimeInterval)36.0)] recordingTime];
     [[[_timeLapseSettings stub] andReturnValue:OCMOCK_VALUE((NSInteger)0)] startTiltAngle];
     [[[_timeLapseSettings stub] andReturnValue:OCMOCK_VALUE((NSInteger)25)] endTiltAngle];
-    [[[_timeLapseSettings stub] andReturnValue:OCMOCK_VALUE((NSInteger)2)] exposure];
+    [[[_timeLapseSettings stub] andReturnValue:OCMOCK_VALUE((NSTimeInterval)2.0)] exposure];
     [[[_timeLapseSettings stub] andReturnValue:OCMOCK_VALUE(NO)] clockwiseDirection];
 
     _timeLapseSettingsClockWiseDirection = [OCMockObject mockForClass:[SWTimelapseSettings class]];
-    [[[_timeLapseSettingsClockWiseDirection stub] andReturnValue:OCMOCK_VALUE((NSInteger)2)] holdShutterTime];
+    [[[_timeLapseSettingsClockWiseDirection stub] andReturnValue:OCMOCK_VALUE((NSTimeInterval)2.0)] holdShutterTime];
     [[[_timeLapseSettingsClockWiseDirection stub] andReturnValue:OCMOCK_VALUE((CGFloat)0.11)] stepSize];
     [[[_timeLapseSettingsClockWiseDirection stub] andReturnValue:OCMOCK_VALUE((NSInteger)2)] stepCount];
-    [[[_timeLapseSettingsClockWiseDirection stub] andReturnValue:OCMOCK_VALUE((NSInteger)7)] timeBetweenPictures];
-    [[[_timeLapseSettingsClockWiseDirection stub] andReturnValue:OCMOCK_VALUE((NSInteger)7)] recordingTime];
+    [[[_timeLapseSettingsClockWiseDirection stub] andReturnValue:OCMOCK_VALUE((NSTimeInterval)7.0)] timeBetweenPictures];
+    [[[_timeLapseSettingsClockWiseDirection stub] andReturnValue:OCMOCK_VALUE((NSTimeInterval)7)] recordingTime];
     [[[_timeLapseSettingsClockWiseDirection stub] andReturnValue:OCMOCK_VALUE((NSInteger)-12)] startTiltAngle];
     [[[_timeLapseSettingsClockWiseDirection stub] andReturnValue:OCMOCK_VALUE((NSInteger)12)] endTiltAngle];
-    [[[_timeLapseSettingsClockWiseDirection stub] andReturnValue:OCMOCK_VALUE((NSInteger)3)] exposure];
+    [[[_timeLapseSettingsClockWiseDirection stub] andReturnValue:OCMOCK_VALUE((NSTimeInterval)3.0)] exposure];
     [[[_timeLapseSettingsClockWiseDirection stub] andReturnValue:OCMOCK_VALUE(YES)] clockwiseDirection];
     
     _cameraConfiguration1 = [OCMockObject mockForClass:[SWDSLRConfiguration class]];
@@ -72,13 +72,13 @@
 - (void)testScriptDurationIsRecordingTimePlusTimeForStartPosition
 {
     _script.timelapseSettings = _timeLapseSettings;
-    XCTAssertEqual([_script scriptDuration], 40, @"Wrong scriptDuration");
+    XCTAssertEqual([_script scriptDuration], 40.0, @"Wrong scriptDuration");
 }
 
 - (void)testScriptDurationIsRecordingTimePlusTimeForStartPosition2
 {
     _script.timelapseSettings = _timeLapseSettingsClockWiseDirection;
-    XCTAssertEqual([_script scriptDuration], 11, @"Wrong scriptDuration");
+    XCTAssertEqual([_script scriptDuration], 11.0, @"Wrong scriptDuration");
 }
 
 - (void)testGenerateScriptForTriggerShot

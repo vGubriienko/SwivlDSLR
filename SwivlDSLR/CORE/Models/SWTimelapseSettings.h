@@ -24,11 +24,11 @@ typedef struct SWTimeComponents SWTimeComponents;
 struct SWTimeComponents {
     NSInteger hours;
     NSInteger minutes;
-    NSInteger seconds;
+    NSTimeInterval seconds;
 };
 typedef struct SWTimeComponents SWTimeComponents;
 
-static inline SWTimeComponents SWTimeComponentsMake(NSInteger seconds)
+static inline SWTimeComponents SWTimeComponentsMake(NSTimeInterval seconds)
 {
     SWTimeComponents timeComps;
     timeComps.hours = seconds / 3600;
@@ -39,13 +39,13 @@ static inline SWTimeComponents SWTimeComponentsMake(NSInteger seconds)
 
 @interface SWTimelapseSettings : NSObject
 
-@property (nonatomic, readonly) NSInteger distance;             //(stepCount - 1) * stepSize
-@property (nonatomic, readonly) NSInteger recordingTime;        //timeBetweenPictures * (stepCount - 1)
-@property (nonatomic, assign) NSInteger timeBetweenPictures;
-@property (nonatomic, readonly) NSInteger holdShutterTime;      //Used only if SWCameraInterfaceTrigger (readonly now, custom in the future)
-@property (nonatomic, assign) NSInteger exposure;
-@property (nonatomic, readonly) NSInteger minimumExposure;
-@property (nonatomic, readonly) NSInteger minimumTimeBetweenPictures;
+@property (nonatomic, readonly) NSInteger distance;                     //(stepCount - 1) * stepSize
+@property (nonatomic, readonly) NSTimeInterval recordingTime;           //timeBetweenPictures * (stepCount - 1)
+@property (nonatomic, assign) NSTimeInterval timeBetweenPictures;
+@property (nonatomic, readonly) NSTimeInterval holdShutterTime;         //Used only if SWCameraInterfaceTrigger (readonly now, custom in the future)
+@property (nonatomic, assign) NSTimeInterval exposure;
+@property (nonatomic, readonly) NSTimeInterval minimumExposure;
+@property (nonatomic, readonly) NSTimeInterval minimumTimeBetweenPictures;
 @property (nonatomic, assign) CGFloat stepSize;
 @property (nonatomic, assign) BOOL clockwiseDirection;
 @property (nonatomic, assign) NSInteger startTiltAngle;
