@@ -74,8 +74,8 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
     cell.textLabel.textColor = [UIColor lightTextColor];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     
-    if (IS_IPHONE_4) {
-        cell.textLabel.font = [UIFont systemFontOfSize:15];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        cell.textLabel.font = [UIFont systemFontOfSize:20];
 
     } else {
         cell.textLabel.font = [UIFont systemFontOfSize:25];
