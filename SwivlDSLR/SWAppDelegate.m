@@ -46,14 +46,6 @@ SWAppDelegate *swAppDelegate = nil;
     [self loadDefaults];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(needHideSideBarNotification)
-                                                 name:SW_NEED_HIDE_SIDE_BAR_NOTIFICATION
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(needShowSideBarNotification)
-                                                 name:SW_NEED_SHOW_SIDE_BAR_NOTIFICATION
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(scriptProgressDidFinish:)
                                                  name:AVSandboxScriptProgressDidFinishNotification
                                                object:nil];

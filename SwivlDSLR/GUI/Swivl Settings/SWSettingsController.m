@@ -91,7 +91,7 @@
 
 - (void)menuButtonPressed
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_SHOW_SIDE_BAR_NOTIFICATION object:self];
+    [self.sideMenuController openMenu];
 }
 
 #pragma mark - Interface update

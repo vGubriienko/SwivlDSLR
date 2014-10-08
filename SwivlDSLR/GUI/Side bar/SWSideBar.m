@@ -8,6 +8,8 @@
 
 #import "SWSideBar.h"
 
+#import "MVYSideMenuController.h"
+
 typedef NS_ENUM(NSInteger, SWSideBarRow)
 {
     SWSideBarRowTimeLapse = 0,
@@ -92,8 +94,8 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_HIDE_SIDE_BAR_NOTIFICATION object:self];
-    
+    [self.sideMenuController closeMenu];
+        
     if (indexPath.row == _lastSelectedRow) {
         
         if ([self.navigationController.topViewController isKindOfClass:NSClassFromString(@"SWSelectCameraController")]) {

@@ -11,7 +11,7 @@
 #import "SWScript.h"
 #import "SWTimelapseSettings.h"
 #import "SWAppDelegate.h"
-
+#import "MVYSideMenuController.h"
 #import <Swivl2Lib/SwivlCommonLib.h>
 
 #define SW_TIMELAPSE_SETTINGS_KEY @"SW_TIMELAPSE_SETTINGS_KEY"
@@ -112,7 +112,7 @@
 
 - (IBAction)onMenuBtnTapped
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_SHOW_SIDE_BAR_NOTIFICATION object:self];
+    [self.sideMenuController openMenu];
 }
 
 - (IBAction)onCaptureBtnTapped
