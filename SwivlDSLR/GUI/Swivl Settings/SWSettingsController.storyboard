@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="7fg-hq-kk2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="7fg-hq-kk2">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--Settings Controller - Settings-->
+        <!--Settings-->
         <scene sceneID="Iim-qC-Paj">
             <objects>
                 <tableViewController title="Settings" id="7fg-hq-kk2" customClass="SWSettingsController" sceneMemberID="viewController">
@@ -115,7 +114,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="3Tl-lR-VeH" kind="push" customClass="SWTimelapsSegue" id="MdP-Ut-p9r"/>
+                                            <segue destination="3Tl-lR-VeH" kind="push" id="MdP-Ut-p9r"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -199,7 +198,7 @@
             </objects>
             <point key="canvasLocation" x="-1534" y="-1427"/>
         </scene>
-        <!--Select Camera Controller - Camera-->
+        <!--Camera-->
         <scene sceneID="a1y-ce-0Wn">
             <objects>
                 <tableViewController id="3Tl-lR-VeH" customClass="SWSelectCameraController" sceneMemberID="viewController">

@@ -92,9 +92,7 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row != SWSideBarRowSwivl) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_HIDE_SIDE_BAR_NOTIFICATION object:self];
-    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_HIDE_SIDE_BAR_NOTIFICATION object:self];
     
     if (indexPath.row == _lastSelectedRow) {
         
@@ -110,7 +108,6 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
             
         case SWSideBarRowTimeLapse:
         {
-            [self removeOffsetFromNavigationView];
             [self.navigationController setNavigationBarHidden:YES];
             
             break;
@@ -120,7 +117,6 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
         {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"SWSettingsController" bundle:nil];
             UIViewController *vc = [storyboard instantiateInitialViewController];
-            [self addOffsetToNavigationView];
             [self.navigationController setNavigationBarHidden:NO];
             [self.navigationController pushViewController:vc animated:NO];
             
@@ -136,7 +132,6 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
                 storyboard = [UIStoryboard storyboardWithName:@"SWManualController" bundle:nil];
             }
             UIViewController *vc = [storyboard instantiateInitialViewController];
-            [self removeOffsetFromNavigationView];
             [self.navigationController setNavigationBarHidden:YES];
             [self.navigationController pushViewController:vc animated:NO];
             
@@ -146,28 +141,6 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
     }
     
     _lastSelectedRow = indexPath.row;
-}
-
-#pragma mark - 
-
-- (void)addOffsetToNavigationView
-{
-    NSInteger sideBarWidth = self.view.frame.size.width;
-    CGRect frame = self.navigationController.view.frame;
-    frame.origin.x = sideBarWidth;
-    frame.size.width -= sideBarWidth;
-    self.navigationController.view.frame = frame;
-}
-
-- (void)removeOffsetFromNavigationView
-{
-    if (self.navigationController.view.frame.origin.x > 0) {
-        NSInteger sideBarWidth = self.view.frame.size.width;
-        CGRect frame = self.navigationController.view.frame;
-        frame.origin.x = 0;
-        frame.size.width += sideBarWidth;
-        self.navigationController.view.frame = frame;
-    }
 }
 
 #pragma mark -

@@ -74,7 +74,7 @@ typedef struct {
 	[self setUpMenuViewController:_menuViewController];
 	[self setUpContentViewController:_contentViewController];
 	
-	//[self addGestures];
+	[self addGestures];
 }
 
 - (void)didReceiveMemoryWarning
