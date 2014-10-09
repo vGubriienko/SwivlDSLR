@@ -8,6 +8,8 @@
 
 #import "SWSideBar.h"
 
+#import "MVYSideMenuController.h"
+
 typedef NS_ENUM(NSInteger, SWSideBarRow)
 {
     SWSideBarRowTimeLapse = 0,
@@ -72,8 +74,8 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
     cell.textLabel.textColor = [UIColor lightTextColor];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     
-    if (IS_IPHONE_4) {
-        cell.textLabel.font = [UIFont systemFontOfSize:15];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        cell.textLabel.font = [UIFont systemFontOfSize:20];
 
     } else {
         cell.textLabel.font = [UIFont systemFontOfSize:25];
@@ -92,10 +94,8 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row != SWSideBarRowSwivl) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_HIDE_SIDE_BAR_NOTIFICATION object:self];
-    }
-    
+    [self.sideMenuController closeMenu];
+        
     if (indexPath.row == _lastSelectedRow) {
         
         if ([self.navigationController.topViewController isKindOfClass:NSClassFromString(@"SWSelectCameraController")]) {
@@ -110,7 +110,6 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
             
         case SWSideBarRowTimeLapse:
         {
-            [self removeOffsetFromNavigationView];
             [self.navigationController setNavigationBarHidden:YES];
             
             break;
@@ -120,7 +119,6 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
         {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"SWSettingsController" bundle:nil];
             UIViewController *vc = [storyboard instantiateInitialViewController];
-            [self addOffsetToNavigationView];
             [self.navigationController setNavigationBarHidden:NO];
             [self.navigationController pushViewController:vc animated:NO];
             
@@ -136,7 +134,6 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
                 storyboard = [UIStoryboard storyboardWithName:@"SWManualController" bundle:nil];
             }
             UIViewController *vc = [storyboard instantiateInitialViewController];
-            [self removeOffsetFromNavigationView];
             [self.navigationController setNavigationBarHidden:YES];
             [self.navigationController pushViewController:vc animated:NO];
             
@@ -146,28 +143,6 @@ typedef NS_ENUM(NSInteger, SWSideBarRow)
     }
     
     _lastSelectedRow = indexPath.row;
-}
-
-#pragma mark - 
-
-- (void)addOffsetToNavigationView
-{
-    NSInteger sideBarWidth = self.view.frame.size.width;
-    CGRect frame = self.navigationController.view.frame;
-    frame.origin.x = sideBarWidth;
-    frame.size.width -= sideBarWidth;
-    self.navigationController.view.frame = frame;
-}
-
-- (void)removeOffsetFromNavigationView
-{
-    if (self.navigationController.view.frame.origin.x > 0) {
-        NSInteger sideBarWidth = self.view.frame.size.width;
-        CGRect frame = self.navigationController.view.frame;
-        frame.origin.x = 0;
-        frame.size.width += sideBarWidth;
-        self.navigationController.view.frame = frame;
-    }
 }
 
 #pragma mark -

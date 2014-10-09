@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-#define SW_TIMELAPSE_MIN_TIME_BTWN_PICTURES 2
 #define SW_TIMELAPSE_MAX_TIME_BTWN_PICTURES 23 * 3600 + 59 * 60 + 59    //23 hours, 59 minutes, 59 seconds
 
-#define SW_TIMELAPSE_MIN_EXPOSURE 1
+#define SW_TIMELAPSE_MIN_PROTECTION_PAUSE 0.5
+
+#define SW_TIMELAPSE_MIN_EXPOSURE_USB 1
 #define SW_TIMELAPSE_MAX_EXPOSURE 1000
-#define SW_TIMELAPSE_TIME_EXPOSURE_GAP 1
 
 #define SW_TIMELAPSE_MIN_STEPCOUNT 2
 #define SW_TIMELAPSE_MAX_STEPCOUNT 3000
@@ -26,11 +26,11 @@ typedef struct SWTimeComponents SWTimeComponents;
 struct SWTimeComponents {
     NSInteger hours;
     NSInteger minutes;
-    NSInteger seconds;
+    NSTimeInterval seconds;
 };
 typedef struct SWTimeComponents SWTimeComponents;
 
-static inline SWTimeComponents SWTimeComponentsMake(NSInteger seconds)
+static inline SWTimeComponents SWTimeComponentsMake(NSTimeInterval seconds)
 {
     SWTimeComponents timeComps;
     timeComps.hours = seconds / 3600;
@@ -41,15 +41,20 @@ static inline SWTimeComponents SWTimeComponentsMake(NSInteger seconds)
 
 @interface SWTimelapseSettings : NSObject
 
-@property (nonatomic, readonly) NSInteger distance;             //(stepCount - 1) * stepSize
-@property (nonatomic, readonly) NSInteger recordingTime;        //timeBetweenPictures * (stepCount - 1)
-@property (nonatomic, assign) NSInteger timeBetweenPictures;
-@property (nonatomic, assign) NSInteger exposure;
+@property (nonatomic, readonly) NSInteger distance;                     //(stepCount - 1) * stepSize
+@property (nonatomic, readonly) NSTimeInterval recordingTime;           //timeBetweenPictures * (stepCount - 1)
+@property (nonatomic, assign) NSTimeInterval timeBetweenPictures;
+@property (nonatomic, readonly) NSTimeInterval holdShutterTime;         //Used only if SWCameraInterfaceTrigger (readonly now, custom in the future)
+@property (nonatomic, assign) NSTimeInterval exposure;
+@property (nonatomic, readonly) NSTimeInterval minimumExposure;
+@property (nonatomic, readonly) NSTimeInterval minimumTimeBetweenPictures;
 @property (nonatomic, assign) CGFloat stepSize;
 @property (nonatomic, assign) BOOL clockwiseDirection;
 @property (nonatomic, assign) NSInteger startTiltAngle;
 @property (nonatomic, assign) NSInteger endTiltAngle;
 @property (nonatomic, assign) NSInteger stepCount;
+
+@property (nonatomic, assign) SWCameraInterface cameraInterface;
 
 + (NSArray *)availableStepSizes;
 

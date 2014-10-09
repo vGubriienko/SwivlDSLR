@@ -46,6 +46,11 @@
     _cameraInterface.selectedSegmentIndex = swAppDelegate.currentCameraInterface;
     [self onCaptureInterfaceValueChanged];
     
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal-white"]
+                                                                           style:UIBarButtonItemStyleBordered
+                                                                          target:self
+                                                                          action:@selector(menuButtonPressed)];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(updateInterfaceElements)
                                                  name:AVSandboxSwivlDockAttached
@@ -82,6 +87,11 @@
 {
     swAppDelegate.currentCameraInterface = _cameraInterface.selectedSegmentIndex;
     [self cell:_driverUSBView setHidden: (swAppDelegate.currentCameraInterface != SWCameraInterfaceUSB)];
+}
+
+- (void)menuButtonPressed
+{
+    [self.sideMenuController openMenu];
 }
 
 #pragma mark - Interface update

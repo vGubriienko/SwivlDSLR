@@ -11,19 +11,18 @@
 @class SWTimelapseSettings;
 @class SWDSLRConfiguration;
 
-#define SW_SCRIPT_TIME_FOR_START_TILT 4
+#define SW_SCRIPT_TIME_FOR_START_TILT 4.0
 
 @interface SWScript : NSObject
 
 @property (nonatomic, strong) SWTimelapseSettings *timelapseSettings;
 @property (nonatomic, strong) SWDSLRConfiguration *dslrConfiguration;
-@property (nonatomic, assign) SWCameraInterface connectionType;
 @property (nonatomic, assign) SWScriptType scriptType;
 @property (nonatomic, strong) NSDate *startDate;
 
-- (NSString *)generateScript;
+- (NSString *)generateScriptForInterface:(SWCameraInterface)cameraInterface;
 
 - (BOOL)isRunningFromStartDate;
-- (NSInteger)scriptDuration;
+- (NSTimeInterval)scriptDuration;
 
 @end

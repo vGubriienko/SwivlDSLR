@@ -11,7 +11,7 @@
 #import "SWScript.h"
 #import "SWTimelapseSettings.h"
 #import "SWAppDelegate.h"
-
+#import "MVYSideMenuController.h"
 #import <Swivl2Lib/SwivlCommonLib.h>
 
 #define SW_TIMELAPSE_SETTINGS_KEY @"SW_TIMELAPSE_SETTINGS_KEY"
@@ -112,7 +112,7 @@
 
 - (IBAction)onMenuBtnTapped
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_SHOW_SIDE_BAR_NOTIFICATION object:self];
+    [self.sideMenuController openMenu];
 }
 
 - (IBAction)onCaptureBtnTapped
@@ -122,7 +122,6 @@
             SWScript *script = [[SWScript alloc] init];
             script.timelapseSettings = _timelapseSettings;
             script.scriptType = SWScriptTypeTimelapse;
-            script.connectionType = swAppDelegate.currentCameraInterface;
             script.dslrConfiguration = swAppDelegate.currentDSLRConfiguration;
             swAppDelegate.script = script;
             [swAppDelegate.swivl swivlScriptRequestBufferState];
@@ -242,6 +241,10 @@
                                                object:nil];
     [self scriptStateDidChanged];
     
+    
+    [swAppDelegate addObserver:self forKeyPath:@"currentCameraInterface"
+                       options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
+                       context:nil];
     [_timelapseSettings addObserver:self
                          forKeyPath:@"stepCount"
                             options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
@@ -290,20 +293,19 @@
         [_tiltBtn setTitle:strTime forState:UIControlStateNormal];
         
         SWTimeComponents timeComps = [_timelapseSettings timeBetweenPicturesComponents];
-        strTime = [NSString stringWithFormat:@"%.2li:%.2li:%.2li", (long)timeComps.hours, (long)timeComps.minutes, (long)timeComps.seconds];
+        strTime = [NSString stringWithFormat:@"%.2li:%.2li:%.2li", (long)timeComps.hours, (long)timeComps.minutes, (long)ceil(timeComps.seconds)];
         [_timeBtn setTitle:strTime forState:UIControlStateNormal];
         timeComps = [_timelapseSettings recordingTimeComponents];
         strTime = [NSString stringWithFormat:@"%.2li:%.2li:%.2li", (long)timeComps.hours, (long)timeComps.minutes, (long)timeComps.seconds];
         [_recordingTimeLabel setText:strTime];
         
-        if (_timelapseSettings.exposure == SW_TIMELAPSE_MIN_EXPOSURE) {
-            [_exposureBtn setTitle:[NSString stringWithFormat:@"<=%li", (long)_timelapseSettings.exposure] forState:UIControlStateNormal];
-        } else {
-            [_exposureBtn setTitle:[NSString stringWithFormat:@"%li", (long)_timelapseSettings.exposure] forState:UIControlStateNormal];
-        }
+        [_exposureBtn setTitle:[NSString stringWithFormat:@"%g", _timelapseSettings.exposure] forState:UIControlStateNormal];
 
-        
         _directionBtn.selected = !_timelapseSettings.clockwiseDirection;
+    } else if (object == swAppDelegate) {
+        if ([keyPath isEqualToString:@"currentCameraInterface"]) {
+            _timelapseSettings.cameraInterface = swAppDelegate.currentCameraInterface;
+        }
     }
 }
 
@@ -413,7 +415,8 @@
     [_timelapseSettings removeObserver:self forKeyPath:@"clockwiseDirection"];
     [_timelapseSettings removeObserver:self forKeyPath:@"startTiltAngle"];
     [_timelapseSettings removeObserver:self forKeyPath:@"endTiltAngle"];
-
+    
+    [swAppDelegate removeObserver:self forKeyPath:@"currentCameraInterface"];
 }
 
 #pragma mark - Saving
@@ -432,6 +435,7 @@
     if (!_timelapseSettings) {
         _timelapseSettings = [[SWTimelapseSettings alloc] init];
     }
+    _timelapseSettings.cameraInterface = swAppDelegate.currentCameraInterface;
 }
 
 #pragma mark - Messages

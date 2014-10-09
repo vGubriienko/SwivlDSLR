@@ -46,14 +46,6 @@ SWAppDelegate *swAppDelegate = nil;
     [self loadDefaults];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(needHideSideBarNotification)
-                                                 name:SW_NEED_HIDE_SIDE_BAR_NOTIFICATION
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(needShowSideBarNotification)
-                                                 name:SW_NEED_SHOW_SIDE_BAR_NOTIFICATION
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(scriptProgressDidFinish:)
                                                  name:AVSandboxScriptProgressDidFinishNotification
                                                object:nil];
@@ -189,7 +181,7 @@ SWAppDelegate *swAppDelegate = nil;
     self.scriptState = SWScriptStateRunning;
     self.script.startDate = [NSDate date];
     
-    NSString *strScript = [self.script generateScript];
+    NSString *strScript = [self.script generateScriptForInterface:self.currentCameraInterface];
     char *ptr = (char *)[strScript UTF8String];
     NSInteger length = strScript.length;
     
@@ -365,20 +357,19 @@ SWAppDelegate *swAppDelegate = nil;
         sideBarWidth = 320;
         storyboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil];
     } else {
-        if (IS_IPHONE_4) {
-            sideBarWidth = 125;
-            
-        } else {
-            sideBarWidth = 200;
-        }
+        sideBarWidth = 200;
         storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     }
     
     UIViewController *mainVC = self.window.rootViewController;
     
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:18.0 / 255.0 green:19.0 / 255.0 blue:19.0 / 255.0 alpha:1.0]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+    
     UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:mainVC];
     [navVC setNavigationBarHidden:YES];
-    
+
     SWSideBar *sideBar = [[SWSideBar alloc] initWithStyle:UITableViewStylePlain];
     sideBar.navigationController = navVC;
     

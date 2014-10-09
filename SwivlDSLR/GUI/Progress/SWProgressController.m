@@ -65,9 +65,9 @@
 
 - (void)tick
 {
-    CGFloat timePast = [[NSDate date] timeIntervalSinceDate:self.script.startDate];
+    NSTimeInterval timePast = [[NSDate date] timeIntervalSinceDate:self.script.startDate];
     
-    CGFloat progress = timePast / [self.script scriptDuration];
+    NSTimeInterval progress = timePast / [self.script scriptDuration];
     if (progress > 1) {
         _timeLabel.hidden = YES;
         [_progressTimer invalidate];
@@ -78,7 +78,7 @@
     }
     _progressView.progress = progress;
     
-    CGFloat timeLeft = [self.script scriptDuration] - timePast;
+    NSTimeInterval timeLeft = [self.script scriptDuration] - timePast;
     SWTimeComponents timeComps = SWTimeComponentsMake(timeLeft);
     _timeLabel.text = [NSString stringWithFormat:@"%.2li:%.2li:%.2li", (long)timeComps.hours, (long)timeComps.minutes, (long)timeComps.seconds];
 }

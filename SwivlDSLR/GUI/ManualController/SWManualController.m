@@ -13,6 +13,8 @@
 #import "SwivlCommonLib.h"
 #import "MotionDescriptor.h"
 
+#import "MVYSideMenuController.h"
+
 @interface SWManualController()
 {
     __weak IBOutlet UIImageView *_batteryLevelImg;
@@ -56,7 +58,7 @@
 
 - (IBAction)onMenuBtnTapped
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:SW_NEED_SHOW_SIDE_BAR_NOTIFICATION object:self];
+    [self.sideMenuController openMenu];
 }
 
 - (IBAction)onLeftBtnStart:(id)sender
@@ -170,7 +172,6 @@
             SWScript *script = [[SWScript alloc] init];
             swAppDelegate.script = script;
             script.scriptType = SWScriptTypeShot;
-            script.connectionType = swAppDelegate.currentCameraInterface;
             script.dslrConfiguration = swAppDelegate.currentDSLRConfiguration;
             [swAppDelegate.swivl swivlScriptRequestBufferState];
         } else {

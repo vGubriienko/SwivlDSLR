@@ -8,19 +8,28 @@
 
 #import "SWTimelapseSettings.h"
 
+@interface SWTimelapseSettings ()
+
+@property (nonatomic, assign) NSTimeInterval holdShutterTime;
+
+@end
+
 @implementation SWTimelapseSettings
 
-- (id)init
+- (instancetype)init
 {
     self = [super init];
     if (self) {
+        self.cameraInterface = SWCameraInterfaceUSB;
+
         self.stepCount = 10;
         self.stepSize = 6.75;
         self.clockwiseDirection = YES;
-        self.timeBetweenPictures = 5;
+        self.timeBetweenPictures = 5.0;
         self.startTiltAngle = 0;
         self.endTiltAngle = 0;
-        self.exposure = 1;
+        self.holdShutterTime = 2.0;
+        self.exposure = self.minimumExposure;
     }
     return self;
 }
@@ -29,6 +38,16 @@
 {
     self = [super init];
     if(self) {
+        self.holdShutterTime = 2.0;
+        
+        NSNumber *savedCameraInterface = [decoder decodeObjectForKey:@"cameraInterface"];
+        self.cameraInterface = savedCameraInterface ? [savedCameraInterface integerValue] : SWCameraInterfaceUSB;
+        
+        NSNumber *savedExposure = [decoder decodeObjectForKey:@"exposure"];
+        self.exposure = savedExposure ? [savedExposure doubleValue] : [self minimumExposure];
+        
+        self.timeBetweenPictures = [[decoder decodeObjectForKey:@"timeBetweenPictures"] doubleValue];
+
         _stepSize = [[decoder decodeObjectForKey:@"stepSize"] floatValue];
         NSInteger distance = [[decoder decodeObjectForKey:@"distance"] integerValue];
         if (distance > 0) {
@@ -36,17 +55,9 @@
         } else {
             _stepCount = [[decoder decodeObjectForKey:@"stepCount"] integerValue];
         }
-        _timeBetweenPictures = [[decoder decodeObjectForKey:@"timeBetweenPictures"] integerValue];
         _clockwiseDirection = [[decoder decodeObjectForKey:@"clockwiseDirection"] boolValue];
         _startTiltAngle = [[decoder decodeObjectForKey:@"startTiltAngle"] integerValue];
         _endTiltAngle = [[decoder decodeObjectForKey:@"endTiltAngle"] integerValue];
-        
-        NSNumber *exposureNumber = [decoder decodeObjectForKey:@"exposure"];
-        if (exposureNumber) {
-            _exposure = [exposureNumber integerValue];
-        } else {
-            _exposure = SW_TIMELAPSE_MIN_EXPOSURE;
-        }
     }
     return self;
 }
@@ -55,11 +66,12 @@
 {
     [encoder encodeObject:[NSNumber numberWithFloat:_stepSize] forKey:@"stepSize"];
     [encoder encodeObject:[NSNumber numberWithInteger:_stepCount] forKey:@"stepCount"];
-    [encoder encodeObject:[NSNumber numberWithInteger:_timeBetweenPictures] forKey:@"timeBetweenPictures"];
+    [encoder encodeObject:[NSNumber numberWithDouble:_timeBetweenPictures] forKey:@"timeBetweenPictures"];
     [encoder encodeObject:[NSNumber numberWithBool:_clockwiseDirection] forKey:@"clockwiseDirection"];
     [encoder encodeObject:[NSNumber numberWithInteger:_startTiltAngle] forKey:@"startTiltAngle"];
     [encoder encodeObject:[NSNumber numberWithInteger:_endTiltAngle] forKey:@"endTiltAngle"];
-    [encoder encodeObject:[NSNumber numberWithInteger:_exposure] forKey:@"exposure"];
+    [encoder encodeObject:[NSNumber numberWithDouble:_exposure] forKey:@"exposure"];
+    [encoder encodeObject:[NSNumber numberWithInteger:_cameraInterface] forKey:@"cameraInterface"];
 }
 
 #pragma mark - Public methods
@@ -81,6 +93,19 @@
 
 #pragma mark - Properties
 
+- (void)setCameraInterface:(SWCameraInterface)cameraInterface
+{
+    _cameraInterface = cameraInterface;
+    if (self.exposure < self.minimumExposure) {
+        self.exposure = self.minimumExposure;
+    }
+    
+    if (cameraInterface == SWCameraInterfaceUSB) {
+        self.exposure = floor(self.exposure);
+        self.timeBetweenPictures = floor(self.timeBetweenPictures);
+    }
+}
+
 - (SWTimeComponents)timeBetweenPicturesComponents
 {
     return SWTimeComponentsMake(self.timeBetweenPictures);
@@ -91,30 +116,60 @@
     return SWTimeComponentsMake(self.recordingTime);
 }
 
-- (void)setTimeBetweenPictures:(NSInteger)timeBetweenPictures
+- (void)setTimeBetweenPictures:(NSTimeInterval)timeBetweenPictures
 {
-    if (timeBetweenPictures >= SW_TIMELAPSE_MIN_TIME_BTWN_PICTURES && timeBetweenPictures <= SW_TIMELAPSE_MAX_TIME_BTWN_PICTURES) {
+    if (timeBetweenPictures >= self.minimumTimeBetweenPictures && timeBetweenPictures <= SW_TIMELAPSE_MAX_TIME_BTWN_PICTURES) {
         _timeBetweenPictures = timeBetweenPictures;
-        if (timeBetweenPictures - self.exposure < SW_TIMELAPSE_TIME_EXPOSURE_GAP) {
-            self.exposure = timeBetweenPictures - SW_TIMELAPSE_TIME_EXPOSURE_GAP;
+        
+        if (_timeBetweenPictures != self.minimumTimeBetweenPictures) {
+            _timeBetweenPictures = floor(_timeBetweenPictures);
+        }
+        
+        if (_timeBetweenPictures < self.exposure) {
+            self.exposure = _timeBetweenPictures;
         }
     }
 }
 
 - (void)setTimeBetweenPicturesWithComponents:(SWTimeComponents)timeBetweenPicturesComponents
 {
-    NSInteger seconds = timeBetweenPicturesComponents.hours * 3600 + timeBetweenPicturesComponents.minutes * 60 + timeBetweenPicturesComponents.seconds;
+    NSTimeInterval seconds = timeBetweenPicturesComponents.hours * 3600 + timeBetweenPicturesComponents.minutes * 60 + timeBetweenPicturesComponents.seconds;
     self.timeBetweenPictures = seconds;
 }
 
-- (void)setExposure:(NSInteger)exposureTime
+- (void)setExposure:(NSTimeInterval)exposureTime
 {
-    if (exposureTime >= SW_TIMELAPSE_MIN_EXPOSURE && exposureTime <= SW_TIMELAPSE_MAX_EXPOSURE) {
+    if (exposureTime >= self.minimumExposure && exposureTime <= SW_TIMELAPSE_MAX_EXPOSURE) {
         _exposure = exposureTime;
-        if (self.timeBetweenPictures - exposureTime < SW_TIMELAPSE_TIME_EXPOSURE_GAP) {
-            self.timeBetweenPictures = exposureTime + SW_TIMELAPSE_TIME_EXPOSURE_GAP;
+        
+        if (_exposure != self.minimumExposure) {
+            _exposure = floor(_exposure);
+        }
+        
+        if (self.timeBetweenPictures < _exposure) {
+            self.timeBetweenPictures = _exposure;
         }
     }
+}
+
+- (NSTimeInterval)minimumExposure
+{
+    switch (self.cameraInterface) {
+        case SWCameraInterfaceTrigger:
+            return self.holdShutterTime + SW_TIMELAPSE_MIN_PROTECTION_PAUSE;
+            break;
+        case SWCameraInterfaceUSB:
+            return SW_TIMELAPSE_MIN_EXPOSURE_USB;
+            break;
+        default:
+            return 0;
+            break;
+    }
+}
+
+- (NSTimeInterval)minimumTimeBetweenPictures
+{
+    return [self minimumExposure];
 }
 
 - (void)setStepSize:(CGFloat)stepSize
@@ -140,7 +195,7 @@
     return (NSInteger)roundf((self.stepCount - 1) * self.stepSize);
 }
 
-- (NSInteger)recordingTime
+- (NSTimeInterval)recordingTime
 {
     return (self.stepCount - 1) * self.timeBetweenPictures;
 }
