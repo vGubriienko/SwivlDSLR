@@ -152,12 +152,13 @@ typedef NS_ENUM(NSInteger, SWTimeComponent)
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     if (pickerView == _timePicker) {
-        if (component == SWTimeComponentHour) {
-            return _hoursRange.count;
-        } else if (component == SWTimeComponentMinute) {
-            return _minutesRange.count;
-        } else if (component == SWTimeComponentSecond) {
-            return [self secondsRange].count;
+        switch (component) {
+            case SWTimeComponentHour:
+                return _hoursRange.count;
+            case SWTimeComponentMinute:
+                return _minutesRange.count;
+            case SWTimeComponentSecond:
+                return [self secondsRange].count;
         }
     } else if (pickerView == _exposurePicker) {
         return _exposureRange.count;
@@ -172,12 +173,16 @@ typedef NS_ENUM(NSInteger, SWTimeComponent)
     NSTimeInterval value = 0.0;
     
     if (pickerView == _timePicker) {
-        if (component == SWTimeComponentHour) {
-            value = [_hoursRange[row] doubleValue];
-        } else if (component == SWTimeComponentMinute) {
-            value = [_minutesRange[row] doubleValue];
-        } else if (component == SWTimeComponentSecond) {
-            value = [[self secondsRange][row] doubleValue];
+        switch (component) {
+            case SWTimeComponentHour:
+                value = [_hoursRange[row] doubleValue];
+                break;
+            case SWTimeComponentMinute:
+                value = [_minutesRange[row] doubleValue];
+                break;
+            case SWTimeComponentSecond:
+                value = [[self secondsRange][row] doubleValue];
+                break;
         }
     } else if (pickerView == _exposurePicker) {
         value = [_exposureRange[row] doubleValue];
@@ -191,12 +196,16 @@ typedef NS_ENUM(NSInteger, SWTimeComponent)
     if (pickerView == _timePicker) {
         SWTimeComponents timeComponents = [_timelapseSettings timeBetweenPicturesComponents];
         
-        if (component == SWTimeComponentHour) {
-            timeComponents.hours = [_hoursRange[row] integerValue];
-        } else if (component == SWTimeComponentMinute) {
-            timeComponents.minutes = [_minutesRange[row] integerValue];
-        } else if (component == SWTimeComponentSecond) {
-            timeComponents.seconds = [[self secondsRange][row] doubleValue];
+        switch (component) {
+            case SWTimeComponentHour:
+                timeComponents.hours = [_hoursRange[row] integerValue];
+                break;
+            case SWTimeComponentMinute:
+                timeComponents.minutes = [_minutesRange[row] integerValue];
+                break;
+            case SWTimeComponentSecond:
+                timeComponents.seconds = [[self secondsRange][row] doubleValue];
+                break;
         }
         
         if (timeComponents.hours == 0 && timeComponents.minutes == 0 && timeComponents.seconds <= _timelapseSettings.minimumTimeBetweenPictures) {

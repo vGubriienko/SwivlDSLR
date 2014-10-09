@@ -16,7 +16,7 @@
 
 @implementation SWTimelapseSettings
 
-- (id)init
+- (instancetype)init
 {
     self = [super init];
     if (self) {
@@ -101,8 +101,8 @@
     }
     
     if (cameraInterface == SWCameraInterfaceUSB) {
-        self.exposure = (long)self.exposure;
-        self.timeBetweenPictures = (long)self.timeBetweenPictures;
+        self.exposure = floor(self.exposure);
+        self.timeBetweenPictures = floor(self.timeBetweenPictures);
     }
 }
 
@@ -122,7 +122,7 @@
         _timeBetweenPictures = timeBetweenPictures;
         
         if (_timeBetweenPictures != self.minimumTimeBetweenPictures) {
-            _timeBetweenPictures = (long)_timeBetweenPictures;
+            _timeBetweenPictures = floor(_timeBetweenPictures);
         }
         
         if (_timeBetweenPictures < self.exposure) {
@@ -143,7 +143,7 @@
         _exposure = exposureTime;
         
         if (_exposure != self.minimumExposure) {
-            _exposure = (long)_exposure;
+            _exposure = floor(_exposure);
         }
         
         if (self.timeBetweenPictures < _exposure) {
@@ -156,7 +156,7 @@
 {
     switch (self.cameraInterface) {
         case SWCameraInterfaceTrigger:
-            return self.holdShutterTime + 0.5;
+            return self.holdShutterTime + SW_TIMELAPSE_MIN_PROTECTION_PAUSE;
             break;
         case SWCameraInterfaceUSB:
             return SW_TIMELAPSE_MIN_EXPOSURE_USB;
