@@ -370,7 +370,7 @@ typedef struct {
 }
 
 - (void)openMenuWithVelocity:(CGFloat)velocity {
-	
+    
 	CGFloat menuXOrigin = self.menuContainerView.frame.origin.x;
 	CGFloat finalXOrigin = 0.0f;
 	
@@ -392,7 +392,7 @@ typedef struct {
 		self.opacityView.layer.opacity = self.options.contentViewOpacity;
 		[self.contentContainerView setTransform:CGAffineTransformMakeScale(self.options.contentViewScale, self.options.contentViewScale)];
 	} completion:^(BOOL finished) {
-		//[self disableContentInteraction];
+		[self disableContentInteraction];
 	}];
 }
 
@@ -419,7 +419,7 @@ typedef struct {
 	} completion:^(BOOL finished) {
 		[self removeMenuShadow];
 		[self enableContentInteraction];
-	}];
+    }];
 }
 
 - (BOOL)slideMenuForGestureRecognizer:(UIGestureRecognizer *)gesture withTouchPoint:(CGPoint)point {
