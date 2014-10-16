@@ -72,6 +72,8 @@
     _tiltBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     
     _infoTextView.contentOffset = CGPointZero;
+    
+    [_directionBtn setImage:[UIImage imageNamed:@"timelapse_direction_2"] forState:UIControlStateDisabled | UIControlStateSelected];
 }
 
 - (void)viewWillAppear:(BOOL)animated
