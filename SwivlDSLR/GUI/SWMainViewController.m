@@ -72,8 +72,6 @@
     _tiltBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     
     _infoTextView.contentOffset = CGPointZero;
-    
-    [_directionBtn setImage:[UIImage imageNamed:@"timelapse_direction_2"] forState:UIControlStateDisabled | UIControlStateSelected];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -306,6 +304,9 @@
         [_exposureBtn setTitle:[NSString stringWithFormat:@"%g", _timelapseSettings.exposure] forState:UIControlStateNormal];
 
         _directionBtn.selected = !_timelapseSettings.clockwiseDirection;
+        UIImage *img = _directionBtn.selected ? [UIImage imageNamed:@"timelapse_direction_2"] : [UIImage imageNamed:@"timelapse_direction_1"];
+        [_directionBtn setImage:img forState:UIControlStateNormal];
+
     } else if (object == swAppDelegate) {
         if ([keyPath isEqualToString:@"currentCameraInterface"]) {
             _timelapseSettings.cameraInterface = swAppDelegate.currentCameraInterface;

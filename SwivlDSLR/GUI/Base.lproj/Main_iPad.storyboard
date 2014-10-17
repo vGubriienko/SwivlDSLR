@@ -264,10 +264,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Cvh-3x-oj7" userLabel="Motion direction">
                                         <rect key="frame" x="21" y="191" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="5" image="timelapse_direction_1.png">
+                                        <state key="normal" image="timelapse_direction_1.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="selected" image="timelapse_direction_2.png"/>
                                         <connections>
                                             <action selector="onDirectionBtnTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="zw4-pv-BEC"/>
                                         </connections>
@@ -360,7 +359,7 @@
                                         <rect key="frame" x="70" y="172" width="732" height="515"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <mutableString key="text">1. Make sure Swivl is on and has Bluetooth connection with your iOS device.
+                                        <string key="text">1. Make sure Swivl is on and has Bluetooth connection with your iOS device.
 
 2. Set DSLR camera on Swivl and connect it via USB or Trigger port. Select corresponding camera interface in "Swivl settings" menu.
 
@@ -373,7 +372,7 @@
     Please note that total rotation angle in degrees and total time-lapse time are displayed inside round capture button. These values are not directly adjustable, but they are recalculated and updated with every change of adjustable parameters. 
 4. To start time-lapse photography tap on capture button.
 
-5. Enjoy :-)</mutableString>
+5. Enjoy :-)</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
