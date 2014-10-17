@@ -62,6 +62,11 @@
                                              selector:@selector(applicationDidBecomeActive)
                                                  name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(applicationDidEnterBackground)
+                                                 name:UIApplicationDidEnterBackgroundNotification
+                                               object:nil];
 }
 
 - (void)configUI
@@ -72,8 +77,6 @@
     _tiltBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     
     _infoTextView.contentOffset = CGPointZero;
-    
-    [_directionBtn setImage:[UIImage imageNamed:@"timelapse_direction_2"] forState:UIControlStateDisabled | UIControlStateSelected];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -155,6 +158,7 @@
     _directionBtn.enabled = NO;
     _recordingTimeLabel.hidden = YES;
     _distanceLabel.hidden = YES;
+    _exposureBtn.enabled = NO;
     
     [self startCaptureBtnAnimation];
     
@@ -188,7 +192,8 @@
     _helpButton.enabled = YES;
     _recordingTimeLabel.hidden = NO;
     _distanceLabel.hidden = NO;
-    
+    _exposureBtn.enabled = YES;
+
     _captureBtnActive.hidden = YES;
     [_captureBtnActive.layer removeAllAnimations];
     
@@ -282,6 +287,26 @@
     [self updateBatteryLevel];
 }
 
+- (void)finishObserving
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:AVSandboxSwivlDockAttached object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:AVSandboxSwivlDockDetached object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:AVSandboxSwivlFirmwareChanged object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:AVSandboxSwivlScriptStateChangedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:AVSandboxBaseBatteryLevelChanged object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:AVSandboxMarkerBatteryLevelChanged object:nil];
+
+    [_timelapseSettings removeObserver:self forKeyPath:@"stepCount"];
+    [_timelapseSettings removeObserver:self forKeyPath:@"stepSize"];
+    [_timelapseSettings removeObserver:self forKeyPath:@"timeBetweenPictures"];
+    [_timelapseSettings removeObserver:self forKeyPath:@"exposure"];
+    [_timelapseSettings removeObserver:self forKeyPath:@"clockwiseDirection"];
+    [_timelapseSettings removeObserver:self forKeyPath:@"startTiltAngle"];
+    [_timelapseSettings removeObserver:self forKeyPath:@"endTiltAngle"];
+    
+    [swAppDelegate removeObserver:self forKeyPath:@"currentCameraInterface"];
+}
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if (object == _timelapseSettings) {
@@ -304,6 +329,9 @@
         [_exposureBtn setTitle:[NSString stringWithFormat:@"%g", _timelapseSettings.exposure] forState:UIControlStateNormal];
 
         _directionBtn.selected = !_timelapseSettings.clockwiseDirection;
+        UIImage *img = _directionBtn.selected ? [UIImage imageNamed:@"timelapse_direction_2"] : [UIImage imageNamed:@"timelapse_direction_1"];
+        [_directionBtn setImage:img forState:UIControlStateNormal];
+
     } else if (object == swAppDelegate) {
         if ([keyPath isEqualToString:@"currentCameraInterface"]) {
             _timelapseSettings.cameraInterface = swAppDelegate.currentCameraInterface;
@@ -406,19 +434,9 @@
     }
 }
 
-- (void)finishObserving
+- (void)applicationDidEnterBackground
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
-    [_timelapseSettings removeObserver:self forKeyPath:@"stepCount"];
-    [_timelapseSettings removeObserver:self forKeyPath:@"stepSize"];
-    [_timelapseSettings removeObserver:self forKeyPath:@"timeBetweenPictures"];
-    [_timelapseSettings removeObserver:self forKeyPath:@"exposure"];
-    [_timelapseSettings removeObserver:self forKeyPath:@"clockwiseDirection"];
-    [_timelapseSettings removeObserver:self forKeyPath:@"startTiltAngle"];
-    [_timelapseSettings removeObserver:self forKeyPath:@"endTiltAngle"];
-    
-    [swAppDelegate removeObserver:self forKeyPath:@"currentCameraInterface"];
+    [self saveSettings];
 }
 
 #pragma mark - Saving
@@ -470,9 +488,9 @@
 
 - (void)dealloc
 {
-    [self finishObserving];
-    
     [self saveSettings];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning
