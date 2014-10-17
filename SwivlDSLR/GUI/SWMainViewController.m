@@ -155,6 +155,7 @@
     _directionBtn.enabled = NO;
     _recordingTimeLabel.hidden = YES;
     _distanceLabel.hidden = YES;
+    _exposureBtn.enabled = NO;
     
     [self startCaptureBtnAnimation];
     
@@ -188,7 +189,8 @@
     _helpButton.enabled = YES;
     _recordingTimeLabel.hidden = NO;
     _distanceLabel.hidden = NO;
-    
+    _exposureBtn.enabled = YES;
+
     _captureBtnActive.hidden = YES;
     [_captureBtnActive.layer removeAllAnimations];
     
