@@ -40,8 +40,9 @@
     NSString *savedFirmwareVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"SwivlSettingsSavedFirmwareVersionKey"];
     _firmwareVersion = savedFirmwareVersion ? savedFirmwareVersion : DOCK_FW_VERSION_UNREPORTED;
     
-    NSString *bundleVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
-    _appVersion.text = bundleVersion;
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    NSString *build = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey];
+    _appVersion.text = [NSString stringWithFormat:@"%@(%@)", version, build];
     
     _cameraInterface.selectedSegmentIndex = swAppDelegate.currentCameraInterface;
     [self onCaptureInterfaceValueChanged];
