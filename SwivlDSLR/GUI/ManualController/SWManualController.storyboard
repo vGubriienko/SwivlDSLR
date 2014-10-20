@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2QU-uU-GYq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2QU-uU-GYq">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -124,7 +123,7 @@
         <image name="arrow_manual_right.png" width="512" height="512"/>
         <image name="arrow_manual_up.png" width="512" height="512"/>
         <image name="base_off.png" width="32" height="32"/>
-        <image name="base_present.png" width="28" height="25"/>
+        <image name="base_present.png" width="32" height="32"/>
         <image name="batery_off.png" width="30" height="25"/>
         <image name="capture_normal.png" width="75" height="75"/>
         <image name="reveal-white.png" width="22" height="17"/>
