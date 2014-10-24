@@ -341,6 +341,13 @@ SWAppDelegate *swAppDelegate = nil;
     NSDictionary *savedDSLRConfiguration = [[NSUserDefaults standardUserDefaults] objectForKey:SW_CAMERA_CONFIGURATION_KEY];
     if (savedDSLRConfiguration) {
         self.currentDSLRConfiguration = [SWDSLRConfiguration configurationWithDictionary:savedDSLRConfiguration];
+        //hot fix: availableDSLRConfigurations have correct name in current version, but saved in previous version is wrong
+        if ([self.currentDSLRConfiguration.name isEqualToString:@"Cannon"]) {
+            self.currentDSLRConfiguration.name = @"Canon";
+        }
+        if ([self.currentDSLRConfiguration.name isEqualToString:@"Cannon New"]) {
+            self.currentDSLRConfiguration.name = @"Canon New";
+        }
     } else {
         //Default value is first configuration
         self.currentDSLRConfiguration = [self.availableDSLRConfigurations firstObject];
