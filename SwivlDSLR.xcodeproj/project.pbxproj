@@ -1,3462 +1,1124 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>08BBA113A332494091052C36</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-SwivlDSLR/Pods-SwivlDSLR-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>15D8180D3830431B85CA07BC</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-SwivlDSLR.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>22BB44A4624F4E47A55EBD64</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-SwivlDSLRTests/Pods-SwivlDSLRTests-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>25070FDF18E2FD6C006FBD2D</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>./Crashlytics.framework/run 3cc74596e11f1822925527f515758299a6b646bf ffc3e681f97e39a2e7442e60237d1f72643a7bc687afb207c8627a3582841a3d</string>
-		</dict>
-		<key>25070FE018E2FDA1006FBD2D</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>path</key>
-			<string>Crashlytics.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25070FE118E2FDA1006FBD2D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>25070FE018E2FDA1006FBD2D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>250A4D1618DADEF300E82B1F</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SWScript.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>250A4D1718DADEF300E82B1F</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SWScript.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>250A4D1818DADEF300E82B1F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>250A4D1718DADEF300E82B1F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2522F7C018D0AD8E00915E25</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SWConstants.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2522F7C118D0B25D00915E25</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>reveal-white.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2522F7C218D0B25D00915E25</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>reveal-white@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2522F7C318D0B25D00915E25</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2522F7C118D0B25D00915E25</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2522F7C418D0B25D00915E25</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2522F7C218D0B25D00915E25</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2522F7C618D0B79000915E25</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>2522F7C718D0B79000915E25</string>
-				<string>2522F7C818D0B79000915E25</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Side bar</string>
-			<key>path</key>
-			<string>SwivlDSLR/GUI/Side bar</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>2522F7C718D0B79000915E25</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SWSideBar.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2522F7C818D0B79000915E25</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SWSideBar.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2522F7C918D0B79000915E25</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2522F7C818D0B79000915E25</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2522F7CC18D0C23C00915E25</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>25743A85192CD833003740F2</string>
-				<string>25743A86192CD833003740F2</string>
-				<string>25743A87192CD833003740F2</string>
-				<string>25743A88192CD833003740F2</string>
-				<string>2522F7CD18D0C23C00915E25</string>
-				<string>2522F7CE18D0C23C00915E25</string>
-				<string>2522F7CF18D0C23C00915E25</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Swivl Settings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2522F7CD18D0C23C00915E25</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SWSettingsController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2522F7CE18D0C23C00915E25</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SWSettingsController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2522F7CF18D0C23C00915E25</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>path</key>
-			<string>SWSettingsController.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2522F7D018D0C23C00915E25</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2522F7CE18D0C23C00915E25</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2522F7D118D0C23C00915E25</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2522F7CF18D0C23C00915E25</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2522F7D218D0C69800915E25</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>2522F7D318D0C69800915E25</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Swivl</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2522F7D318D0C69800915E25</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>2522F7D418D0C69800915E25</string>
-				<string>2522F7D518D0C69800915E25</string>
-				<string>2522F7D618D0C69800915E25</string>
-				<string>2522F7D718D0C69800915E25</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Battery</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2522F7D418D0C69800915E25</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>battery-0.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2522F7D518D0C69800915E25</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>battery-0@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2522F7D618D0C69800915E25</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>battery-100.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2522F7D718D0C69800915E25</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>battery-100@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2522F7D818D0C69800915E25</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2522F7D418D0C69800915E25</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2522F7D918D0C69800915E25</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2522F7D518D0C69800915E25</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2522F7DA18D0C69800915E25</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2522F7D618D0C69800915E25</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2522F7DB18D0C69800915E25</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2522F7D718D0C69800915E25</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2522F7DC18D0CAF000915E25</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>AVSandboxNotifications.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2522F7DD18D0CAF000915E25</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>AVSandboxNotifications.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2522F7DE18D0CAF000915E25</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2522F7DD18D0CAF000915E25</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2540041E18EEAE6F0060ECB2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>2540041F18EEAE6F0060ECB2</string>
-				<string>2540042018EEAE6F0060ECB2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Categories</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2540041F18EEAE6F0060ECB2</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>UIAlertView+Blocks.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2540042018EEAE6F0060ECB2</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>UIAlertView+Blocks.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2540042118EEAE6F0060ECB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2540042018EEAE6F0060ECB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>25465B5F18E5820900C4DBDF</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SWProgressView.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25465B6018E5820900C4DBDF</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SWProgressView.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25465B6118E5820900C4DBDF</key>
-		<dict>
-			<key>fileRef</key>
-			<string>25465B6018E5820900C4DBDF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>255289B11920F49A00E803B6</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SWDSLRConfiguration.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>255289B21920F49A00E803B6</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SWDSLRConfiguration.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>255289B31920F49A00E803B6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>255289B21920F49A00E803B6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>255289B51921101400E803B6</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SWScript+Template.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>255289B61921101400E803B6</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SWScript+Template.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>255289B71921101400E803B6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>255289B61921101400E803B6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2558AB82194721370043C2D0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>archive.macbinary</string>
-			<key>path</key>
-			<string>SwivlFWUpdate.bin</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2558AB83194721370043C2D0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2558AB82194721370043C2D0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>256C1FD818EC3EE700D0659B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>info.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>256C1FD918EC3EE700D0659B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>256C1FD818EC3EE700D0659B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>25743A7C192CA9EE003740F2</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SWTiltController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25743A7D192CA9EE003740F2</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SWTiltController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25743A7E192CA9EE003740F2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>25743A7D192CA9EE003740F2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>25743A81192CCD8E003740F2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>timelapse_tilt.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25743A82192CCD8E003740F2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>timelapse_tilt@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25743A83192CCD8E003740F2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>25743A81192CCD8E003740F2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>25743A84192CCD8E003740F2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>25743A82192CCD8E003740F2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>25743A85192CD833003740F2</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SWBatteryLevelView.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25743A86192CD833003740F2</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SWBatteryLevelView.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25743A87192CD833003740F2</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SWSelectCameraController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25743A88192CD833003740F2</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SWSelectCameraController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25743A89192CD833003740F2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>25743A86192CD833003740F2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>25743A8A192CD833003740F2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>25743A88192CD833003740F2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>258941E8192204B300BCAE55</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SWDSLRConfigurationTests.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>258941E9192204B300BCAE55</key>
-		<dict>
-			<key>fileRef</key>
-			<string>258941E8192204B300BCAE55</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>258941EA1922108400BCAE55</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SWScriptTests.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>258941EB1922108400BCAE55</key>
-		<dict>
-			<key>fileRef</key>
-			<string>258941EA1922108400BCAE55</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>258F655719CE1D76001E8CD5</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>timelapse_exposure.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>258F655819CE1D76001E8CD5</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>timelapse_exposure@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>258F655919CE1D76001E8CD5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>258F655719CE1D76001E8CD5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>258F655A19CE1D76001E8CD5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>258F655819CE1D76001E8CD5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>259524E818C610DE006EEAFA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>2558AB82194721370043C2D0</string>
-				<string>85876BCE192229080054E4C7</string>
-				<string>858A4DF318C8AA700036A0CF</string>
-				<string>259524FA18C610DF006EEAFA</string>
-				<string>2595251C18C610DF006EEAFA</string>
-				<string>259524F318C610DF006EEAFA</string>
-				<string>259524F218C610DF006EEAFA</string>
-				<string>8A4005732D10D759343AF04B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>259524E918C610DE006EEAFA</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>CLASSPREFIX</key>
-				<string>SW</string>
-				<key>LastUpgradeCheck</key>
-				<string>0600</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>Swivl</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>259524F018C610DE006EEAFA</key>
-					<dict>
-						<key>DevelopmentTeam</key>
-						<string>H9QT4S334X</string>
-						<key>SystemCapabilities</key>
-						<dict>
-							<key>com.apple.WAC</key>
-							<dict>
-								<key>enabled</key>
-								<string>1</string>
-							</dict>
-						</dict>
-					</dict>
-					<key>2595251418C610DF006EEAFA</key>
-					<dict>
-						<key>TestTargetID</key>
-						<string>259524F018C610DE006EEAFA</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>259524EC18C610DE006EEAFA</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-				<string>Base</string>
-			</array>
-			<key>mainGroup</key>
-			<string>259524E818C610DE006EEAFA</string>
-			<key>productRefGroup</key>
-			<string>259524F218C610DF006EEAFA</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>259524F018C610DE006EEAFA</string>
-				<string>2595251418C610DF006EEAFA</string>
-			</array>
-		</dict>
-		<key>259524EC18C610DE006EEAFA</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>2595252418C610DF006EEAFA</string>
-				<string>2595252518C610DF006EEAFA</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>259524ED18C610DE006EEAFA</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>255289B71921101400E803B6</string>
-				<string>25465B6118E5820900C4DBDF</string>
-				<string>2522F7C918D0B79000915E25</string>
-				<string>2522F7D018D0C23C00915E25</string>
-				<string>8508E40418F6C42500EEC442</string>
-				<string>2540042118EEAE6F0060ECB2</string>
-				<string>255289B31920F49A00E803B6</string>
-				<string>858A4DFB18C8AA700036A0CF</string>
-				<string>25743A7E192CA9EE003740F2</string>
-				<string>250A4D1818DADEF300E82B1F</string>
-				<string>25BB880318E45F7400ECE14D</string>
-				<string>2595253618C6141C006EEAFA</string>
-				<string>25A3E68518C93E1C002AFBB9</string>
-				<string>2595250518C610DF006EEAFA</string>
-				<string>85D97BA118C76DD2002C2665</string>
-				<string>25B962D318D21ABC002E4FD1</string>
-				<string>2595250118C610DF006EEAFA</string>
-				<string>25ADC24118C72D4A00CEB6A7</string>
-				<string>858A4DFC18C8AA700036A0CF</string>
-				<string>25A3E68418C93E1C002AFBB9</string>
-				<string>25743A8A192CD833003740F2</string>
-				<string>2522F7DE18D0CAF000915E25</string>
-				<string>25B962D218D21ABC002E4FD1</string>
-				<string>25743A89192CD833003740F2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>259524EE18C610DE006EEAFA</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>25DDE74D19C8837C0061245E</string>
-				<string>259524F718C610DF006EEAFA</string>
-				<string>25070FE118E2FDA1006FBD2D</string>
-				<string>259524F918C610DF006EEAFA</string>
-				<string>259524F518C610DF006EEAFA</string>
-				<string>64612A26A3EA462A895D8788</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>259524EF18C610DE006EEAFA</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>8508E40618F6C47900EEC442</string>
-				<string>2558AB83194721370043C2D0</string>
-				<string>2595254418C61BA2006EEAFA</string>
-				<string>858A4DFD18C8AA700036A0CF</string>
-				<string>2595255218C62190006EEAFA</string>
-				<string>25743A83192CCD8E003740F2</string>
-				<string>2595254618C61BA2006EEAFA</string>
-				<string>85DDC0B51907EB9B009B5DBF</string>
-				<string>25E536D2190E79DD0059FE7C</string>
-				<string>2522F7C318D0B25D00915E25</string>
-				<string>2595254718C61BA2006EEAFA</string>
-				<string>854428C5192B4ECA002732F6</string>
-				<string>25B962C418D19CFD002E4FD1</string>
-				<string>85876BCF192229080054E4C7</string>
-				<string>25E536D1190E79DD0059FE7C</string>
-				<string>25E536D3190E79DD0059FE7C</string>
-				<string>2595253518C6141C006EEAFA</string>
-				<string>2522F7DB18D0C69800915E25</string>
-				<string>2595253418C6141C006EEAFA</string>
-				<string>8508E40918F6D54900EEC442</string>
-				<string>2522F7D818D0C69800915E25</string>
-				<string>258F655919CE1D76001E8CD5</string>
-				<string>2595255018C62190006EEAFA</string>
-				<string>8508E40A18F6D54900EEC442</string>
-				<string>2595254218C61BA2006EEAFA</string>
-				<string>854428BE192B4B2D002732F6</string>
-				<string>2595255418C62190006EEAFA</string>
-				<string>2595255118C62190006EEAFA</string>
-				<string>256C1FD918EC3EE700D0659B</string>
-				<string>2595254318C61BA2006EEAFA</string>
-				<string>854428BC192B4A7F002732F6</string>
-				<string>25ADC23D18C724A400CEB6A7</string>
-				<string>2522F7D118D0C23C00915E25</string>
-				<string>25E536D0190E79DD0059FE7C</string>
-				<string>854428C4192B4ECA002732F6</string>
-				<string>85DDC0B61907EB9B009B5DBF</string>
-				<string>854428C6192B4ECA002732F6</string>
-				<string>85DDC0B71907EB9B009B5DBF</string>
-				<string>2595254818C61BA2006EEAFA</string>
-				<string>2522F7C418D0B25D00915E25</string>
-				<string>2595254918C61BA2006EEAFA</string>
-				<string>25B962C518D19CFD002E4FD1</string>
-				<string>2595251018C610DF006EEAFA</string>
-				<string>858A4DFE18C8AA700036A0CF</string>
-				<string>2522F7DA18D0C69800915E25</string>
-				<string>2522F7D918D0C69800915E25</string>
-				<string>259524FF18C610DF006EEAFA</string>
-				<string>85DDC0B41907EB9B009B5DBF</string>
-				<string>2595254518C61BA2006EEAFA</string>
-				<string>2595255618C6229D006EEAFA</string>
-				<string>258F655A19CE1D76001E8CD5</string>
-				<string>854428C3192B4ECA002732F6</string>
-				<string>25743A84192CCD8E003740F2</string>
-				<string>85CA1762190667230052E6C3</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>259524F018C610DE006EEAFA</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>2595252618C610DF006EEAFA</string>
-			<key>buildPhases</key>
-			<array>
-				<string>80C9C7DD5E274045B5AF68AA</string>
-				<string>259524ED18C610DE006EEAFA</string>
-				<string>259524EE18C610DE006EEAFA</string>
-				<string>259524EF18C610DE006EEAFA</string>
-				<string>08BBA113A332494091052C36</string>
-				<string>25070FDF18E2FD6C006FBD2D</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>SwivlDSLR</string>
-			<key>productName</key>
-			<string>SwivlDSLR</string>
-			<key>productReference</key>
-			<string>259524F118C610DF006EEAFA</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>259524F118C610DF006EEAFA</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>SwivlDSLR.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>259524F218C610DF006EEAFA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>259524F118C610DF006EEAFA</string>
-				<string>2595251518C610DF006EEAFA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>259524F318C610DF006EEAFA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>25DDE74C19C8837C0061245E</string>
-				<string>25070FE018E2FDA1006FBD2D</string>
-				<string>259524F418C610DF006EEAFA</string>
-				<string>259524F618C610DF006EEAFA</string>
-				<string>259524F818C610DF006EEAFA</string>
-				<string>2595251618C610DF006EEAFA</string>
-				<string>15D8180D3830431B85CA07BC</string>
-				<string>7A4BCFD640834A729BC853D0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>259524F418C610DF006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>259524F518C610DF006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>259524F418C610DF006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>259524F618C610DF006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreGraphics.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/CoreGraphics.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>259524F718C610DF006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>259524F618C610DF006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>259524F818C610DF006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>UIKit.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/UIKit.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>259524F918C610DF006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>259524F818C610DF006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>259524FA18C610DF006EEAFA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>25DDE74E19C8837D0061245E</string>
-				<string>2522F7DC18D0CAF000915E25</string>
-				<string>2522F7DD18D0CAF000915E25</string>
-				<string>2595250318C610DF006EEAFA</string>
-				<string>2595250418C610DF006EEAFA</string>
-				<string>2595252C18C6141C006EEAFA</string>
-				<string>2595252D18C6141C006EEAFA</string>
-				<string>2540041E18EEAE6F0060ECB2</string>
-				<string>2595253718C61BA2006EEAFA</string>
-				<string>2595250F18C610DF006EEAFA</string>
-				<string>259524FB18C610DF006EEAFA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>SwivlDSLR</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>259524FB18C610DF006EEAFA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>259524FC18C610DF006EEAFA</string>
-				<string>259524FD18C610DF006EEAFA</string>
-				<string>2595250018C610DF006EEAFA</string>
-				<string>2595250218C610DF006EEAFA</string>
-				<string>2522F7C018D0AD8E00915E25</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>259524FC18C610DF006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>SwivlDSLR-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>259524FD18C610DF006EEAFA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>259524FE18C610DF006EEAFA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>259524FE18C610DF006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>259524FF18C610DF006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>259524FD18C610DF006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2595250018C610DF006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>main.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595250118C610DF006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2595250018C610DF006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2595250218C610DF006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SwivlDSLR-Prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595250318C610DF006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SWAppDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595250418C610DF006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SWAppDelegate.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595250518C610DF006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2595250418C610DF006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2595250F18C610DF006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Images.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595251018C610DF006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2595250F18C610DF006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2595251118C610DF006EEAFA</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>258941EB1922108400BCAE55</string>
-				<string>259E2F7518C89F5700ECC07A</string>
-				<string>258941E9192204B300BCAE55</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>2595251218C610DF006EEAFA</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>2595251718C610DF006EEAFA</string>
-				<string>2595251918C610DF006EEAFA</string>
-				<string>2595251818C610DF006EEAFA</string>
-				<string>F9BBBAC788B14B99AF8252EE</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>2595251318C610DF006EEAFA</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>2595252118C610DF006EEAFA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>2595251418C610DF006EEAFA</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>2595252918C610DF006EEAFA</string>
-			<key>buildPhases</key>
-			<array>
-				<string>8E1EEF2D3E054EB1B3607713</string>
-				<string>2595251118C610DF006EEAFA</string>
-				<string>2595251218C610DF006EEAFA</string>
-				<string>2595251318C610DF006EEAFA</string>
-				<string>22BB44A4624F4E47A55EBD64</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>2595251B18C610DF006EEAFA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>SwivlDSLRTests</string>
-			<key>productName</key>
-			<string>SwivlDSLRTests</string>
-			<key>productReference</key>
-			<string>2595251518C610DF006EEAFA</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>2595251518C610DF006EEAFA</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>SwivlDSLRTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>2595251618C610DF006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>XCTest.framework</string>
-			<key>path</key>
-			<string>Library/Frameworks/XCTest.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>2595251718C610DF006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2595251618C610DF006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2595251818C610DF006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>259524F418C610DF006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2595251918C610DF006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>259524F818C610DF006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2595251A18C610DF006EEAFA</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>259524E918C610DE006EEAFA</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>259524F018C610DE006EEAFA</string>
-			<key>remoteInfo</key>
-			<string>SwivlDSLR</string>
-		</dict>
-		<key>2595251B18C610DF006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>259524F018C610DE006EEAFA</string>
-			<key>targetProxy</key>
-			<string>2595251A18C610DF006EEAFA</string>
-		</dict>
-		<key>2595251C18C610DF006EEAFA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>2595251D18C610DF006EEAFA</string>
-				<string>259E2F7418C89F5700ECC07A</string>
-				<string>258941E8192204B300BCAE55</string>
-				<string>258941EA1922108400BCAE55</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>SwivlDSLRTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595251D18C610DF006EEAFA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>2595251E18C610DF006EEAFA</string>
-				<string>2595251F18C610DF006EEAFA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595251E18C610DF006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>SwivlDSLRTests-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595251F18C610DF006EEAFA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>2595252018C610DF006EEAFA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595252018C610DF006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595252118C610DF006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2595251F18C610DF006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2595252418C610DF006EEAFA</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Developer</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>PROVISIONING_PROFILE</key>
-				<string>EDAF6D12-2C09-4925-93FE-5974E4DE67E5</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>2595252518C610DF006EEAFA</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Developer</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>PROVISIONING_PROFILE</key>
-				<string>EDAF6D12-2C09-4925-93FE-5974E4DE67E5</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>2595252618C610DF006EEAFA</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>2595252718C610DF006EEAFA</string>
-				<string>2595252818C610DF006EEAFA</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>2595252718C610DF006EEAFA</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>A31EE48D90AB1DF47097235A</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>CODE_SIGN_ENTITLEMENTS</key>
-				<string>SwivlDSLR/SwivlDSLR.entitlements</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Developer</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>$(PROJECT_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>SwivlDSLR/SwivlDSLR-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>SwivlDSLR/SwivlDSLR-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PROVISIONING_PROFILE</key>
-				<string></string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>2595252818C610DF006EEAFA</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>B26524048DF1BC0174EC3332</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>CODE_SIGN_ENTITLEMENTS</key>
-				<string>SwivlDSLR/SwivlDSLR.entitlements</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Distribution</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Distribution</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>$(PROJECT_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>SwivlDSLR/SwivlDSLR-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>SwivlDSLR/SwivlDSLR-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PROVISIONING_PROFILE</key>
-				<string></string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>2595252918C610DF006EEAFA</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>2595252A18C610DF006EEAFA</string>
-				<string>2595252B18C610DF006EEAFA</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>2595252A18C610DF006EEAFA</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>B5DF00C7818CC7266DCFC60C</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/SwivlDSLR.app/SwivlDSLR</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>SwivlDSLR/SwivlDSLR-Prefix.pch</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>INFOPLIST_FILE</key>
-				<string>SwivlDSLRTests/SwivlDSLRTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>2595252B18C610DF006EEAFA</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>E24617DABA4D14035E190288</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/SwivlDSLR.app/SwivlDSLR</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>SwivlDSLR/SwivlDSLR-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>SwivlDSLRTests/SwivlDSLRTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>2595252C18C6141C006EEAFA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>85D97B9F18C76DD2002C2665</string>
-				<string>85D97BA018C76DD2002C2665</string>
-				<string>25ADC23E18C72D0D00CEB6A7</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>CORE</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595252D18C6141C006EEAFA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>2595252E18C6141C006EEAFA</string>
-				<string>2595253018C6141C006EEAFA</string>
-				<string>2595253218C6141C006EEAFA</string>
-				<string>2595253318C6141C006EEAFA</string>
-				<string>25BB880018E45F3F00ECE14D</string>
-				<string>25ADC28618C7796800CEB6A7</string>
-				<string>2522F7C618D0B79000915E25</string>
-				<string>2522F7CC18D0C23C00915E25</string>
-				<string>8508E40118F6C42500EEC442</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>GUI</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595252E18C6141C006EEAFA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>2595252F18C6141C006EEAFA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>Main_iPad.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595252F18C6141C006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/Main_iPad.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595253018C6141C006EEAFA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>2595253118C6141C006EEAFA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>Main_iPhone.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595253118C6141C006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/Main_iPhone.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595253218C6141C006EEAFA</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SWMainViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595253318C6141C006EEAFA</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SWMainViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595253418C6141C006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2595252E18C6141C006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2595253518C6141C006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2595253018C6141C006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2595253618C6141C006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2595253318C6141C006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2595253718C61BA2006EEAFA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>2595253818C61BA2006EEAFA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Resourses</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595253818C61BA2006EEAFA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>25E536CB190E79DD0059FE7C</string>
-				<string>2522F7D218D0C69800915E25</string>
-				<string>2595253918C61BA2006EEAFA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Images</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595253918C61BA2006EEAFA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>2595254A18C6218F006EEAFA</string>
-				<string>2595253A18C61BA2006EEAFA</string>
-				<string>25B962C218D19CFD002E4FD1</string>
-				<string>25B962C318D19CFD002E4FD1</string>
-				<string>2522F7C118D0B25D00915E25</string>
-				<string>2522F7C218D0B25D00915E25</string>
-				<string>2595253B18C61BA2006EEAFA</string>
-				<string>2595253C18C61BA2006EEAFA</string>
-				<string>2595253D18C61BA2006EEAFA</string>
-				<string>256C1FD818EC3EE700D0659B</string>
-				<string>2595253E18C61BA2006EEAFA</string>
-				<string>2595253F18C61BA2006EEAFA</string>
-				<string>2595254018C61BA2006EEAFA</string>
-				<string>2595254118C61BA2006EEAFA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Main Screen</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595253A18C61BA2006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>base_off.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595253B18C61BA2006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>base_off@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595253C18C61BA2006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>batery_off.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595253D18C61BA2006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>batery_off@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595253E18C61BA2006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>capture_normal.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595253F18C61BA2006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>capture_normal@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595254018C61BA2006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>capture_pressed.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595254118C61BA2006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>capture_pressed@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595254218C61BA2006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2595253A18C61BA2006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2595254318C61BA2006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2595253B18C61BA2006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2595254418C61BA2006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2595253C18C61BA2006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2595254518C61BA2006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2595253D18C61BA2006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2595254618C61BA2006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2595253E18C61BA2006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2595254718C61BA2006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2595253F18C61BA2006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2595254818C61BA2006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2595254018C61BA2006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2595254918C61BA2006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2595254118C61BA2006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2595254A18C6218F006EEAFA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>258F655719CE1D76001E8CD5</string>
-				<string>258F655819CE1D76001E8CD5</string>
-				<string>2595254B18C6218F006EEAFA</string>
-				<string>854428BB192B4A7F002732F6</string>
-				<string>854428BD192B4B2D002732F6</string>
-				<string>2595254C18C6218F006EEAFA</string>
-				<string>854428C2192B4ECA002732F6</string>
-				<string>2595254D18C6218F006EEAFA</string>
-				<string>854428BF192B4ECA002732F6</string>
-				<string>2595255518C6229D006EEAFA</string>
-				<string>854428C0192B4ECA002732F6</string>
-				<string>25ADC23C18C724A400CEB6A7</string>
-				<string>854428C1192B4ECA002732F6</string>
-				<string>2595254F18C6218F006EEAFA</string>
-				<string>25743A81192CCD8E003740F2</string>
-				<string>25743A82192CCD8E003740F2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Time-lapse</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595254B18C6218F006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>timelapse_distance.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595254C18C6218F006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>timelapse_step.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595254D18C6218F006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>timelapse_direction_1.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595254F18C6218F006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>timelapse_time_between_pictures.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595255018C62190006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2595254B18C6218F006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2595255118C62190006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2595254C18C6218F006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2595255218C62190006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2595254D18C6218F006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2595255418C62190006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2595254F18C6218F006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2595255518C6229D006EEAFA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>timelapse_direction_2.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2595255618C6229D006EEAFA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2595255518C6229D006EEAFA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>259E2F7418C89F5700ECC07A</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SWTimelapseSettingsTests.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>259E2F7518C89F5700ECC07A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>259E2F7418C89F5700ECC07A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>25A3E68018C93E1C002AFBB9</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SWStepsController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25A3E68118C93E1C002AFBB9</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SWStepsController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25A3E68218C93E1C002AFBB9</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SWTimeController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25A3E68318C93E1C002AFBB9</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SWTimeController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25A3E68418C93E1C002AFBB9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>25A3E68118C93E1C002AFBB9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>25A3E68518C93E1C002AFBB9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>25A3E68318C93E1C002AFBB9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>25ADC23C18C724A400CEB6A7</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>timelapse_recording_time.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25ADC23D18C724A400CEB6A7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>25ADC23C18C724A400CEB6A7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>25ADC23E18C72D0D00CEB6A7</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>25ADC23F18C72D4A00CEB6A7</string>
-				<string>25ADC24018C72D4A00CEB6A7</string>
-				<string>250A4D1618DADEF300E82B1F</string>
-				<string>250A4D1718DADEF300E82B1F</string>
-				<string>255289B51921101400E803B6</string>
-				<string>255289B61921101400E803B6</string>
-				<string>255289B11920F49A00E803B6</string>
-				<string>255289B21920F49A00E803B6</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Models</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25ADC23F18C72D4A00CEB6A7</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SWTimelapseSettings.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25ADC24018C72D4A00CEB6A7</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SWTimelapseSettings.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25ADC24118C72D4A00CEB6A7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>25ADC24018C72D4A00CEB6A7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>25ADC28618C7796800CEB6A7</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>25A3E68018C93E1C002AFBB9</string>
-				<string>25A3E68118C93E1C002AFBB9</string>
-				<string>25A3E68218C93E1C002AFBB9</string>
-				<string>25A3E68318C93E1C002AFBB9</string>
-				<string>25743A7C192CA9EE003740F2</string>
-				<string>25743A7D192CA9EE003740F2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Timelapse settings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25B962C218D19CFD002E4FD1</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>base_present.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25B962C318D19CFD002E4FD1</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>base_present@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25B962C418D19CFD002E4FD1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>25B962C218D19CFD002E4FD1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>25B962C518D19CFD002E4FD1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>25B962C318D19CFD002E4FD1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>25B962CD18D21ABC002E4FD1</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>25B962CE18D21ABC002E4FD1</string>
-				<string>25B962CF18D21ABC002E4FD1</string>
-				<string>25B962D018D21ABC002E4FD1</string>
-				<string>25B962D118D21ABC002E4FD1</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>MVYSideMenu</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25B962CE18D21ABC002E4FD1</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>MVYSideMenuController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25B962CF18D21ABC002E4FD1</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>MVYSideMenuController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25B962D018D21ABC002E4FD1</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>MVYSideMenuOptions.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25B962D118D21ABC002E4FD1</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>MVYSideMenuOptions.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25B962D218D21ABC002E4FD1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>25B962CF18D21ABC002E4FD1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>25B962D318D21ABC002E4FD1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>25B962D118D21ABC002E4FD1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>25BB880018E45F3F00ECE14D</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>25465B5F18E5820900C4DBDF</string>
-				<string>25465B6018E5820900C4DBDF</string>
-				<string>25BB880118E45F7400ECE14D</string>
-				<string>25BB880218E45F7400ECE14D</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Progress</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25BB880118E45F7400ECE14D</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SWProgressController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25BB880218E45F7400ECE14D</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SWProgressController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25BB880318E45F7400ECE14D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>25BB880218E45F7400ECE14D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>25DDE74C19C8837C0061245E</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>ExternalAccessory.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/ExternalAccessory.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>25DDE74D19C8837C0061245E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>25DDE74C19C8837C0061245E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>25DDE74E19C8837D0061245E</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xml</string>
-			<key>path</key>
-			<string>SwivlDSLR.entitlements</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25E536CB190E79DD0059FE7C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>25E536CC190E79DD0059FE7C</string>
-				<string>25E536CD190E79DD0059FE7C</string>
-				<string>25E536CE190E79DD0059FE7C</string>
-				<string>25E536CF190E79DD0059FE7C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Manual</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25E536CC190E79DD0059FE7C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>arrow_manual_down.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25E536CD190E79DD0059FE7C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>arrow_manual_left.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25E536CE190E79DD0059FE7C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>arrow_manual_right.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25E536CF190E79DD0059FE7C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>arrow_manual_up.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25E536D0190E79DD0059FE7C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>25E536CC190E79DD0059FE7C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>25E536D1190E79DD0059FE7C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>25E536CD190E79DD0059FE7C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>25E536D2190E79DD0059FE7C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>25E536CE190E79DD0059FE7C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>25E536D3190E79DD0059FE7C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>25E536CF190E79DD0059FE7C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>64612A26A3EA462A895D8788</key>
-		<dict>
-			<key>fileRef</key>
-			<string>15D8180D3830431B85CA07BC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>7A4BCFD640834A729BC853D0</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-SwivlDSLRTests.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>80C9C7DD5E274045B5AF68AA</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>8508E40118F6C42500EEC442</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>8508E40218F6C42500EEC442</string>
-				<string>8508E40318F6C42500EEC442</string>
-				<string>8508E40518F6C47900EEC442</string>
-				<string>85CA1761190667230052E6C3</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>ManualController</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8508E40218F6C42500EEC442</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SWManualController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8508E40318F6C42500EEC442</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SWManualController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8508E40418F6C42500EEC442</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8508E40318F6C42500EEC442</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>8508E40518F6C47900EEC442</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>path</key>
-			<string>SWManualController.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8508E40618F6C47900EEC442</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8508E40518F6C47900EEC442</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>8508E40718F6D54900EEC442</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>left.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8508E40818F6D54900EEC442</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>right.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8508E40918F6D54900EEC442</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8508E40718F6D54900EEC442</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>8508E40A18F6D54900EEC442</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8508E40818F6D54900EEC442</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>854428BB192B4A7F002732F6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>timelapse_steps.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>854428BC192B4A7F002732F6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>854428BB192B4A7F002732F6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>854428BD192B4B2D002732F6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>timelapse_steps@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>854428BE192B4B2D002732F6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>854428BD192B4B2D002732F6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>854428BF192B4ECA002732F6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>timelapse_direction_1@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>854428C0192B4ECA002732F6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>timelapse_direction_2@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>854428C1192B4ECA002732F6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>timelapse_recording_time@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>854428C2192B4ECA002732F6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>timelapse_step@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>854428C3192B4ECA002732F6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>854428BF192B4ECA002732F6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>854428C4192B4ECA002732F6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>854428C0192B4ECA002732F6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>854428C5192B4ECA002732F6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>854428C1192B4ECA002732F6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>854428C6192B4ECA002732F6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>854428C2192B4ECA002732F6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>85876BCE192229080054E4C7</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder</string>
-			<key>path</key>
-			<string>Configurations</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>85876BCF192229080054E4C7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>85876BCE192229080054E4C7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>858A4DF318C8AA700036A0CF</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>25B962CD18D21ABC002E4FD1</string>
-				<string>858A4DF418C8AA700036A0CF</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Vendors</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>858A4DF418C8AA700036A0CF</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>858A4DF518C8AA700036A0CF</string>
-				<string>858A4DF618C8AA700036A0CF</string>
-				<string>858A4DF718C8AA700036A0CF</string>
-				<string>858A4DF818C8AA700036A0CF</string>
-				<string>858A4DF918C8AA700036A0CF</string>
-				<string>858A4DFA18C8AA700036A0CF</string>
-				<string>8508E40718F6D54900EEC442</string>
-				<string>8508E40818F6D54900EEC442</string>
-				<string>85DDC0B01907EB9B009B5DBF</string>
-				<string>85DDC0B11907EB9B009B5DBF</string>
-				<string>85DDC0B21907EB9B009B5DBF</string>
-				<string>85DDC0B31907EB9B009B5DBF</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>DKCicularSlider</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>858A4DF518C8AA700036A0CF</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>DKCircularSlider.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>858A4DF618C8AA700036A0CF</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>DKCircularSlider.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>858A4DF718C8AA700036A0CF</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>DKRepeatableButton.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>858A4DF818C8AA700036A0CF</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>DKRepeatableButton.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>858A4DF918C8AA700036A0CF</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>down.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>858A4DFA18C8AA700036A0CF</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>up.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>858A4DFB18C8AA700036A0CF</key>
-		<dict>
-			<key>fileRef</key>
-			<string>858A4DF618C8AA700036A0CF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>858A4DFC18C8AA700036A0CF</key>
-		<dict>
-			<key>fileRef</key>
-			<string>858A4DF818C8AA700036A0CF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>858A4DFD18C8AA700036A0CF</key>
-		<dict>
-			<key>fileRef</key>
-			<string>858A4DF918C8AA700036A0CF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>858A4DFE18C8AA700036A0CF</key>
-		<dict>
-			<key>fileRef</key>
-			<string>858A4DFA18C8AA700036A0CF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>85CA1761190667230052E6C3</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>path</key>
-			<string>SWManualControllerPhone.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>85CA1762190667230052E6C3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>85CA1761190667230052E6C3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>85D97B9F18C76DD2002C2665</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SWTimelapsSegue.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>85D97BA018C76DD2002C2665</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SWTimelapsSegue.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>85D97BA118C76DD2002C2665</key>
-		<dict>
-			<key>fileRef</key>
-			<string>85D97BA018C76DD2002C2665</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>85DDC0B01907EB9B009B5DBF</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>down@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>85DDC0B11907EB9B009B5DBF</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>left@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>85DDC0B21907EB9B009B5DBF</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>right@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>85DDC0B31907EB9B009B5DBF</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>up@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>85DDC0B41907EB9B009B5DBF</key>
-		<dict>
-			<key>fileRef</key>
-			<string>85DDC0B01907EB9B009B5DBF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>85DDC0B51907EB9B009B5DBF</key>
-		<dict>
-			<key>fileRef</key>
-			<string>85DDC0B11907EB9B009B5DBF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>85DDC0B61907EB9B009B5DBF</key>
-		<dict>
-			<key>fileRef</key>
-			<string>85DDC0B21907EB9B009B5DBF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>85DDC0B71907EB9B009B5DBF</key>
-		<dict>
-			<key>fileRef</key>
-			<string>85DDC0B31907EB9B009B5DBF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>8A4005732D10D759343AF04B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>A31EE48D90AB1DF47097235A</string>
-				<string>B26524048DF1BC0174EC3332</string>
-				<string>B5DF00C7818CC7266DCFC60C</string>
-				<string>E24617DABA4D14035E190288</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8E1EEF2D3E054EB1B3607713</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>A31EE48D90AB1DF47097235A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-SwivlDSLR.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-SwivlDSLR/Pods-SwivlDSLR.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B26524048DF1BC0174EC3332</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-SwivlDSLR.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-SwivlDSLR/Pods-SwivlDSLR.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B5DF00C7818CC7266DCFC60C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-SwivlDSLRTests.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-SwivlDSLRTests/Pods-SwivlDSLRTests.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E24617DABA4D14035E190288</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-SwivlDSLRTests.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-SwivlDSLRTests/Pods-SwivlDSLRTests.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F9BBBAC788B14B99AF8252EE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7A4BCFD640834A729BC853D0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>259524E918C610DE006EEAFA</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		25070FE118E2FDA1006FBD2D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25070FE018E2FDA1006FBD2D /* Crashlytics.framework */; };
+		250A4D1818DADEF300E82B1F /* SWScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 250A4D1718DADEF300E82B1F /* SWScript.m */; };
+		2522F7C318D0B25D00915E25 /* reveal-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 2522F7C118D0B25D00915E25 /* reveal-white.png */; };
+		2522F7C418D0B25D00915E25 /* reveal-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2522F7C218D0B25D00915E25 /* reveal-white@2x.png */; };
+		2522F7C918D0B79000915E25 /* SWSideBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2522F7C818D0B79000915E25 /* SWSideBar.m */; };
+		2522F7D018D0C23C00915E25 /* SWSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2522F7CE18D0C23C00915E25 /* SWSettingsController.m */; };
+		2522F7D118D0C23C00915E25 /* SWSettingsController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2522F7CF18D0C23C00915E25 /* SWSettingsController.storyboard */; };
+		2522F7D818D0C69800915E25 /* battery-0.png in Resources */ = {isa = PBXBuildFile; fileRef = 2522F7D418D0C69800915E25 /* battery-0.png */; };
+		2522F7D918D0C69800915E25 /* battery-0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2522F7D518D0C69800915E25 /* battery-0@2x.png */; };
+		2522F7DA18D0C69800915E25 /* battery-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 2522F7D618D0C69800915E25 /* battery-100.png */; };
+		2522F7DB18D0C69800915E25 /* battery-100@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2522F7D718D0C69800915E25 /* battery-100@2x.png */; };
+		2522F7DE18D0CAF000915E25 /* AVSandboxNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 2522F7DD18D0CAF000915E25 /* AVSandboxNotifications.m */; };
+		2540042118EEAE6F0060ECB2 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 2540042018EEAE6F0060ECB2 /* UIAlertView+Blocks.m */; };
+		25465B6118E5820900C4DBDF /* SWProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25465B6018E5820900C4DBDF /* SWProgressView.m */; };
+		255289B31920F49A00E803B6 /* SWDSLRConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 255289B21920F49A00E803B6 /* SWDSLRConfiguration.m */; };
+		255289B71921101400E803B6 /* SWScript+Template.m in Sources */ = {isa = PBXBuildFile; fileRef = 255289B61921101400E803B6 /* SWScript+Template.m */; };
+		2558AB83194721370043C2D0 /* SwivlFWUpdate.bin in Resources */ = {isa = PBXBuildFile; fileRef = 2558AB82194721370043C2D0 /* SwivlFWUpdate.bin */; };
+		256C1FD918EC3EE700D0659B /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 256C1FD818EC3EE700D0659B /* info.png */; };
+		25743A7E192CA9EE003740F2 /* SWTiltController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25743A7D192CA9EE003740F2 /* SWTiltController.m */; };
+		25743A83192CCD8E003740F2 /* timelapse_tilt.png in Resources */ = {isa = PBXBuildFile; fileRef = 25743A81192CCD8E003740F2 /* timelapse_tilt.png */; };
+		25743A84192CCD8E003740F2 /* timelapse_tilt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25743A82192CCD8E003740F2 /* timelapse_tilt@2x.png */; };
+		25743A89192CD833003740F2 /* SWBatteryLevelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25743A86192CD833003740F2 /* SWBatteryLevelView.m */; };
+		25743A8A192CD833003740F2 /* SWSelectCameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25743A88192CD833003740F2 /* SWSelectCameraController.m */; };
+		258941E9192204B300BCAE55 /* SWDSLRConfigurationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 258941E8192204B300BCAE55 /* SWDSLRConfigurationTests.m */; };
+		258941EB1922108400BCAE55 /* SWScriptTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 258941EA1922108400BCAE55 /* SWScriptTests.m */; };
+		258F655919CE1D76001E8CD5 /* timelapse_exposure.png in Resources */ = {isa = PBXBuildFile; fileRef = 258F655719CE1D76001E8CD5 /* timelapse_exposure.png */; };
+		258F655A19CE1D76001E8CD5 /* timelapse_exposure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 258F655819CE1D76001E8CD5 /* timelapse_exposure@2x.png */; };
+		259524F518C610DF006EEAFA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259524F418C610DF006EEAFA /* Foundation.framework */; };
+		259524F718C610DF006EEAFA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259524F618C610DF006EEAFA /* CoreGraphics.framework */; };
+		259524F918C610DF006EEAFA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259524F818C610DF006EEAFA /* UIKit.framework */; };
+		259524FF18C610DF006EEAFA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 259524FD18C610DF006EEAFA /* InfoPlist.strings */; };
+		2595250118C610DF006EEAFA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2595250018C610DF006EEAFA /* main.m */; };
+		2595250518C610DF006EEAFA /* SWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2595250418C610DF006EEAFA /* SWAppDelegate.m */; };
+		2595251018C610DF006EEAFA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2595250F18C610DF006EEAFA /* Images.xcassets */; };
+		2595251718C610DF006EEAFA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2595251618C610DF006EEAFA /* XCTest.framework */; };
+		2595251818C610DF006EEAFA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259524F418C610DF006EEAFA /* Foundation.framework */; };
+		2595251918C610DF006EEAFA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259524F818C610DF006EEAFA /* UIKit.framework */; };
+		2595252118C610DF006EEAFA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2595251F18C610DF006EEAFA /* InfoPlist.strings */; };
+		2595253418C6141C006EEAFA /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2595252E18C6141C006EEAFA /* Main_iPad.storyboard */; };
+		2595253518C6141C006EEAFA /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2595253018C6141C006EEAFA /* Main_iPhone.storyboard */; };
+		2595253618C6141C006EEAFA /* SWMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2595253318C6141C006EEAFA /* SWMainViewController.m */; };
+		2595254218C61BA2006EEAFA /* base_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595253A18C61BA2006EEAFA /* base_off.png */; };
+		2595254318C61BA2006EEAFA /* base_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595253B18C61BA2006EEAFA /* base_off@2x.png */; };
+		2595254418C61BA2006EEAFA /* batery_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595253C18C61BA2006EEAFA /* batery_off.png */; };
+		2595254518C61BA2006EEAFA /* batery_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595253D18C61BA2006EEAFA /* batery_off@2x.png */; };
+		2595254618C61BA2006EEAFA /* capture_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595253E18C61BA2006EEAFA /* capture_normal.png */; };
+		2595254718C61BA2006EEAFA /* capture_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595253F18C61BA2006EEAFA /* capture_normal@2x.png */; };
+		2595254818C61BA2006EEAFA /* capture_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595254018C61BA2006EEAFA /* capture_pressed.png */; };
+		2595254918C61BA2006EEAFA /* capture_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595254118C61BA2006EEAFA /* capture_pressed@2x.png */; };
+		2595255018C62190006EEAFA /* timelapse_distance.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595254B18C6218F006EEAFA /* timelapse_distance.png */; };
+		2595255118C62190006EEAFA /* timelapse_step.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595254C18C6218F006EEAFA /* timelapse_step.png */; };
+		2595255218C62190006EEAFA /* timelapse_direction_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595254D18C6218F006EEAFA /* timelapse_direction_1.png */; };
+		2595255418C62190006EEAFA /* timelapse_time_between_pictures.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595254F18C6218F006EEAFA /* timelapse_time_between_pictures.png */; };
+		2595255618C6229D006EEAFA /* timelapse_direction_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2595255518C6229D006EEAFA /* timelapse_direction_2.png */; };
+		259E2F7518C89F5700ECC07A /* SWTimelapseSettingsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 259E2F7418C89F5700ECC07A /* SWTimelapseSettingsTests.m */; };
+		25A3E68418C93E1C002AFBB9 /* SWStepsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A3E68118C93E1C002AFBB9 /* SWStepsController.m */; };
+		25A3E68518C93E1C002AFBB9 /* SWTimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A3E68318C93E1C002AFBB9 /* SWTimeController.m */; };
+		25ADC23D18C724A400CEB6A7 /* timelapse_recording_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 25ADC23C18C724A400CEB6A7 /* timelapse_recording_time.png */; };
+		25ADC24118C72D4A00CEB6A7 /* SWTimelapseSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 25ADC24018C72D4A00CEB6A7 /* SWTimelapseSettings.m */; };
+		25B962C418D19CFD002E4FD1 /* base_present.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B962C218D19CFD002E4FD1 /* base_present.png */; };
+		25B962C518D19CFD002E4FD1 /* base_present@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B962C318D19CFD002E4FD1 /* base_present@2x.png */; };
+		25B962D218D21ABC002E4FD1 /* MVYSideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B962CF18D21ABC002E4FD1 /* MVYSideMenuController.m */; };
+		25B962D318D21ABC002E4FD1 /* MVYSideMenuOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B962D118D21ABC002E4FD1 /* MVYSideMenuOptions.m */; };
+		25BB880318E45F7400ECE14D /* SWProgressController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BB880218E45F7400ECE14D /* SWProgressController.m */; };
+		25DDE74D19C8837C0061245E /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25DDE74C19C8837C0061245E /* ExternalAccessory.framework */; };
+		25E536D0190E79DD0059FE7C /* arrow_manual_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 25E536CC190E79DD0059FE7C /* arrow_manual_down.png */; };
+		25E536D1190E79DD0059FE7C /* arrow_manual_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 25E536CD190E79DD0059FE7C /* arrow_manual_left.png */; };
+		25E536D2190E79DD0059FE7C /* arrow_manual_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 25E536CE190E79DD0059FE7C /* arrow_manual_right.png */; };
+		25E536D3190E79DD0059FE7C /* arrow_manual_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 25E536CF190E79DD0059FE7C /* arrow_manual_up.png */; };
+		64612A26A3EA462A895D8788 /* libPods-SwivlDSLR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15D8180D3830431B85CA07BC /* libPods-SwivlDSLR.a */; };
+		8508E40418F6C42500EEC442 /* SWManualController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8508E40318F6C42500EEC442 /* SWManualController.m */; };
+		8508E40618F6C47900EEC442 /* SWManualController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8508E40518F6C47900EEC442 /* SWManualController.storyboard */; };
+		8508E40918F6D54900EEC442 /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = 8508E40718F6D54900EEC442 /* left.png */; };
+		8508E40A18F6D54900EEC442 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = 8508E40818F6D54900EEC442 /* right.png */; };
+		854428BC192B4A7F002732F6 /* timelapse_steps.png in Resources */ = {isa = PBXBuildFile; fileRef = 854428BB192B4A7F002732F6 /* timelapse_steps.png */; };
+		854428BE192B4B2D002732F6 /* timelapse_steps@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 854428BD192B4B2D002732F6 /* timelapse_steps@2x.png */; };
+		854428C3192B4ECA002732F6 /* timelapse_direction_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 854428BF192B4ECA002732F6 /* timelapse_direction_1@2x.png */; };
+		854428C4192B4ECA002732F6 /* timelapse_direction_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 854428C0192B4ECA002732F6 /* timelapse_direction_2@2x.png */; };
+		854428C5192B4ECA002732F6 /* timelapse_recording_time@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 854428C1192B4ECA002732F6 /* timelapse_recording_time@2x.png */; };
+		854428C6192B4ECA002732F6 /* timelapse_step@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 854428C2192B4ECA002732F6 /* timelapse_step@2x.png */; };
+		85876BCF192229080054E4C7 /* Configurations in Resources */ = {isa = PBXBuildFile; fileRef = 85876BCE192229080054E4C7 /* Configurations */; };
+		858A4DFB18C8AA700036A0CF /* DKCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A4DF618C8AA700036A0CF /* DKCircularSlider.m */; };
+		858A4DFC18C8AA700036A0CF /* DKRepeatableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A4DF818C8AA700036A0CF /* DKRepeatableButton.m */; };
+		858A4DFD18C8AA700036A0CF /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = 858A4DF918C8AA700036A0CF /* down.png */; };
+		858A4DFE18C8AA700036A0CF /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = 858A4DFA18C8AA700036A0CF /* up.png */; };
+		85CA1762190667230052E6C3 /* SWManualControllerPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85CA1761190667230052E6C3 /* SWManualControllerPhone.storyboard */; };
+		85D97BA118C76DD2002C2665 /* SWTimelapsSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D97BA018C76DD2002C2665 /* SWTimelapsSegue.m */; };
+		85DDC0B41907EB9B009B5DBF /* down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 85DDC0B01907EB9B009B5DBF /* down@2x.png */; };
+		85DDC0B51907EB9B009B5DBF /* left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 85DDC0B11907EB9B009B5DBF /* left@2x.png */; };
+		85DDC0B61907EB9B009B5DBF /* right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 85DDC0B21907EB9B009B5DBF /* right@2x.png */; };
+		85DDC0B71907EB9B009B5DBF /* up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 85DDC0B31907EB9B009B5DBF /* up@2x.png */; };
+		F9BBBAC788B14B99AF8252EE /* libPods-SwivlDSLRTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4BCFD640834A729BC853D0 /* libPods-SwivlDSLRTests.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2595251A18C610DF006EEAFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 259524E918C610DE006EEAFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 259524F018C610DE006EEAFA;
+			remoteInfo = SwivlDSLR;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		15D8180D3830431B85CA07BC /* libPods-SwivlDSLR.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwivlDSLR.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		25070FE018E2FDA1006FBD2D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		250A4D1618DADEF300E82B1F /* SWScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWScript.h; sourceTree = "<group>"; };
+		250A4D1718DADEF300E82B1F /* SWScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWScript.m; sourceTree = "<group>"; };
+		2522F7C018D0AD8E00915E25 /* SWConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWConstants.h; sourceTree = "<group>"; };
+		2522F7C118D0B25D00915E25 /* reveal-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-white.png"; sourceTree = "<group>"; };
+		2522F7C218D0B25D00915E25 /* reveal-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-white@2x.png"; sourceTree = "<group>"; };
+		2522F7C718D0B79000915E25 /* SWSideBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWSideBar.h; sourceTree = "<group>"; };
+		2522F7C818D0B79000915E25 /* SWSideBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWSideBar.m; sourceTree = "<group>"; };
+		2522F7CD18D0C23C00915E25 /* SWSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWSettingsController.h; sourceTree = "<group>"; };
+		2522F7CE18D0C23C00915E25 /* SWSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWSettingsController.m; sourceTree = "<group>"; };
+		2522F7CF18D0C23C00915E25 /* SWSettingsController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SWSettingsController.storyboard; sourceTree = "<group>"; };
+		2522F7D418D0C69800915E25 /* battery-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "battery-0.png"; sourceTree = "<group>"; };
+		2522F7D518D0C69800915E25 /* battery-0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "battery-0@2x.png"; sourceTree = "<group>"; };
+		2522F7D618D0C69800915E25 /* battery-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "battery-100.png"; sourceTree = "<group>"; };
+		2522F7D718D0C69800915E25 /* battery-100@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "battery-100@2x.png"; sourceTree = "<group>"; };
+		2522F7DC18D0CAF000915E25 /* AVSandboxNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVSandboxNotifications.h; sourceTree = "<group>"; };
+		2522F7DD18D0CAF000915E25 /* AVSandboxNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVSandboxNotifications.m; sourceTree = "<group>"; };
+		2540041F18EEAE6F0060ECB2 /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
+		2540042018EEAE6F0060ECB2 /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
+		25465B5F18E5820900C4DBDF /* SWProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWProgressView.h; sourceTree = "<group>"; };
+		25465B6018E5820900C4DBDF /* SWProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWProgressView.m; sourceTree = "<group>"; };
+		255289B11920F49A00E803B6 /* SWDSLRConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWDSLRConfiguration.h; sourceTree = "<group>"; };
+		255289B21920F49A00E803B6 /* SWDSLRConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWDSLRConfiguration.m; sourceTree = "<group>"; };
+		255289B51921101400E803B6 /* SWScript+Template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SWScript+Template.h"; sourceTree = "<group>"; };
+		255289B61921101400E803B6 /* SWScript+Template.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SWScript+Template.m"; sourceTree = "<group>"; };
+		2558AB82194721370043C2D0 /* SwivlFWUpdate.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = SwivlFWUpdate.bin; sourceTree = "<group>"; };
+		256C1FD818EC3EE700D0659B /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		25743A7C192CA9EE003740F2 /* SWTiltController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTiltController.h; sourceTree = "<group>"; };
+		25743A7D192CA9EE003740F2 /* SWTiltController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTiltController.m; sourceTree = "<group>"; };
+		25743A81192CCD8E003740F2 /* timelapse_tilt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_tilt.png; sourceTree = "<group>"; };
+		25743A82192CCD8E003740F2 /* timelapse_tilt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timelapse_tilt@2x.png"; sourceTree = "<group>"; };
+		25743A85192CD833003740F2 /* SWBatteryLevelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWBatteryLevelView.h; sourceTree = "<group>"; };
+		25743A86192CD833003740F2 /* SWBatteryLevelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWBatteryLevelView.m; sourceTree = "<group>"; };
+		25743A87192CD833003740F2 /* SWSelectCameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWSelectCameraController.h; sourceTree = "<group>"; };
+		25743A88192CD833003740F2 /* SWSelectCameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWSelectCameraController.m; sourceTree = "<group>"; };
+		258941E8192204B300BCAE55 /* SWDSLRConfigurationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWDSLRConfigurationTests.m; sourceTree = "<group>"; };
+		258941EA1922108400BCAE55 /* SWScriptTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWScriptTests.m; sourceTree = "<group>"; };
+		258F655719CE1D76001E8CD5 /* timelapse_exposure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_exposure.png; sourceTree = "<group>"; };
+		258F655819CE1D76001E8CD5 /* timelapse_exposure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timelapse_exposure@2x.png"; sourceTree = "<group>"; };
+		259524F118C610DF006EEAFA /* SwivlDSLR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwivlDSLR.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		259524F418C610DF006EEAFA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		259524F618C610DF006EEAFA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		259524F818C610DF006EEAFA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		259524FC18C610DF006EEAFA /* SwivlDSLR-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SwivlDSLR-Info.plist"; sourceTree = "<group>"; };
+		259524FE18C610DF006EEAFA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2595250018C610DF006EEAFA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2595250218C610DF006EEAFA /* SwivlDSLR-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwivlDSLR-Prefix.pch"; sourceTree = "<group>"; };
+		2595250318C610DF006EEAFA /* SWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWAppDelegate.h; sourceTree = "<group>"; };
+		2595250418C610DF006EEAFA /* SWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWAppDelegate.m; sourceTree = "<group>"; };
+		2595250F18C610DF006EEAFA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2595251518C610DF006EEAFA /* SwivlDSLRTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwivlDSLRTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2595251618C610DF006EEAFA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		2595251E18C610DF006EEAFA /* SwivlDSLRTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SwivlDSLRTests-Info.plist"; sourceTree = "<group>"; };
+		2595252018C610DF006EEAFA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2595252F18C6141C006EEAFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		2595253118C6141C006EEAFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		2595253218C6141C006EEAFA /* SWMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWMainViewController.h; sourceTree = "<group>"; };
+		2595253318C6141C006EEAFA /* SWMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWMainViewController.m; sourceTree = "<group>"; };
+		2595253A18C61BA2006EEAFA /* base_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base_off.png; sourceTree = "<group>"; };
+		2595253B18C61BA2006EEAFA /* base_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "base_off@2x.png"; sourceTree = "<group>"; };
+		2595253C18C61BA2006EEAFA /* batery_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = batery_off.png; sourceTree = "<group>"; };
+		2595253D18C61BA2006EEAFA /* batery_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "batery_off@2x.png"; sourceTree = "<group>"; };
+		2595253E18C61BA2006EEAFA /* capture_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = capture_normal.png; sourceTree = "<group>"; };
+		2595253F18C61BA2006EEAFA /* capture_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "capture_normal@2x.png"; sourceTree = "<group>"; };
+		2595254018C61BA2006EEAFA /* capture_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = capture_pressed.png; sourceTree = "<group>"; };
+		2595254118C61BA2006EEAFA /* capture_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "capture_pressed@2x.png"; sourceTree = "<group>"; };
+		2595254B18C6218F006EEAFA /* timelapse_distance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_distance.png; sourceTree = "<group>"; };
+		2595254C18C6218F006EEAFA /* timelapse_step.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_step.png; sourceTree = "<group>"; };
+		2595254D18C6218F006EEAFA /* timelapse_direction_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_direction_1.png; sourceTree = "<group>"; };
+		2595254F18C6218F006EEAFA /* timelapse_time_between_pictures.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_time_between_pictures.png; sourceTree = "<group>"; };
+		2595255518C6229D006EEAFA /* timelapse_direction_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_direction_2.png; sourceTree = "<group>"; };
+		259E2F7418C89F5700ECC07A /* SWTimelapseSettingsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTimelapseSettingsTests.m; sourceTree = "<group>"; };
+		25A3E68018C93E1C002AFBB9 /* SWStepsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWStepsController.h; sourceTree = "<group>"; };
+		25A3E68118C93E1C002AFBB9 /* SWStepsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWStepsController.m; sourceTree = "<group>"; };
+		25A3E68218C93E1C002AFBB9 /* SWTimeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTimeController.h; sourceTree = "<group>"; };
+		25A3E68318C93E1C002AFBB9 /* SWTimeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTimeController.m; sourceTree = "<group>"; };
+		25ADC23C18C724A400CEB6A7 /* timelapse_recording_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_recording_time.png; sourceTree = "<group>"; };
+		25ADC23F18C72D4A00CEB6A7 /* SWTimelapseSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTimelapseSettings.h; sourceTree = "<group>"; };
+		25ADC24018C72D4A00CEB6A7 /* SWTimelapseSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTimelapseSettings.m; sourceTree = "<group>"; };
+		25B962C218D19CFD002E4FD1 /* base_present.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base_present.png; sourceTree = "<group>"; };
+		25B962C318D19CFD002E4FD1 /* base_present@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "base_present@2x.png"; sourceTree = "<group>"; };
+		25B962CE18D21ABC002E4FD1 /* MVYSideMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVYSideMenuController.h; sourceTree = "<group>"; };
+		25B962CF18D21ABC002E4FD1 /* MVYSideMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVYSideMenuController.m; sourceTree = "<group>"; };
+		25B962D018D21ABC002E4FD1 /* MVYSideMenuOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVYSideMenuOptions.h; sourceTree = "<group>"; };
+		25B962D118D21ABC002E4FD1 /* MVYSideMenuOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVYSideMenuOptions.m; sourceTree = "<group>"; };
+		25BB880118E45F7400ECE14D /* SWProgressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWProgressController.h; sourceTree = "<group>"; };
+		25BB880218E45F7400ECE14D /* SWProgressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWProgressController.m; sourceTree = "<group>"; };
+		25DDE74C19C8837C0061245E /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		25DDE74E19C8837D0061245E /* SwivlDSLR.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SwivlDSLR.entitlements; sourceTree = "<group>"; };
+		25E536CC190E79DD0059FE7C /* arrow_manual_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_manual_down.png; sourceTree = "<group>"; };
+		25E536CD190E79DD0059FE7C /* arrow_manual_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_manual_left.png; sourceTree = "<group>"; };
+		25E536CE190E79DD0059FE7C /* arrow_manual_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_manual_right.png; sourceTree = "<group>"; };
+		25E536CF190E79DD0059FE7C /* arrow_manual_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_manual_up.png; sourceTree = "<group>"; };
+		7A4BCFD640834A729BC853D0 /* libPods-SwivlDSLRTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwivlDSLRTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8508E40218F6C42500EEC442 /* SWManualController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWManualController.h; sourceTree = "<group>"; };
+		8508E40318F6C42500EEC442 /* SWManualController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWManualController.m; sourceTree = "<group>"; };
+		8508E40518F6C47900EEC442 /* SWManualController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SWManualController.storyboard; sourceTree = "<group>"; };
+		8508E40718F6D54900EEC442 /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
+		8508E40818F6D54900EEC442 /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right.png; sourceTree = "<group>"; };
+		854428BB192B4A7F002732F6 /* timelapse_steps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelapse_steps.png; sourceTree = "<group>"; };
+		854428BD192B4B2D002732F6 /* timelapse_steps@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timelapse_steps@2x.png"; sourceTree = "<group>"; };
+		854428BF192B4ECA002732F6 /* timelapse_direction_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timelapse_direction_1@2x.png"; sourceTree = "<group>"; };
+		854428C0192B4ECA002732F6 /* timelapse_direction_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timelapse_direction_2@2x.png"; sourceTree = "<group>"; };
+		854428C1192B4ECA002732F6 /* timelapse_recording_time@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timelapse_recording_time@2x.png"; sourceTree = "<group>"; };
+		854428C2192B4ECA002732F6 /* timelapse_step@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timelapse_step@2x.png"; sourceTree = "<group>"; };
+		85876BCE192229080054E4C7 /* Configurations */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Configurations; sourceTree = "<group>"; };
+		858A4DF518C8AA700036A0CF /* DKCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKCircularSlider.h; sourceTree = "<group>"; };
+		858A4DF618C8AA700036A0CF /* DKCircularSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKCircularSlider.m; sourceTree = "<group>"; };
+		858A4DF718C8AA700036A0CF /* DKRepeatableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKRepeatableButton.h; sourceTree = "<group>"; };
+		858A4DF818C8AA700036A0CF /* DKRepeatableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKRepeatableButton.m; sourceTree = "<group>"; };
+		858A4DF918C8AA700036A0CF /* down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down.png; sourceTree = "<group>"; };
+		858A4DFA18C8AA700036A0CF /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up.png; sourceTree = "<group>"; };
+		85CA1761190667230052E6C3 /* SWManualControllerPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SWManualControllerPhone.storyboard; sourceTree = "<group>"; };
+		85D97B9F18C76DD2002C2665 /* SWTimelapsSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTimelapsSegue.h; sourceTree = "<group>"; };
+		85D97BA018C76DD2002C2665 /* SWTimelapsSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTimelapsSegue.m; sourceTree = "<group>"; };
+		85DDC0B01907EB9B009B5DBF /* down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down@2x.png"; sourceTree = "<group>"; };
+		85DDC0B11907EB9B009B5DBF /* left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left@2x.png"; sourceTree = "<group>"; };
+		85DDC0B21907EB9B009B5DBF /* right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right@2x.png"; sourceTree = "<group>"; };
+		85DDC0B31907EB9B009B5DBF /* up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "up@2x.png"; sourceTree = "<group>"; };
+		A31EE48D90AB1DF47097235A /* Pods-SwivlDSLR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwivlDSLR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwivlDSLR/Pods-SwivlDSLR.debug.xcconfig"; sourceTree = "<group>"; };
+		B26524048DF1BC0174EC3332 /* Pods-SwivlDSLR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwivlDSLR.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwivlDSLR/Pods-SwivlDSLR.release.xcconfig"; sourceTree = "<group>"; };
+		B5DF00C7818CC7266DCFC60C /* Pods-SwivlDSLRTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwivlDSLRTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwivlDSLRTests/Pods-SwivlDSLRTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E24617DABA4D14035E190288 /* Pods-SwivlDSLRTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwivlDSLRTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwivlDSLRTests/Pods-SwivlDSLRTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		259524EE18C610DE006EEAFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25DDE74D19C8837C0061245E /* ExternalAccessory.framework in Frameworks */,
+				259524F718C610DF006EEAFA /* CoreGraphics.framework in Frameworks */,
+				25070FE118E2FDA1006FBD2D /* Crashlytics.framework in Frameworks */,
+				259524F918C610DF006EEAFA /* UIKit.framework in Frameworks */,
+				259524F518C610DF006EEAFA /* Foundation.framework in Frameworks */,
+				64612A26A3EA462A895D8788 /* libPods-SwivlDSLR.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2595251218C610DF006EEAFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2595251718C610DF006EEAFA /* XCTest.framework in Frameworks */,
+				2595251918C610DF006EEAFA /* UIKit.framework in Frameworks */,
+				2595251818C610DF006EEAFA /* Foundation.framework in Frameworks */,
+				F9BBBAC788B14B99AF8252EE /* libPods-SwivlDSLRTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2522F7C618D0B79000915E25 /* Side bar */ = {
+			isa = PBXGroup;
+			children = (
+				2522F7C718D0B79000915E25 /* SWSideBar.h */,
+				2522F7C818D0B79000915E25 /* SWSideBar.m */,
+			);
+			name = "Side bar";
+			path = "SwivlDSLR/GUI/Side bar";
+			sourceTree = SOURCE_ROOT;
+		};
+		2522F7CC18D0C23C00915E25 /* Swivl Settings */ = {
+			isa = PBXGroup;
+			children = (
+				25743A85192CD833003740F2 /* SWBatteryLevelView.h */,
+				25743A86192CD833003740F2 /* SWBatteryLevelView.m */,
+				25743A87192CD833003740F2 /* SWSelectCameraController.h */,
+				25743A88192CD833003740F2 /* SWSelectCameraController.m */,
+				2522F7CD18D0C23C00915E25 /* SWSettingsController.h */,
+				2522F7CE18D0C23C00915E25 /* SWSettingsController.m */,
+				2522F7CF18D0C23C00915E25 /* SWSettingsController.storyboard */,
+			);
+			path = "Swivl Settings";
+			sourceTree = "<group>";
+		};
+		2522F7D218D0C69800915E25 /* Swivl */ = {
+			isa = PBXGroup;
+			children = (
+				2522F7D318D0C69800915E25 /* Battery */,
+			);
+			path = Swivl;
+			sourceTree = "<group>";
+		};
+		2522F7D318D0C69800915E25 /* Battery */ = {
+			isa = PBXGroup;
+			children = (
+				2522F7D418D0C69800915E25 /* battery-0.png */,
+				2522F7D518D0C69800915E25 /* battery-0@2x.png */,
+				2522F7D618D0C69800915E25 /* battery-100.png */,
+				2522F7D718D0C69800915E25 /* battery-100@2x.png */,
+			);
+			path = Battery;
+			sourceTree = "<group>";
+		};
+		2540041E18EEAE6F0060ECB2 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				2540041F18EEAE6F0060ECB2 /* UIAlertView+Blocks.h */,
+				2540042018EEAE6F0060ECB2 /* UIAlertView+Blocks.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		259524E818C610DE006EEAFA = {
+			isa = PBXGroup;
+			children = (
+				2558AB82194721370043C2D0 /* SwivlFWUpdate.bin */,
+				85876BCE192229080054E4C7 /* Configurations */,
+				858A4DF318C8AA700036A0CF /* Vendors */,
+				259524FA18C610DF006EEAFA /* SwivlDSLR */,
+				2595251C18C610DF006EEAFA /* SwivlDSLRTests */,
+				259524F318C610DF006EEAFA /* Frameworks */,
+				259524F218C610DF006EEAFA /* Products */,
+				8A4005732D10D759343AF04B /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		259524F218C610DF006EEAFA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				259524F118C610DF006EEAFA /* SwivlDSLR.app */,
+				2595251518C610DF006EEAFA /* SwivlDSLRTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		259524F318C610DF006EEAFA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				25DDE74C19C8837C0061245E /* ExternalAccessory.framework */,
+				25070FE018E2FDA1006FBD2D /* Crashlytics.framework */,
+				259524F418C610DF006EEAFA /* Foundation.framework */,
+				259524F618C610DF006EEAFA /* CoreGraphics.framework */,
+				259524F818C610DF006EEAFA /* UIKit.framework */,
+				2595251618C610DF006EEAFA /* XCTest.framework */,
+				15D8180D3830431B85CA07BC /* libPods-SwivlDSLR.a */,
+				7A4BCFD640834A729BC853D0 /* libPods-SwivlDSLRTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		259524FA18C610DF006EEAFA /* SwivlDSLR */ = {
+			isa = PBXGroup;
+			children = (
+				25DDE74E19C8837D0061245E /* SwivlDSLR.entitlements */,
+				2522F7DC18D0CAF000915E25 /* AVSandboxNotifications.h */,
+				2522F7DD18D0CAF000915E25 /* AVSandboxNotifications.m */,
+				2595250318C610DF006EEAFA /* SWAppDelegate.h */,
+				2595250418C610DF006EEAFA /* SWAppDelegate.m */,
+				2595252C18C6141C006EEAFA /* CORE */,
+				2595252D18C6141C006EEAFA /* GUI */,
+				2540041E18EEAE6F0060ECB2 /* Categories */,
+				2595253718C61BA2006EEAFA /* Resourses */,
+				2595250F18C610DF006EEAFA /* Images.xcassets */,
+				259524FB18C610DF006EEAFA /* Supporting Files */,
+			);
+			path = SwivlDSLR;
+			sourceTree = "<group>";
+		};
+		259524FB18C610DF006EEAFA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				259524FC18C610DF006EEAFA /* SwivlDSLR-Info.plist */,
+				259524FD18C610DF006EEAFA /* InfoPlist.strings */,
+				2595250018C610DF006EEAFA /* main.m */,
+				2595250218C610DF006EEAFA /* SwivlDSLR-Prefix.pch */,
+				2522F7C018D0AD8E00915E25 /* SWConstants.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2595251C18C610DF006EEAFA /* SwivlDSLRTests */ = {
+			isa = PBXGroup;
+			children = (
+				2595251D18C610DF006EEAFA /* Supporting Files */,
+				259E2F7418C89F5700ECC07A /* SWTimelapseSettingsTests.m */,
+				258941E8192204B300BCAE55 /* SWDSLRConfigurationTests.m */,
+				258941EA1922108400BCAE55 /* SWScriptTests.m */,
+			);
+			path = SwivlDSLRTests;
+			sourceTree = "<group>";
+		};
+		2595251D18C610DF006EEAFA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2595251E18C610DF006EEAFA /* SwivlDSLRTests-Info.plist */,
+				2595251F18C610DF006EEAFA /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2595252C18C6141C006EEAFA /* CORE */ = {
+			isa = PBXGroup;
+			children = (
+				85D97B9F18C76DD2002C2665 /* SWTimelapsSegue.h */,
+				85D97BA018C76DD2002C2665 /* SWTimelapsSegue.m */,
+				25ADC23E18C72D0D00CEB6A7 /* Models */,
+			);
+			path = CORE;
+			sourceTree = "<group>";
+		};
+		2595252D18C6141C006EEAFA /* GUI */ = {
+			isa = PBXGroup;
+			children = (
+				2595252E18C6141C006EEAFA /* Main_iPad.storyboard */,
+				2595253018C6141C006EEAFA /* Main_iPhone.storyboard */,
+				2595253218C6141C006EEAFA /* SWMainViewController.h */,
+				2595253318C6141C006EEAFA /* SWMainViewController.m */,
+				25BB880018E45F3F00ECE14D /* Progress */,
+				25ADC28618C7796800CEB6A7 /* Timelapse settings */,
+				2522F7C618D0B79000915E25 /* Side bar */,
+				2522F7CC18D0C23C00915E25 /* Swivl Settings */,
+				8508E40118F6C42500EEC442 /* ManualController */,
+			);
+			path = GUI;
+			sourceTree = "<group>";
+		};
+		2595253718C61BA2006EEAFA /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				2595253818C61BA2006EEAFA /* Images */,
+			);
+			path = Resourses;
+			sourceTree = "<group>";
+		};
+		2595253818C61BA2006EEAFA /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				25E536CB190E79DD0059FE7C /* Manual */,
+				2522F7D218D0C69800915E25 /* Swivl */,
+				2595253918C61BA2006EEAFA /* Main Screen */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		2595253918C61BA2006EEAFA /* Main Screen */ = {
+			isa = PBXGroup;
+			children = (
+				2595254A18C6218F006EEAFA /* Time-lapse */,
+				2595253A18C61BA2006EEAFA /* base_off.png */,
+				25B962C218D19CFD002E4FD1 /* base_present.png */,
+				25B962C318D19CFD002E4FD1 /* base_present@2x.png */,
+				2522F7C118D0B25D00915E25 /* reveal-white.png */,
+				2522F7C218D0B25D00915E25 /* reveal-white@2x.png */,
+				2595253B18C61BA2006EEAFA /* base_off@2x.png */,
+				2595253C18C61BA2006EEAFA /* batery_off.png */,
+				2595253D18C61BA2006EEAFA /* batery_off@2x.png */,
+				256C1FD818EC3EE700D0659B /* info.png */,
+				2595253E18C61BA2006EEAFA /* capture_normal.png */,
+				2595253F18C61BA2006EEAFA /* capture_normal@2x.png */,
+				2595254018C61BA2006EEAFA /* capture_pressed.png */,
+				2595254118C61BA2006EEAFA /* capture_pressed@2x.png */,
+			);
+			path = "Main Screen";
+			sourceTree = "<group>";
+		};
+		2595254A18C6218F006EEAFA /* Time-lapse */ = {
+			isa = PBXGroup;
+			children = (
+				258F655719CE1D76001E8CD5 /* timelapse_exposure.png */,
+				258F655819CE1D76001E8CD5 /* timelapse_exposure@2x.png */,
+				2595254B18C6218F006EEAFA /* timelapse_distance.png */,
+				854428BB192B4A7F002732F6 /* timelapse_steps.png */,
+				854428BD192B4B2D002732F6 /* timelapse_steps@2x.png */,
+				2595254C18C6218F006EEAFA /* timelapse_step.png */,
+				854428C2192B4ECA002732F6 /* timelapse_step@2x.png */,
+				2595254D18C6218F006EEAFA /* timelapse_direction_1.png */,
+				854428BF192B4ECA002732F6 /* timelapse_direction_1@2x.png */,
+				2595255518C6229D006EEAFA /* timelapse_direction_2.png */,
+				854428C0192B4ECA002732F6 /* timelapse_direction_2@2x.png */,
+				25ADC23C18C724A400CEB6A7 /* timelapse_recording_time.png */,
+				854428C1192B4ECA002732F6 /* timelapse_recording_time@2x.png */,
+				2595254F18C6218F006EEAFA /* timelapse_time_between_pictures.png */,
+				25743A81192CCD8E003740F2 /* timelapse_tilt.png */,
+				25743A82192CCD8E003740F2 /* timelapse_tilt@2x.png */,
+			);
+			path = "Time-lapse";
+			sourceTree = "<group>";
+		};
+		25ADC23E18C72D0D00CEB6A7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				25ADC23F18C72D4A00CEB6A7 /* SWTimelapseSettings.h */,
+				25ADC24018C72D4A00CEB6A7 /* SWTimelapseSettings.m */,
+				250A4D1618DADEF300E82B1F /* SWScript.h */,
+				250A4D1718DADEF300E82B1F /* SWScript.m */,
+				255289B51921101400E803B6 /* SWScript+Template.h */,
+				255289B61921101400E803B6 /* SWScript+Template.m */,
+				255289B11920F49A00E803B6 /* SWDSLRConfiguration.h */,
+				255289B21920F49A00E803B6 /* SWDSLRConfiguration.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		25ADC28618C7796800CEB6A7 /* Timelapse settings */ = {
+			isa = PBXGroup;
+			children = (
+				25A3E68018C93E1C002AFBB9 /* SWStepsController.h */,
+				25A3E68118C93E1C002AFBB9 /* SWStepsController.m */,
+				25A3E68218C93E1C002AFBB9 /* SWTimeController.h */,
+				25A3E68318C93E1C002AFBB9 /* SWTimeController.m */,
+				25743A7C192CA9EE003740F2 /* SWTiltController.h */,
+				25743A7D192CA9EE003740F2 /* SWTiltController.m */,
+			);
+			path = "Timelapse settings";
+			sourceTree = "<group>";
+		};
+		25B962CD18D21ABC002E4FD1 /* MVYSideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				25B962CE18D21ABC002E4FD1 /* MVYSideMenuController.h */,
+				25B962CF18D21ABC002E4FD1 /* MVYSideMenuController.m */,
+				25B962D018D21ABC002E4FD1 /* MVYSideMenuOptions.h */,
+				25B962D118D21ABC002E4FD1 /* MVYSideMenuOptions.m */,
+			);
+			path = MVYSideMenu;
+			sourceTree = "<group>";
+		};
+		25BB880018E45F3F00ECE14D /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				25465B5F18E5820900C4DBDF /* SWProgressView.h */,
+				25465B6018E5820900C4DBDF /* SWProgressView.m */,
+				25BB880118E45F7400ECE14D /* SWProgressController.h */,
+				25BB880218E45F7400ECE14D /* SWProgressController.m */,
+			);
+			path = Progress;
+			sourceTree = "<group>";
+		};
+		25E536CB190E79DD0059FE7C /* Manual */ = {
+			isa = PBXGroup;
+			children = (
+				25E536CC190E79DD0059FE7C /* arrow_manual_down.png */,
+				25E536CD190E79DD0059FE7C /* arrow_manual_left.png */,
+				25E536CE190E79DD0059FE7C /* arrow_manual_right.png */,
+				25E536CF190E79DD0059FE7C /* arrow_manual_up.png */,
+			);
+			path = Manual;
+			sourceTree = "<group>";
+		};
+		8508E40118F6C42500EEC442 /* ManualController */ = {
+			isa = PBXGroup;
+			children = (
+				8508E40218F6C42500EEC442 /* SWManualController.h */,
+				8508E40318F6C42500EEC442 /* SWManualController.m */,
+				8508E40518F6C47900EEC442 /* SWManualController.storyboard */,
+				85CA1761190667230052E6C3 /* SWManualControllerPhone.storyboard */,
+			);
+			path = ManualController;
+			sourceTree = "<group>";
+		};
+		858A4DF318C8AA700036A0CF /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				25B962CD18D21ABC002E4FD1 /* MVYSideMenu */,
+				858A4DF418C8AA700036A0CF /* DKCicularSlider */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		858A4DF418C8AA700036A0CF /* DKCicularSlider */ = {
+			isa = PBXGroup;
+			children = (
+				858A4DF518C8AA700036A0CF /* DKCircularSlider.h */,
+				858A4DF618C8AA700036A0CF /* DKCircularSlider.m */,
+				858A4DF718C8AA700036A0CF /* DKRepeatableButton.h */,
+				858A4DF818C8AA700036A0CF /* DKRepeatableButton.m */,
+				858A4DF918C8AA700036A0CF /* down.png */,
+				858A4DFA18C8AA700036A0CF /* up.png */,
+				8508E40718F6D54900EEC442 /* left.png */,
+				8508E40818F6D54900EEC442 /* right.png */,
+				85DDC0B01907EB9B009B5DBF /* down@2x.png */,
+				85DDC0B11907EB9B009B5DBF /* left@2x.png */,
+				85DDC0B21907EB9B009B5DBF /* right@2x.png */,
+				85DDC0B31907EB9B009B5DBF /* up@2x.png */,
+			);
+			path = DKCicularSlider;
+			sourceTree = "<group>";
+		};
+		8A4005732D10D759343AF04B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A31EE48D90AB1DF47097235A /* Pods-SwivlDSLR.debug.xcconfig */,
+				B26524048DF1BC0174EC3332 /* Pods-SwivlDSLR.release.xcconfig */,
+				B5DF00C7818CC7266DCFC60C /* Pods-SwivlDSLRTests.debug.xcconfig */,
+				E24617DABA4D14035E190288 /* Pods-SwivlDSLRTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		259524F018C610DE006EEAFA /* SwivlDSLR */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2595252618C610DF006EEAFA /* Build configuration list for PBXNativeTarget "SwivlDSLR" */;
+			buildPhases = (
+				80C9C7DD5E274045B5AF68AA /* Check Pods Manifest.lock */,
+				259524ED18C610DE006EEAFA /* Sources */,
+				259524EE18C610DE006EEAFA /* Frameworks */,
+				259524EF18C610DE006EEAFA /* Resources */,
+				08BBA113A332494091052C36 /* Copy Pods Resources */,
+				25070FDF18E2FD6C006FBD2D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwivlDSLR;
+			productName = SwivlDSLR;
+			productReference = 259524F118C610DF006EEAFA /* SwivlDSLR.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2595251418C610DF006EEAFA /* SwivlDSLRTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2595252918C610DF006EEAFA /* Build configuration list for PBXNativeTarget "SwivlDSLRTests" */;
+			buildPhases = (
+				8E1EEF2D3E054EB1B3607713 /* Check Pods Manifest.lock */,
+				2595251118C610DF006EEAFA /* Sources */,
+				2595251218C610DF006EEAFA /* Frameworks */,
+				2595251318C610DF006EEAFA /* Resources */,
+				22BB44A4624F4E47A55EBD64 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2595251B18C610DF006EEAFA /* PBXTargetDependency */,
+			);
+			name = SwivlDSLRTests;
+			productName = SwivlDSLRTests;
+			productReference = 2595251518C610DF006EEAFA /* SwivlDSLRTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		259524E918C610DE006EEAFA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SW;
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = Swivl;
+				TargetAttributes = {
+					259524F018C610DE006EEAFA = {
+						DevelopmentTeam = H9QT4S334X;
+						SystemCapabilities = {
+							com.apple.WAC = {
+								enabled = 1;
+							};
+						};
+					};
+					2595251418C610DF006EEAFA = {
+						TestTargetID = 259524F018C610DE006EEAFA;
+					};
+				};
+			};
+			buildConfigurationList = 259524EC18C610DE006EEAFA /* Build configuration list for PBXProject "SwivlDSLR" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 259524E818C610DE006EEAFA;
+			productRefGroup = 259524F218C610DF006EEAFA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				259524F018C610DE006EEAFA /* SwivlDSLR */,
+				2595251418C610DF006EEAFA /* SwivlDSLRTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		259524EF18C610DE006EEAFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8508E40618F6C47900EEC442 /* SWManualController.storyboard in Resources */,
+				2558AB83194721370043C2D0 /* SwivlFWUpdate.bin in Resources */,
+				2595254418C61BA2006EEAFA /* batery_off.png in Resources */,
+				858A4DFD18C8AA700036A0CF /* down.png in Resources */,
+				2595255218C62190006EEAFA /* timelapse_direction_1.png in Resources */,
+				25743A83192CCD8E003740F2 /* timelapse_tilt.png in Resources */,
+				2595254618C61BA2006EEAFA /* capture_normal.png in Resources */,
+				85DDC0B51907EB9B009B5DBF /* left@2x.png in Resources */,
+				25E536D2190E79DD0059FE7C /* arrow_manual_right.png in Resources */,
+				2522F7C318D0B25D00915E25 /* reveal-white.png in Resources */,
+				2595254718C61BA2006EEAFA /* capture_normal@2x.png in Resources */,
+				854428C5192B4ECA002732F6 /* timelapse_recording_time@2x.png in Resources */,
+				25B962C418D19CFD002E4FD1 /* base_present.png in Resources */,
+				85876BCF192229080054E4C7 /* Configurations in Resources */,
+				25E536D1190E79DD0059FE7C /* arrow_manual_left.png in Resources */,
+				25E536D3190E79DD0059FE7C /* arrow_manual_up.png in Resources */,
+				2595253518C6141C006EEAFA /* Main_iPhone.storyboard in Resources */,
+				2522F7DB18D0C69800915E25 /* battery-100@2x.png in Resources */,
+				2595253418C6141C006EEAFA /* Main_iPad.storyboard in Resources */,
+				8508E40918F6D54900EEC442 /* left.png in Resources */,
+				2522F7D818D0C69800915E25 /* battery-0.png in Resources */,
+				258F655919CE1D76001E8CD5 /* timelapse_exposure.png in Resources */,
+				2595255018C62190006EEAFA /* timelapse_distance.png in Resources */,
+				8508E40A18F6D54900EEC442 /* right.png in Resources */,
+				2595254218C61BA2006EEAFA /* base_off.png in Resources */,
+				854428BE192B4B2D002732F6 /* timelapse_steps@2x.png in Resources */,
+				2595255418C62190006EEAFA /* timelapse_time_between_pictures.png in Resources */,
+				2595255118C62190006EEAFA /* timelapse_step.png in Resources */,
+				256C1FD918EC3EE700D0659B /* info.png in Resources */,
+				2595254318C61BA2006EEAFA /* base_off@2x.png in Resources */,
+				854428BC192B4A7F002732F6 /* timelapse_steps.png in Resources */,
+				25ADC23D18C724A400CEB6A7 /* timelapse_recording_time.png in Resources */,
+				2522F7D118D0C23C00915E25 /* SWSettingsController.storyboard in Resources */,
+				25E536D0190E79DD0059FE7C /* arrow_manual_down.png in Resources */,
+				854428C4192B4ECA002732F6 /* timelapse_direction_2@2x.png in Resources */,
+				85DDC0B61907EB9B009B5DBF /* right@2x.png in Resources */,
+				854428C6192B4ECA002732F6 /* timelapse_step@2x.png in Resources */,
+				85DDC0B71907EB9B009B5DBF /* up@2x.png in Resources */,
+				2595254818C61BA2006EEAFA /* capture_pressed.png in Resources */,
+				2522F7C418D0B25D00915E25 /* reveal-white@2x.png in Resources */,
+				2595254918C61BA2006EEAFA /* capture_pressed@2x.png in Resources */,
+				25B962C518D19CFD002E4FD1 /* base_present@2x.png in Resources */,
+				2595251018C610DF006EEAFA /* Images.xcassets in Resources */,
+				858A4DFE18C8AA700036A0CF /* up.png in Resources */,
+				2522F7DA18D0C69800915E25 /* battery-100.png in Resources */,
+				2522F7D918D0C69800915E25 /* battery-0@2x.png in Resources */,
+				259524FF18C610DF006EEAFA /* InfoPlist.strings in Resources */,
+				85DDC0B41907EB9B009B5DBF /* down@2x.png in Resources */,
+				2595254518C61BA2006EEAFA /* batery_off@2x.png in Resources */,
+				2595255618C6229D006EEAFA /* timelapse_direction_2.png in Resources */,
+				258F655A19CE1D76001E8CD5 /* timelapse_exposure@2x.png in Resources */,
+				854428C3192B4ECA002732F6 /* timelapse_direction_1@2x.png in Resources */,
+				25743A84192CCD8E003740F2 /* timelapse_tilt@2x.png in Resources */,
+				85CA1762190667230052E6C3 /* SWManualControllerPhone.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2595251318C610DF006EEAFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2595252118C610DF006EEAFA /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		08BBA113A332494091052C36 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwivlDSLR/Pods-SwivlDSLR-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		22BB44A4624F4E47A55EBD64 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwivlDSLRTests/Pods-SwivlDSLRTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		25070FDF18E2FD6C006FBD2D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 3cc74596e11f1822925527f515758299a6b646bf ffc3e681f97e39a2e7442e60237d1f72643a7bc687afb207c8627a3582841a3d";
+		};
+		80C9C7DD5E274045B5AF68AA /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8E1EEF2D3E054EB1B3607713 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		259524ED18C610DE006EEAFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				255289B71921101400E803B6 /* SWScript+Template.m in Sources */,
+				25465B6118E5820900C4DBDF /* SWProgressView.m in Sources */,
+				2522F7C918D0B79000915E25 /* SWSideBar.m in Sources */,
+				2522F7D018D0C23C00915E25 /* SWSettingsController.m in Sources */,
+				8508E40418F6C42500EEC442 /* SWManualController.m in Sources */,
+				2540042118EEAE6F0060ECB2 /* UIAlertView+Blocks.m in Sources */,
+				255289B31920F49A00E803B6 /* SWDSLRConfiguration.m in Sources */,
+				858A4DFB18C8AA700036A0CF /* DKCircularSlider.m in Sources */,
+				25743A7E192CA9EE003740F2 /* SWTiltController.m in Sources */,
+				250A4D1818DADEF300E82B1F /* SWScript.m in Sources */,
+				25BB880318E45F7400ECE14D /* SWProgressController.m in Sources */,
+				2595253618C6141C006EEAFA /* SWMainViewController.m in Sources */,
+				25A3E68518C93E1C002AFBB9 /* SWTimeController.m in Sources */,
+				2595250518C610DF006EEAFA /* SWAppDelegate.m in Sources */,
+				85D97BA118C76DD2002C2665 /* SWTimelapsSegue.m in Sources */,
+				25B962D318D21ABC002E4FD1 /* MVYSideMenuOptions.m in Sources */,
+				2595250118C610DF006EEAFA /* main.m in Sources */,
+				25ADC24118C72D4A00CEB6A7 /* SWTimelapseSettings.m in Sources */,
+				858A4DFC18C8AA700036A0CF /* DKRepeatableButton.m in Sources */,
+				25A3E68418C93E1C002AFBB9 /* SWStepsController.m in Sources */,
+				25743A8A192CD833003740F2 /* SWSelectCameraController.m in Sources */,
+				2522F7DE18D0CAF000915E25 /* AVSandboxNotifications.m in Sources */,
+				25B962D218D21ABC002E4FD1 /* MVYSideMenuController.m in Sources */,
+				25743A89192CD833003740F2 /* SWBatteryLevelView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2595251118C610DF006EEAFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				258941EB1922108400BCAE55 /* SWScriptTests.m in Sources */,
+				259E2F7518C89F5700ECC07A /* SWTimelapseSettingsTests.m in Sources */,
+				258941E9192204B300BCAE55 /* SWDSLRConfigurationTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2595251B18C610DF006EEAFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 259524F018C610DE006EEAFA /* SwivlDSLR */;
+			targetProxy = 2595251A18C610DF006EEAFA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		259524FD18C610DF006EEAFA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				259524FE18C610DF006EEAFA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2595251F18C610DF006EEAFA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2595252018C610DF006EEAFA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2595252E18C6141C006EEAFA /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2595252F18C6141C006EEAFA /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		2595253018C6141C006EEAFA /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2595253118C6141C006EEAFA /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2595252418C610DF006EEAFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "EDAF6D12-2C09-4925-93FE-5974E4DE67E5";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2595252518C610DF006EEAFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PROVISIONING_PROFILE = "EDAF6D12-2C09-4925-93FE-5974E4DE67E5";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2595252718C610DF006EEAFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A31EE48D90AB1DF47097235A /* Pods-SwivlDSLR.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = SwivlDSLR/SwivlDSLR.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SwivlDSLR/SwivlDSLR-Prefix.pch";
+				INFOPLIST_FILE = "SwivlDSLR/SwivlDSLR-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2595252818C610DF006EEAFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B26524048DF1BC0174EC3332 /* Pods-SwivlDSLR.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = SwivlDSLR/SwivlDSLR.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SwivlDSLR/SwivlDSLR-Prefix.pch";
+				INFOPLIST_FILE = "SwivlDSLR/SwivlDSLR-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		2595252A18C610DF006EEAFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5DF00C7818CC7266DCFC60C /* Pods-SwivlDSLRTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SwivlDSLR.app/SwivlDSLR";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SwivlDSLR/SwivlDSLR-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SwivlDSLRTests/SwivlDSLRTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		2595252B18C610DF006EEAFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E24617DABA4D14035E190288 /* Pods-SwivlDSLRTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SwivlDSLR.app/SwivlDSLR";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SwivlDSLR/SwivlDSLR-Prefix.pch";
+				INFOPLIST_FILE = "SwivlDSLRTests/SwivlDSLRTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		259524EC18C610DE006EEAFA /* Build configuration list for PBXProject "SwivlDSLR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2595252418C610DF006EEAFA /* Debug */,
+				2595252518C610DF006EEAFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2595252618C610DF006EEAFA /* Build configuration list for PBXNativeTarget "SwivlDSLR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2595252718C610DF006EEAFA /* Debug */,
+				2595252818C610DF006EEAFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2595252918C610DF006EEAFA /* Build configuration list for PBXNativeTarget "SwivlDSLRTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2595252A18C610DF006EEAFA /* Debug */,
+				2595252B18C610DF006EEAFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 259524E918C610DE006EEAFA /* Project object */;
+}
